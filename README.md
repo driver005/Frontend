@@ -15,5 +15,5 @@ Teclab frontend for offical website and template for future projects with javasc
 
 2. Run React
 ```shell
-    npm starrt
-```use.
+    npm start
+```
