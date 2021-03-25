@@ -31,7 +31,6 @@ const Taskcomponent = ({tasks, filters, dispatch}) => {
         SetEdit(tasks?.find(task => task._id === id))
     }
 
-    
     return (
     <Paddingcontainer className="container paddingContainer">
         <Addcardcontainer className='right-text add-card'>

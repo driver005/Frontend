@@ -1,5 +1,5 @@
 import React from 'react'
-import Taskcomponent from './Task'
+import Taskcomponent from './Tasks'
 const App = ({dispatch}) => {
     return (
         <Taskcomponent dispatch={dispatch} />
