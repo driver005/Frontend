@@ -10,19 +10,10 @@ Teclab frontend for offical website and template for future projects with javasc
 
 1. Install packages
 ```shell
-<<<<<<< HEAD
-    npm install
-=======
 npm install
->>>>>>> c0a0a5b22c75ef8631c6a4b4901c4bc5fe85ee7a
 ```
 
 2. Run React
 ```shell
-<<<<<<< HEAD
-    npm starrt
+npm starrt
 ```
-=======
-npm start
-```
->>>>>>> c0a0a5b22c75ef8631c6a4b4901c4bc5fe85ee7a
