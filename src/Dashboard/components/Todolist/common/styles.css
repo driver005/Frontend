@@ -1,0 +1,62 @@
+.filter-by .active-filter, .filter-by .active-filter:hover {
+    background-color: #7274ff;
+    color: #fff;
+}
+
+
+.purple-btn {
+    border-color: #7274ff;
+    color: #7274ff;
+}
+
+.btn-outlined, .btn-outlined:hover {
+    transition: all .5s;
+}
+
+.btn-outlined {
+    border-width: 3px;
+    border-style: solid;
+    padding: .8rem 3rem;
+}
+
+.btn-rounded {
+    border-radius: 30px;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+.green-btn {
+    border-color: #1fdeb3;
+    color: #1fdeb3;
+}
+
+.green-btn:hover {
+    background-color: #1fdeb3;
+}
+.btn-outlined:hover {
+    color: #fff;
+}
+
+.purple-btn:hover {
+    background-color: #7274ff;
+}
+
+
+.input-icons i { 
+    position: absolute; 
+} 
+
+.icon { 
+    margin-top: 1.5rem;
+    padding: 5px;
+    min-width: 40px;
+    z-index: 1;
+    color: black;
+    font-size: 1.5em;
+}
