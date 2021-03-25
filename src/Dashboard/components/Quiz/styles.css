@@ -7,6 +7,10 @@
   margin-top: 10px;
 }
 
+.react-quiz-container .nextQuestionBtn {
+  color: #000;
+}
+
 .react-quiz-container .btn {
   margin-bottom: 0;
   font-weight: 600;
@@ -29,11 +33,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
-  border: 1px solid #e8e8e8;;
+  border: 1px solid #2477ff;
   font-size: 15px;
   display: block;
   white-space: normal;
   text-align: unset;
+  outline: #2477ff;
 }
 
 .react-quiz-container .questionWrapper .btn.correct {
@@ -64,6 +69,7 @@
 
 .react-quiz-container .answerBtn {
   width: 100%;
+  color: #000;
 }
 
 .react-quiz-container .startQuizWrapper .startQuizBtn {
