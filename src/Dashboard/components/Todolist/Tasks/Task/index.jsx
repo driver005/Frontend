@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import cx from 'classnames'
-import { startRemoveTask, startCompletedTask, startUnCompletedTask } from '../../../../actions/todolist'
+import { startRemoveTask, startCompletedTask, startUnCompletedTask } from '../../../../../actions/todolist'
 import { Completedinput, Completedi, Taskcomponent, Taskdeletebutton, Taskspan, Editpart, Editpartlink, Taskparameter, Taskparameterdiv, Taskparameterh4, Taskparametertime, Taskcontent } from '../../../../styles/todolist'
 import EditAlert from '../EditAlert'
 

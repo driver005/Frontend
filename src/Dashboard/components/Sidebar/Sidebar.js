@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Progress, Alert} from 'reactstrap';
 import {withRouter} from 'react-router-dom';
-import {dismissAlert} from '../../actions/alerts';
+import {dismissAlert} from '../../../actions/alerts';
 import LinksGroup from './LinksGroup/LinksGroup';
 
-import {changeActiveSidebarItem} from '../../actions/navigation';
-import {logoutUser} from '../../actions/user';
+import {changeActiveSidebarItem} from '../../../actions/navigation';
+import {logoutUser} from '../../../actions/user';
 import HomeIcon from '../Icons/HomeIcon/HomeIcon.js';
 import TypographyIcon from '../Icons/TypographyIcon/TypographyIcon.js';
 import TablesIcon from '../Icons/TablesIcon/TablesIcon.js';
@@ -152,6 +152,15 @@ class Sidebar extends React.Component {
                         isHeader
                         iconName={<NotificationsIcon />}
                         link="/app/todolist"
+                        index="ui"
+                    />
+                    <LinksGroup
+                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                        activeItem={this.props.activeItem}
+                        header="Todolist"
+                        isHeader
+                        iconName={<NotificationsIcon />}
+                        link="/app/chat"
                         index="ui"
                     />
                     <LinksGroup

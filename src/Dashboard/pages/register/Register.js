@@ -4,7 +4,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input, Label } from 'reactstrap';
 import Widget from '../../components/Widget/Widget';
-import { registerUser, registerError } from '../../actions/register';
+import { registerUser, registerError } from '../../../actions/register';
 import microsoft from '../../assets/microsoft.png';
 import Login from '../login/Login';
 

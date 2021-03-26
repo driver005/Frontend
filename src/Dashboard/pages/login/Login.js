@@ -4,7 +4,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button, FormGroup, Label, InputGroup, InputGroupAddon, Input, InputGroupText } from 'reactstrap';
 import Widget from '../../components/Widget/Widget';
-import { loginUser } from '../../actions/user';
+import { loginUser } from '../../../actions/user';
 import microsoft from '../../assets/microsoft.png';
 
 class Login extends React.Component {

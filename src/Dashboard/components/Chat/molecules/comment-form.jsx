@@ -1,0 +1,40 @@
+import React from 'react';
+
+class CommentForm extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            message: ''
+        };
+        this.setState = this.setState.bind(this);
+    };
+    onMessageChange(e) {
+        console.log(e.target.value.length)
+        if(e.target.value.length > 0) {
+            this.props.sockjs.send(JSON.stringify({type: "IS_TYPING", typer: this.props?.typer}));
+        }
+        if(e.target.value.length == 0) {
+            this.props.sockjs.send(JSON.stringify({type: "IS_NOT_TYPING", typer: this.props?.typer}));
+        }
+        this.setState({message: e.target.value})
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(this);
+        this.props.onMessageSubmit(this.state.message);
+        this.setState({message: ''})
+    }
+    render() {
+        return (
+          <form onSubmit={this.handleSubmit.bind(this)}>
+              <input
+                  autoComplete="off"
+                  onChange={this.onMessageChange.bind(this)}
+                  value={this.state.message}></input>
+          </form>
+        );
+    }
+};
+
+export default CommentForm;

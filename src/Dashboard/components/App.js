@@ -9,12 +9,12 @@ import ErrorPage from '../pages/error/ErrorPage';
 import Layout from './Layout/Layout';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
-import { logoutUser } from '../actions/user';
+import { logoutUser } from '../../actions/user';
 
 const PrivateRoute = ({dispatch, component, ...rest }) => {
-    if (!Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
+    if (!JSON.parse(localStorage.getItem('profile'))) {
         dispatch(logoutUser());
-        return (<Redirect to="/login"/>)
+        return (<Redirect push to="http://localhost:3000/sign-up"/>)
     } else {
         return (
             <Route {...rest} render={props => (React.createElement(component, props))}/>
@@ -37,7 +37,7 @@ class App extends React.PureComponent {
                 <Switch>
                     <Route path="/" exact render={() => <Redirect to="/app/main"/>}/>
                     <Route path="/app" exact render={() => <Redirect to="/app/main"/>}/>
-                    <PrivateRoute path="/app" dispatch={this.props.dispatch} component={Layout}/>
+                    <Route path="/app" dispatch={this.props.dispatch} component={Layout}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/error" exact component={ErrorPage}/>

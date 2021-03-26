@@ -17,10 +17,12 @@ import Quizcomponent from '../../pages/quiz/Quiz'
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import BreadcrumbHistory from '../BreadcrumbHistory/BreadcrumbHistory';
-import { openSidebar, closeSidebar } from '../../actions/navigation';
+import { openSidebar, closeSidebar } from '../../../actions/navigation';
 import { Main, Wrap } from '../../styles/layout';
 import Jitsi from '../../pages/jitsi/Jitsi';
 import Todolist from '../../pages/todolist/Todolist';
+import Chat from '../../pages/chat/Chat';
+
 
 
 class Layout extends React.Component {
@@ -93,6 +95,7 @@ class Layout extends React.Component {
                     <Route path="/app/jitsi" exact component={Jitsi} />
                     <Route path="/app/quiz" exact component={Quizcomponent} />
                     <Route path="/app/todolist" exact component={Todolist} />
+                    <Route path="/app/chat" exact component={Chat} />
                     <Route path="/app/components/maps" exact component={MapsGoogle} />
                     <Route path="/app/typography" exact component={CoreTypography} />
                   </Switch>

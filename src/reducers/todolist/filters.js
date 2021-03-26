@@ -1,5 +1,5 @@
 // Filters Reducer
-import * as actionType from '../../../constants/actionTypes';
+import * as actionType from '../../constants/actionTypes';
 
 const filtersReducerDefaultState = {
     text: '',

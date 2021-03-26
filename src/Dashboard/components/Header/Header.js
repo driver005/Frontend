@@ -32,13 +32,13 @@ import BurgerIcon from "../Icons/BurgerIcon/BurgerIcon.js";
 import SearchIcon from "../Icons/SearchIcon/SearchIcon.js";
 import SearchIconWhite from "../Icons/SearchIconWhite/SearchIconWhite.js";
 
-import { logoutUser } from "../../actions/user";
+import { logoutUser } from "../../../actions/user";
 import {
   openSidebar,
   closeSidebar,
   changeSidebarPosition,
   changeSidebarVisibility,
-} from "../../actions/navigation";
+} from "../../../actions/navigation";
 
 import sender1 from "../../assets/1.png";
 import sender2 from "../../assets/2.png";

@@ -1,5 +1,5 @@
-import { DATE, DEADLINE, FILTER, TEXT } from "../../constants/actionTypes"
-import * as api from '../../api/index';
+import { DATE, DEADLINE, FILTER, TEXT } from "../constants/actionTypes"
+import * as api from '../api/index';
 
 // FILTER
 export const setTextFilter = (text = '') => dispatch => dispatch({ type: TEXT, text })

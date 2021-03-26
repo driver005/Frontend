@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from 'react-modal'
-import { startEditTask } from '../../../../actions/todolist'
+import { startEditTask } from '../../../../../actions/todolist'
 import TaskForm from '../TaskForm'
 
 

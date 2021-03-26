@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { startEditTask } from '../../../actions/todolist'
+import { startEditTask } from '../../../../actions/todolist'
 import TaskForm from '../TaskForm'
 
 const Edit = ({ dispatch, history, task}) => (
