@@ -29,7 +29,7 @@ export const signin = (formData, router) => async (dispatch) => {
     
     dispatch({ type: AUTH, data: data });
 
-    router.push('/');
+    router.go(-1)
   } catch (error) {
     return {err: error, message: `Wrong credentials`};
   }
@@ -67,8 +67,8 @@ export const signup = (formData, router) => async (dispatch) => {
     }
     
     dispatch({ type: AUTH, data: data });
-    router.push('/');
+    router.go(-1) 
   } catch (error) {
-    return (error);
+    return {err: error, message: `Dublicated Username or Email Address`};
   }
 };

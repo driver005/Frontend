@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { UncontrolledTooltip } from 'reactstrap';
+import { Tooltip  } from 'react-bootstrap';
 import classNames from 'classnames';
 import Loader from '../Loader/Loader'; 
 import { FaTimes } from 'react-icons/fa'
@@ -9,16 +9,10 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import AnimateHeight from 'react-animate-height';
 import { v4 as uuidv4 } from 'uuid';
 import {
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
+  Dropdown,
   Button,
   Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from 'reactstrap';
+} from 'react-bootstrap';
 import { Body, Header, Section, Widgetcontrols } from '../../styles/widget';
 
 class Widget extends React.Component {
@@ -221,10 +215,10 @@ class Widget extends React.Component {
                     <strong className="text-gray-light">{refresh}</strong> :
                     <CgSync /> }
                   {showTooltip && (
-                    <UncontrolledTooltip
+                    <Tooltip 
                       placement={tooltipPlacement}
                       target={`reloadId-${randomId}`}
-                    >Reload</UncontrolledTooltip>
+                    >Reload</Tooltip >
                   )}
                 </button>
               )}
@@ -232,10 +226,10 @@ class Widget extends React.Component {
                 <button onClick={this.handleFullscreen} id={`fullscreenId-${randomId}`}>
                   <i className={`glyphicon glyphicon-resize-${fullscreened ? 'small' : 'full'}`} />
                   {showTooltip && (
-                    <UncontrolledTooltip
+                    <Tooltip 
                       placement={tooltipPlacement}
                       target={`fullscreenId-${randomId}`}
-                    >Fullscreen</UncontrolledTooltip>
+                    >Fullscreen</Tooltip >
                   )}
                 </button>
               )}
@@ -245,10 +239,10 @@ class Widget extends React.Component {
                     <button onClick={this.handleCollapse} id={`collapseId-${randomId}`}>
                     <i className={`fas la-angle-${!collapseWidget ? 'down' : 'up'}`} />
                       {showTooltip && (
-                        <UncontrolledTooltip
+                        <Tooltip 
                           placement={tooltipPlacement}
                           target={`collapseId-${randomId}`}
-                        >Collapse</UncontrolledTooltip>
+                        >Collapse</Tooltip >
                       )}
                     </button>
                   </span>
@@ -261,10 +255,10 @@ class Widget extends React.Component {
                     <strong className="text-gray-light">{close}</strong> :
                     <FaTimes />}
                   {showTooltip && (
-                    <UncontrolledTooltip
+                    <Tooltip 
                       placement={tooltipPlacement}
                       target={`closeId-${randomId}`}
-                    >Close</UncontrolledTooltip>
+                    >Close</Tooltip >
                   )}
                 </button>
               ) : (
@@ -273,10 +267,10 @@ class Widget extends React.Component {
                   <strong className="text-gray-light">{close}</strong> :
                   <FaTimes />}
                 {showTooltip && (
-                  <UncontrolledTooltip
+                  <Tooltip 
                     placement={tooltipPlacement}
                     target={`closeId-${randomId}`}
-                  >Modal</UncontrolledTooltip>
+                  >Modal</Tooltip >
                 )}
               </button>
               ))}
@@ -284,28 +278,28 @@ class Widget extends React.Component {
           )}
           {customDropDown && (
             <Widgetcontrols className={`widget-controls`}>
-            <UncontrolledDropdown>
-              <DropdownToggle
+            <Dropdown>
+              <Dropdown.Toggle
                 tag="span"
                 data-toggle="dropdown"
 
               >
                 <i className="glyphicon glyphicon-cog" />
-              </DropdownToggle>
-              <DropdownMenu className="bg-widget-transparent" right>
-                <DropdownItem onClick={this.handleReload} title="Reload">
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-widget-transparent" right>
+                <Dropdown.Item onClick={this.handleReload} title="Reload">
                   Reload &nbsp;&nbsp;
                   <span className="badge badge-pill badge-success animate__animated animate__bounceIn">
                     <strong>9</strong>
                   </span>
-                </DropdownItem>
+                </Dropdown.Item>
 
-                <DropdownItem onClick={this.handleFullscreen} title={!fullscreened ? "Full Screen" : "Restore"}>{!fullscreened ? "Fullscreen" : "Restore"} </DropdownItem>
+                <Dropdown.Item onClick={this.handleFullscreen} title={!fullscreened ? "Full Screen" : "Restore"}>{!fullscreened ? "Fullscreen" : "Restore"} </Dropdown.Item>
                 <DropdownItem divider />
-                {!fullscreened && (!prompt ? <DropdownItem onClick={this.handleClose} title="Close">Close</DropdownItem>
-                : <DropdownItem onClick={this.toggleModal} title="Close">Close</DropdownItem>)}
-              </DropdownMenu>
-            </UncontrolledDropdown>
+                {!fullscreened && (!prompt ? <Dropdown.Item onClick={this.handleClose} title="Close">Close</Dropdown.Item>
+                : <Dropdown.Item onClick={this.toggleModal} title="Close">Close</Dropdown.Item>)}
+              </Dropdown.Menu>
+            </Dropdown>
             </Widgetcontrols>
           )}
         {
@@ -361,17 +355,17 @@ class Widget extends React.Component {
 
       </Section>
       {prompt && (
-        <Modal isOpen={modal} toggle={this.toggleModal} id="news-close-modal">
-        <ModalHeader toggle={this.toggleModal} id="news-close-modal-label">Sure?</ModalHeader>
-        <ModalBody className="bg-white">
+        <Modal.Dialog show={modal} onHide={this.toggleModal} id="news-close-modal">
+        <Modal.Header closeButton onHide={this.toggleModal} id="news-close-modal-label">Sure?</Modal.Header>
+        <Modal.Body className="bg-white">
           Do you really want to unrevertably remove this super news widget?
-        </ModalBody>
-        <ModalFooter>
+        </Modal.Body>
+        <Modal.Footer>
           <Button color="default" onClick={this.toggleModal} data-dismiss="modal">No</Button>{' '}
           <Button color="danger" onClick={this.closeWithModal} id="news-widget-remove">Yes,
             remove widget</Button>
-        </ModalFooter>
-      </Modal>
+        </Modal.Footer>
+      </Modal.Dialog>
       )}
       <div style={{display: fullscreened ? 'block'  : 'none'}}></div>
       </React.Fragment>

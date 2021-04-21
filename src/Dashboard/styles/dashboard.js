@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
-import { Row, Col, Progress, Table} from "reactstrap";
+import { Row, Col, ProgressBar, Table} from "react-bootstrap";
 
 
 export const H1 = styled.h1`
@@ -119,7 +119,6 @@ export const Span = styled.span`
     color: rgba(244,244,245,.9)!important;
     border-radius: 50%;
     display: inline-block;
-    padding: 2px;
     width: 1.5em;
     height: 1.5em;
     line-height: 1.5em;
@@ -173,7 +172,7 @@ export const Statusstrong = styled.strong`
 `
 
 
-export const Progresscomponents = styled(Progress)`
+export const Progresscomponents = styled(ProgressBar)`
     line-height: 0;
     font-size: .75rem;
     background-color: #e9ecef;

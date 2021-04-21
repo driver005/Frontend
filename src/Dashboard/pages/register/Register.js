@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, Alert, Button, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input, Label } from 'reactstrap';
+import { Container, Alert, Button, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input, Label } from 'react-bootstrap';
 import Widget from '../../components/Widget/Widget';
 import { registerUser, registerError } from '../../../actions/register';
 import microsoft from '../../assets/microsoft.png';
@@ -99,45 +99,44 @@ class Register extends React.Component {
                                     </Alert>
                                 )
                             }
-                            <FormGroup className="mt">
-                                <Label for="email">Email</Label>
+                            <Form.Group className="mt">
+                                <Form.Label htmlFor="email">Email</Form.Label>
                                 <InputGroup className="input-group-no-border">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText>
+                                    <InputGroup.Prepend addontype="prepend">
+                                        <InputGroup.Text>
                                             <i className="la la-user text-white"/>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input id="email" className="input-transparent pl-3" value={this.state.email}
-                                           onChange={this.changeEmail} type="email"
-                                           required name="email" placeholder="Email"/>
+                                        </InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control id="email" className="input-transparent pl-3" value={this.state.email} onChange={this.changeEmail} type="email"
+                                        required name="email" placeholder="Email"/>
                                 </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="password">Password</Label>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="password">Password</Form.Label>
                                 <InputGroup className="input-group-no-border">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText>
+                                    <InputGroup.Prepend addontype="prepend">
+                                        <InputGroup.Text>
                                             <i className="la la-lock text-white"/>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input id="password" className="input-transparent pl-3" value={this.state.password}
-                                           onChange={this.changePassword} type="password"
-                                           required name="password" placeholder="Password"/>
+                                        </InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control id="password" className="input-transparent pl-3" value={this.state.password}
+                                        onChange={this.changePassword} type="password"
+                                        required name="password" placeholder="Password"/>
                                 </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="confirmPassword">Confirm</Label>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="confirmPassword">Confirm</Form.Label>
                                 <InputGroup className="input-group-no-border">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText>
+                                    <InputGroup.Prepend addontype="prepend">
+                                        <InputGroup.Text>
                                             <i className="la la-lock text-white"/>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input id="confirmPassword" className="input-transparent pl-3" value={this.state.confirmPassword}
-                                           onChange={this.changeConfirmPassword} onBlur={this.checkPassword} type="password"
-                                           required name="confirmPassword" placeholder="Confirm"/>
+                                        </InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control id="confirmPassword" className="input-transparent pl-3" value={this.state.confirmPassword}
+                                        onChange={this.changeConfirmPassword} onBlur={this.checkPassword} type="password"
+                                        required name="confirmPassword" placeholder="Confirm"/>
                                 </InputGroup>
-                            </FormGroup>
+                            </Form.Group>
                             <div className="bg-widget-transparent auth-widget-footer">
                                 <Button type="submit" color="danger" className="auth-btn"
                                         size="sm" style={{color: '#fff'}}>{this.props.isFetching ? 'Loading...' : 'Register'}</Button>

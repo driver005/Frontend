@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Progress, Table, Label, Input } from "reactstrap";
+import { Row, Col, Progress, Table, Form } from "react-bootstrap";
 import { IoLocationOutline } from 'react-icons/io5'
 import Widget from "../../components/Widget/Widget";
 
@@ -13,7 +13,7 @@ import peopleA1 from "../../assets/people/a1.jpg";
 import peopleA2 from "../../assets/people/a2.jpg";
 import peopleA5 from "../../assets/people/a5.jpg";
 import peopleA4 from "../../assets/people/a4.jpg";
-import { Colcomponent, Listgroup, Statusstrong, Rowcomponent, Inputcomponent, Numberdiv, H1, Small, H5title, Spantitle, Statitem, P, Span, Rowdiv, Coldiv, H6, Namep, Progresscomponents, Numberspan, H6settings, Inputdiv, Inputbutton, H6title, Statsrow, statitem, H6item, Pnormal, Newspan, Undopadding, Footer, Footerinput, H3, Marketp, Marketspan, Tablesdiv, Tablecomponent, TH, ABCcheckbox, Inputcheckbox, TD, Rickshawdiv, Listgroupcalendar, Calendarbutton, Timespan } from "../../styles/dashboard";
+import { Colcomponent, Listgroup, Statusstrong, Rowcomponent, Inputcomponent, Numberdiv, H1, Small, H5title, Spantitle, Statitem, P, Span, Rowdiv, Coldiv, H6, Namep, Progresscomponents, Numberspan, H6settings, Inputdiv, Inputbutton, H6title, Statsrow, statitem, H6item, Pnormal, Newspan, Undopadding, Footer, Footerinput, H3, Marketp, Marketspan, Tablesdiv, Tablecomponent, TH, ABCcheckbox, Inputcheckbox, TD, Rickshawdiv, Listgroupcalendar, Calendarbutton, Timespan,  } from "../../styles/dashboard";
 import Notifications from "../../components/Notifications/Notifications";
 import MessagesDemo from "../../components/Notifications/notifications-demo/Messages";
 
@@ -102,15 +102,16 @@ class Dashboard extends React.Component {
                     Some Cool Text
                   </Namep>
                   <Progresscomponents
-                    color="primary"
-                    value="60"
+                    animated
+                    variant="primary"
+                    now="60"
                     className="bg-subtle-blue progress-xs"
                   />
                 </Coldiv>
                 <Numberdiv className="col-md-3 col-12 text-center">
                   <Numberspan className="status rounded rounded-lg bg-default text-light">
                     <small>
-                      <AnimateNumber value={75} />%
+                      <AnimateNumber now={75} />%
                     </small>
                   </Numberspan>
                 </Numberdiv>
@@ -122,15 +123,16 @@ class Dashboard extends React.Component {
                     P. to C. Conversion
                   </Namep>
                   <Progresscomponents
-                    color="danger"
-                    value="39"
+                    variant="danger"
+                    animated
+                    now="39"
                     className="bg-subtle-blue progress-xs"
                   />
                 </Coldiv>
                 <Numberdiv className="col-md-3 col-12 text-center">
                   <Numberspan className="status rounded rounded-lg bg-default text-light">
                     <small>
-                      <AnimateNumber value={84} />%
+                      <AnimateNumber now={84} />%
                     </small>
                   </Numberspan>
                 </Numberdiv>
@@ -142,15 +144,16 @@ class Dashboard extends React.Component {
                     Average Bitrate
                   </Namep>
                   <Progresscomponents
-                    color="success"
-                    value="80"
+                    variant="success"
+                    animated
+                    now="80"
                     className="bg-subtle-blue progress-xs"
                   />
                 </Coldiv>
                 <Numberdiv className="col-md-3 col-12 text-center">
                   <Numberspan className="status rounded rounded-lg bg-default text-light">
                     <small>
-                      <AnimateNumber value={92} />%
+                      <AnimateNumber now={92} />%
                     </small>
                   </Numberspan>
                 </Numberdiv>
@@ -201,8 +204,9 @@ class Dashboard extends React.Component {
                 </Statitem>
               </Statsrow>
               <Progresscomponents
-                color="success"
-                value="60"
+                variant="success"
+                animated
+                now="60"
                 className="bg-subtle-blue progress-xs"
               />
               <p>
@@ -233,8 +237,9 @@ class Dashboard extends React.Component {
                 </Statitem>
               </Statsrow>
               <Progresscomponents
-                color="danger"
-                value="60"
+                variant="danger"
+                animated
+                now="60"
                 className="bg-subtle-blue progress-xs"
               />
               <p>
@@ -265,8 +270,9 @@ class Dashboard extends React.Component {
                 </Statitem>
               </Statsrow>
               <Progresscomponents
-                color="primary"
-                value="60"
+                variant="primary"
+                animated
+                now="60"
                 className="bg-subtle-blue progress-xs"
               />
               <p>
@@ -329,7 +335,7 @@ class Dashboard extends React.Component {
                 <Tablecomponent striped size="sm">
                   <thead className="no-bd">
                     <tr>
-                      <TH>
+                      <TH className={'table-borderless'}>
                         <ABCcheckbox className="checkbox abc-checkbox">
                           <Inputcheckbox
                             className="mt-0"
@@ -339,16 +345,16 @@ class Dashboard extends React.Component {
                             checked={this.state.checkedArr[0]}
                             readOnly
                           />{" "}
-                          <Label for="checkbox210" />
+                          <Form.Label htmlFor="checkbox210" />
                         </ABCcheckbox>
                       </TH>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
+                      <th className={'table-borderless'}>&nbsp;</th>
+                      <th className={'table-borderless'}>&nbsp;</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <TH>
+                      <TH className={'table-borderless'}>
                         <ABCcheckbox className="checkbox abc-checkbox">
                           <Inputcheckbox
                             className="mt-0"
@@ -358,11 +364,11 @@ class Dashboard extends React.Component {
                             checked={this.state.checkedArr[1]}
                             readOnly
                           />{" "}
-                          <Label for="checkbox212" />
+                          <Form.Label htmlFor="checkbox212" />
                         </ABCcheckbox>
                       </TH>
-                      <TD>HP Core i7</TD>
-                      <TD className="text-align-right fw-semi-bold">$346.1</TD>
+                      <TD className={'table-borderless'}>HP Core i7</TD>
+                      <TD className="text-align-right fw-semi-bold table-borderless">$346.1</TD>
                     </tr>
                     <tr>
                       <TH>
@@ -375,11 +381,11 @@ class Dashboard extends React.Component {
                             checked={this.state.checkedArr[2]}
                             readOnly
                           />{" "}
-                          <Label for="checkbox214" />
+                          <Form.Label htmlFor="checkbox214" />
                         </ABCcheckbox>
                       </TH>
-                      <TD>Air Pro</TD>
-                      <TD className="text-align-right fw-semi-bold">$533.1</TD>
+                      <TD className={'table-borderless'}>Air Pro</TD>
+                      <TD className="text-align-right fw-semi-bold table-borderless">$533.1</TD>
                     </tr>
                   </tbody>
                 </Tablecomponent>

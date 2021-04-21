@@ -8,7 +8,7 @@
 }
 
 .react-quiz-container .nextQuestionBtn {
-  color: #000;
+  color: rgba(255, 255, 255, 0.685);
 }
 
 .react-quiz-container .btn {
@@ -69,7 +69,7 @@
 
 .react-quiz-container .answerBtn {
   width: 100%;
-  color: #000;
+  color: rgba(255, 255, 255, 0.685);
 }
 
 .react-quiz-container .startQuizWrapper .startQuizBtn {

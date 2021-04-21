@@ -164,7 +164,7 @@ export const Navcard2 = styled.div`
     border-radius: 25px;
 `
 
-export const Dropdownlink = styled.div`
+export const Dropdownlink = styled.a`
     display: flex;
     
     padding: 20px 22px 16px;

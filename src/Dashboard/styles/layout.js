@@ -1,6 +1,18 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
 
+export const Div = styled.div`
+    &.sidebar-right > .wrap {
+        margin-left: 0px;
+        margin-right: 200px;
+    }
+
+    &.sidebar-hide > .wrap {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+`
+
 export const Layoutroot = styled.div`
     height: 100%;
     position: relative;

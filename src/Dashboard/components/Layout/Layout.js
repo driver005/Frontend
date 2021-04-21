@@ -18,11 +18,11 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import BreadcrumbHistory from '../BreadcrumbHistory/BreadcrumbHistory';
 import { openSidebar, closeSidebar } from '../../../actions/navigation';
-import { Main, Wrap } from '../../styles/layout';
+import { Main, Wrap, Div } from '../../styles/layout';
 import Jitsi from '../../pages/jitsi/Jitsi';
 import Todolist from '../../pages/todolist/Todolist';
 import Chat from '../../pages/chat/Chat';
-
+import Post from '../../pages/posts/Posts';
 
 
 class Layout extends React.Component {
@@ -61,7 +61,7 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div
+      <Div
         className={[
           'sidebar-' + this.props.sidebarPosition,
           'sidebar-' + this.props.sidebarVisibility,
@@ -71,7 +71,7 @@ class Layout extends React.Component {
           <Header />
           {/* <Chat chatOpen={this.state.chatOpen} /> */}
           {/* <Helper /> */}
-          <Sidebar />
+          <Sidebar sidebarPosition={this.props.sidebarPosition} sidebarVisibility={this.props.sidebarVisibility} />
           <Hammer onSwipe={this.handleSwipe}>
             <Main>
               <BreadcrumbHistory url={this.props.location.pathname} />
@@ -84,28 +84,39 @@ class Layout extends React.Component {
               //   </CSSTransition>
               // </TransitionGroup>
               }
+              <TransitionGroup>
+                <CSSTransition
+                  key={this.props.location.key}
+                  classNames="fade"
+                  timeout={200}
+                > 
                   <Switch>
-                    <Route path="/app/main" exact render={() => <Redirect to="/app/main/dashboard" />} />
-                    <Route path="/app/main/dashboard" exact component={Dashboard} />
-                    <Route path="/app/components/icons" exact component={UIIcons} />
-                    <Route path="/app/notifications" exact component={UINotifications} />
-                    <Route path="/app/components/charts" exact component={Charts} />
-                    <Route path="/app/tables" exact component={TablesStatic} />
-                    <Route path="/app/calendar" exact component={Calendar} />
-                    <Route path="/app/jitsi" exact component={Jitsi} />
-                    <Route path="/app/quiz" exact component={Quizcomponent} />
-                    <Route path="/app/todolist" exact component={Todolist} />
-                    <Route path="/app/chat" exact component={Chat} />
-                    <Route path="/app/components/maps" exact component={MapsGoogle} />
-                    <Route path="/app/typography" exact component={CoreTypography} />
+                    <Route path={`${this.props.match.path}`} exact render={() => <Redirect to={`${this.props.match.path}app/main`} />}/>
+                    <Route path={`${this.props.match.path}app`} exact render={() => <Redirect to={`${this.props.match.path}app/main`} />}/>
+                    <Route path={`${this.props.match.path}app/main`} exact render={() => <Redirect to={`${this.props.match.path}app/main/dashboard`} />} />
+                    <Route path={`${this.props.match.path}app/main/dashboard`}  component={Dashboard} />
+                    <Route path={`${this.props.match.path}app/components/icons`}  component={UIIcons} />
+                    <Route path={`${this.props.match.path}app/notifications`}  component={UINotifications} />
+                    <Route path={`${this.props.match.path}app/components/charts`} component={Charts} />
+                    <Route path={`${this.props.match.path}app/tables`} component={TablesStatic} />
+                    <Route path={`${this.props.match.path}app/calendar`} component={Calendar} />
+                    <Route path={`${this.props.match.path}app/jitsi`} component={Jitsi} />
+                    <Route path={`${this.props.match.path}app/quiz`} component={Quizcomponent} />
+                    <Route path={`${this.props.match.path}app/todolist`} component={Todolist} />
+                    <Route path={`${this.props.match.path}app/chat`} component={Chat} />
+                    <Route path={`${this.props.match.path}app/posts`} component={Post} />
+                    <Route path={`${this.props.match.path}app/components/maps`} component={MapsGoogle} />
+                    <Route path={`${this.props.match.path}app/typography`} component={CoreTypography} />
                   </Switch>
+                  </CSSTransition>
+              </TransitionGroup>
               <footer>
                 Light Blue React Template - React admin template made by <a href="https://flatlogic.com" >Flatlogic</a>
               </footer>
             </Main>
           </Hammer>
         </Wrap>
-      </div>
+      </Div>
     );
   }
 }

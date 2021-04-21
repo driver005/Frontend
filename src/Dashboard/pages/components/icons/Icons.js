@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Badge,
-} from 'reactstrap';
+} from 'react-bootstrap';
 import classnames from 'classnames';
 
 class Icons extends React.Component {

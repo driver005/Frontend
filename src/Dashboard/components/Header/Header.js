@@ -22,7 +22,7 @@ import {
   Button,
   Form,
   FormGroup,
-} from "reactstrap";
+} from "react-bootstrap";
 import Notifications from "../Notifications/Notifications";
 import PowerIcon from "../Icons/PowerIcon/PowerIcon.js";
 import BellIcon from "../Icons/BellIcon/BellIcon";
@@ -32,13 +32,17 @@ import BurgerIcon from "../Icons/BurgerIcon/BurgerIcon.js";
 import SearchIcon from "../Icons/SearchIcon/SearchIcon.js";
 import SearchIconWhite from "../Icons/SearchIconWhite/SearchIconWhite.js";
 
-import { logoutUser } from "../../../actions/user";
+import * as actionType from "../../../constants/actionTypes";
+import decode from 'jwt-decode';
 import {
   openSidebar,
   closeSidebar,
   changeSidebarPosition,
   changeSidebarVisibility,
 } from "../../../actions/navigation";
+
+import { Typography, Avatar } from '@material-ui/core';
+import './styles.css'
 
 import sender1 from "../../assets/1.png";
 import sender2 from "../../assets/2.png";
@@ -47,11 +51,12 @@ import sender3 from "../../assets/3.png";
 import avatar from "../../assets/people/a5.jpg";
 
 import "animate.css";
-import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Avatar, Notificationswrapper, Navitem, Dropdownmenu, Image, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../styles/header";
+import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Image, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../styles/header";
 
 class Header extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
     sidebarPosition: PropTypes.string.isRequired,
   };
 
@@ -74,13 +79,31 @@ class Header extends React.Component {
       settingsOpen: false,
       searchFocused: false,
       searchOpen: false,
-      notificationsOpen: false,
+      showPopup: false,
+      user: null,
     };
+  }
+
+  componentDidMount() {
+    const token = this.state.user?.access_token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    this.setState({ user: JSON.parse(localStorage.getItem('profile')) });
   }
 
   toggleNotifications = () => {
     this.setState({
       notificationsOpen: !this.state.notificationsOpen,
+      messagesOpen: false,
+      supportOpen: false,
+      settingsOpen: false,
+      searchFocused: false,
+      searchOpen: false,
     });
   };
 
@@ -89,36 +112,64 @@ class Header extends React.Component {
   }
 
   doLogout() {
-    this.props.dispatch(logoutUser());
+    this.props.dispatch({ type: actionType.LOGOUT });
+    this.props.history.push('/');
+    this.setState({user: null});
   }
 
   toggleMessagesDropdown() {
     this.setState({
       messagesOpen: !this.state.messagesOpen,
+      supportOpen: false,
+      settingsOpen: false,
+      searchFocused: false,
+      searchOpen: false,
+      notificationsOpen: false,
     });
   }
 
   toggleSupportDropdown() {
     this.setState({
       supportOpen: !this.state.supportOpen,
+      messagesOpen: false,
+      settingsOpen: false,
+      searchFocused: false,
+      searchOpen: false,
+      notificationsOpen: false,
     });
   }
 
   toggleSettingsDropdown() {
     this.setState({
       settingsOpen: !this.state.settingsOpen,
+      messagesOpen: false,
+      supportOpen: false,
+      searchFocused: false,
+      searchOpen: false,
+      notificationsOpen: false,
     });
   }
 
   toggleAccountDropdown() {
     this.setState({
       accountOpen: !this.state.accountOpen,
+      messagesOpen: false,
+      supportOpen: false,
+      settingsOpen: false,
+      searchFocused: false,
+      searchOpen: false,
+      notificationsOpen: false,
     });
   }
 
   toggleSearchOpen() {
     this.setState({
       searchOpen: !this.state.searchOpen,
+      messagesOpen: false,
+      supportOpen: false,
+      settingsOpen: false,
+      searchFocused: false,
+      notificationsOpen: false,
     });
   }
 
@@ -140,26 +191,29 @@ class Header extends React.Component {
     return (
       <Headerroot className={`d-print-none main-navbar`}>
         <Alert
+          dismissible
+          onClose={() => this.setState({showPopup: !this.state.showPopup})}
           className={` mr-5 d-lg-down-none animate__animated animate__bounceIn animate__delay-1s`}
+          style={{display: this.state.showPopup ? 'none' : ''}}
         >
           Check out Light Blue{" "}
           <Alertbutton
             className="btn-link"
-            onClick={() => this.setState({ settingsOpen: true })}
+            onClick={this.toggleSettingsDropdown}
           >
             <Headericon />
           </Alertbutton>{" "}on the right!
         </Alert>
         <Searchcollapse
           className={` ml-lg-0 mr-md-`}
-          isOpen={this.state.searchOpen}
+          
         >
           <Navbarform
             className={`${
               this.state.searchFocused ? 'navbarFormFocused' : ""
             }`}
           >
-            <Inputaddon addonType="prepend">
+            <Inputaddon addontype="prepend">
               <Inputgrouptext>
                 <i className="fa fa-search" />
                 
@@ -177,7 +231,7 @@ class Header extends React.Component {
         <Formcomponent className="d-md-down-none mr-3 ml-3" inline>
           <Formgroup>
             <Inputgroup className="input-group-no-border">
-              <Inputgroupaddon addonType="prepend">
+              <Inputgroupaddon addontype="prepend">
                 <Inputgrouptext>
                   <SearchIconWhite />
                 </Inputgrouptext>
@@ -193,25 +247,19 @@ class Header extends React.Component {
 
         <Navcomponent className="ml-md-0 d-flex nav-responsive">
           <Notificationsmenu
-            nav
-            isOpen={this.state.notificationsOpen}
-            toggle={this.toggleNotifications}
+            as={NavItem}
             id="basic-nav-dropdown"
-            style={{ marginRight: '1.5rem' }}
+            style={{ padding: '0 12px' }}
           >
-            <Dropdowntoggle nav caret style={{ color: "#3979F6", padding: 0 }}>
-              <Avatar
-                className={`rounded-circle thumb-sm float-left`}
-              >
-                <Avatarimg src={avatar} alt="..." />
-              </Avatar>
-              <Span >Philip smith</Span>
+            <Dropdowntoggle as={NavLink} style={{ color: "#3979F6", padding: 0 }} onClick={this.toggleNotifications}>
+              <Avatar alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl}>{this.state.user?.info.user.name.charAt(0)}</Avatar>
+              <Typography variant="h6">{this.state.user?.info.user.name}</Typography>
               <Badgecomponents  color="danger">
                 9
               </Badgecomponents>
             </Dropdowntoggle>
             <Notificationswrapper
-              right
+              show={this.state.notificationsOpen}
               className={` py-0 animate__animated animate__faster animate__fadeInUp`}
             >
               <Notifications />
@@ -227,14 +275,13 @@ class Header extends React.Component {
           </Navitem>
           <Dropdowncomponent
             className="d-none d-sm-block"
-            nav
-            isOpen={this.state.messagesOpen}
-            toggle={this.toggleMessagesDropdown}
+            as={NavItem}
+            onClick={this.toggleMessagesDropdown}
           >
-            <Dropdowntoggle nav className={` text-white`}>
+            <Dropdowntoggle as={NavLink} className={` text-white`}>
               <MessageIcon />
             </Dropdowntoggle>
-            <Dropdownmenu className={"messages"}>
+            <Dropdownmenu show={this.state.messagesOpen} className={"messages"} style={{transform: "translate3d(-209px, 0px, 0px)"}}>
               <Dropdownitem>
                 <Image  src={sender1} alt="" />
                 <Details >
@@ -271,14 +318,13 @@ class Header extends React.Component {
           <Divider className={` d-none d-sm-block`} />
           <Dropdowncomponent
             className="d-none d-sm-block"
-            nav
-            isOpen={this.state.settingsOpen}
-            toggle={this.toggleSettingsDropdown}
+            as={NavItem}
+            onClick={this.toggleSettingsDropdown}
           >
-            <Dropdowntoggle nav className={` text-white`}>
+            <Dropdowntoggle as={NavLink} className={` text-white`}>
               <SettingsIcon addId='header-settings' />
             </Dropdowntoggle>
-            <Dropdownmenu className={"settings"} >
+            <Dropdownmenu show={this.state.settingsOpen} className={"settings"} style={{transform: "translate3d(0px, 0px, 0px)"}}>
               <H6>Sidebar on the</H6>
               <ButtonGroup size="sm">
                 <Buttoncomponent
@@ -325,18 +371,17 @@ class Header extends React.Component {
           </Dropdowncomponent>
           <Dropdowncomponent
             className="d-none d-sm-block"
-            nav
-            isOpen={this.state.supportOpen}
-            toggle={this.toggleSupportDropdown}
+            as={NavItem}
+            onClick={this.toggleSupportDropdown}
           >
-            <Dropdowntoggle nav className={` text-white`}>
+            <Dropdowntoggle as={NavLink} className={` text-white`}>
               <BellIcon />
               <Message />
             </Dropdowntoggle>
-            <Dropdownmenu className={"support"} right >
+            <Dropdownmenu className={"support"} show={this.state.supportOpen} style={{transform: "translate3d(-199px, 0px, 0px)"}}>
               <Dropdownitem>
                 <Badgenotification color="danger">
-                <i class="fas fa-bell" />
+                <i className="fas fa-bell" />
                 </Badgenotification>
                 <Detailscomponent>Check out this awesome ticket</Detailscomponent>
               </Dropdownitem>

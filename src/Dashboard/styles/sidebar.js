@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
 import { NavLink, withRouter } from 'react-router-dom';
-import { Collapse, Badge, Alert, Progress } from 'reactstrap';
+import { Collapse, Badge, Alert, ProgressBar  } from 'react-bootstrap';
 
 
 export const Nav = styled.nav`
@@ -25,6 +25,18 @@ export const Nav = styled.nav`
         padding: 0 15px;
         height: 0;
         transform: none;
+    }
+
+    &.sidebar-right {
+        left: auto;
+        right: 0;
+        margin-left: 0;
+        margin-right: 15px;
+        transform: translateX(220px);
+    }
+
+    &.sidebar-hide {
+        display: none;
     }
 `
 
@@ -183,7 +195,7 @@ export const Projectsmall = styled.small`
     font-weight: 400;
 `
 
-export const Projectprogress = styled(Progress)`
+export const Projectprogress = styled(ProgressBar)`
     display: flex;
     overflow: hidden;
     height: .65rem;
@@ -252,6 +264,7 @@ export const Navlink = styled(NavLink)`
             color: #000;
         }
         & > span > svg {
+            color: #0d2b47!important;
             fill: #0d2b47;
         }
     }
@@ -275,7 +288,7 @@ export const Linkspan = styled.span`
     border-radius: 50%;
     width: 32px;
     height: 32px;
-
+    color: #3979F6;
 `
 
 export const Linka = styled.a`

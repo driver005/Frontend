@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ListGroup,
   ListGroupItem,
-} from 'reactstrap';
+} from 'react-bootstrap';
 
 import a1 from '../../../assets/people/a1.jpg';
 import a2 from '../../../assets/people/a2.jpg';

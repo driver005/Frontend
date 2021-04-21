@@ -22,6 +22,7 @@ body {
 a {
   text-decoration: none;
   color: var(--blue);
+  text-decoration: none !important;
 }
 
 a:hover,
@@ -37,4 +38,13 @@ ul {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.table-borderless {
+  border: none !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: #3a84ce;
 }

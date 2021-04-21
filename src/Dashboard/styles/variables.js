@@ -32,6 +32,7 @@ export const fafontpath = ` "../fonts/fontawesome";`
 
 export const la = `1199.98px`
 export const me = `991.98px`
+export const ms = `892px`
 export const sm = `767.98px`
 export const xs = `575.98px`
 export const inputboxshadow = `inset 0 1px 1px rgba(0,0,0,.075)`

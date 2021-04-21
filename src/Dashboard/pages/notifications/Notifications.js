@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,171 +7,55 @@ import { v4 as uuid } from 'uuid';
 import Widget from "../../components/Widget/Widget";
 
 
-class Notifications extends React.Component {
-  state = {
+function Notifications() {
+  const state = {
     options: {
       position: "top-right",
       autoClose: 5000,
+      hideProgressBar: false,
       closeOnClick: false,
-      pauseOnHover: false,
+      pauseOnHover: true,
       draggable: true,
     },
   };
 
-  componentDidMount() {
-    toast.success("Thanks for checking out Messenger!", {
-      position: "bottom-right",
-      autoClose: 5000,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
-  }
-
-  addSuccessNotification = () =>
+  const addSuccessNotification = () =>
     toast.success(
       "Showing success message was successful!",
-      this.state.options
+      state.options
     );
 
-  toggleLocation = (location) => {
-    this.setState((prevState) => ({
-      options: {
-        ...prevState.options,
-        position: location,
-      },
-    }));
-  };
 
-  addInfoNotification = () => {
-    let id = uuid();
-    toast(
-      <div>
-        Launching thermonuclear war...
-        <Button
-          onClick={() => this.launchNotification(id)}
-          outline
-          size="xs"
-          className="width-100 mb-xs mr-xs mt-1"
-        >
-          Cancel launch
-        </Button>
-      </div>,
-      { 
-        ...this.state.options,
-        className: "Toastify__toast--primary",
-        toastId: id
-        }
-    );
-  };
 
-  launchNotification = (id) =>
-    toast.update(id, {
-      ...this.state.options,
-      render: "Thermonuclear war averted",
-      type: toast.TYPE.SUCCESS,
-    });
-
-  addErrorNotification = () => {
+  const addErrorNotification = () => {
     let id = uuid();
     toast.error(
-      <div>
-        Error destroying alien planet <br />
-        <Button
-          onClick={() => this.retryNotification(id)}
-          outline
-          size="xs"
-          className="width-100 mb-xs mr-xs mt-1"
-        >
-          Retry
-        </Button>
-      </div>,
-      { ...this.state.options, toastId: id }
+      "Showing success message was successful!",
+      state.options,
+      {toastId: id }
     );
   };
 
-  retryNotification = (id) =>
-    toast.update(id, {
-      ...this.state.options,
-      render: "Alien planet destroyed!",
-      type: toast.TYPE.SUCCESS,
-    });
-
-  render() {
+  
     return (
       <div>
         <h1 className="page-title">
           Messages - <span className="fw-semi-bold">Notifications</span>
         </h1>
-
         <Widget title={<h6> Messenger </h6>} close collapse settings>
           <Row>
-            <Col lg="4" xs="12">
-              <h5 className="m-t-1">Layout options</h5>
-              <p>
-                There are few position options available for notifications. You
-                can click any of them to change notifications position:
-              </p>
-              <div className="location-selector">
-                <div
-                  className="bit top left"
-                  onClick={() => {
-                    this.toggleLocation("top-left");
-                  }}
-                />
-                <div
-                  className="bit top right"
-                  onClick={() => {
-                    this.toggleLocation("top-right");
-                  }}
-                />
-                <div
-                  className="bit top"
-                  onClick={() => {
-                    this.toggleLocation("top-center");
-                  }}
-                />
-                <div
-                  className="bit bottom left"
-                  onClick={() => {
-                    this.toggleLocation("bottom-left");
-                  }}
-                />
-                <div
-                  className="bit bottom right"
-                  onClick={() => {
-                    this.toggleLocation("bottom-right");
-                  }}
-                />
-                <div
-                  className="bit bottom"
-                  onClick={() => {
-                    this.toggleLocation("bottom-center");
-                  }}
-                />
-              </div>
-            </Col>
-
             <Col lg="4" xs="12">
               <h5 className="mt-0 mt-md-2 mt-lg-0">Notification Types</h5>
               <p>
                 Different types of notifications for lost of use cases. Custom
                 classes are also supported.
               </p>
-              <p className="mb-3">
-                <Button
-                  color="primary"
-                  id="show-info-message"
-                  onClick={this.addInfoNotification}
-                >
-                  Info Message
-                </Button>
-              </p>
+              
               <p className="mb-3">
                 <Button
                   color="danger"
                   id="show-error-message"
-                  onClick={this.addErrorNotification}
+                  onClick={addErrorNotification}
                 >
                   Error + Retry Message
                 </Button>
@@ -180,36 +64,17 @@ class Notifications extends React.Component {
                 <Button
                   color="success"
                   id="show-success-message"
-                  onClick={this.addSuccessNotification}
+                  onClick={addSuccessNotification}
                 >
                   Success Message
                 </Button>
               </p>
             </Col>
-
-            <Col lg="4" xs="12">
-              <h5 className="m-t-1">Dead Simple Usage</h5>
-              <p>
-                Just few lines of code to instantiate a notifications object.
-                Does not require passing any options:
-              </p>
-              <pre >
-                <code>{'toast("Thanks for checking out Messenger!");'}</code>
-              </pre>
-              <p>More complex example:</p>
-              <pre>
-                <code>
-                  {
-                    "\ntoast.success( 'There was an explosion while processing your request.', { \n position: location,\n autoClose: 5000, \n hideProgressBar: false, \n closeOnClick: true,\n pauseOnHover: true, \n draggable: true \n});\n\n"
-                  }
-                </code>
-              </pre>
-            </Col>
           </Row>
         </Widget>
       </div>
     );
-  }
+  
 }
 
 export default Notifications;

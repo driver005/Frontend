@@ -2,10 +2,8 @@ import React from 'react';
 import {
   Container,
   Form,
-  FormGroup,
-  Input,
   Button,
-} from 'reactstrap';
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -24,9 +22,9 @@ class ErrorPage extends React.Component {
               If you are sure it should, please search for it:
             </p>
             <Form method="get">
-              <FormGroup>
-                <Input className="input-no-border" type="text" placeholder="Search Pages" />
-              </FormGroup>
+              <Form.Group>
+                <Form.Control className="input-no-border" type="text" placeholder="Search Pages" />
+              </Form.Group>
               <Link to="app/extra/search">
                 <Button type="submit" color="inverse">
                   Search <i className="fa fa-search text-secondary ml-xs" />

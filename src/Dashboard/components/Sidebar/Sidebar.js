@@ -2,11 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Progress, Alert} from 'reactstrap';
+import {Progress, Alert} from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import {dismissAlert} from '../../../actions/alerts';
 import LinksGroup from './LinksGroup/LinksGroup';
-
+import { BsChatSquare, FcTodoList, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite } from 'react-icons/all'
 import {changeActiveSidebarItem} from '../../../actions/navigation';
 import {logoutUser} from '../../../actions/user';
 import HomeIcon from '../Icons/HomeIcon/HomeIcon.js';
@@ -72,6 +72,10 @@ class Sidebar extends React.Component {
     render() {
         return (
             <Nav
+                className={[
+                    'sidebar-' + this.props.sidebarPosition,
+                    'sidebar-' + this.props.sidebarVisibility,
+                ].join(' ')}
                 ref={(nav) => {
                     this.element = nav;
                 }}
@@ -86,8 +90,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Dashboard"
                         isHeader
-                        iconName={<HomeIcon  />}
-                        link="/app/main"
+                        iconName={<BiHomeAlt size="18" fill="#3979F6"  />}
+                        link={`${this.props.match.path}app/main`}
                         index="main"
                     />
                     <H5>TEMPLATE</H5>
@@ -96,8 +100,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Typography"
                         isHeader
-                        iconName={<TypographyIcon />}
-                        link="/app/typography"
+                        iconName={<FiFileText size="18" stroke="#3979F6" />}
+                        link={`${this.props.match.path}app/typography`}
                         index="core"
                     />
                     <LinksGroup
@@ -105,8 +109,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Tables Basic"
                         isHeader
-                        iconName={<TablesIcon  />}
-                        link="/app/tables"
+                        iconName={<FaTable size="18" fill="#3979F6"  />}
+                        link={`${this.props.match.path}app/tables`}
                         index="tables"
                     />
                     <LinksGroup
@@ -114,8 +118,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Notifications"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/notifications"
+                        iconName={<BiNotification size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/notifications`}
                         index="ui"
                     />
                     <LinksGroup
@@ -123,8 +127,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Calendar"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/calendar"
+                        iconName={<BsCalendar size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/calendar`}
                         index="ui"
                     />
                     <LinksGroup
@@ -132,8 +136,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Jitsi"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/jitsi"
+                        iconName={<BiVideo size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/jitsi`}
                         index="ui"
                     />
                     <LinksGroup
@@ -141,8 +145,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Quiz"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/quiz"
+                        iconName={<FaRegListAlt size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/quiz`}
                         index="ui"
                     />
                     <LinksGroup
@@ -150,17 +154,26 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Todolist"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/todolist"
+                        iconName={<FcTodoList size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/todolist`}
                         index="ui"
                     />
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
-                        header="Todolist"
+                        header="Chat"
                         isHeader
-                        iconName={<NotificationsIcon />}
-                        link="/app/chat"
+                        iconName={<BsChatSquare size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/chat`}
+                        index="ui"
+                    />
+                    <LinksGroup
+                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                        activeItem={this.props.activeItem}
+                        header="Posts"
+                        isHeader
+                        iconName={<FaBlog size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/posts`}
                         index="ui"
                     />
                     <LinksGroup
@@ -168,18 +181,18 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Components"
                         isHeader
-                        iconName={<ComponentsIcon />}
-                        link="/app/components"
+                        iconName={<CgWebsite size="18"  fill="#3979F6" />}
+                        link={`${this.props.match.path}app/components`}
                         index="components"
                         childrenLinks={[
                             {
-                                header: 'Charts', link: '/app/components/charts',
+                                header: 'Charts', link: `${this.props.match.path}app/components/charts`
                             },
                             {
-                                header: 'Icons', link: '/app/components/icons',
+                                header: 'Icons', link: `${this.props.match.path}app/components/icons`
                             },
                             {
-                                header: 'Maps', link: '/app/components/maps',
+                                header: 'Maps', link: `${this.props.match.path}app/components/maps`
                             },
                         ]}
                     />
@@ -211,21 +224,21 @@ class Sidebar extends React.Component {
                 </Labelul>
                 {/* eslint-enable */}
                 <H5 >
-                    PROJECTS
+                    {this.props.alertsList.length > 0 ? 'PROJECTS' : ''}
                 </H5>
                 <Projectdiv >
                     {this.props.alertsList.map(alert => // eslint-disable-line
                         <Projectalert
                             key={alert.id}
                             color="transparent"
-                            isOpen={true} // eslint-disable-line
-                            toggle={() => {
+                            dismissible
+                            onClose={() => {
                                 this.dismissAlert(alert.id);
                             }}
                         >
                             <Projectspan>{alert.title}</Projectspan><br/>
-                            <Projectprogress className={`bg-subtle-blue progress-xs mt-2 mb-1`} color={alert.color}
-                                      value={alert.value}/>
+                            <Projectprogress className={`bg-subtle-blue progress-xs mt-2 mb-1`} variant={alert.color}
+                                    now={alert.value} animated={true} />
                             <Projectsmall>{alert.footer}</Projectsmall>
                         </Projectalert>,
                     )}

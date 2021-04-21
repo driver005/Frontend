@@ -3,16 +3,12 @@ import {
   Row,
   Col,
   Table,
-  Progress,
+  ProgressBar,
   Button,
-  UncontrolledButtonDropdown,
-  DropdownMenu,
-  DropdownToggle,
-  DropdownItem,
-  Input,
-  Label,
+  Dropdown,
+  Form,
   Badge,
-} from "reactstrap";
+} from "react-bootstrap";
 import { Sparklines, SparklinesBars } from "react-sparklines";
 
 import Widget from "../../../components/Widget/Widget";
@@ -212,10 +208,11 @@ class Static extends React.Component {
                       <td className="text-muted">{this.parseDate(row.date)}</td>
                       <td className="text-muted">{row.size}</td>
                       <td className="width-150">
-                        <Progress
-                          color={row.progress.colorClass}
-                          value={row.progress.percent}
+                        <ProgressBar
+                          variant={row.progress.colorClass}
+                          now={row.progress.percent}
                           className="progress-sm mb-xs"
+                          variant
                         />
                       </td>
                     </tr>
@@ -227,23 +224,22 @@ class Static extends React.Component {
                   <Button color="default" className="mr-2" size="sm">
                     Send to...
                   </Button>
-                  <UncontrolledButtonDropdown>
-                    <DropdownToggle
+                  <Dropdown>
+                    <Dropdown.Toggle
                       color="inverse"
                       className="mr-xs"
                       size="sm"
-                      caret
                     >
                       Clear
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>Clear</DropdownItem>
-                      <DropdownItem>Move ...</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>Separated link</DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledButtonDropdown>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item>Clear</Dropdown.Item>
+                      <Dropdown.Item>Move ...</Dropdown.Item>
+                      <Dropdown.Item>Something else here</Dropdown.Item>
+                      <Dropdown.Item divider />
+                      <Dropdown.Item>Separated link</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </div>
                 <p>Basic table with styled content</p>
               </div>
@@ -274,7 +270,7 @@ class Static extends React.Component {
                   <tr>
                     <th>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox1"
                           type="checkbox"
                           checked={this.state.checkboxes1[0]}
@@ -282,7 +278,7 @@ class Static extends React.Component {
                             this.checkAll(event, "checkboxes1")
                           }
                         />
-                        <Label for="checkbox1" />
+                        <Form.Label htmlFor="checkbox1" />
                       </div>
                     </th>
                     <th>First Name</th>
@@ -294,7 +290,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox2"
                           type="checkbox"
                           checked={this.state.checkboxes1[1]}
@@ -302,7 +298,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes1", 1)
                           }
                         />
-                        <Label for="checkbox2" />
+                        <Form.Label htmlFor="checkbox2" />
                       </div>
                     </td>
                     <td>Mark</td>
@@ -314,7 +310,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox3"
                           type="checkbox"
                           checked={this.state.checkboxes1[2]}
@@ -322,7 +318,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes1", 2)
                           }
                         />
-                        <Label for="checkbox3" />
+                        <Form.Label htmlFor="checkbox3" />
                       </div>
                     </td>
                     <td>
@@ -341,7 +337,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox4"
                           type="checkbox"
                           checked={this.state.checkboxes1[3]}
@@ -349,7 +345,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes1", 3)
                           }
                         />
-                        <Label for="checkbox4" />
+                        <Form.Label htmlFor="checkbox4" />
                       </div>
                     </td>
                     <td>Larry</td>
@@ -464,7 +460,7 @@ class Static extends React.Component {
                   <tr>
                     <th>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox10"
                           type="checkbox"
                           checked={this.state.checkboxes2[0]}
@@ -472,7 +468,7 @@ class Static extends React.Component {
                             this.checkAll(event, "checkboxes2")
                           }
                         />
-                        <Label for="checkbox10" />
+                        <Form.Label htmlFor="checkbox10" />
                       </div>
                     </th>
                     <th>Product</th>
@@ -484,7 +480,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox11"
                           type="checkbox"
                           checked={this.state.checkboxes2[1]}
@@ -492,7 +488,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes2", 1)
                           }
                         />
-                        <Label for="checkbox11" />
+                        <Form.Label htmlFor="checkbox11" />
                       </div>
                     </td>
                     <td>On the Road</td>
@@ -509,7 +505,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox12"
                           type="checkbox"
                           checked={this.state.checkboxes2[2]}
@@ -517,7 +513,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes2", 2)
                           }
                         />
-                        <Label for="checkbox12" />
+                        <Form.Label htmlFor="checkbox12" />
                       </div>
                     </td>
                     <td>HP Core i7</td>
@@ -534,7 +530,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox13"
                           type="checkbox"
                           checked={this.state.checkboxes2[3]}
@@ -542,7 +538,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes2", 3)
                           }
                         />
-                        <Label for="checkbox13" />
+                        <Form.Label htmlFor="checkbox13" />
                       </div>
                     </td>
                     <td>Let&apos;s Dance</td>
@@ -559,7 +555,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox14"
                           type="checkbox"
                           checked={this.state.checkboxes2[4]}
@@ -567,7 +563,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes2", 4)
                           }
                         />
-                        <Label for="checkbox14" />
+                        <Form.Label htmlFor="checkbox14" />
                       </div>
                     </td>
                     <td>Air Pro</td>
@@ -584,7 +580,7 @@ class Static extends React.Component {
                   <tr>
                     <td>
                       <div className="abc-checkbox">
-                        <Input
+                        <Form.Check
                           id="checkbox15"
                           type="checkbox"
                           checked={this.state.checkboxes2[5]}
@@ -592,7 +588,7 @@ class Static extends React.Component {
                             this.changeCheck(event, "checkboxes2", 5)
                           }
                         />
-                        <Label for="checkbox15" />
+                        <Form.Label htmlFor="checkbox15" />
                       </div>
                     </td>
                     <td>Version Control</td>
@@ -633,7 +629,7 @@ class Static extends React.Component {
                     <tr>
                       <th>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox20"
                             type="checkbox"
                             checked={this.state.checkboxes3[0]}
@@ -641,7 +637,7 @@ class Static extends React.Component {
                               this.checkAll(event, "checkboxes3")
                             }
                           />
-                          <Label for="checkbox20" />
+                          <Form.Label htmlFor="checkbox20" />
                         </div>
                       </th>
                       <th>Product</th>
@@ -653,7 +649,7 @@ class Static extends React.Component {
                     <tr>
                       <td>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox21"
                             type="checkbox"
                             checked={this.state.checkboxes3[1]}
@@ -661,7 +657,7 @@ class Static extends React.Component {
                               this.changeCheck(event, "checkboxes3", 1)
                             }
                           />
-                          <Label for="checkbox21" />
+                          <Form.Label htmlFor="checkbox21" />
                         </div>
                       </td>
                       <td>On the Road</td>
@@ -678,7 +674,7 @@ class Static extends React.Component {
                     <tr>
                       <td>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox22"
                             type="checkbox"
                             checked={this.state.checkboxes3[2]}
@@ -686,7 +682,7 @@ class Static extends React.Component {
                               this.changeCheck(event, "checkboxes3", 2)
                             }
                           />
-                          <Label for="checkbox22" />
+                          <Form.Label htmlFor="checkbox22" />
                         </div>
                       </td>
                       <td>HP Core i7</td>
@@ -703,7 +699,7 @@ class Static extends React.Component {
                     <tr>
                       <td>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox23"
                             type="checkbox"
                             checked={this.state.checkboxes3[3]}
@@ -711,7 +707,7 @@ class Static extends React.Component {
                               this.changeCheck(event, "checkboxes3", 3)
                             }
                           />
-                          <Label for="checkbox23" />
+                          <Form.Label htmlFor="checkbox23" />
                         </div>
                       </td>
                       <td>Let&apos;s Dance</td>
@@ -728,7 +724,7 @@ class Static extends React.Component {
                     <tr>
                       <td>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox24"
                             type="checkbox"
                             checked={this.state.checkboxes3[4]}
@@ -736,7 +732,7 @@ class Static extends React.Component {
                               this.changeCheck(event, "checkboxes3", 4)
                             }
                           />
-                          <Label for="checkbox24" />
+                          <Form.Label htmlFor="checkbox24" />
                         </div>
                       </td>
                       <td>Air Pro</td>
@@ -753,7 +749,7 @@ class Static extends React.Component {
                     <tr>
                       <td>
                         <div className="abc-checkbox">
-                          <Input
+                          <Form.Check
                             id="checkbox25"
                             type="checkbox"
                             checked={this.state.checkboxes3[5]}
@@ -761,7 +757,7 @@ class Static extends React.Component {
                               this.changeCheck(event, "checkboxes3", 5)
                             }
                           />
-                          <Label for="checkbox25" />
+                          <Form.Label htmlFor="checkbox25" />
                         </div>
                       </td>
                       <td>Version Control</td>

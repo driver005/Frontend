@@ -5,8 +5,8 @@ import {
     Button,
     ListGroup,
     ListGroupItem,
-    Progress
-} from 'reactstrap';
+    ProgressBar 
+} from 'react-bootstrap';
 
 
 
@@ -250,6 +250,7 @@ export const Listgroupitem = styled(ListGroupItem)`
     border-left: none;
     border-right: none;
     display: block;
+    background-color: transparent;
 
     &.list-group-item:first-child {
         border-top-left-radius: inherit;
@@ -403,7 +404,7 @@ export const H6 = styled.h6`
     }
 `
 
-export const Progresscomponents = styled(Progress)`
+export const Progresscomponents = styled(ProgressBar )`
     height: .65rem;
     line-height: 0;
     font-size: .75rem;

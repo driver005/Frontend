@@ -5,22 +5,17 @@ import {
     Nav,
     NavItem,
     NavLink,
-    InputGroupAddon,
-    InputGroupText,
     InputGroup,
-    Input,
-    UncontrolledAlert,
+    Alert as UncontrolledAlert,
     Dropdown,
+    NavDropdown,
     Collapse,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     Badge,
     ButtonGroup,
     Button,
     Form,
     FormGroup,
-} from "reactstrap";
+} from "react-bootstrap";
 import SettingsIcon from '../components/Icons/SettingsIcon/SettingsIcon';
 
 
@@ -49,21 +44,22 @@ export const Headerroot = styled(Navbar)`
 
 export const Alert = styled(UncontrolledAlert)`
     height: 30px;
-    width: 290px;
     display: block;
     position: relative;
     margin-right: 3rem!important;
     transition: margin-top 0.2s ease;
     background: ${variables.texttransparent};
     border: none;
-    font-size: 1rem;
-    font-weight: ${variables.fontweightthin};
     line-height: 20px;
     color: hsla(0,0%,100%,.6);
     border-radius: 10px;
     padding: 5px 8px;
+    top: 8px;
     
     
+    &.show {
+        display: block;
+    }
     
     &.show {
         display: block;
@@ -93,6 +89,7 @@ export const Alert = styled(UncontrolledAlert)`
         padding: 0;
         position: static;
         color: #3979f6;
+        margin-left: 5px;
         font-weight: 400;
         font-size: 18px!important;
         right: 5px!important;
@@ -108,6 +105,14 @@ export const Alert = styled(UncontrolledAlert)`
     &.input-transparent form-control {
         padding-left: ${variables.inputbtnpaddingx} !important;
     }
+
+    @media (max-width: ${variables.la}) {
+        display: none!important;
+    }
+
+    &.input-transparent form-control {
+        padding-left: ${variables.inputbtnpaddingx} !important;
+    }
   
 `
 
@@ -119,7 +124,7 @@ export const Headericon = styled(SettingsIcon)`
 export const Searchcollapse = styled(Collapse)`
     display: none;
     transition: height .2s ease-in-out;
-    
+
     margin-right: 1.5rem;
 
     &.collapse &:not(.show) {
@@ -198,7 +203,7 @@ export const Inputgroup = styled(InputGroup)`
     }
 `
 
-export const Inputgroupaddon = styled(InputGroupAddon)`
+export const Inputgroupaddon = styled(InputGroup.Prepend)`
     display: flex;
     margin-right: -1px;
 `
@@ -231,10 +236,7 @@ export const Navbarform = styled(InputGroup)`
     @media (max-width: ${variables.sm}) {
         width: auto;
         margin: 0 2.5641%;
-    }
-
-    
-    
+    } 
 
     input {
         font-size: 13px;
@@ -250,7 +252,7 @@ export const Navbarform = styled(InputGroup)`
     }
 `
 
-export const Inputaddon = styled(InputGroupAddon)`
+export const Inputaddon = styled(InputGroup.Prepend)`
     border: none;
     display: flex;
     margin-right: -1px;
@@ -258,7 +260,7 @@ export const Inputaddon = styled(InputGroupAddon)`
     transition: background-color ease-in-out 0.15s;
 `
 
-export const Inputgrouptext = styled(InputGroupText)`
+export const Inputgrouptext = styled(InputGroup.Text)`
     display: flex;
     align-items: center;
     padding: .5rem .75rem;
@@ -273,12 +275,13 @@ export const Inputgrouptext = styled(InputGroupText)`
     
 `
   
-export const Inputcomponent = styled(Input)`
+export const Inputcomponent = styled(Form.Control)`
     font-size: 13px;
     color: ${variables.white};
     background-color: rgba(0,0,0,.21);
     border: none;
-    padding: .6rem .85rem .6rem .85rem!important;
+    //padding: .6rem .85rem .6rem .85rem!important;
+    height: unset;
     min-height: 30px!important;
     position: relative;
     flex: 1 1 auto;
@@ -310,7 +313,7 @@ export const Navcomponent = styled(Nav)`
     display: flex!important;
     flex-wrap: wrap;
     padding-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 3px;
     margin-top: 0;
     list-style: none;
     height: 100%;
@@ -332,7 +335,7 @@ export const Divider = styled(NavItem)`
     }
 `
 
-export const Dropdowntoggle = styled(DropdownToggle)`
+export const Dropdowntoggle = styled(Dropdown.Toggle)`
     display: flex;
     align-items: center;
     color: rgba(0,0,0,.31);
@@ -505,7 +508,7 @@ export const settings = `
     }
 `
 
-export const Dropdownmenu = styled(DropdownMenu)`
+export const Dropdownmenu = styled(Dropdown.Menu)`
     position: absolute;
     top: 100%;
     left: 0;
@@ -629,7 +632,7 @@ export const Accountcheck = styled.span`
     font-weight: ${variables.fontweightnormal};
 `
   
-export const Notificationswrapper = styled(DropdownMenu)`
+export const Notificationswrapper = styled(Dropdown.Menu)`
     position: absolute;
     z-index: 1000;
     display: none;
@@ -648,7 +651,7 @@ export const Notificationswrapper = styled(DropdownMenu)`
     color: ${variables.white};
     background-color: ${variables.black};
     left: auto!important;
-    right: ${variables.breadcrumbpaddingy}!important;
+    right: 9.5rem!important;
     top: 64px !important;
     padding-bottom: ${variables.breadcrumbpaddingy}!important;
     padding-top: ${variables.breadcrumbpaddingy}!important;
@@ -757,7 +760,7 @@ export const Navlink = styled(NavLink)`
 `
 
 
-export const Dropdownitem = styled(DropdownItem)`
+export const Dropdownitem = styled(Dropdown.Item)`
     width: 100%;
     padding: .25rem 1.5rem;
     clear: both;
@@ -852,14 +855,6 @@ export const Alertbutton = styled.button`
     line-height: inherit;
     border-radius: 0;
     color: #2477ff;
-
-    button {
-        -webkit-appearance: button;
-    }
-
-    button:not(:disabled) {
-        cursor: pointer;
-    } 
 `
 
 export const Message = styled.div`

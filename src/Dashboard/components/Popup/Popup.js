@@ -1,59 +1,68 @@
 import React from "react";
-import Warper from './Wraper';
-import Popup from "reactjs-popup";
-import 'reactjs-popup/dist/index.css';
-import { Buttoncomponent, Inputcomponent, Labelcomponent, Formcomponent, Buttondiv, Buttonclose, Buttonspan, Startbutton } from "../../styles/popup";
+import Warpper from './Wrapper';
+//import Popup from "reactjs-popup";
+import { Popup } from "../../styles/popup";
+import {
+  Modal,
+  Button
+} from 'react-bootstrap';
+import { makeStyles, TextField} from '@material-ui/core';
+import './styles.css'
 
-//
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiFormLabel-root': {
+      color: "#4e42ffde !important",
+    },
+    '& .MuiInputBase-root': {
+      color: 'rgb(255 255 255)',
+    },
+    '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#1f58f9de',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#3f51b557',
+    },
+  },
+}))
 
 
-const contentStyle = {
-  maxWidth: "600px",
-  width: "90%",
-  backgroundColor: "black",
+const CustomModal = (props) => {
+  const [show, setShow] = React.useState(false);
+  const classes = useStyles();
   
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  return (
+    <React.Fragment>
+      <Button variant="outline-primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Event</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form autoComplete="off" noValidate className={`${classes.root}`}>
+            <TextField name="popupinput" variant="outlined" label="Title" fullWidth value={props.value.popupinput} onChange={props.input} />
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button 
+            variant="outline-success"
+            size="lg"
+            block
+            onClick={(e) => {
+              props.onSubmit(e);
+              handleClose();
+            }}
+            >
+              Submit
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </React.Fragment>
+  )
 };
 
-const CustomModal = (props) => (
-  <Popup
-    trigger={<Startbutton className="button"> Open Modal </Startbutton>}
-    modal
-    contentStyle={contentStyle}
-  >
-    {close => (
-      <div className="modal">
-        <Buttonclose className="close" onClick={close}>
-          <Buttonspan>x</Buttonspan>
-        </Buttonclose>
-        <Formcomponent>
-            <Labelcomponent for="EventName">Event Name</Labelcomponent>
-            <Inputcomponent
-                type="text"
-                name="event"
-                id="event"
-                placeholder="with a placeholder"
-                onChange={props.input}
-            />
-            <Buttondiv>
-                <Buttoncomponent 
-                    color="primary" 
-                    size="lg" 
-                    block 
-                    onClick={
-                        function(e){
-                            close(e);    
-                            props.onSubmit(e);
-                        }
-                    }
-                >
-                    Block level button
-                </Buttoncomponent>
-            </Buttondiv>
-        </Formcomponent>
-
-      </div>
-    )}
-  </Popup>
-);
-
-export default Warper(CustomModal);
+export default Warpper(CustomModal);

@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
-import { Popover, PopoverHeader, PopoverBody, Tooltip,} from 'reactstrap';
+import { Popover, PopoverHeader, PopoverBody, Tooltip, OverlayTrigger,} from 'react-bootstrap';
 import { Daycontainer, Daymain, Daynumber, Calendardot, Popovercomponent, Popoverheader, Popoverbody, Daynamespan } from '../../../../styles/calendar';
 
 class Day extends Component {
   state = {
-    popoverShow: false,
     tooltipShow: false
-  }
-
-  togglePopover = () => {
-    this.setState({ popoverShow: !this.state.popoverShow })
   }
 
   toggleTooltip = () => {
@@ -18,7 +13,6 @@ class Day extends Component {
 
   render() {
     const { day, selected } = this.props;
-    console.log(day)
     return (
       <Daycontainer className={
         (day.isToday ? `today ` : "") +
@@ -45,38 +39,31 @@ class Day extends Component {
               >
               </Daynamespan> : "" }
           </a>
-          <Tooltip 
-            placement="top" 
-            isOpen={this.state.tooltipShow} 
-            toggle={this.toggleTooltip} 
-            target={`Tooltip${day.number}`}>
-            {day.title}
-          </Tooltip>
         </React.Fragment> 
         : (day.hasEvents && !day.link)
         ? 
           <React.Fragment>
-            <Daynumber
-              onClick={this.togglePopover}
-              id={`Popover${day.number}`}
-              className={'dayNumber'}
-            > {day.number}
-                {day.itemStyle ? 
-                  <Calendardot 
-                    style={{backgroundColor: `${day.itemStyle}`}} 
-                  >
-                  </Calendardot> : "" }
-            </Daynumber>
-            <Popovercomponent 
-              placement="top" 
-              isOpen={this.state.popoverShow} 
-              target={`Popover${day.number}`} 
-              toggle={this.togglePopover}
+            <OverlayTrigger 
+              placement="top"
               className={'Popover'}
+              overlay={
+                <Tooltip id={`tooltip-top`}>
+                  <Popoverheader className={'Header'}>{day.title}</Popoverheader>
+                  <Popoverbody>{day.info}</Popoverbody>
+                </Tooltip>
+              }
               >
-              <Popoverheader className={'Header'}>{day.title}</Popoverheader>
-              <Popoverbody>{day.info}</Popoverbody>
-            </Popovercomponent> 
+              <Daynumber
+                id={`Popover${day.number}`}
+                className={'dayNumber'}
+              > {day.number}
+                  {day.itemStyle ? 
+                    <Calendardot 
+                      style={{backgroundColor: `${day.itemStyle}`}} 
+                    >
+                    </Calendardot> : "" }
+              </Daynumber>
+            </OverlayTrigger> 
           </React.Fragment> 
         : "" }
       

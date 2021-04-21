@@ -13,8 +13,8 @@ const SortBy = ({ setTextFilter, sortByDate, sortByDeadline, filters, dispatch }
                     value={filters?.text} 
                     onChange={e => dispatch(setTextFilter(e.target.value))}
                 />
-                <Filterselect onChange={e => e.target.value === 'date' ? dispatch(sortByDate()) : dispatch(sortByDeadline())}>
-                    <option selected disabled>Sort by</option>
+                <Filterselect defaultValue={'sortby'} onChange={e => e.target.value === 'date' ? dispatch(sortByDate()) : dispatch(sortByDeadline())}>
+                    <option value="sortby" disabled>Sort by</option>
                     <option value="date">Date</option>
                     <option value="deadline">Deadline</option>
                 </Filterselect>

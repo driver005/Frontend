@@ -4,7 +4,7 @@ import {
   ListGroupItem,
   
   UncontrolledTooltip,
-} from 'reactstrap';
+} from 'react-bootstrap';
 import { Listgroup, Listgroupitem, Listgroupspan, H6, Progressspan, Progresscomponents, Strong } from '../../../styles/notifications';
 
 

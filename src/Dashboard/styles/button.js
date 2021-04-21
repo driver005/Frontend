@@ -1,4 +1,4 @@
-import { Button } from "reactstrap";
+import { Button } from "react-bootstrap";
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
 

@@ -1,12 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { Fieldsgroup, Form, Formblock, Formheading, Formmask, Formslide, Formslider, Formstep, Stepnumber, Textfiledinput, Textfiledwrapper, Filedlabel, Textfileddone, Formlabel, Formbutton, Showpassword } from '../styles'
+import { Fieldsgroup, Formcomponent, Formblock, Formheading, Formmask, Formslide, Formslider, Formstep, Stepnumber, Textfiledinput, Textfiledwrapper, Filedlabel, Textfileddone, Formlabel, Formbutton, Showpassword, Textfiledcontainer } from '../styles'
 import { signin, signup } from '../../actions/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
-import { useAlert } from 'react-alert'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ErrorMessage } from '@hookform/error-message';
+import {
+  FormControl
+} from 'react-bootstrap';
+
 
 const initialState = { firstName: '' , lastName: '' , month: '' , day: '' , year: '' , email: '' , password: '', }
 const initialStateboolean = {firstName: false , lastName: false , month: false , day: false , year: false , email: false , username: false , password: false, }
@@ -21,10 +27,32 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const { register, errors, handleSubmit } = useForm();
-    const alert = useAlert()
-    
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const state = {
+        options: {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+        },
+        };
+
+    const addSuccessNotification = (message) =>
+        toast.dark(
+            `${message}`,
+            state.options
+        );
+
+    const addErrorNotification = (message) => {
+        toast.error(
+            `${message}`,
+            state.options
+        );
+    };
+    
     const switchMode = () => {
         setForm(initialState);
         setIsSignup((prevIsSignup) => !prevIsSignup);
@@ -33,21 +61,23 @@ const SignUp = () => {
 
     const onSubmit = (e) => {
         if (isSignup) {
-          dispatch(signup(form, history))
-          .then((promis) => {
-            if(promis?.errors) {
-                alert.show(promis.message)
-            }
-          })
-          .catch((e) => {console.log(e)})
-          
+            dispatch(signup(form, history))
+            .then((promis) => {
+                if(promis?.message) {
+                    addErrorNotification(promis.message)
+                } else {
+                    addSuccessNotification("Successful Signed up")
+                }
+            })
         } else {
-          dispatch(signin(form, history))
-          .then((promis) => {
-            if(promis?.err) {
-                alert.show(promis.message)
-            }
-          })
+            dispatch(signin(form, history))
+            .then((promis) => {
+                if(promis?.err) {
+                    addErrorNotification(promis.message)
+                } else {
+                    addSuccessNotification("Successful Signed in")
+                }
+            })
         }
     };
 
@@ -71,7 +101,7 @@ const SignUp = () => {
 
     return (
         <Formblock>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Formcomponent onSubmit={handleSubmit(onSubmit)}>
                 <Formslider>
                         <Formslide>
                             <Formstep>
@@ -79,16 +109,30 @@ const SignUp = () => {
                                 <Formheading>Text fields</Formheading>
                                 { isSignup && (
                                 <Fieldsgroup>
-                                    <Textfiledwrapper half onChange={(e) => handleTextChange(e.target)}>
-                                        <Textfiledinput type="text"  maxlength="256" name="firstName" data-name="First name" placeholder="" id="First-name"  ref={register({ required: 'This is required.' })}/>
-                                        <Filedlabel for="name" className={ isShown.firstName ? 'load' : 'hide' }>First name</Filedlabel>
-                                        <Textfileddone className={form.firstName ? 'active' : 'hide'}/>
+                                <Textfiledcontainer half>
+                                    <Textfiledwrapper  onChange={(e) => handleTextChange(e.target)}>
+                                        <Textfiledinput type="text"  maxlength="256" name="firstName" data-name="First name" placeholder="" id="First-name"  ref={register({ required: true, pattern: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u })}/>
+                                        <Filedlabel htmlFor="name" className={ isShown.firstName ? 'load' : 'hide' }>First name</Filedlabel>
+                                        <Textfileddone className={form.firstName ? 'active' : 'hide'} />
                                     </Textfiledwrapper>
-                                    <Textfiledwrapper half onChange={(e) => handleTextChange(e.target)}>
-                                        <Textfiledinput type="text"  maxlength="256" name="lastName" data-name="Last name" placeholder="" id="Last-name"  ref={register({ required: 'This is required.' })}/>
-                                        <Filedlabel for="name-2" className={ isShown.lastName ? 'load' : 'hide'} >Last name</Filedlabel>
+                                    {(errors.firstName) && (
+                                        <FormControl.Feedback type="invalid" className={'d-block'}>
+                                            Please choose a username.
+                                        </FormControl.Feedback>
+                                    )}
+                                </Textfiledcontainer>
+                                <Textfiledcontainer half>
+                                    <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
+                                        <Textfiledinput type="text"  maxlength="256" name="lastName" data-name="Last name" placeholder="" id="Last-name"  ref={register({ required: true, pattern: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u })}/>
+                                        <Filedlabel htmlFor="name-2" className={ isShown.lastName ? 'load' : 'hide'} >Last name</Filedlabel>
                                         <Textfileddone className={form.lastName ? 'active' : 'hide'}/>
                                     </Textfiledwrapper>
+                                    {(errors.lastName) && (
+                                        <FormControl.Feedback type="invalid" className={'d-block'}>
+                                            Please choose a username.
+                                        </FormControl.Feedback>
+                                    )}
+                                </Textfiledcontainer>    
                                 </Fieldsgroup>
                                 )}
                                 <Formlabel>Date of birth</Formlabel>
@@ -96,40 +140,82 @@ const SignUp = () => {
                                     <React.Fragment>
                                     { isSignup && (
                                         <React.Fragment>
-                                            <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
-                                                <Textfiledinput type="text"  maxlength="256" name="month" data-name="Month" placeholder="" id="Month"  ref={register({ required: 'This is required.' })}/>
-                                                <Filedlabel for="name" className={ isShown.month ? 'load' : 'hide' }>Month</Filedlabel>
-                                                <Textfileddone className={form.month ? 'active' : 'hide'}/>
-                                            </Textfiledwrapper>
-                                            <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
-                                                <Textfiledinput type="text"  maxlength="256" name="day" data-name="Day" placeholder="" id="Day"  ref={register({ required: 'This is required.' })}/>
-                                                <Filedlabel for="name" className={ isShown.day ? 'load' : 'hide' }>Day</Filedlabel>
-                                                <Textfileddone className={form.day ? 'active' : 'hide'}/>
-                                            </Textfiledwrapper>
-                                            <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
-                                                <Textfiledinput type="text"  maxlength="256" name="year" data-name="Year" placeholder="" id="Year"  ref={register({ required: 'This is required.' })}/>
-                                                <Filedlabel for="name" className={ isShown.year ? 'load' : 'hide' }>Year</Filedlabel>
-                                                <Textfileddone className={form.year ? 'active' : 'hide'}/>
-                                            </Textfiledwrapper>
-                                            <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
-                                                <Textfiledinput type="text"  maxlength="256" name="username" data-name="Username" placeholder="" id="Username"  ref={register({ required: 'This is required.' })}/>
-                                                <Filedlabel for="name" className={ isShown.username ? 'load' : 'hide' }>Username</Filedlabel>
-                                                <Textfileddone className={form.username ? 'active' : 'hide'}/>
-                                            </Textfiledwrapper>
+                                            <Textfiledcontainer third>
+                                                <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
+                                                    <Textfiledinput type="text"  maxlength="256" name="month" data-name="Month" placeholder="" id="Month"  ref={register({ required: true, max: 12, min: 0})}/>
+                                                    <Filedlabel htmlFor="name" className={ isShown.month ? 'load' : 'hide' }>Month</Filedlabel>
+                                                    <Textfileddone className={form.month ? 'active' : 'hide'}/>
+                                                </Textfiledwrapper>
+                                                {(errors.month) && (
+                                                    <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                        Please choose a username.
+                                                    </FormControl.Feedback>
+                                                )}
+                                            </Textfiledcontainer>
+                                            <Textfiledcontainer third>
+                                                <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
+                                                    <Textfiledinput type="text"  maxlength="256" name="day" data-name="Day" placeholder="" id="Day"  ref={register({ required: true, max: 31, min: 0,  })}/>
+                                                    <Filedlabel htmlFor="name" className={ isShown.day ? 'load' : 'hide' }>Day</Filedlabel>
+                                                    <Textfileddone className={form.day ? 'active' : 'hide'}/>
+                                                </Textfiledwrapper>
+                                                {(errors.day) && (
+                                                    <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                        Please choose a username.
+                                                    </FormControl.Feedback>
+                                                )}
+                                            </Textfiledcontainer>
+                                            <Textfiledcontainer third>
+                                                <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
+                                                    <Textfiledinput type="text"  maxlength="256" name="year" data-name="Year" placeholder="" id="Year"  ref={register({ required: true, max: 2021, min: 1900,  })}/>
+                                                    <Filedlabel htmlFor="name" className={ isShown.year ? 'load' : 'hide' }>Year</Filedlabel>
+                                                    <Textfileddone className={form.year ? 'active' : 'hide'}/>
+                                                </Textfiledwrapper>
+                                                {(errors.year) && (
+                                                    <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                        Please choose a username.
+                                                    </FormControl.Feedback>
+                                                )}
+                                            </Textfiledcontainer>
+                                            <Textfiledcontainer>
+                                                <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
+                                                    <Textfiledinput type="text"  maxlength="256" name="username" data-name="Username" placeholder="" id="Username"  ref={register({ required: true })}/>
+                                                    <Filedlabel htmlFor="name" className={ isShown.username ? 'load' : 'hide' }>Username</Filedlabel>
+                                                    <Textfileddone className={form.username ? 'active' : 'hide'}/>
+                                                </Textfiledwrapper>
+                                                {(errors.year) && (
+                                                    <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                        Please choose a username.
+                                                    </FormControl.Feedback>
+                                                )}
+                                            </Textfiledcontainer>
                                         </React.Fragment>
                                     )}
-                                    <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
-                                        <Textfiledinput type="text"  maxlength="256" name="email" data-name="Email Address" placeholder="" id="Email Address"  ref={register({ required: 'This is required.' })}/>
-                                        <Filedlabel for="name" className={ isShown.email ? 'load' : 'hide' }>Email Address</Filedlabel>
-                                        <Textfileddone className={form.email ? 'active' : 'hide'}/>
-                                    </Textfiledwrapper>
-                                    <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
-                                        <Textfiledinput type={showPassword ? 'text' : 'password'}   maxlength="256" name="password" data-name="Password" placeholder="" id="Password" ref={register({ required: 'This is required.' })}/>
-                                        <Filedlabel for="name" className={ isShown.password ? 'load' : 'hide' }>Password</Filedlabel>
-                                        <Showpassword onClick={handleShowPassword}>
-                                            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} /> 
-                                        </Showpassword>
-                                    </Textfiledwrapper>
+                                    <Textfiledcontainer>
+                                        <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
+                                            <Textfiledinput type="text"  maxlength="256" name="email" data-name="Email Address" placeholder="" id="Email Address"  ref={register({ required: true, pattern: /^\S+@\S+$/i})}/>
+                                            <Filedlabel htmlFor="name" className={ isShown.email ? 'load' : 'hide' }>Email Address</Filedlabel>
+                                            <Textfileddone className={form.email ? 'active' : 'hide'}/>
+                                        </Textfiledwrapper>
+                                        {(errors.email) && (
+                                            <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                Please choose a username.
+                                            </FormControl.Feedback>
+                                        )}
+                                    </Textfiledcontainer>
+                                    <Textfiledcontainer>
+                                        <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
+                                            <Textfiledinput type={showPassword ? 'text' : 'password'}   maxlength="256" name="password" data-name="Password" placeholder="" id="Password" ref={register({ required: true })}/>
+                                            <Filedlabel htmlFor="name" className={ isShown.password ? 'load' : 'hide' }>Password</Filedlabel>
+                                            <Showpassword onClick={handleShowPassword}>
+                                                <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} /> 
+                                            </Showpassword>
+                                        </Textfiledwrapper>
+                                        {(errors.password) && (
+                                            <FormControl.Feedback type="invalid" className={'d-block'}>
+                                                Please choose a username.
+                                            </FormControl.Feedback>
+                                        )}
+                                    </Textfiledcontainer>
                                     </React.Fragment>
                                 </Fieldsgroup>
                             </Formstep>
@@ -141,10 +227,7 @@ const SignUp = () => {
                 <button onClick={switchMode}>
                     { isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }
                 </button>
-                <h1>
-                    {error}
-                </h1>
-            </Form>
+            </Formcomponent>
         </Formblock>
     )
 }

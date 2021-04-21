@@ -3,7 +3,7 @@ import {
   ListGroup,
   ListGroupItem,
   Button,
-} from 'reactstrap';
+} from 'react-bootstrap';
 
 
 import a3 from '../../../assets/people/a3.jpg';

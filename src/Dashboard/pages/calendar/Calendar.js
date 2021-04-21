@@ -22,7 +22,7 @@ export default class Calendar extends React.Component {
     super(props);
     
     this.state = {
-      event: '',
+      popupinput: '',
       calendarWeekends: true,
       calendarEvents: [
         // initial event data
@@ -83,15 +83,16 @@ export default class Calendar extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault()
-    const all = this.state.draggableitem.push({title: this.state.event, icon: 'text-success'})
-    this.setState({...this.state.draggableitem, all});
+    console.log(e)
+    const all = this.state.draggableitem.push({title: this.state.popupinput, icon: 'text-success'})
+    this.setState({...this.state.draggableitem, all, popupinput: ''});
     
   };
   
 
-  Component = (title, icon) => {
+  Component = (title, icon, key) => {
     return (
-    <Draggablevent ref={this.handleAddDraggable} data-event='{ "classNames": ["bg-success", "text-white"], "title": "Make a tea" }' >
+    <Draggablevent key={key} ref={this.handleAddDraggable} data-event='{ "classNames": ["bg-success", "text-white"], "title": "Make a tea" }' >
       <Draggableventinner  className='fc-event'>
         <PageI className={`fas fa-circle ${icon}`} />
         {title}
@@ -151,9 +152,9 @@ export default class Calendar extends React.Component {
             Just drap and drop events from there directly into the calendar.  
           </Pagep>
           <Draggableventslist>
-            {this.state.draggableitem.map((item, index) => this.Component(item.title, item.icon))}
+            {this.state.draggableitem.map((item, index) => this.Component(item.title, item.icon, index))}
           </Draggableventslist>
-          <Popup input={this.handleFormChange} onSubmit={this.handleClick}/>
+          <Popup input={this.handleFormChange} value={this.state} onSubmit={this.handleClick}/>
          
         </Colcomponent>
         <Colcomponent lg={8} md={6} xs={12}>

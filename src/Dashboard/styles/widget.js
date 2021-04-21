@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
-import { Row, Col, Progress, Table, Label, Input } from "reactstrap";
+import { Row, Col, Progress, Table, Label, Input } from "react-bootstrap";
 
 
 export const Section = styled.section`

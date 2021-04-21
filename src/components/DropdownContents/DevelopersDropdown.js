@@ -44,39 +44,34 @@ const DevelopersDropdown = () => {
   return (
     <DevelopersDropdownEl>
       <DropdownSection data-first-dropdown-section>
-          <Flex className={'YEEEEEEEEEEEEEEEEEtttttttttt'}>
-              
-                            <Navdropcontainer>
-                                {MenuItemsBooks.map((item, index) => {
-                                    return (
-                                        <Navcolumn key={index}>
-                                            <Navcard>
-                                                <NavCardObj 
-                                                    name={item.Card.Cardelement1.name} 
-                                                    detail={item.Card.Cardelement1.detail} 
-                                                    imgUrl={item.Card.Cardelement1.imgUrl} 
-                                                />
-                                                <NavCardObj 
-                                                    name={item.Card.Cardelement2.name} 
-                                                    detail={item.Card.Cardelement2.detail} 
-                                                    imgUrl={item.Card.Cardelement2.imgUrl} 
-                                                />
-                                                <NavCardObj 
-                                                    name={item.Card.Cardelement3.name} 
-                                                    detail={item.Card.Cardelement3.detail} 
-                                                    imgUrl={item.Card.Cardelement3.imgUrl} 
-                                                />
-                                            </Navcard>
-                                        </Navcolumn>
-                                    )
-                                })}
-                            </Navdropcontainer>
-            
-            
+          <Flex>
+            <Navdropcontainer>
+                {MenuItemsBooks.map((item, index) => {
+                    return (
+                        <Navcolumn key={index}>
+                            <Navcard>
+                                <NavCardObj 
+                                    name={item.Card.Cardelement1.name} 
+                                    detail={item.Card.Cardelement1.detail} 
+                                    imgUrl={item.Card.Cardelement1.imgUrl} 
+                                />
+                                <NavCardObj 
+                                    name={item.Card.Cardelement2.name} 
+                                    detail={item.Card.Cardelement2.detail} 
+                                    imgUrl={item.Card.Cardelement2.imgUrl} 
+                                />
+                                <NavCardObj 
+                                    name={item.Card.Cardelement3.name} 
+                                    detail={item.Card.Cardelement3.detail} 
+                                    imgUrl={item.Card.Cardelement3.imgUrl} 
+                                />
+                            </Navcard>
+                        </Navcolumn>
+                    )
+                })}
+            </Navdropcontainer>
           </Flex>
-        
       </DropdownSection>
-      
     </DevelopersDropdownEl>
   )
 }

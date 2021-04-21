@@ -23,7 +23,7 @@ export const Formblock = styled.div`
 `
 
 
-export const Form = styled.form`
+export const Formcomponent = styled.form`
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -122,10 +122,21 @@ export const Fieldsgroup = styled.div`
     align-items: stretch;
 `
 
+export const Textfiledcontainer = styled.div`
+    display: block;
+    width: 48%;
+    margin-bottom: 20px;
+    width: ${({half, third}) => (half ? '48%' : third ? '31%' : '100%')};
+
+    @media screen and (max-width: 479px)
+    {
+        width: ${({half, third}) => (half ? '100%' : third ? '31%' : '100%')};
+    }
+`
+
 export const Textfiledwrapper = styled.div`
     position: relative;
     display: flex;
-    margin-bottom: 20px;
     padding: 19px 2px 15px;
     justify-content: space-between;
     align-items: center;
@@ -133,13 +144,7 @@ export const Textfiledwrapper = styled.div`
     text-align: left;
     box-sizing: inherit;
     min-width: 136px;
-
-    width: ${({half, third}) => (half ? '48%' : third ? '31%' : '100%')};
-
-    @media screen and (max-width: 479px)
-    {
-        width: ${({half, third}) => (half ? '100%' : third ? '31%' : '100%')};
-    }
+    width: 100%;
 `
 
 

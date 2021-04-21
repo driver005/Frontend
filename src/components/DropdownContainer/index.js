@@ -80,7 +80,7 @@ class DropdownContainer extends Component {
           <Caret />
         </Flipped>
         <Flipped flipId="dropdown">
-          <DropdownBackground className={'YYYYYYYYYEEEEE'}>
+          <DropdownBackground>
             <Flipped inverseFlipId="dropdown">
               <InvertedDiv>
                 <AltBackground

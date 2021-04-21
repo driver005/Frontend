@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   ListGroup
-} from 'reactstrap';
+} from 'react-bootstrap';
 import classnames from 'classnames';
 import NotificationsDemo from './notifications-demo/Notifications';
 import NewNotificationsDemo from './notifications-demo/NewNotifications';
@@ -67,9 +67,9 @@ class Notifications extends React.Component {
             <Headerstrong>You have 13 notifications</Headerstrong>
           </Headerdiv>
           <Buttongroup >
-            <Buttoncomponent outline color="default" size="sm" onClick={() => this.changeNotificationsTab(1)} active={this.state.notificationsTabSelected === 1}>Notifications</Buttoncomponent>
-            <Buttoncomponent outline color="default" size="sm" onClick={() => this.changeNotificationsTab(2)} active={this.state.notificationsTabSelected === 2}>Messages</Buttoncomponent>
-            <Buttoncomponent outline color="default" size="sm" onClick={() => this.changeNotificationsTab(3)} active={this.state.notificationsTabSelected === 3}>Progress</Buttoncomponent>
+            <Buttoncomponent variant="outline-primary" size="sm" onClick={() => this.changeNotificationsTab(1)} active={this.state.notificationsTabSelected === 1}>Notifications</Buttoncomponent>
+            <Buttoncomponent variant="outline-primary" size="sm" onClick={() => this.changeNotificationsTab(2)} active={this.state.notificationsTabSelected === 2}>Messages</Buttoncomponent>
+            <Buttoncomponent variant="outline-primary" size="sm" onClick={() => this.changeNotificationsTab(3)} active={this.state.notificationsTabSelected === 3}>Progress</Buttoncomponent>
           </Buttongroup>
         </Header>
         {this.state.newNotifications || notificationsTab}

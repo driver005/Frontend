@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
-import { Collapse, Badge } from 'reactstrap';
+import { Collapse, Badge } from 'react-bootstrap';
 import { Route } from 'react-router';
 import classnames from 'classnames';
 import { A, Li, Linkspan, Navlink, Linka, B, Collapsecomponent } from '../../../styles/sidebar';
@@ -120,7 +120,7 @@ class LinksGroup extends Component {
                 <B className={["fa fa-angle-right"].join(' ')} />
               </Linka>
               {/* eslint-enable */}
-              <Collapsecomponent isOpen={isOpen}>
+              <Collapsecomponent in={isOpen}>
                 <ul>
                   {this.props.childrenLinks &&
                     this.props.childrenLinks.map((child, ind) =>

@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
-import { Popover, PopoverHeader, PopoverBody, Tooltip, Col, Row} from 'reactstrap';
+import { Popover, Tooltip, Col, Row} from 'react-bootstrap';
 import FullCalendar from "@fullcalendar/react";
 
 export const Calendercomponent = styled.div`
@@ -183,7 +183,7 @@ export const Calendardot = styled.span`
 `
 
 
-export const Popovercomponent = styled(Popover)`
+export const Popovercomponent = styled(Popover )`
     &.show {
         display: block!important;
     }
@@ -290,7 +290,7 @@ export const Popovercomponent = styled(Popover)`
 `
 
 
-export const Popoverheader = styled(PopoverHeader)`
+export const Popoverheader = styled(Popover.Title)`
     padding: .5rem .75rem;
     margin-bottom: 0;
     margin-top: 0;
@@ -305,7 +305,7 @@ export const Popoverheader = styled(PopoverHeader)`
     line-height: 1.2;
 `
 
-export const Popoverbody = styled(PopoverBody)`
+export const Popoverbody = styled(Popover.Content)`
     padding: .5rem .75rem;
     color: #29323a;
 `

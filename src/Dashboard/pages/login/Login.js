@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, Alert, Button, FormGroup, Label, InputGroup, InputGroupAddon, Input, InputGroupText } from 'reactstrap';
+import { Container, Alert, Button, FormGroup, Form, Label, InputGroup, InputGroupAddon, Input, InputGroupText } from 'react-bootstrap';
 import Widget from '../../components/Widget/Widget';
 import { loginUser } from '../../../actions/user';
 import microsoft from '../../assets/microsoft.png';
@@ -64,7 +64,7 @@ class Login extends React.Component {
                         <p className="widget-auth-info">
                             Use your email to sign in.
                         </p>
-                        <form onSubmit={this.doLogin}>
+                        <Form onSubmit={this.doLogin}>
                             {
                                 this.props.errorMessage && (
                                     <Alert className="alert-sm widget-middle-overflow rounded-0" color="danger">
@@ -72,38 +72,38 @@ class Login extends React.Component {
                                     </Alert>
                                 )
                             }
-                            <FormGroup className="mt">
-                                <Label for="email">Email</Label>
+                            <Form.Group className="mt">
+                                <Form.Label htmlFor="email">Email</Form.Label>
                                 <InputGroup className="input-group-no-border">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText>
+                                    <InputGroup.Prepend addontype="prepend">
+                                        <InputGroup.Text>
                                             <i className="la la-user text-white"/>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input id="email" className="input-transparent pl-3" value={this.state.email} onChange={this.changeEmail} type="email"
-                                           required name="email" placeholder="Email"/>
+                                        </InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control id="email" className="input-transparent pl-3" value={this.state.email} onChange={this.changeEmail} type="email"
+                                        required name="email" placeholder="Email"/>
                                 </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="password">Password</Label>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="password">Password</Form.Label>
                                 <InputGroup className="input-group-no-border">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText>
+                                    <InputGroup.Prepend addontype="prepend">
+                                        <InputGroup.Text>
                                             <i className="la la-lock text-white"/>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input id="password" className="input-transparent pl-3" value={this.state.password}
-                                           onChange={this.changePassword} type="password"
-                                           required name="password" placeholder="Password"/>
+                                        </InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control id="password" className="input-transparent pl-3" value={this.state.password}
+                                        onChange={this.changePassword} type="password"
+                                        required name="password" placeholder="Password"/>
                                 </InputGroup>
-                            </FormGroup>
+                            </Form.Group>
                             <div className="bg-widget auth-widget-footer">
                                 <Button type="submit" color="danger" className="auth-btn"
                                         size="sm" style={{color: '#fff'}}>
-                                  <span className="auth-btn-circle" style={{marginRight: 8}}>
-                                    <i className="la la-caret-right"/>
-                                  </span>
-                                  {this.props.isFetching ? 'Loading...' : 'Login'}
+                                    <span className="auth-btn-circle" style={{marginRight: 8}}>
+                                        <i className="la la-caret-right"/>
+                                    </span>
+                                    {this.props.isFetching ? 'Loading...' : 'Login'}
                                 </Button>
                                 <p className="widget-auth-info mt-4">
                                     Don't have an account? Sign up now!
@@ -121,7 +121,7 @@ class Login extends React.Component {
                                     </Button>
                                 </div>
                             </div>
-                        </form>
+                        </Form>
                     </Widget>
                 </Container>
                 <footer className="auth-footer">

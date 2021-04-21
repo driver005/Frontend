@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Row, Col } from "reactstrap";
+import { Row, Col } from "react-bootstrap";
 
 import Widget from "../../../components/Widget/Widget";
 import ApexChart from "react-apexcharts";

@@ -12,8 +12,13 @@ import AlertTemplate from 'react-alert-template-basic'
 import Dashboard from "./Dashboard";
 import { useDispatch } from 'react-redux'
 import decode from 'jwt-decode';
+import { ToastContainer } from 'react-toastify';
+import ApolloProvider from './ApolloProvider'
+import { useHistory } from "react-router-dom";
+
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
+const CloseButton = ({closeToast}) => <i onClick={closeToast} className="fas fa-times"/>
 
 const options = {
   // you can also just use 'bottom center'
@@ -29,11 +34,12 @@ const options = {
 
 const PrivateRoute = ({component, ...rest }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
 
-    return (<Redirect push to="/sign-up"/>)
+    return history.push("/sign-up")
   };
 
   if (!JSON.parse(localStorage.getItem('profile'))) {
@@ -51,15 +57,20 @@ const PrivateRoute = ({component, ...rest }) => {
 };
 
 ReactDOM.render(
-  <AlertProvider template={AlertTemplate} {...options}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ApolloProvider>
+      <ToastContainer
+        autoClose={5000}
+        hideProgressBar
+        closeButton={<CloseButton/>}
+      />
       <Router>
           <Switch>
             <Route path='/' exact component={App} />
             <Route path='/sign-up' exact component={SignUp} />
-            <PrivateRoute path='/dash' exact component={Dashboard} />
+            <PrivateRoute path='/dash/' component={Dashboard} />
           </Switch>   
       </Router>
-    </Provider>
-  </AlertProvider>
+      </ApolloProvider>
+  </Provider>
   , document.querySelector("#root"))
