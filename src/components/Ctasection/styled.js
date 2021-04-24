@@ -85,7 +85,7 @@ export const Newsletterblock = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    background-color: #813efb;
+    background-color: #3d03a6;
 
     @media screen and (max-width: 991px)
     {

@@ -250,7 +250,7 @@ export const Iconblock = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background-color: #813efb;
+    background-color: #3d03a6;
 `
 
 export const Iconblockimg = styled.img`

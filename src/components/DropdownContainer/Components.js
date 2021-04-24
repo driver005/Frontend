@@ -35,7 +35,7 @@ export const Caret = styled.div`
   height: 0;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent var(--white);
+  border-color: transparent transparent #303436;
   /* make sure it's above the main dropdown container so now box-shadow bleeds over it */
   z-index: 1;
   position: relative;
@@ -45,7 +45,7 @@ export const Caret = styled.div`
 
 export const DropdownBackground = styled.div`
   transform-origin: 0 0;
-  background-color: var(--white);
+  background-color: #181a1b;
   border-radius: 4px;
   overflow: hidden;
   display: flex;

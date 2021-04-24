@@ -65,12 +65,12 @@ const Newsletterfield = styled.input`
     margin-bottom: 10px;
     font-size: 14px;
     line-height: 1.42857143;
-    background-color: #ffffff;
+    background-color: #181a1b;
     margin-right: 12px;
     margin-bottom: 0px;
     padding-left: 27px;
     border-radius: 100px;
-    color: #17171b;
+    color: #d8d5d0;
     font-size: 15px;
     justify-content: center;
     align-items: center;
@@ -98,8 +98,8 @@ const Sendbutton = styled.button`
     padding: 16px 45px;
     border-radius: 100px;
     border: none;
-    background-color: ${({primary}) => (primary ? '#4B59F7' : '#fff') };
-    color: #17171b;
+    background-color: ${({primary}) => (primary ? '#4B59F7' : '#181a1b') };
+    color: #d8d5d0;
     font-size: 15px;
     line-height: 21px;
 

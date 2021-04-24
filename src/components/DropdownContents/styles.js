@@ -142,7 +142,7 @@ export const Navdropcontainer = styled.div`
     max-width: 1400px;
     margin-right: auto;
     margin-left: auto;
-    background-color: #fff;
+    background-color: #181a1b;
 ` 
 
 
@@ -167,12 +167,16 @@ export const Dropdownlink = styled.a`
     display: flex;
     
     padding: 20px 22px 16px;
-    color: rgb(40, 51, 56);
+    color: #cac5be;
     font-size: 16px;
     text-decoration: none;
+    box-shadow: none;
 
     &:hover {
-        background-color: #f8faff;
+        //background-color: #f8faff;
+        color: #5847f5 !important;
+        outline: 1px solid #5847f5;
+        //box-shadow: 0 0 0 1px #5847f5;
     }
 `
 
@@ -202,7 +206,7 @@ export const Navcontentwarp = styled.div`
 
 
 export const Navlinkdetails = styled.div`
-    color: rgba(40, 51, 56, 0.6);
+    color: #cac5be99;
     font-size: 14px;
 `
 
