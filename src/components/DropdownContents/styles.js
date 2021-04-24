@@ -2,7 +2,6 @@ import styled, { keyframes, css } from 'styled-components'
 
 
 export const Navcolumn = styled.div`
-    width: 25%;
     padding: 25px 15px;
     display: flex;
     justify-content: center;
@@ -149,7 +148,7 @@ export const Navdropcontainer = styled.div`
 
 export const Navcard = styled.div`
     display: flex;
-    min-height: 250px;
+    min-width: 120px;
     flex-direction: column;
     align-items: flex-start;
     border-radius: 25px;
@@ -158,7 +157,7 @@ export const Navcard = styled.div`
 
 export const Navcard2 = styled.div`
     display: flex;
-    min-height: 250px;
+    min-width: 170px;
     flex-direction: column;
     align-items: flex-start;
     border-radius: 25px;

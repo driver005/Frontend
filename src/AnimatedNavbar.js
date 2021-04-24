@@ -6,12 +6,13 @@ import DropdownContainer from "./components/DropdownContainer"
 import CompanyDropdown from "./components/DropdownContents/CompanyDropdown"
 import DevelopersDropdown from "./components/DropdownContents/DevelopersDropdown"
 import ProductsDropdown from "./components/DropdownContents/ProductsDropdown"
-
+import LinksDropdown from './components/DropdownContents/Importantslinks'
 
 const navbarConfig = [
-  { title: "Products", dropdown: ProductsDropdown },
-  { title: "Developers", dropdown: DevelopersDropdown },
-  { title: "Company", dropdown: CompanyDropdown }
+  //{ title: "Products", dropdown: ProductsDropdown },
+  { title: "Services", dropdown: DevelopersDropdown },
+  //{ title: "Company", dropdown: CompanyDropdown },
+  { title: "Links", dropdown: LinksDropdown }
 ]
 
 export default class AnimatedNavbar extends Component {

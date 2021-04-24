@@ -1,7 +1,5 @@
 import React from "react";
 import Warpper from './Wrapper';
-//import Popup from "reactjs-popup";
-import { Popup } from "../../styles/popup";
 import {
   Modal,
   Button

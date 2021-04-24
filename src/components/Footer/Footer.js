@@ -23,16 +23,18 @@ import {
 const Footer = () => {
     return (
         <FooterContainer>
-            <FooterSubscription>
-                <FooterSubHeading>
-                    Join our exclusiv membership to
-                    receive the latest news and ternds
-                </FooterSubHeading>
-                <FooterSubText>
-                    You can unsubscibe at any time.
-                </FooterSubText>
-                <Newsletter primary/>
-            </FooterSubscription>
+            {
+                // <FooterSubscription>
+                //     <FooterSubHeading>
+                //         Join our exclusiv membership to
+                //         receive the latest news and ternds
+                //     </FooterSubHeading>
+                //     <FooterSubText>
+                //         You can unsubscibe at any time.
+                //     </FooterSubText>
+                //     <Newsletter primary/>
+                // </FooterSubscription>
+            }
                 <FooterLinksContainer>
                 <FooterLinksWrapper>
                     <FooterLinkItems>

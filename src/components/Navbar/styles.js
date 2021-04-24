@@ -112,9 +112,10 @@ export const Navigationright = styled.nav`
         display: none;
     }
 `
-export const Navigationlink = styled.div`
+export const Navigationlink = styled.a`
     display: flex;
     padding: 20px 12px;
+    color: #fff;
     ${position}
     ${font}
     

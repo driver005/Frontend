@@ -31,7 +31,6 @@ export const Headerroot = styled(Navbar)`
     padding: .9rem 40px;
     
     @media (max-width: ${variables.sm}) {
-        margin-bottom: 50px;
         font-size: 1.25rem;
         padding: .9rem 15px;
     }
@@ -46,7 +45,7 @@ export const Alert = styled(UncontrolledAlert)`
     height: 30px;
     display: block;
     position: relative;
-    margin-right: 3rem!important;
+    padding-right: 0rem!important;
     transition: margin-top 0.2s ease;
     background: ${variables.texttransparent};
     border: none;
@@ -56,10 +55,6 @@ export const Alert = styled(UncontrolledAlert)`
     padding: 5px 8px;
     top: 8px;
     
-    
-    &.show {
-        display: block;
-    }
     
     &.show {
         display: block;
@@ -89,11 +84,10 @@ export const Alert = styled(UncontrolledAlert)`
         padding: 0;
         position: static;
         color: #3979f6;
-        margin-left: 5px;
+        margin: 2px 5px;
         font-weight: 400;
         font-size: 18px!important;
-        right: 5px!important;
-        
+        right: 5px!important;        
     }
     button > svg {
         vertical-align: bottom;
@@ -132,18 +126,14 @@ export const Searchcollapse = styled(Collapse)`
     }
 
     &.show {
-        display: block;
+        display: contents;
     }
 
-    @media (max-width: ${variables.sm}) {
+    @media (max-width: ${variables.me}) {
         display: none;
-        position: absolute!important;
-        top: 60px;
-        left: 0;
-        right: 0;
 
         &.collapse {
-            display: block;
+            display: contents;
         }
 
         .navbarForm {
@@ -152,14 +142,13 @@ export const Searchcollapse = styled(Collapse)`
         }
     }
 
-    @media (min-width: 991.98px)
-    {
-    display: none!important;
+    @media (max-width: 800px) {
+        display: none!important;
     }
 
-
-
-    
+    @media (min-width: 991.98px){
+        display: none!important;
+    }    
 `
 
 export const Span = styled.span`
@@ -240,7 +229,7 @@ export const Navbarform = styled(InputGroup)`
 
     input {
         font-size: 13px;
-        color: $white;
+        color: white;
         background-color: transparentize(${variables.texttransparent}, 0.1);
         border: none;
         padding: 0.6rem 0.85rem 0.6rem 0;

@@ -2,65 +2,76 @@ import React from 'react'
 import { Containerflex, Contenth2, Featuressection, H2span, Leftblur, Paragraph, Rightblur, Titlewrap } from './styles'
 import Wrap from './Wrap'
 
+import Leftblurnormal from '../../images/features/left_blur.png'
+import Leftblur500 from '../../images/features/left_blur500.png'
+import Leftblur800 from '../../images/features/left_blur800.png'
+import Leftblur1080 from '../../images/features/left_blur1080.png'
+import Leftblur1244 from '../../images/features/left_blur1244.png'
 
+import example from '../../images/features/example-01.svg'
+import brush from '../../images/features/brush-01.svg'
+
+import Rightblurnormal from '../../images/features/right_blur.png'
+import Rightblur500 from '../../images/features/right_blur500.png'
+import Rightblur591 from '../../images/features/right_blur591.png'
 
 const Features = () => {
     return (
         <Featuressection>
             <Leftblur 
-                src="https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098632b28d0c36_Left%20Blur%402x.png" 
+                src={Leftblurnormal}
                 width="424" 
                 sizes="(max-width: 479px) 100vw, 424px" 
-                srcset="
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098632b28d0c36_Left%2520Blur%25402x-p-500.png 500w, 
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098632b28d0c36_Left%2520Blur%25402x-p-800.png 800w, 
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098632b28d0c36_Left%2520Blur%25402x-p-1080.png 1080w, 
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098632b28d0c36_Left%20Blur%402x.png 1244w" 
+                srcset={`
+                    ${Leftblur500} 500w, 
+                    ${Leftblur800} 800w, 
+                    ${Leftblur1080} 1080w, 
+                    ${Leftblur1244} 1244w`}
                     alt="" 
             />
             <Containerflex>
                 <Titlewrap>
                     <Contenth2>
-                        {"Build products with "}
-                        <H2span>{"impact"}</H2span>
+                        {"Compete in Robotis "}
+                        <H2span>{"Olympics"}</H2span>
                     </Contenth2>
                 </Titlewrap>
                 <Paragraph>
-                    {"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum, tellus sed imperdiet sodales, dui diam accumsan lorem"}
+                    {"Test your skills in competition where robots solve world changing tasks"}
                 </Paragraph>
                 <Wrap 
-                    overline={"CUSTOM SECTIONS"} 
-                    title_1={"Perfect base template"} 
-                    title_2={"for creatives & startups"}
-                    paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum, tellus sed imperdiet sodales, dui diam accumsan lorem"}
-                    image={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098636e68d0c25_dashboard-01.svg"}
-                    ribbon={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098619d48d0c1a_brush-3.svg"}
+                    overline={"Competition Info"} 
+                    title_1={"WRO in cooperation"} 
+                    title_2={"with the robotic club"}
+                    paragraph={" Learn the basic of programming with the easy software of Lego Mindstorms and compete in an world width Olympiad"}
+                    image={example}
+                    ribbon={brush}
                 />
                 <Wrap 
                     className={"reverse-wrap"}
-                    overline={"CUSTOM SECTIONS"} 
-                    title_1={"Perfect base template"} 
-                    title_2={"for creatives & startups"}
-                    paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum, tellus sed imperdiet sodales, dui diam accumsan lorem"}
-                    image={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098636e68d0c25_dashboard-01.svg"}
-                    ribbon={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098619d48d0c1a_brush-3.svg"}
+                    overline={"Competition Info"} 
+                    title_1={"KI competition"} 
+                    title_2={"BW-KI"}
+                    paragraph={"Support your dream with Ai and test your programming skills in a competition from the federal state Baden-Württemberg"}
+                    image={example}
+                    ribbon={brush}
                 />
                 <Wrap 
-                    overline={"CUSTOM SECTIONS"} 
-                    title_1={"Perfect base template"} 
-                    title_2={"for creatives & startups"}
-                    paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum, tellus sed imperdiet sodales, dui diam accumsan lorem"}
-                    image={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098636e68d0c25_dashboard-01.svg"}
-                    ribbon={"https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098619d48d0c1a_brush-3.svg"}
+                    overline={"Competition Info"} 
+                    title_1={"Robotic competition"} 
+                    title_2={"VEX Robotics"}
+                    paragraph={"VEX Robotics is also a world width competition like the WRO with huge robots who need to push obstacles over an 2m game board controlled by the player"}
+                    image={example}
+                    ribbon={brush}
                 />
             </Containerflex>
             <Rightblur 
-                src="https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d80986b7e78d0c31_Right%20Blur.png" 
+                src={Rightblurnormal}
                 width="424" 
                 sizes="(max-width: 479px) 100vw, 424px" 
-                srcset="
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d80986b7e78d0c31_Right%2520Blur-p-500.png 500w, 
-                    https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d80986b7e78d0c31_Right%20Blur.png 591w"
+                srcset={`
+                    ${Rightblur500} 500w, 
+                    ${Rightblur591} 591w`}
                     alt=""
             />
         </Featuressection>

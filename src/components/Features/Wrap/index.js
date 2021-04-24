@@ -7,7 +7,7 @@ const Wrap = (props) => {
 
     const handleChange = e => {
         if(e){
-          setIsShown(true)
+            setIsShown(true)
         }  
     };
 

@@ -7,30 +7,16 @@ import { reducers } from './reducers';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { transitions, positions, types, Provider as AlertProvider, } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
 import Dashboard from "./Dashboard";
+import Confirm from './Confirm'
 import { useDispatch } from 'react-redux'
 import decode from 'jwt-decode';
 import { ToastContainer } from 'react-toastify';
 import ApolloProvider from './ApolloProvider'
 import { useHistory } from "react-router-dom";
 
-
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 const CloseButton = ({closeToast}) => <i onClick={closeToast} className="fas fa-times"/>
-
-const options = {
-  // you can also just use 'bottom center'
-  position: positions.TOP_LEFT,
-  timeout: 5000,
-  offset: '30px',
-  type: types.ERROR,  
-  // you can also just use 'scale'
-  transition: transitions.SCALE
-}
-
-
 
 const PrivateRoute = ({component, ...rest }) => {
   const dispatch = useDispatch();
@@ -66,6 +52,7 @@ ReactDOM.render(
       />
       <Router>
           <Switch>
+            <Route exact path='/confirm/:id' component={Confirm} />
             <Route path='/' exact component={App} />
             <Route path='/sign-up' exact component={SignUp} />
             <PrivateRoute path='/dash/' component={Dashboard} />

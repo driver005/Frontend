@@ -1,46 +1,47 @@
+import { BsChatSquare, FcTodoList, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, AiOutlinePrinter } from 'react-icons/all'
+import moodle from '../../../images/moodle.svg'
 export const ServiceItemsBooks = [
                 {
-                    title: "Interface Design",
-                    paragrap: "A pseudo-Latin text used in web design, layout, and printing.",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "Dashboard",
+                    paragrap: "In early construction",
+                    icon: <BiHomeAlt size="22" color={'white'} />,
                 },
                 {
-                    title: "Interface Design",
-                    paragrap: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "3d printers",
+                    paragrap: "With over 5 3d printers and 9 more to come. You can take our 3d model into reality",
+                    icon: <AiOutlinePrinter size="22" color={'white'} />,
                 },
                 {
-                    title: "Interface Design",
-                    paragrap: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "Jitsi",
+                    paragrap: "Join our Jitsi server over the Dashboard",
+                    icon: <BiVideo size="22" color={'white'} />,
                 },
                 {
-                    title: "Interface Design",
-                    paragrap: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
-                },
-                 {
-                    title: "Interface Design",
-                    paragrap: "A pseudo-Latin text used in web design, layout, and printing.",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "Moodle",
+                    paragrap: "Moodle server is under construction",
+                    imgUrl: moodle,
                 },
                 {
-                    title: "Interface Design",
-                    paragrap: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "Chat",
+                    paragrap: "Chat with your friends and make great plans",
+                    icon: <BsChatSquare size="22" color={'white'} />,
                 },
                 {
-                    title: "Interface Design",
-                    paragrap: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098625b48d0c17_cursor.svg",
+                    title: "Todolist",
+                    paragrap: "Plan your day and by more organized",
+                    icon: <FcTodoList size="22" color={'white'} />,
+                },
+                {
+                    title: "Posts",
+                    paragrap: "Blog your story and tell our friends about what you did or crazy events",
+                    icon: <FaBlog size="22" color={'white'} />,
                 },
                 {
                     title_1: "See how we",
                     title_2: "can help you.",
-                    paragrap: "Explore and learn",
                     buttonText: "Get started",
-                    buttonUrl: "/",
-                    tag10: "Minimal $1,000 project",
+                    buttonUrl: "/dash",
+                    tag10: "In early beta",
                     titleclassName: "service-title-centre"
                 }
 

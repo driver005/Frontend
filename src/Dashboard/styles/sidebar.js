@@ -19,12 +19,8 @@ export const Nav = styled.nav`
     transform: translateX(-200px);
 
     @media (max-width: ${variables.sm}) {
-        position: static!important;
-        width: 100%;
         margin-left: 0;
-        padding: 0 15px;
-        height: 0;
-        transform: none;
+        padding: 0px;
     }
 
     &.sidebar-right {

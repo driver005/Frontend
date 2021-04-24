@@ -1,79 +1,63 @@
+import { BsChatSquare, FcTodoList, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite } from 'react-icons/all'
 
 export const MenuItemsBooks = [
     {
         Card: {
                 Cardelement1: {
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Dashboard",
+                    detail: "Click and learn",
+                    icon: <BiHomeAlt size="18" />,
+                    href: "/dash/app/main/dashboard"
                 },
                 Cardelement2:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Todolist",
+                    detail: "Click and learn",
+                    icon: <FcTodoList size="18" />,
+                    href: "/dash/app/todolist"
                 },
-                Cardelement3:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
-                }
         }
     },
     {
         Card: {
                 Cardelement1: {
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Calender",
+                    detail: "Click and learn",
+                    icon: <BsCalendar size="18" />,
+                    href: "/dash/app/calendar"
                 },
                 Cardelement2:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Chat",
+                    detail: "Click and learn",
+                    icon: <BsChatSquare size="18" />,
+                    href: "/dash/app/chat"
                 },
-                Cardelement3:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
-                }
         }
     },
     {
         Card: {
                 Cardelement1: {
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Jitsi",
+                    detail: "Click and learn",
+                    icon: <BiVideo size="18" />,
+                    href: "/dash/app/jitsi"
                 },
                 Cardelement2:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Post",
+                    detail: "Click and learn",
+                    icon: <FaBlog size="18" />,
+                    href: "/dash/app/posts"
                 },
-                Cardelement3:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
-                }
         }
     },
     {
         Card: {
                 Cardelement1: {
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
+                    name: "Quiz",
+                    detail: "Click and learn",
+                    icon: <FaRegListAlt size="18" />,
+                    href: "/dash/app/quiz"
                 },
-                Cardelement2:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
-                },
-                Cardelement3:{
-                    name: "The Giver of Stars",
-                    detail: "Explore and learn",
-                    imgUrl: "https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abfec9ff10b7176b2f189_The%20Giver%20of%20Stars%20_%20A%20Reese%20Witherspoon%20Bookclub%20Pick%20-%20Jojo%20Moyes-p-130x130q80.jpeg",
-                }
+                
         }
     },
     

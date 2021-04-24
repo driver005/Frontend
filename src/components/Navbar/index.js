@@ -91,20 +91,22 @@ const Navbar = (props) => {
                   </Logo>
               </Brand>
               <Navigationleft>
-                  <Navigationlink>Company</Navigationlink>
+                  <Navigationlink href={"/dash"}>Dashboard</Navigationlink>
                   {props.children}
-                  <Navigationlink>Partnership</Navigationlink>
+                  <Navigationlink href={"https://www.vdi.de/"}>VDI</Navigationlink>
               </Navigationleft>
               <Navigationright>
               {user?.info.user ? (
                 <>
                   <Avatar className={classes.purple} alt={user?.info.user.name} src={user?.info.user.imageUrl}>{user?.info.user.name.charAt(0)}</Avatar>
-                  <Typography className={classes.userName} variant="h6">{user?.info.user.name}</Typography>
+                  <Typography className={`${classes.userName}`} variant="h6">{user?.info.user.name}</Typography>
                   <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                 </>
               ) : (
                   <>
-                    <Navlink href={"/login"}>Login</Navlink>
+                    {
+                    //  <Navlink href={"/dash"}>Dashboard</Navlink>
+                    }
                     <Navbutton href={"/sign-up"}>Sign Up</Navbutton>
                   </>
                   )}

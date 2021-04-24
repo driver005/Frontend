@@ -7,8 +7,8 @@ import {
   HeadingLink,
   LinkList
 } from "./Components"
-import { MenuItemsBooks } from "./Items/books"
-import { Dropdownlink, Iconsquare, Menutitle, Navcard, Navcolumn, Navcontentimg, Navcontentwarp, Navdropcontainer, Navlinkdetails, Navlistwrapper, Navlist } from "./styles"
+import { MenuItemsBooks } from "./Items/links"
+import { Dropdownlink, Iconsquare, Menutitle, Navcard, Navcolumn, Navcontentimg, Navcontentwarp, Navdropcontainer, Navlinkdetails, Navlistwrapper, Navlist, Navcard2 } from "./styles"
 
 const DevelopersDropdownEl = styled.div`
   
@@ -22,12 +22,10 @@ const Flex = styled.div`
 `
 
 function NavCardObj(props) {
-  console.log(props)
   return (
-      <Dropdownlink href={props.href}>
+      <Dropdownlink href={props.href} target="_blank" rel="noopener noreferrer">
           <Iconsquare>
-              {props.imgUrl && <Navcontentimg src={props.imgUrl} />}
-              {props.icon && <React.Fragment>{props.icon}</React.Fragment>}
+              <Navcontentimg src={props.imgUrl} />
           </Iconsquare>
           <Navcontentwarp>
               <Menutitle>{props.name}</Menutitle>
@@ -39,7 +37,7 @@ function NavCardObj(props) {
   )
 }
 
-const DevelopersDropdown = () => {
+const LinksDropdown = () => {
   return (
     <DevelopersDropdownEl>
       <DropdownSection data-first-dropdown-section>
@@ -48,13 +46,12 @@ const DevelopersDropdown = () => {
             {MenuItemsBooks.map((item, index) => {
                   return (
                     <Navcolumn key={index}>
-                        <Navcard>
+                        <Navcard2>
                             {item.Card.Cardelement1 && (
                             <NavCardObj
                                 name={item.Card.Cardelement1.name} 
                                 detail={item.Card.Cardelement1.detail} 
                                 imgUrl={item.Card.Cardelement1.imgUrl}
-                                icon={item.Card.Cardelement1?.icon}
                                 href={item.Card.Cardelement1?.href}
                             />
                             )}
@@ -63,7 +60,6 @@ const DevelopersDropdown = () => {
                                 name={item.Card.Cardelement2.name} 
                                 detail={item.Card.Cardelement2.detail} 
                                 imgUrl={item.Card.Cardelement2.imgUrl} 
-                                icon={item.Card.Cardelement2?.icon}
                                 href={item.Card.Cardelement2?.href}
                             />
                             )}
@@ -72,11 +68,10 @@ const DevelopersDropdown = () => {
                                 name={item.Card.Cardelement3.name} 
                                 detail={item.Card.Cardelement3.detail} 
                                 imgUrl={item.Card.Cardelement3.imgUrl}
-                                icon={item.Card.Cardelement3?.icon}
                                 href={item.Card.Cardelement3?.href} 
                             />
                             )}
-                        </Navcard>
+                        </Navcard2>
                     </Navcolumn>  
                   )
               })}
@@ -87,4 +82,4 @@ const DevelopersDropdown = () => {
   )
 }
 
-export default DevelopersDropdown
+export default LinksDropdown

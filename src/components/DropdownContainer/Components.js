@@ -49,7 +49,7 @@ export const DropdownBackground = styled.div`
   border-radius: 4px;
   overflow: hidden;
   display: flex;
-  min-width: 150%;
+  min-width: 122%;
   
   
   position: relative;

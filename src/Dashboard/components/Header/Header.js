@@ -202,7 +202,8 @@ class Header extends React.Component {
             onClick={this.toggleSettingsDropdown}
           >
             <Headericon />
-          </Alertbutton>{" "}on the right!
+          </Alertbutton>
+          {" "}on the right!
         </Alert>
         <Searchcollapse
           className={` ml-lg-0 mr-md-`}

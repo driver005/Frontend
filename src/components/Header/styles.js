@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components'
-
+import hero from '../../images/hero_bloom.png'
 const img = `
     max-width: 100%;
     vertical-align: middle;
@@ -56,7 +56,7 @@ export const Headercontainer = styled.header`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-image: url("https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098694188d0c32_hero-bloom.png");
+    background-image: url(${hero});
     background-position: 0% 0%;
     background-size: cover;
     background-repeat: no-repeat;

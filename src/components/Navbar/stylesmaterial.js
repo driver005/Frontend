@@ -33,6 +33,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '0px 20px',
     color: '#c2d6e0',
+    marginLeft: '-10px !important'
   },
   brandContainer: {
     display: 'flex',

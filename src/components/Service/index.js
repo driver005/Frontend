@@ -8,7 +8,7 @@ const Service = () => {
 
     const handleChange = e => {
         if(e){
-          setIsShown(true)
+            setIsShown(true)
         }  
     };
     return (
@@ -17,7 +17,7 @@ const Service = () => {
                 <Titlewrap>
                     <Contenth2>
                         {"Services that "}
-                        <H2span>{"drive success"}</H2span>
+                        <H2span>{"you can use"}</H2span>
                     </Contenth2>
                 </Titlewrap>
                 <Observer
@@ -42,7 +42,8 @@ const Service = () => {
                                 return (
                                     <Servicegridblock key={index} className={ isShown ? 'load' : 'hide' } >
                                         <Iconblock>
-                                            <Iconblockimg src={item.imgUrl}/>
+                                        {item.imgUrl && <Iconblockimg src={item.imgUrl} />}
+                                        {item.icon && <React.Fragment>{item.icon}</React.Fragment>}
                                         </Iconblock>
                                         <Servicetitle>{item.title}</Servicetitle>
                                         <Serviceparagraph>{item.paragrap}</Serviceparagraph>

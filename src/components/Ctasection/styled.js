@@ -121,8 +121,8 @@ export const Overline = styled.div`
     background-attachment: scroll !important;
     margin-top: 0px;
     margin-bottom: 16px;
-    color: #813efb;
-    font-size: 14px;
+    color: #bc97ff;
+    font-size: medium;
     font-weight: 500;
     letter-spacing: 1.5px;
 `

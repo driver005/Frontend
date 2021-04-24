@@ -27,3 +27,6 @@ export const createTask = (formData) => API.post('/api/tasks/', formData)
 export const deleteallTask = () => API.delete(`/api/tasks/all`)
 export const updateTask = (id, updatedTask) => API.patch(`/api/tasks/${id}`, updatedTask)
 export const deleteTask = (id) => API.delete(`/api/tasks/${id}`)
+
+export const updateNewsletter = (formData) => API.patch(`/api/newsletter/confirm`, formData);
+export const createNewsletter = (formData) => API.post(`/api/newsletter/subscribe`, formData);

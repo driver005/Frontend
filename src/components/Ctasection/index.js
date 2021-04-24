@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { Container, Ctasection, Newsletterblock, Overline, Contentcta, Link, Formblock, Formwrapper, Newsletterfield, Sendbutton, Profileimageswarpper, Peoplegroupimage, Followernumber, Tagspan } from './styled'
 import  Observer from 'react-intersection-observer'
-import { Newsletter } from '../globalStyles';
+import Newsletter from '../Newsletter';
+import peoplepurple from '../../images/people_purple.png'
 
 const Cta = () => {
     const [isShown, setIsShown] = useState(false);
@@ -20,19 +21,22 @@ const Cta = () => {
                 threshold={1}
             >
                 <Newsletterblock className={ isShown ? 'load' : 'hide' }>
-                    <Overline>{"CUSTOM SECTIONS"}</Overline>
+                    <Overline>{"Newsletter"}</Overline>
                     <Contentcta>
-                        {"Build better on webflow with "}
-                        <Link href="http://flowbase.co" target="_blank">{"flowbase.co"}</Link>
+                        {"Join our Newsletter to receive the latest "}
+                        <Link href="/" target="_blank">{"teclab"}</Link>
+                        {" news and ternds"}
                     </Contentcta>
                         <Newsletter />
-                        <Profileimageswarpper>
-                            <Peoplegroupimage src="https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d8098654258d0c39_people-purple.png" width="147" alt=""/>
-                            <Followernumber>
-                                {"Join our waiting list "}
-                                <Tagspan>{"5000+"}</Tagspan>
-                            </Followernumber>    
-                        </Profileimageswarpper>
+                        {
+                            // <Profileimageswarpper>
+                            //     <Peoplegroupimage src={peoplepurple} width="147" alt=""/>
+                            //     <Followernumber>
+                            //         {"Join our waiting list "}
+                            //         <Tagspan>{"5000+"}</Tagspan>
+                            //     </Followernumber>    
+                            // </Profileimageswarpper>
+                        }
                     </Newsletterblock>
                 </Observer>
             </Container>
