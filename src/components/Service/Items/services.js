@@ -8,7 +8,7 @@ export const ServiceItemsBooks = [
                 },
                 {
                     title: "3d printers",
-                    paragrap: "With over 5 3d printers and 9 more to come. You can take our 3d model into reality",
+                    paragrap: "With 15 super cool 3d printer to visulaise your idea",
                     icon: <AiOutlinePrinter size="22" color={'white'} />,
                 },
                 {

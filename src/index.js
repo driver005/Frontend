@@ -14,6 +14,9 @@ import decode from 'jwt-decode';
 import { ToastContainer } from 'react-toastify';
 import ApolloProvider from './ApolloProvider'
 import { useHistory } from "react-router-dom";
+import Contact from "./components/Contact";
+import PageNotFound from "./Errors/404";
+import PageError from "./Errors/400";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 const CloseButton = ({closeToast}) => <i onClick={closeToast} className="fas fa-times"/>
@@ -53,9 +56,11 @@ ReactDOM.render(
       <Router>
           <Switch>
             <Route exact path='/confirm/:id' component={Confirm} />
+            <Route exact path='/contact' component={Contact} />
             <Route path='/' exact component={App} />
             <Route path='/sign-up' exact component={SignUp} />
             <PrivateRoute path='/dash/' component={Dashboard} />
+            <Route path="*" exact component={PageError} />
           </Switch>   
       </Router>
       </ApolloProvider>

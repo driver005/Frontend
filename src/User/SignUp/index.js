@@ -8,7 +8,6 @@ import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ErrorMessage } from '@hookform/error-message';
 import {
   FormControl
 } from 'react-bootstrap';
@@ -112,7 +111,7 @@ const SignUp = () => {
                                 <Textfiledcontainer half>
                                     <Textfiledwrapper  onChange={(e) => handleTextChange(e.target)}>
                                         <Textfiledinput type="text"  maxlength="256" name="firstName" data-name="First name" placeholder="" id="First-name"  ref={register({ required: true, pattern: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u })}/>
-                                        <Filedlabel htmlFor="name" className={ isShown.firstName ? 'load' : 'hide' }>First name</Filedlabel>
+                                        <Filedlabel htmlFor="firstName" className={ isShown.firstName ? 'load' : 'hide' }>First name</Filedlabel>
                                         <Textfileddone className={form.firstName ? 'active' : 'hide'} />
                                     </Textfiledwrapper>
                                     {(errors.firstName) && (
@@ -124,7 +123,7 @@ const SignUp = () => {
                                 <Textfiledcontainer half>
                                     <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
                                         <Textfiledinput type="text"  maxlength="256" name="lastName" data-name="Last name" placeholder="" id="Last-name"  ref={register({ required: true, pattern: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u })}/>
-                                        <Filedlabel htmlFor="name-2" className={ isShown.lastName ? 'load' : 'hide'} >Last name</Filedlabel>
+                                        <Filedlabel htmlFor="lastName" className={ isShown.lastName ? 'load' : 'hide'} >Last name</Filedlabel>
                                         <Textfileddone className={form.lastName ? 'active' : 'hide'}/>
                                     </Textfiledwrapper>
                                     {(errors.lastName) && (
@@ -143,7 +142,7 @@ const SignUp = () => {
                                             <Textfiledcontainer third>
                                                 <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
                                                     <Textfiledinput type="text"  maxlength="256" name="month" data-name="Month" placeholder="" id="Month"  ref={register({ required: true, max: 12, min: 0})}/>
-                                                    <Filedlabel htmlFor="name" className={ isShown.month ? 'load' : 'hide' }>Month</Filedlabel>
+                                                    <Filedlabel htmlFor="month" className={ isShown.month ? 'load' : 'hide' }>Month</Filedlabel>
                                                     <Textfileddone className={form.month ? 'active' : 'hide'}/>
                                                 </Textfiledwrapper>
                                                 {(errors.month) && (
@@ -155,7 +154,7 @@ const SignUp = () => {
                                             <Textfiledcontainer third>
                                                 <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
                                                     <Textfiledinput type="text"  maxlength="256" name="day" data-name="Day" placeholder="" id="Day"  ref={register({ required: true, max: 31, min: 0,  })}/>
-                                                    <Filedlabel htmlFor="name" className={ isShown.day ? 'load' : 'hide' }>Day</Filedlabel>
+                                                    <Filedlabel htmlFor="day" className={ isShown.day ? 'load' : 'hide' }>Day</Filedlabel>
                                                     <Textfileddone className={form.day ? 'active' : 'hide'}/>
                                                 </Textfiledwrapper>
                                                 {(errors.day) && (
@@ -167,7 +166,7 @@ const SignUp = () => {
                                             <Textfiledcontainer third>
                                                 <Textfiledwrapper third onChange={(e) => handleTextChange(e.target)}>
                                                     <Textfiledinput type="text"  maxlength="256" name="year" data-name="Year" placeholder="" id="Year"  ref={register({ required: true, max: 2021, min: 1900,  })}/>
-                                                    <Filedlabel htmlFor="name" className={ isShown.year ? 'load' : 'hide' }>Year</Filedlabel>
+                                                    <Filedlabel htmlFor="year" className={ isShown.year ? 'load' : 'hide' }>Year</Filedlabel>
                                                     <Textfileddone className={form.year ? 'active' : 'hide'}/>
                                                 </Textfiledwrapper>
                                                 {(errors.year) && (
@@ -179,7 +178,7 @@ const SignUp = () => {
                                             <Textfiledcontainer>
                                                 <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
                                                     <Textfiledinput type="text"  maxlength="256" name="username" data-name="Username" placeholder="" id="Username"  ref={register({ required: true })}/>
-                                                    <Filedlabel htmlFor="name" className={ isShown.username ? 'load' : 'hide' }>Username</Filedlabel>
+                                                    <Filedlabel htmlFor="username" className={ isShown.username ? 'load' : 'hide' }>Username</Filedlabel>
                                                     <Textfileddone className={form.username ? 'active' : 'hide'}/>
                                                 </Textfiledwrapper>
                                                 {(errors.year) && (
@@ -193,7 +192,7 @@ const SignUp = () => {
                                     <Textfiledcontainer>
                                         <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
                                             <Textfiledinput type="text"  maxlength="256" name="email" data-name="Email Address" placeholder="" id="Email Address"  ref={register({ required: true, pattern: /^\S+@\S+$/i})}/>
-                                            <Filedlabel htmlFor="name" className={ isShown.email ? 'load' : 'hide' }>Email Address</Filedlabel>
+                                            <Filedlabel htmlFor="email" className={ isShown.email ? 'load' : 'hide' }>Email Address</Filedlabel>
                                             <Textfileddone className={form.email ? 'active' : 'hide'}/>
                                         </Textfiledwrapper>
                                         {(errors.email) && (
@@ -205,7 +204,7 @@ const SignUp = () => {
                                     <Textfiledcontainer>
                                         <Textfiledwrapper onChange={(e) => handleTextChange(e.target)}>
                                             <Textfiledinput type={showPassword ? 'text' : 'password'}   maxlength="256" name="password" data-name="Password" placeholder="" id="Password" ref={register({ required: true })}/>
-                                            <Filedlabel htmlFor="name" className={ isShown.password ? 'load' : 'hide' }>Password</Filedlabel>
+                                            <Filedlabel htmlFor="password" className={ isShown.password ? 'load' : 'hide' }>Password</Filedlabel>
                                             <Showpassword onClick={handleShowPassword}>
                                                 <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} /> 
                                             </Showpassword>

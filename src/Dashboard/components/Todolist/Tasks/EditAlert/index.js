@@ -13,7 +13,8 @@ const customStyle = {
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
       minWidth              : '40rem',
-      background            : '#0b0e37'
+        background: '#0b0e37',
+            minHeight: '30rem',
     }
   }
   

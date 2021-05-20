@@ -30,3 +30,5 @@ export const deleteTask = (id) => API.delete(`/api/tasks/${id}`)
 
 export const updateNewsletter = (formData) => API.patch(`/api/newsletter/confirm`, formData);
 export const createNewsletter = (formData) => API.post(`/api/newsletter/subscribe`, formData);
+
+export const sendEmail = (formData) => API.post(`/api/email`, formData);

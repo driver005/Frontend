@@ -23,6 +23,7 @@ import Jitsi from '../../pages/jitsi/Jitsi';
 import Todolist from '../../pages/todolist/Todolist';
 import Chat from '../../pages/chat/Chat';
 import Post from '../../pages/posts/Posts';
+import PageError from '../../../Errors/400';
 
 
 class Layout extends React.Component {
@@ -107,6 +108,7 @@ class Layout extends React.Component {
                     <Route path={`${this.props.match.path}app/posts`} component={Post} />
                     <Route path={`${this.props.match.path}app/components/maps`} component={MapsGoogle} />
                     <Route path={`${this.props.match.path}app/typography`} component={CoreTypography} />
+                    <Route path="*" exact render={() => <Redirect to={`/notfound`} />} />
                   </Switch>
                   </CSSTransition>
               </TransitionGroup>

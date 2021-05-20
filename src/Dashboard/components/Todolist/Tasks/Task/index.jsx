@@ -1,12 +1,27 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { motion } from "framer-motion";
 import cx from 'classnames'
 import { startRemoveTask, startCompletedTask, startUnCompletedTask } from '../../../../../actions/todolist'
 import { Completedinput, Completedi, Taskcomponent, Taskdeletebutton, Taskspan, Editpart, Editpartlink, Taskparameter, Taskparameterdiv, Taskparameterh4, Taskparametertime, Taskcontent } from '../../../../styles/todolist'
 import EditAlert from '../EditAlert'
-
+const spring = {
+  type: "spring",
+  damping: 25,
+  stiffness: 120
+};
 const Task = ({ dispatch, handelChange, _id, name, type, completed, createdAt, day, updatedAt, userid, __v }) => (
+    <motion.div 
+        initial={{ x: "150vw", transition: { type: "spring", duration: 2 } }}
+        animate={{ x: 0, transition: { type: "spring", duration: 2 } }}
+        exit={{ x: -400, opacity: 0, transition: { duration: 0.5 }, }}
+        whileHover={{
+            scale: 1.04,
+            transition: { type: "spring", duration: 0.1 },
+        }}
+    >
+    
     <Taskcomponent className={cx('single-task', { 'single-task-done': completed })}>
         <Taskdeletebutton className="right-text delete">
             <a onClick={() => dispatch(startRemoveTask({ id: _id }))}>
@@ -57,7 +72,8 @@ const Task = ({ dispatch, handelChange, _id, name, type, completed, createdAt, d
                 Edit <i className="far fa-edit"></i>
             </button>
         </Editpart>
-    </Taskcomponent>
+        </Taskcomponent>
+        </motion.div>
 )
 
 export default Task

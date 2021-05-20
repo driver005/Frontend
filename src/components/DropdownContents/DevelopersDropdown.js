@@ -22,7 +22,6 @@ const Flex = styled.div`
 `
 
 function NavCardObj(props) {
-  console.log(props)
   return (
       <Dropdownlink href={props.href}>
           <Iconsquare>

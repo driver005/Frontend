@@ -71,8 +71,8 @@ export default class TaskForm extends Component {
         return (
             <Card className="card">
                 <form onSubmit={this.onSubmit}>
-                    <div className="row">
-                        <div className="column xlarge-4 small-12">
+                    <div className="col">
+                        <div className="col xlarge-4 small-12">
                             <div className="input-field purple-input">
                                 <Datapicker
                                     placeholderText="Choose date"
@@ -84,7 +84,7 @@ export default class TaskForm extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="column xlarge-4 small-12" style={{marginTop: "1.2rem"}}>
+                        <div className="col xlarge-4 small-12" style={{marginTop: "1.2rem"}}>
                             <CustomInput
                                 icon="fas fa-tasks"
                                 type="text"
@@ -95,7 +95,7 @@ export default class TaskForm extends Component {
                                 onChange={this.handleChange}
                             />
                         </div>
-                        <div className="column xlarge-4 small-12" style={{marginTop: "1.2rem", marginBottom: "1.2rem"}}>
+                        <div className="col xlarge-4 small-12" style={{marginTop: "1.2rem", marginBottom: "1.2rem"}}>
                             <div className="input-field purple-input">
                                 <Select name="type" onChange={this.handleChange} value={type}>
                                     <option defaultValue value="Code">Code</option>

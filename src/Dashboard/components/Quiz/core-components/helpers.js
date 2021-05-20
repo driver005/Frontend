@@ -31,6 +31,16 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
         2: {disabled: true},
         3: {disabled: true}
     };
+
+    const insert = (arr, index, newItem) => [
+        // part of the array before the specified index
+        ...arr.slice(0, index),
+        // inserted item
+        newItem,
+        // part of the array after the specified index
+        ...arr.slice(index)
+    ]
+
     if (answerSelectionType === 'single') {
         if (userInput[currentQuestionIndex] === undefined) {
             userInput.push(index)
@@ -94,7 +104,6 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
             setIncorrect(incorrect)
         }
     } else {
-
         let maxNumberOfMultipleSelection = correctAnswer.length;
 
         if (userInput[currentQuestionIndex] === undefined) {
@@ -106,7 +115,6 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
 
             if (correctAnswer.includes(index)) {
                 if (userInput[currentQuestionIndex].length <= maxNumberOfMultipleSelection) {
-
                     setButtons((prevState) => ({
                             ...prevState,
                             [index - 1]: {
@@ -162,3 +170,4 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
         }
     }
 };
+

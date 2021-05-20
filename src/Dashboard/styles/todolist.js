@@ -253,14 +253,7 @@ export const Taskcomponent = styled.div`
         background: #c6c6c6;
     }
 
-    &.single-task:hover {
-        transition: .2s;
-    }
 
-    &.single-task:hover {
-        box-shadow: 0 8px 26px 0 rgb(0 0 0 / 9%);
-        transform: scale(1.03);
-    }
 `
 
 
@@ -389,6 +382,7 @@ export const Editpartlink = styled(Link)`
 // Taskform
 
 export const Card = styled.div`
+    background-color: #0b0e37;
     &.card .react-datepicker-wrapper {
         width: 100%;
         margin-top: 1.2rem;
@@ -438,4 +432,5 @@ export const Select = styled.select`
 export const Centertext = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 2.5rem;
 `

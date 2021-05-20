@@ -64,7 +64,7 @@ export const DropdownBackground = styled.div`
 `
 
 export const AltBackground = styled.div`
-  background-color: var(--grey);
+  background-color: #181a1b;
   width: 300%;
   height: 100%;
   position: absolute;

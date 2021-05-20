@@ -107,28 +107,26 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
 
     // Default single to avoid code breaking due to automatic version upgrade
     answerSelectionType = answerSelectionType || 'single';
-    return answers.map((answer, index) => {
-      if (answerSelectionType === 'single') {
-          // correctAnswer - is string
-          if(input) {
-            answerBtnCorrectClassNameInput = (answers[correctAnswer - 1] === Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] && index === correctAnswer - 1 ? 'correct' : '');
-            answerBtnIncorrectClassNameInput = (answers[correctAnswer - 1] !== Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] || index !== correctAnswer - 1  ? 'incorrect' : '' )
 
-          } else {
-            answerBtnCorrectClassName = (`${index + 1}` === correctAnswer ? 'correct' : '');
-            answerBtnIncorrectClassName = (`${userInputIndex}` !== correctAnswer && `${index + 1}` === `${userInputIndex}` ? 'incorrect' : '');
-          }
+    console.log(correct)
+    console.log(incorrect)
+
+    return answers.map((answer, index) => {
+      if(input) {
+            answerBtnCorrectClassNameInput = (answers[index] === Object.values(Input)[index] ? 'correct' : '');
+            answerBtnIncorrectClassNameInput = (answers[index] !== Object.values(Input)[index]  ? 'incorrect' : '' )
+      } else if (answerSelectionType === 'single') {
+          // correctAnswer - is string
+          answerBtnCorrectClassName = (`${index + 1}` === correctAnswer ? 'correct' : '');
+          answerBtnIncorrectClassName = (`${userInputIndex}` !== correctAnswer && `${index + 1}` === `${userInputIndex}` ? 'incorrect' : '');
+          
       } else {
           // correctAnswer - is array of numbers
-          if(input) {
-            answerBtnCorrectClassNameInput = (answers[index] === Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] && correctAnswer.includes(index + 1) ? 'correct' : '');
-            answerBtnIncorrectClassNameInput = (answers[index] !== Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] || (answers[index] !== Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] && !correctAnswer.includes(index + 1)) || (answers[index] === Input[Object.keys(Input)[((Index + 1)* 4 - 4) + index]] && !correctAnswer.includes(index + 1)) ? 'incorrect' : '' )
-          } else {
-            answerBtnCorrectClassName = (correctAnswer.includes(index + 1) ? 'correct' : '');
-            answerBtnIncorrectClassName = (!correctAnswer.includes(index + 1) && userInputIndex.includes(index + 1) ? 'incorrect' : '')
-          }
+          answerBtnCorrectClassName = (correctAnswer.includes(index + 1) && userInputIndex.includes(index + 1) ? 'correct' : '');
+          answerBtnIncorrectClassName = (!correctAnswer.includes(index + 1) && userInputIndex.includes(index + 1) ? 'incorrect' : '')
+          
       }
-     
+
       return (
           <div key={index}>
             {input ? 
@@ -159,14 +157,15 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
 
     if (filteredValue !== 'all') {
       if (filteredValue === 'correct') {
-        filteredQuestions = questions.filter((question, index) => correct.indexOf(index) !== -1);
+        
         filteredUserInput = userInput.filter((input, index) => correct.indexOf(index) !== -1)
+        
+        filteredQuestions = questions.filter((question, index) => correct.indexOf(index) !== -1);
       } else {
         filteredQuestions = questions.filter((question, index) => incorrect.indexOf(index) !== -1);
         filteredUserInput = userInput.filter((input, index) => incorrect.indexOf(index) !== -1)
       }
     }
-
     return (filteredQuestions ? filteredQuestions : questions).map((question, index) => {
       const userInputIndex = filteredUserInput ? filteredUserInput[index] : userInput[index];
 
@@ -196,6 +195,28 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
     
   }
 
+  useEffect(() => {
+    const {answers, correctAnswer, questionType, input} = questions[currentQuestionIndex];
+    answers.map((answer, index) => {  
+      if (correct.indexOf(currentQuestionIndex) < 0 && answers[index] === Object.values(Input)[index]) {
+        correct.push(currentQuestionIndex);
+        delete incorrect[currentQuestionIndex]
+        setCorrect(correct);
+      }
+      if(incorrect.indexOf(currentQuestionIndex) < 0 && correct.indexOf(currentQuestionIndex) < 0 && answers[index] !== Object.values(Input)[index]) {
+        incorrect.push(currentQuestionIndex)
+        delete correct[currentQuestionIndex]
+        setIncorrect(incorrect)
+      } 
+    })
+    if (userInput[currentQuestionIndex] === undefined  && input) {
+      userInput[currentQuestionIndex] = null
+      setUserInput(userInput);
+    }
+    //setUserInput(userInput);
+  }, [Input])
+
+
   const renderAnswers = (question, buttons) => {
     const {answers, correctAnswer, questionType, input} = question;
     let {answerSelectionType} = question;
@@ -216,6 +237,8 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
       setUserInput,
       setUserAttempt
     });
+
+    
 
     // Default single to avoid code breaking due to automatic version upgrade
     answerSelectionType = answerSelectionType || 'single';
@@ -246,12 +269,12 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
               <Fragment>
                 <input
                     className={`answerBtn btn`}
-                    name={`${appLocale.question}_${currentQuestionIndex + 1}_answer_${index}`}
+                    name={`${index}`}
                     onChange={(e) => {
                       handelChange(e)
-                      if(answers.length === Object.keys(Input).length) setShowNextQuestionButton(true)
+                      if (Object.keys(Input)) setShowNextQuestionButton(true)
                     }}
-                    placeholder={answer}
+                    placeholder={"Enter answer"}
                 />
               </Fragment>
             }

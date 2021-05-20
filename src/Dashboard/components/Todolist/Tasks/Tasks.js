@@ -15,7 +15,8 @@ import EditAlert from './EditAlert'
 import Alert from './Alert'
 import { Fragment } from 'react';
 import { Paddingcontainer, Addcardcontainer, Addcard, Addcardcontainermobile, Taskwrapper } from '../../../styles/todolist';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@material-ui/core'
+import { motion, AnimatePresence } from "framer-motion"
 
 const Taskcomponent = ({tasks, filters, dispatch}) => {
     const [create, SetCreate] = useState(undefined)
@@ -42,14 +43,7 @@ const Taskcomponent = ({tasks, filters, dispatch}) => {
         <SortBy setTextFilter={setTextFilter} sortByDate={sortByDate} sortByDeadline={sortByDeadline} filters={filters} dispatch={dispatch} />
         <Filter filterBy={filterBy} filters={filters} dispatch={dispatch} />
         <Taskwrapper className="tasks">
-            <FlipMove
-            duration={500}
-            delay={10}
-            easing={'cubic-bezier(0.25, 0.5, 0.75, 1)'}
-            staggerDurationBy={30}
-            staggerDelayBy={10}
-            >
-                <Fragment>
+            <AnimatePresence>
                 {tasks?.filter(task => {
                     switch(filters.show) {
                         case 'All':
@@ -62,15 +56,14 @@ const Taskcomponent = ({tasks, filters, dispatch}) => {
                             return task
                     }
                 }).map(task => <Task key={task._id} {...task} dispatch={dispatch} handelChange={handelChange} />)}
-                </Fragment>
-            </FlipMove>
+            </AnimatePresence>
         </Taskwrapper>
-        {tasks?.length == null &&
-            <div className="center-text empty-state">
+        {tasks?.length == 0 &&
+            <div className="d-flex align-items-center justify-content-center flex-column">
                 <h2>Start your day by adding some tasks!</h2>
-                <Link to="/app/todolist/create" className="btn btn-rounded btn-outlined green-btn">
+                <button onClick={() => handelCreat()} className="btn btn-rounded btn-outlined green-btn  m-1">
                     Add new Task
-                </Link>
+                </button>
             </div>
         }
         {tasks?.length > 0 && <DeleteAll dispatch={dispatch} />}

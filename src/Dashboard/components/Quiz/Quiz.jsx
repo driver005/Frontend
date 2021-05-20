@@ -98,12 +98,11 @@ const Quiz = ({ quiz, shuffle, showDefaultResult, onComplete, customResultPage, 
     if(!validateQuiz(quiz)) {
       return (null)
     }
-
+    
     const appLocale = {
       ...defaultLocale,
       ...quiz.appLocale
     };
-
     return (
       <div className="react-quiz-container">
         {!start &&
