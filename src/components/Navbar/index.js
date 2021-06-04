@@ -86,7 +86,7 @@ const Navbar = (props) => {
         <Navcontainer>
               <Brand>
                   <Logo href="#">
-                      <img height="75px" style={{width: '100%'}} src={teclab} />
+                      <img height="75px" src={teclab} />
                   </Logo>
               </Brand>
               <Navigationleft>
