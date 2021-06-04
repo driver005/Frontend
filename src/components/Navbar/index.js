@@ -54,6 +54,12 @@ const NavbarList = styled.ul`
   
 `
 
+const IMG = styled.img`
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
+`
+
 const Navbar = (props) => {
   const [user, setUser] = React.useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -86,7 +92,7 @@ const Navbar = (props) => {
         <Navcontainer>
               <Brand>
                   <Logo href="#">
-                      <img height="75px" src={teclab} />
+                      <IMG height="75px" src={teclab} />
                   </Logo>
               </Brand>
               <Navigationleft>
