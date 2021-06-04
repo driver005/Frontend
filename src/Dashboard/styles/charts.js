@@ -1,6 +1,5 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
-import AnimateNumber from 'react-animated-number';
 
 export const Maptextcontainer = styled.div`
     position: relative;

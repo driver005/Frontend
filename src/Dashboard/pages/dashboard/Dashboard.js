@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col, Progress, Table, Form } from "react-bootstrap";
 import { IoLocationOutline } from 'react-icons/io5'
 import Widget from "../../components/Widget/Widget";
+import "./styles.css"
 
 import Calendar from "./components/calendar/Calendar";
-import Map from "./components/am4chartMap/am4chartMap";
 import Rickshaw from "./components/rickshaw/Rickshaw";
 
 import AnimateNumber from "react-animated-number";
@@ -16,6 +16,8 @@ import peopleA4 from "../../assets/people/a4.jpg";
 import { Colcomponent, Listgroup, Statusstrong, Rowcomponent, Inputcomponent, Numberdiv, H1, Small, H5title, Spantitle, Statitem, P, Span, Rowdiv, Coldiv, H6, Namep, Progresscomponents, Numberspan, H6settings, Inputdiv, Inputbutton, H6title, Statsrow, statitem, H6item, Pnormal, Newspan, Undopadding, Footer, Footerinput, H3, Marketp, Marketspan, Tablesdiv, Tablecomponent, TH, ABCcheckbox, Inputcheckbox, TD, Rickshawdiv, Listgroupcalendar, Calendarbutton, Timespan,  } from "../../styles/dashboard";
 import Notifications from "../../components/Notifications/Notifications";
 import MessagesDemo from "../../components/Notifications/notifications-demo/Messages";
+import { World } from "../../components/Charts";
+import { ParentSize } from "@visx/responsive";
 
 
 class Dashboard extends React.Component {
@@ -60,15 +62,12 @@ class Dashboard extends React.Component {
       <div>
         <H1 className="page-title">
           Dashboard &nbsp;
-          <Small>
-            <Small>The Lucky One</Small>
-          </Small>
         </H1>
 
         <Rowcomponent>
           <Colcomponent lg={7}>
-            <Widget className="bg-transparent">
-              <Map />
+            <Widget className="bg-transparent w-100" bodyClass="height-65vh">
+              <ParentSize>{({ width, height }) => <World width={width} height={height} />}</ParentSize>
             </Widget>
           </Colcomponent>
           <Colcomponent lg={1} />
@@ -395,7 +394,7 @@ class Dashboard extends React.Component {
                 className="widget-body mt-xlg chart-overflow-bottom"
                 style={{ height: "100px" }}
               >
-                <Rickshaw height={100} />
+                
               </Rickshawdiv>
             </Widget>
           </Colcomponent>

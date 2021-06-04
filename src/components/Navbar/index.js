@@ -6,8 +6,8 @@ import * as actionType from '../../constants/actionTypes';
 import { Brand, Logo, Menubutton, Navbutton, Navcontainer, Navigationleft, Navigationlink, Navigationright, Navlink, Icon } from "./styles"
 import {IoMdMenu } from 'react-icons/io'
 import decode from 'jwt-decode';
-import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
-import useStyles from './stylesmaterial';
+import { Button, Dropdown } from "react-bootstrap";
+import teclab from '../../images/Logo_VDI_teclab4_X1.jpg'
 
 const NavbarEl = styled.nav`
   display: block;
@@ -59,7 +59,6 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
-  const classes = useStyles();
 
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
@@ -86,8 +85,8 @@ const Navbar = (props) => {
       <NavbarList>
         <Navcontainer>
               <Brand>
-                  <Logo href="#" >
-                      <img src="https://uploads-ssl.webflow.com/601abee87e990a057b442690/601abee9d809868bc58d0c27_logo.svg" />
+                  <Logo href="#">
+                      <img height="75px" style={{width: '100%'}} src={teclab} />
                   </Logo>
               </Brand>
               <Navigationleft>
@@ -98,9 +97,9 @@ const Navbar = (props) => {
               <Navigationright>
               {user?.info.user ? (
                 <>
-                  <Avatar className={classes.purple} alt={user?.info.user.name} src={user?.info.user.imageUrl}>{user?.info.user.name.charAt(0)}</Avatar>
-                  <Typography className={`${classes.userName}`} variant="h6">{user?.info.user.name}</Typography>
-                  <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                  <div className="rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2" style={{width: '2.3rem', height: '2.3rem'}}>{user?.info.user.name.charAt(0)}</div>
+                  <h5 className="mb-0 mr-3">{user?.info.user.name}</h5>
+                  <Button variant="outline-danger" onClick={logout}>Logout</Button>
                 </>
               ) : (
                   <>
@@ -111,10 +110,19 @@ const Navbar = (props) => {
                   </>
                   )}
               </Navigationright>
-              <Menubutton>
-                  <Icon>
-                    <IoMdMenu />
-                  </Icon>
+              <Menubutton>   
+                <Dropdown>
+                  <Dropdown.Toggle variant="outline-dark" id="dropdown-basic" role="menuitem" >
+                    <Icon>
+                      <IoMdMenu />
+                    </Icon>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/dash">Dashboard</Dropdown.Item>
+                    <Dropdown.Item href={"https://www.vdi.de/"}>VDI</Dropdown.Item>
+                    <Button className="justify-content-center align-items-center d-flex p-1 m-1 mt-2" variant="success"  href="/sign-up">Sign Up</Button>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Menubutton>
               
           </Navcontainer>

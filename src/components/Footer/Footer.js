@@ -35,7 +35,7 @@ const Footer = () => {
                 //     <Newsletter primary/>
                 // </FooterSubscription>
             }
-                <FooterLinksContainer>
+                {/*<FooterLinksContainer>
                 <FooterLinksWrapper>
                     <FooterLinkItems>
                         <FooterLinkTitle>About Us</FooterLinkTitle>
@@ -69,19 +69,18 @@ const Footer = () => {
                         <FooterLink to='/'>Twitter</FooterLink>
                     </FooterLinkItems>
                 </FooterLinksWrapper>
-            </FooterLinksContainer>
+                </FooterLinksContainer>*/}
             <SocialMedia>
                 <SocialMediaWrap>
                     <SocialLogo to="/">
-                        <SocialIcon />
-                        ULTRA
+                        TECLAB
                     </SocialLogo>
-                    <WebsiteRights>ULTRA © 2020</WebsiteRights>
+                    <WebsiteRights>teclab © 2020</WebsiteRights>
                     <SocialIcons>
-                        <SocialIconLink href='/' target="_blank" aria-label="Facebook">
+                        <SocialIconLink href='/facebook' target="_blank" aria-label="Facebook">
                             <FaFacebook />
                         </SocialIconLink>
-                        <SocialIconLink href='/' target="_blank" aria-label="Instagram">
+                        <SocialIconLink href='/instagram' target="_blank" aria-label="Instagram">
                             <FaInstagram />
                         </SocialIconLink>
                         <SocialIconLink
@@ -94,10 +93,10 @@ const Footer = () => {
                         >
                             <FaYoutube />
                         </SocialIconLink>
-                        <SocialIconLink href='/' target="_blank" aria-label="Twitter">
+                        <SocialIconLink href='/twitter' target="_blank" aria-label="Twitter">
                             <FaTwitter />
                         </SocialIconLink>
-                        <SocialIconLink href='/' target="_blank" aria-label="Linkedin">
+                        <SocialIconLink href='/linkedin' target="_blank" aria-label="Linkedin">
                             <FaLinkedin />
                         </SocialIconLink>
                     </SocialIcons>

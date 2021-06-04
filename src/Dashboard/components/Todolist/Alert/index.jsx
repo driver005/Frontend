@@ -1,40 +1,33 @@
 import React from 'react'
-import Modal from 'react-modal'
+import { Modal  } from 'react-bootstrap'
+import styled from 'styled-components'
+import { startAddTask, startEditTask } from '../../../../actions/todolist'
+import TaskForm from '../TaskForm'
 
-import './style.css'
 
-const customStyle = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      padding               : '6rem 8rem',
-      borderRadius          : '4px',
-      background            : 'rgb(15, 15, 15)',
-      border                : 'none',
-      textAlign             : 'center'
+const Modalcomponent = styled(Modal)`
+    & > .modal-dialog {
+        min-width: 40rem;
     }
-  }
-  
-const Alert = ({alertMessage, closeModal}) => (
-    <Modal
-        isOpen={!!alertMessage}
-        contentLabel="todo list"
-        style={customStyle}
-        overlayClassName="Overlay"
-        onRequestClose={closeModal}
+`
+
+const Alert = ({dispatch, alertMessage, closeModal, type}) => (
+    <Modalcomponent
+        show={!!alertMessage}
+        onHide={closeModal}
+        centered
+        
     >
-        <h2>{alertMessage}</h2>
-        <button 
-            onClick={closeModal} 
-            className="btn btn-rounded btn-outlined purple-btn"
-        >
-            Close
-        </button>
-    </Modal>
+    <TaskForm
+        task={type == 'edit' ? alertMessage : ''}
+        onSubmit={task => {
+            if(type == 'edit') dispatch(startEditTask(task._id, task))
+            if(type == 'create') dispatch(startAddTask(task))
+            closeModal
+        }}
+        closeModal={closeModal}
+    />
+    </Modalcomponent>
 )
 
 export default Alert

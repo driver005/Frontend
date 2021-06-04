@@ -9,7 +9,6 @@ import {
   Form,
   Badge,
 } from "react-bootstrap";
-import { Sparklines, SparklinesBars } from "react-sparklines";
 
 import Widget from "../../../components/Widget/Widget";
 
@@ -494,12 +493,6 @@ class Static extends React.Component {
                     <td>On the Road</td>
                     <td className="text-right">$25 224.2</td>
                     <td className="text-center">
-                      <Sparklines
-                        data={[13, 14, 16, 15, 4, 14, 20]}
-                        style={{ width: "35px", height: "20px" }}
-                      >
-                        <SparklinesBars style={{ fill: "#1870DC" }} />
-                      </Sparklines>
                     </td>
                   </tr>
                   <tr>
@@ -519,12 +512,7 @@ class Static extends React.Component {
                     <td>HP Core i7</td>
                     <td className="text-right">$87 346.1</td>
                     <td className="text-center">
-                      <Sparklines
-                        data={[14, 12, 16, 11, 17, 19, 16]}
-                        style={{ width: "35px", height: "20px" }}
-                      >
-                        <SparklinesBars style={{ fill: "#58D777" }} />
-                      </Sparklines>
+                      
                     </td>
                   </tr>
                   <tr>
@@ -544,12 +532,7 @@ class Static extends React.Component {
                     <td>Let&apos;s Dance</td>
                     <td className="text-right">$57 944.6</td>
                     <td className="text-center">
-                      <Sparklines
-                        data={[11, 17, 19, 16, 14, 12, 16]}
-                        style={{ width: "35px", height: "20px" }}
-                      >
-                        <SparklinesBars style={{ fill: "#f0af03" }} />
-                      </Sparklines>
+                      
                     </td>
                   </tr>
                   <tr>
@@ -569,12 +552,7 @@ class Static extends React.Component {
                     <td>Air Pro</td>
                     <td className="text-right">$118 533.1</td>
                     <td className="text-center">
-                      <Sparklines
-                        data={[13, 14, 20, 16, 15, 4, 14]}
-                        style={{ width: "35px", height: "20px" }}
-                      >
-                        <SparklinesBars style={{ fill: "#F45722" }} />
-                      </Sparklines>
+                      
                     </td>
                   </tr>
                   <tr>
@@ -594,12 +572,7 @@ class Static extends React.Component {
                     <td>Version Control</td>
                     <td className="text-right">$72 854.5</td>
                     <td className="text-center">
-                      <Sparklines
-                        data={[16, 15, 4, 14, 13, 14, 20]}
-                        style={{ width: "35px", height: "20px" }}
-                      >
-                        <SparklinesBars style={{ fill: "#4ebfbb" }} />
-                      </Sparklines>
+                      
                     </td>
                   </tr>
                 </tbody>
@@ -663,12 +636,7 @@ class Static extends React.Component {
                       <td>On the Road</td>
                       <td className="text-right">$25 224.2</td>
                       <td className="text-center">
-                        <Sparklines
-                          data={[13, 14, 16, 15, 4, 14, 20]}
-                          style={{ width: "35px", height: "20px" }}
-                        >
-                          <SparklinesBars style={{ fill: "#1870DC" }} />
-                        </Sparklines>
+                        
                       </td>
                     </tr>
                     <tr>
@@ -688,12 +656,7 @@ class Static extends React.Component {
                       <td>HP Core i7</td>
                       <td className="text-right">$87 346.1</td>
                       <td className="text-center">
-                        <Sparklines
-                          data={[14, 12, 16, 11, 17, 19, 16]}
-                          style={{ width: "35px", height: "20px" }}
-                        >
-                          <SparklinesBars style={{ fill: "#F45722" }} />
-                        </Sparklines>
+                        
                       </td>
                     </tr>
                     <tr>
@@ -713,12 +676,7 @@ class Static extends React.Component {
                       <td>Let&apos;s Dance</td>
                       <td className="text-right">$57 944.6</td>
                       <td className="text-center">
-                        <Sparklines
-                          data={[11, 17, 19, 16, 14, 12, 16]}
-                          style={{ width: "35px", height: "20px" }}
-                        >
-                          <SparklinesBars style={{ fill: "#f0af03" }} />
-                        </Sparklines>
+                        
                       </td>
                     </tr>
                     <tr>
@@ -738,12 +696,7 @@ class Static extends React.Component {
                       <td>Air Pro</td>
                       <td className="text-right">$118 533.1</td>
                       <td className="text-center">
-                        <Sparklines
-                          data={[13, 14, 20, 16, 15, 4, 14]}
-                          style={{ width: "35px", height: "20px" }}
-                        >
-                          <SparklinesBars style={{ fill: "#58D777" }} />
-                        </Sparklines>
+                        
                       </td>
                     </tr>
                     <tr>
@@ -763,12 +716,7 @@ class Static extends React.Component {
                       <td>Version Control</td>
                       <td className="text-right">$72 854.5</td>
                       <td className="text-center">
-                        <Sparklines
-                          data={[16, 15, 4, 14, 13, 14, 20]}
-                          style={{ width: "35px", height: "20px" }}
-                        >
-                          <SparklinesBars style={{ fill: "#4ebfbb" }} />
-                        </Sparklines>
+                        
                       </td>
                     </tr>
                   </tbody>

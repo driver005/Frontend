@@ -22,6 +22,7 @@ import {
   Button,
   Form,
   FormGroup,
+  Image,
 } from "react-bootstrap";
 import Notifications from "../Notifications/Notifications";
 import PowerIcon from "../Icons/PowerIcon/PowerIcon.js";
@@ -41,7 +42,6 @@ import {
   changeSidebarVisibility,
 } from "../../../actions/navigation";
 
-import { Typography, Avatar } from '@material-ui/core';
 import './styles.css'
 
 import sender1 from "../../assets/1.png";
@@ -50,8 +50,8 @@ import sender3 from "../../assets/3.png";
 
 import avatar from "../../assets/people/a5.jpg";
 
-import "animate.css";
-import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Image, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../styles/header";
+
+import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Imagecomponent, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../styles/header";
 
 class Header extends React.Component {
   static propTypes = {
@@ -174,9 +174,9 @@ class Header extends React.Component {
   }
 
   toggleSidebar() {
-    this.props.isSidebarOpened
-      ? this.props.dispatch(closeSidebar())
-      : this.props.dispatch(openSidebar());
+    this.props.sidebarVisibility == "show"
+      ? this.toggleVisibilitySidebar("hide")
+      : this.toggleVisibilitySidebar("show");
   }
 
   moveSidebar(position) {
@@ -188,6 +188,7 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props.sidebarVisibility)
     return (
       <Headerroot className={`d-print-none main-navbar`}>
         <Alert
@@ -253,8 +254,9 @@ class Header extends React.Component {
             style={{ padding: '0 12px' }}
           >
             <Dropdowntoggle as={NavLink} style={{ color: "#3979F6", padding: 0 }} onClick={this.toggleNotifications}>
-              <Avatar alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl}>{this.state.user?.info.user.name.charAt(0)}</Avatar>
-              <Typography variant="h6">{this.state.user?.info.user.name}</Typography>
+              {/*alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl} roundedCircle*/}
+              <div className="rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2" style={{width: '2.3rem', height: '2.3rem'}}>{this.state.user?.info.user.name.charAt(0)}</div>
+              <h5 className="mb-0">{this.state.user?.info.user.name}</h5>
               <Badgecomponents  color="danger">
                 9
               </Badgecomponents>
@@ -284,14 +286,14 @@ class Header extends React.Component {
             </Dropdowntoggle>
             <Dropdownmenu show={this.state.messagesOpen} className={"messages"} style={{transform: "translate3d(-209px, 0px, 0px)"}}>
               <Dropdownitem>
-                <Image  src={sender1} alt="" />
+                <Imagecomponent  src={sender1} alt="" />
                 <Details >
                   <div>Jane Hew</div>
                   <Text>Hey, John! How is it going? ...</Text>
                 </Details>
               </Dropdownitem>
               <Dropdownitem>
-                <Image  src={sender2} alt="" />
+                <Imagecomponent  src={sender2} alt="" />
                 <Details >
                   <div>Alies Rumiancaŭ</div>
                   <Text >
@@ -300,7 +302,7 @@ class Header extends React.Component {
                 </Details>
               </Dropdownitem>
               <Dropdownitem>
-                <Image  src={sender3} alt="" />
+                <Imagecomponent  src={sender3} alt="" />
                 <Details >
                   <div>Michał Rumiancaŭ</div>
                   <Text >

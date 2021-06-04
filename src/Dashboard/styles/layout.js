@@ -41,6 +41,10 @@ export const Wrap = styled.div`
     flex-direction: column;
     right: 0;
 
+    @media (max-width: 650px) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 `
 
 export const Layoutwrap = styled.div`

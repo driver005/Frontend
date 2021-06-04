@@ -46,7 +46,7 @@ export const Alert = styled(UncontrolledAlert)`
     display: block;
     position: relative;
     padding-right: 0rem!important;
-    transition: margin-top 0.2s ease;
+    //transition: margin-top 0.2s ease;
     background: ${variables.texttransparent};
     border: none;
     line-height: 20px;
@@ -172,7 +172,7 @@ export const Formcomponent = styled(Form)`
 export const Formgroup = styled(FormGroup)`
     margin-bottom: 1rem;
 
-    @media (min-width: 576px) {
+    @media (min-width: 656px) {
         flex: 0 0 auto;
         flex-flow: row wrap;
         display: flex;
@@ -187,7 +187,7 @@ export const Inputgroup = styled(InputGroup)`
     flex-wrap: wrap;
     align-items: stretch;
 
-    @media (min-width: 576px) {
+    @media (min-width: 656px) {
         width: auto;
     }
 `
@@ -318,7 +318,7 @@ export const Divider = styled(NavItem)`
     margin: 10px 14px;
     background: ${variables.contentcolor};
 
-    @media (min-width: 576px)
+    @media (min-width: 656px)
     {
         display: block!important;
     }
@@ -362,7 +362,7 @@ export const Navitem = styled(NavItem)`
     outline: 0;
     text-align: center;
 
-    @media (min-width: 576px)
+    @media (min-width: 656px)
     {
         display: none!important;
     }
@@ -412,7 +412,7 @@ export const Avatarimg = styled.img`
     vertical-align: middle;
 `
 
-export const Image = styled.img`
+export const Imagecomponent = styled.img`
     float: left;
     width: 40px;
     margin-top: 7px;
@@ -725,7 +725,7 @@ export const Dropdowncomponent = styled(Dropdown)`
     display: none!important;
     position: relative;
     
-    @media (min-width: 576px) {
+    @media (min-width: 656px) {
         display: block!important;
     }
 `

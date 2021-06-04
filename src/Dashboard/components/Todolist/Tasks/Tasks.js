@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import FlipMove from 'react-flip-move';
 import Task from './Task'
 import SelectedTasks from './Selectors'
 import DeleteAll from './DeleteAll'
@@ -10,12 +8,8 @@ import Filter from './Filter'
 import add from '../assets/add.svg'
 import './style.css'
 import { setTextFilter, sortByDate, sortByDeadline, filterBy } from '../../../../actions/todolist'
-import CreatAlert from './CreatAlert'
-import EditAlert from './EditAlert'
-import Alert from './Alert'
-import { Fragment } from 'react';
+import Alert from '../Alert'
 import { Paddingcontainer, Addcardcontainer, Addcard, Addcardcontainermobile, Taskwrapper } from '../../../styles/todolist';
-import { Slide } from '@material-ui/core'
 import { motion, AnimatePresence } from "framer-motion"
 
 const Taskcomponent = ({tasks, filters, dispatch}) => {
@@ -35,9 +29,9 @@ const Taskcomponent = ({tasks, filters, dispatch}) => {
     return (
     <Paddingcontainer className="container paddingContainer">
         <Addcardcontainer className='right-text add-card'>
-          <Addcard onClick={() => handelCreat()}><i className="fa fa-plus"></i></Addcard>
+            <Addcard onClick={() => handelCreat()}><i className="fa fa-plus"></i></Addcard>
         </Addcardcontainer>
-        <Addcardcontainermobile className="add-card-mobile" to="/app/todolist/create">
+        <Addcardcontainermobile className="add-card-mobile" onClick={() => handelCreat()}>
             <img src={add} alt="add new task" />
         </Addcardcontainermobile>
         <SortBy setTextFilter={setTextFilter} sortByDate={sortByDate} sortByDeadline={sortByDeadline} filters={filters} dispatch={dispatch} />
@@ -67,8 +61,8 @@ const Taskcomponent = ({tasks, filters, dispatch}) => {
             </div>
         }
         {tasks?.length > 0 && <DeleteAll dispatch={dispatch} />}
-        <CreatAlert alertMessage={create} closeModal={closeModal} dispatch={dispatch} />
-        <EditAlert alertMessage={edit} closeModal={closeEdit} dispatch={dispatch}  />
+        <Alert alertMessage={create} closeModal={closeModal} dispatch={dispatch} type={'create'} />
+        <Alert alertMessage={edit} closeModal={closeEdit} dispatch={dispatch} type={'edit'}  />
     </Paddingcontainer>
 )}
 

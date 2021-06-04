@@ -1,0 +1,103 @@
+
+
+.visx-tooltip {
+    position: absolute;
+}
+
+.disclaimer {
+    margin-top: 35px;
+    font-size: 11px;
+    color: white;
+    opacity: 0.4;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+    background-color: #00000073;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.duration {
+    font-weight: 100 !important;
+    font-size: 14px;
+    padding-bottom: 1px;
+    border-bottom: 2px solid #6086d6;
+}
+
+.title,
+.stats {
+    padding: 15px 15px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1.4rem;
+}
+
+.title small {
+    color: #6086d6;
+}
+
+.stats {
+    padding: 0px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.current {
+    font-size: 24px;
+}
+
+.diffIncrease,
+.diffDecrease {
+    font-size: 12px;
+    margin-left: .5rem;
+    text-decoration: none;
+}
+
+.diffIncrease {
+    color: #00f1a1;
+}
+
+.diffDecrease {
+    color: #f100a1;
+}
+
+.spacer {
+    display: flex;
+    flex: 1;
+}
+
+.chart {
+    display: flex;
+    flex: 1;
+}
+
+
+
+.x-tooltip {
+    background-color: #272727;
+    color: #FFFFFF;
+    pointer-events: none;
+    display: table;
+    white-space: pre;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+.y-tooltip {
+    background-color: #272727;
+    color: #FFFFFF;
+    pointer-events: none;
+    white-space: pre;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 2px 4px;
+}

@@ -6,16 +6,11 @@ import {Progress, Alert} from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import {dismissAlert} from '../../../actions/alerts';
 import LinksGroup from './LinksGroup/LinksGroup';
-import { BsChatSquare, FcTodoList, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite } from 'react-icons/all'
-import {changeActiveSidebarItem} from '../../../actions/navigation';
+import { BsChatSquare, IoCloseOutline, BiBitcoin, FcTodoList, AiOutlineLineChart, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite, RiMapLine } from 'react-icons/all'
+import {changeActiveSidebarItem, changeSidebarVisibility} from '../../../actions/navigation';
 import {logoutUser} from '../../../actions/user';
-import HomeIcon from '../Icons/HomeIcon/HomeIcon.js';
-import TypographyIcon from '../Icons/TypographyIcon/TypographyIcon.js';
-import TablesIcon from '../Icons/TablesIcon/TablesIcon.js';
-import NotificationsIcon from '../Icons/NotificationsIcon/NotificationsIcon.js';
-import ComponentsIcon from '../Icons/ComponentsIcon/ComponentsIcon.js';
-import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, } from '../../styles/sidebar';
-
+import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, MobileCloseButton, } from '../../styles/sidebar';
+import teclab from '../../../images/Logo_VDI_teclab4_X1.jpg'
 
 
 class Sidebar extends React.Component {
@@ -38,6 +33,7 @@ class Sidebar extends React.Component {
         super(props);
 
         this.doLogout = this.doLogout.bind(this);
+        this.mobilecloseaction = this.mobilecloseaction.bind(this);
     }
 
     componentDidMount() {
@@ -69,6 +65,10 @@ class Sidebar extends React.Component {
         this.props.dispatch(logoutUser());
     }
 
+    mobilecloseaction() {
+        this.props.dispatch(changeSidebarVisibility("hide"));
+    }
+
     render() {
         return (
             <Nav
@@ -81,9 +81,14 @@ class Sidebar extends React.Component {
                 }}
             >
                 <Header>
-                    <A href="https://demo.flatlogic.com/light-blue-react/">Light <Span
-                        className="fw-bold">Blue</Span></A>
+                    <A href="/">
+                        <img height="50px" src={teclab} />
+                        {/*<Span>TECLAB</Span>*/}
+                    </A>
                 </Header>
+                <MobileCloseButton onClick={this.mobilecloseaction}>
+                    <IoCloseOutline size="20" />
+                </MobileCloseButton>
                 <Ul>
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -95,7 +100,7 @@ class Sidebar extends React.Component {
                         index="main"
                     />
                     <H5>TEMPLATE</H5>
-                    <LinksGroup
+                   {/* <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
                         header="Typography"
@@ -103,17 +108,44 @@ class Sidebar extends React.Component {
                         iconName={<FiFileText size="18" stroke="#3979F6" />}
                         link={`${this.props.match.path}app/typography`}
                         index="core"
+                   />*/}
+                    <LinksGroup
+                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                        activeItem={this.props.activeItem}
+                        header="Corona Map"
+                        isHeader
+                        iconName={<RiMapLine size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/corona`}
+                        index="ui"
+                    />
+                    <LinksGroup
+                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                        activeItem={this.props.activeItem}
+                        header="Weather Map"
+                        isHeader
+                        iconName={<RiMapLine size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/weather`}
+                        index="ui"
                     />
                     <LinksGroup
                         onActiveSidebarItemChange={t => this.props.dispatch(changeActiveSidebarItem(t))}
                         activeItem={this.props.activeItem}
-                        header="Tables Basic"
+                        header="Coin Table"
                         isHeader
                         iconName={<FaTable size="18" fill="#3979F6"  />}
                         link={`${this.props.match.path}app/tables`}
                         index="tables"
                     />
                     <LinksGroup
+                        onActiveSidebarItemChange={t => this.props.dispatch(changeActiveSidebarItem(t))}
+                        activeItem={this.props.activeItem}
+                        header="Crypto Coins"
+                        isHeader
+                        iconName={<BiBitcoin size="23" fill="#3979F6"  />}
+                        link={`${this.props.match.path}app/crypto`}
+                        index="ui"
+                    />
+                    {/*<LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
                         header="Notifications"
@@ -121,7 +153,7 @@ class Sidebar extends React.Component {
                         iconName={<BiNotification size="18" fill="#3979F6" />}
                         link={`${this.props.match.path}app/notifications`}
                         index="ui"
-                    />
+                    />*/}
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
@@ -179,6 +211,15 @@ class Sidebar extends React.Component {
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
+                        header="Charts"
+                        isHeader
+                        iconName={<AiOutlineLineChart size="18" fill="#3979F6" />}
+                        link={`${this.props.match.path}app/components/charts`}
+                        index="ui"
+                    />
+                    {/*<LinksGroup
+                        onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                        activeItem={this.props.activeItem}
                         header="Components"
                         isHeader
                         iconName={<CgWebsite size="18"  fill="#3979F6" />}
@@ -195,7 +236,7 @@ class Sidebar extends React.Component {
                                 header: 'Maps', link: `${this.props.match.path}app/components/maps`
                             },
                         ]}
-                    />
+                    />*/}
                 </Ul>
                 <H5>
                     LABELS
@@ -223,7 +264,7 @@ class Sidebar extends React.Component {
                     </li>
                 </Labelul>
                 {/* eslint-enable */}
-                <H5 >
+                {/* <H5 >
                     {this.props.alertsList.length > 0 ? 'PROJECTS' : ''}
                 </H5>
                 <Projectdiv >
@@ -242,7 +283,7 @@ class Sidebar extends React.Component {
                             <Projectsmall>{alert.footer}</Projectsmall>
                         </Projectalert>,
                     )}
-                </Projectdiv>
+                </Projectdiv>*/}
             </Nav>
         );
     }

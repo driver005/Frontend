@@ -32,3 +32,11 @@ export const updateNewsletter = (formData) => API.patch(`/api/newsletter/confirm
 export const createNewsletter = (formData) => API.post(`/api/newsletter/subscribe`, formData);
 
 export const sendEmail = (formData) => API.post(`/api/email`, formData);
+
+export const bitcoinInfo = () => axios.get('https://data.messari.io/api/v1/assets/bitcoin/metrics/price/time-series?interval=1d')
+export const ethereumInfo = () => axios.get('https://data.messari.io/api/v1/assets/ethereum/metrics/price/time-series?interval=1d')
+export const coinInfo = () => axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=true')
+
+export const weatherLatest = () => API.get('/api/weather/latest')
+
+export const weatherInfo = () => API.get('https://api.weatherapi.com/v1/forecast.json?key=dbb41903520645a185094354210106&q=Tübingen&days=10&aqi=yes&alerts=yes')

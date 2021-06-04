@@ -14,3 +14,11 @@
     color: rgb(232, 230, 227);
     text-decoration-color: initial;
 }
+
+.modal-header {
+    border-bottom: transparent;
+}
+
+.modal-footer {
+    border-top: transparent;
+}

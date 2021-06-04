@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { Fieldsgroup, Formcomponent, Formblock, Formheading, Formmask, Formslide, Formslider, Formstep, Stepnumber, Textfiledinput, Textfiledwrapper, Filedlabel, Textfileddone, Formlabel, Formbutton, Showpassword, Textfiledcontainer } from '../styles'
 import { signin, signup } from '../../actions/auth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -206,7 +205,7 @@ const SignUp = () => {
                                             <Textfiledinput type={showPassword ? 'text' : 'password'}   maxlength="256" name="password" data-name="Password" placeholder="" id="Password" ref={register({ required: true })}/>
                                             <Filedlabel htmlFor="password" className={ isShown.password ? 'load' : 'hide' }>Password</Filedlabel>
                                             <Showpassword onClick={handleShowPassword}>
-                                                <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} /> 
+                                                {showPassword ? <FaEye /> : <FaEyeSlash />}
                                             </Showpassword>
                                         </Textfiledwrapper>
                                         {(errors.password) && (

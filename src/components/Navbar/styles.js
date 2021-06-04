@@ -66,6 +66,9 @@ export const Brand = styled.ul`
     color: #333333;
     margin-right: 44px;
     justify-content: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
 
     @media screen and (max-width: 767px)
     {

@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import { FaTimes } from 'react-icons/fa'
 import { CgSync } from 'react-icons/cg'
 import { IoSettingsOutline } from 'react-icons/io5'
-import AnimateHeight from 'react-animate-height';
+
 import { v4 as uuidv4 } from 'uuid';
 import {
   Dropdown,
@@ -322,10 +322,6 @@ class Widget extends React.Component {
             </div>
           )
         }
-        <AnimateHeight
-          duration={ 500 }
-          height={ height }
-        >
 
           <Body className={` widget-body ${bodyClass}`}>
             {reloading || fetchingData ?  <Loader size={40}/> : customBody ? (
@@ -351,7 +347,7 @@ class Widget extends React.Component {
             ) : children}
           </Body>
 
-       </AnimateHeight>
+       
 
       </Section>
       {prompt && (

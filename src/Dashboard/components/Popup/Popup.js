@@ -2,33 +2,15 @@ import React from "react";
 import Warpper from './Wrapper';
 import {
   Modal,
-  Button
+  Button,
+  Form
 } from 'react-bootstrap';
-import { makeStyles, TextField} from '@material-ui/core';
 import './styles.css'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiFormLabel-root': {
-      color: "#4e42ffde !important",
-    },
-    '& .MuiInputBase-root': {
-      color: 'rgb(255 255 255)',
-    },
-    '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#1f58f9de',
-    },
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#3f51b557',
-    },
-  },
-}))
 
 
 const CustomModal = (props) => {
   const [show, setShow] = React.useState(false);
-  const classes = useStyles();
-  
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   return (
@@ -41,9 +23,9 @@ const CustomModal = (props) => {
           <Modal.Title>Create Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form autoComplete="off" noValidate className={`${classes.root}`}>
-            <TextField name="popupinput" variant="outlined" label="Title" fullWidth value={props.value.popupinput} onChange={props.input} />
-          </form>
+          <Form autoComplete="off" noValidate>
+            <Form.Control name="popupinput" variant="outlined" label="Title" value={props.value.popupinput} onChange={props.input} style={{backgroundColor: 'transparent', borderColor: '#2c59ff', color: '#c6c6c6'}} />
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button 

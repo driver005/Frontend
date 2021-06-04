@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 import * as variables from './variables'
 import { NavLink, withRouter } from 'react-router-dom';
-import { Collapse, Badge, Alert, ProgressBar  } from 'react-bootstrap';
+import { Collapse, Badge, Alert, ProgressBar, Button  } from 'react-bootstrap';
 
 
 export const Nav = styled.nav`
@@ -34,6 +34,13 @@ export const Nav = styled.nav`
     &.sidebar-hide {
         display: none;
     }
+
+    @media (max-width: 650px) {
+        position: absolute;
+        z-index: 9999;
+        transform: translateX(-15px);
+        background-color: #000;
+    }
 `
 
 export const Header = styled.header`
@@ -63,6 +70,7 @@ export const A = styled.a`
 `
 
 export const Span = styled.span`
+    padding-left: 10px;
     &.fw-bold {
         font-weight: 700;
     }
@@ -362,5 +370,18 @@ export const Collapsecomponent = styled(Collapse)`
 
     &.show {
         display: block!important;
+    }
+`
+
+export const MobileCloseButton = styled(Button)`
+    position: absolute;
+    right: 100%;
+    transform: translateX(100vw);
+    z-index: 9999;
+    margin-top: 20px;
+    width: 80px;
+
+    @media (min-width: 650px) {
+        display: none;
     }
 `

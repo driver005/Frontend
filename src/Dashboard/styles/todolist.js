@@ -433,4 +433,5 @@ export const Centertext = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 2.5rem;
+    margin-bottom: 2rem;
 `

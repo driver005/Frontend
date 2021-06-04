@@ -1,67 +1,87 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import {FiThumbsUp} from 'react-icons/fi';
 import {MdDelete} from 'react-icons/md';
 import {FiMoreHorizontal} from 'react-icons/fi';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-
+import "./styles.css"
 import { likePost, deletePost } from '../../../../../actions/posts';
-import useStyles from './styles';
+import { Button, Card, Col, Dropdown } from 'react-bootstrap';
+import {CardActions, Details, Img, Imgdiv, Linkbutton, Overlay, Overlay2, P, Span, Title} from './styles'
+
+
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
-  const classes = useStyles();
-
   const user = JSON.parse(localStorage.getItem('profile'));
+  
   const Likes = () => {
     if (post.likes?.length > 0) {
       return post.likes.includes(user?.info?.user?._id)
         ? (
-          <React.Fragment><FiThumbsUp fontSize="small" size={20} style={{marginRight: '2px',fill: '##00000061', stroke: '#324db5'}} /><span className={classes.cardActionsText}>{post.likes?.length > 2 ? `You and ${post.likes?.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</span></React.Fragment>
+          <React.Fragment><FiThumbsUp fontSize="small" size={15} style={{marginRight: '2px',fill: 'black', stroke: '#2b2626'}} /><Span>{post.likes?.length > 2 ? `You and ${post.likes?.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</Span></React.Fragment>
         ) : (
-          <React.Fragment><FiThumbsUp fontSize="small" size={15} style={{marginRight: '2px'}} /><span className={classes.cardActionsText}>{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</span></React.Fragment>
+          <React.Fragment><FiThumbsUp fontSize="small" size={15} style={{marginRight: '2px'}} /><Span>{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</Span></React.Fragment>
         );
     } else {
-      return <React.Fragment><FiThumbsUp fontSize="small" size={15} style={{marginRight: '2px'}} /><span className={classes.cardActionsText}>Like</span></React.Fragment>;
+      return <React.Fragment><FiThumbsUp fontSize="small" size={15} style={{marginRight: '2px'}} /><Span>Like</Span></React.Fragment>;
     }
-
+  
     
   };
 
   return (
-    <Card className={classes.card} style={{ background: '#ec7f7f12' }}>
-      
-      <div className={classes.mediaWrapper}>
-        <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
-      </div>
-      <div className={classes.overlay}>
-        <Typography variant="h6">{post.creatorName}</Typography>
-        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-      </div>
-      {(user?.info?.user?._id === post?.creator) && (
-        <div className={classes.overlay2}>
-          <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><FiMoreHorizontal size={25} /></Button>
-        </div>
-        )}
-      <div className={classes.details}>
-        <Typography variant="body2" color="primary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-      </div>
-      <Typography className={classes.title} color="primary" gutterBottom variant="h5" component="h2">{post.title}</Typography>
-      <CardContent>
-        <Typography variant="body2" color="primary" component="p">{post.message}</Typography>
-      </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" disabled={!user?.info?.user} onClick={() => dispatch(likePost(post._id))}><Likes /></Button>
-        {(post.link) && (
-          <a href={post.link}><Button variant="outlined" color="primary">Open Website</Button></a>
-        )}
+    <Card style={{ background: '#ec7f7f12'}}>
+      <Imgdiv>
+        <Img variant="top" src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
+      </Imgdiv>
+      <Card.Body>
+        <Overlay>
+          <h3>{post.creatorName}</h3>
+        </Overlay>
         {(user?.info?.user?._id === post?.creator) && (
-          <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><MdDelete size={15}  /> <span className={classes.cardActionsText}>Delete</span></Button>
-        )}
-      </CardActions>
+          <Overlay2>
+            <Dropdown>
+              <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
+                <FiMoreHorizontal size={25} />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {(user?.info?.user?._id === post?.creator) && (<Dropdown.Item onClick={() => setCurrentId(post._id)}>Edit</Dropdown.Item>)}
+                {(user?.info?.user?._id === post?.creator) && (<Dropdown.Item onClick={() => dispatch(deletePost(post._id))}>Delete</Dropdown.Item>)}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Overlay2>
+          )}
+        <Card.Text>
+          <Details>
+            <Col>
+              <legend>Title:</legend>
+              <P className='title'>{post.title}</P>
+            </Col>
+            <Col>
+              <legend>Message:</legend>
+              <P className='message'>{post.message}</P>
+            </Col>
+            <Col>
+              <legend>Tags:</legend>
+              <P className='tags'>{post.tags.map((tag) => `#${tag} `)}</P>
+            </Col>
+          </Details>
+        </Card.Text>
+        <CardActions>
+          <Linkbutton variant="link" size="small"  disabled={!user?.info?.user} onClick={() => dispatch(likePost(post._id))}><Likes /></Linkbutton>
+          <Button className="align-items-center d-flex" variant="outline-primary" disabled={!post.link} className={post.link ? 'visible' : 'invisible'} href={post.link}>Open Website</Button>
+        </CardActions>
+      </Card.Body>
+      <Card.Footer>
+        <small className="text-muted">Last updated {moment(post.createdAt).fromNow()}</small>
+      </Card.Footer>
     </Card>
   );
+
 };
+
+
 
 export default Post;

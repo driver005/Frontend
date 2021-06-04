@@ -17,13 +17,18 @@ import Quizcomponent from '../../pages/quiz/Quiz'
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import BreadcrumbHistory from '../BreadcrumbHistory/BreadcrumbHistory';
-import { openSidebar, closeSidebar } from '../../../actions/navigation';
+import { openSidebar, closeSidebar, changeSidebarPosition, changeSidebarVisibility } from '../../../actions/navigation';
 import { Main, Wrap, Div } from '../../styles/layout';
 import Jitsi from '../../pages/jitsi/Jitsi';
 import Todolist from '../../pages/todolist/Todolist';
 import Chat from '../../pages/chat/Chat';
 import Post from '../../pages/posts/Posts';
 import PageError from '../../../Errors/400';
+import CoronaTracker from '../Coronamap';
+import Crypto from '../Crypto';
+import DataTable from '../../pages/Table';
+import Weather from '../Weather';
+import Footer from '../../../components/Footer/Footer';
 
 
 class Layout extends React.Component {
@@ -43,6 +48,11 @@ class Layout extends React.Component {
     this.handleSwipe = this.handleSwipe.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.windowDimensions.width <= 570) {
+      this.props.dispatch(changeSidebarVisibility("hide"));
+    }
+  }
 
   handleSwipe(e) {
     if ('ontouchstart' in window) {
@@ -59,7 +69,7 @@ class Layout extends React.Component {
       this.setState({ chatOpen: e.direction === 2 });
     }
   }
-
+  
   render() {
     return (
       <Div
@@ -72,7 +82,7 @@ class Layout extends React.Component {
           <Header />
           {/* <Chat chatOpen={this.state.chatOpen} /> */}
           {/* <Helper /> */}
-          <Sidebar sidebarPosition={this.props.sidebarPosition} sidebarVisibility={this.props.sidebarVisibility} />
+          <Sidebar sidebarPosition={this.props.sidebarPosition} sidebarVisibility={this.props.sidebarVisibility} windowDimensions={this.props.windowDimensions} />
           <Hammer onSwipe={this.handleSwipe}>
             <Main>
               <BreadcrumbHistory url={this.props.location.pathname} />
@@ -99,7 +109,7 @@ class Layout extends React.Component {
                     <Route path={`${this.props.match.path}app/components/icons`}  component={UIIcons} />
                     <Route path={`${this.props.match.path}app/notifications`}  component={UINotifications} />
                     <Route path={`${this.props.match.path}app/components/charts`} component={Charts} />
-                    <Route path={`${this.props.match.path}app/tables`} component={TablesStatic} />
+                    <Route path={`${this.props.match.path}app/tables`} component={DataTable} />
                     <Route path={`${this.props.match.path}app/calendar`} component={Calendar} />
                     <Route path={`${this.props.match.path}app/jitsi`} component={Jitsi} />
                     <Route path={`${this.props.match.path}app/quiz`} component={Quizcomponent} />
@@ -107,13 +117,16 @@ class Layout extends React.Component {
                     <Route path={`${this.props.match.path}app/chat`} component={Chat} />
                     <Route path={`${this.props.match.path}app/posts`} component={Post} />
                     <Route path={`${this.props.match.path}app/components/maps`} component={MapsGoogle} />
+                    <Route path={`${this.props.match.path}app/corona`} component={CoronaTracker} />
+                    <Route path={`${this.props.match.path}app/weather`} component={Weather} />
+                    <Route path={`${this.props.match.path}app/crypto`} component={Crypto} />
                     <Route path={`${this.props.match.path}app/typography`} component={CoreTypography} />
                     <Route path="*" exact render={() => <Redirect to={`/notfound`} />} />
                   </Switch>
                   </CSSTransition>
               </TransitionGroup>
               <footer>
-                Light Blue React Template - React admin template made by <a href="https://flatlogic.com" >Flatlogic</a>
+                <Footer />
               </footer>
             </Main>
           </Hammer>

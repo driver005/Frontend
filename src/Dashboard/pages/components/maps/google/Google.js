@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  withGoogleMap,
-  withScriptjs,
-  GoogleMap,
-  Marker,
-} from 'react-google-maps';
+
 import Widget from '../../../../components/Widget/Widget';
 
 

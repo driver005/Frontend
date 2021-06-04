@@ -1,242 +1,220 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import Pie from '@visx/shape/lib/shapes/Pie';
+import { scaleOrdinal } from '@visx/scale';
+import { Group } from '@visx/group';
+import { GradientPinkBlue } from '@visx/gradient';
+import letterFrequency from '@visx/mock-data/lib/mocks/letterFrequency';
+import browserUsage from '@visx/mock-data/lib/mocks/browserUsage';
+import ParentSize from '@visx/responsive/lib/components/ParentSize';
+import { animated, useTransition, to, useSpring, use, config, interpolate } from 'react-spring';
+import Draw from './draw';
+import {Colcomponent, Rowcomponent} from './styles'
+import Chordcomponent from './chord'
 
-import { Row, Col } from "react-bootstrap";
+const letters = letterFrequency.slice(0, 4);
 
-import Widget from "../../../components/Widget/Widget";
-import ApexChart from "react-apexcharts";
+const browserNames = Object.keys(browserUsage[0]).filter(k => k !== 'date');
 
-import { chartData, liveChart, liveChartInterval } from "./mock";
-import Sparklines from "../../../components/Sparklines/Sparklines";
+const browsers = browserNames.map(name => ({
+    label: name,
+    usage: Number(browserUsage[0][name]),
+}));
+// accessor functions
+const usage = (d) => d.usage;
+const frequency = (d) => d.frequency;
+// color scales
+const getBrowserColor = scaleOrdinal({
+    domain: browserNames,
+    range: [
+        'rgba(255,255,255,0.6)',
+        'rgba(255,255,255,0.5)',
+        'rgba(255,255,255,0.4)',
+        'rgba(255,255,255,0.3)',
+        'rgba(255,255,255,0.2)',
+        'rgba(255,255,255,0.1)',
+    ],
+});
+const getLetterFrequencyColor = scaleOrdinal({
+    domain: letters.map(l => l.letter),
+    range: ['rgba(93,30,91,1)', 'rgba(93,30,91,0.8)', 'rgba(93,30,91,0.6)', 'rgba(93,30,91,0.4)'],
+});
+const defaultMargin = { top: 20, right: 20, bottom: 20, left: 20 };
 
-import ReactEcharts from "echarts-for-react";
+function Example({ width, height, margin = defaultMargin, animate = true, }) {
+    const [selectedBrowser, setSelectedBrowser] = useState(null);
+    const [selectedAlphabetLetter, setSelectedAlphabetLetter] = useState(null);
+    const [, updateState] = React.useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+    const [oldarcs, setoldarcs] = React.useState();
+    if (width < 10)
+        return null;
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const radius = Math.min(innerWidth, innerHeight) / 2;
+    const centerY = innerHeight / 2;
+    const centerX = innerWidth / 2;
+    const donutThickness = 50;
 
-import echarts from "echarts/lib/echarts";
 
-import "echarts/lib/chart/line";
-import "echarts/lib/chart/pie";
-import "echarts/lib/chart/themeRiver";
-import "echarts/lib/component/tooltip";
-import "echarts/lib/component/legend";
-
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
-import exporting from "highcharts/modules/exporting";
-import exportData from "highcharts/modules/export-data";
-
-exporting(Highcharts);
-exportData(Highcharts);
-
-class Charts extends React.Component {
-  state = {
-    cd: chartData,
-    ld: liveChart,
-    initEchartsOptions: {
-      renderer: "canvas",
-    },
-    sparklineData: {
-      series: [{ data: [1, 7, 3, 5, 7, 8] }],
-      options1: {
-        colors: ["#db2a34"],
-        plotOptions: {
-          bar: {
-            columnWidth: "50%",
-          },
-        },
-      },
-      options2: {
-        colors: ["#2477ff"],
-        plotOptions: {
-          bar: {
-            columnWidth: "50%",
-          },
-        },
-      },
-    },
-  };
-
-  componentWillUnmount() {
-    clearInterval(liveChartInterval);
-  }
-
-  render() {
-    const { cd, ld, initEchartsOptions, sparklineData } = this.state;
     return (
-      <div>
-        <h1 className="page-title">
-          Visual - <span className="fw-semi-bold">Charts</span>
-        </h1>
-        <div>
-          <Row>
-            <Col lg={7} xs={12}>
-              <Widget
-                title={
-                  <h5>
-                    Apex <span className="fw-semi-bold">Column Chart</span>
-                  </h5>
-                }
-                close
-                collapse
-              >
-                <ApexChart
-                  className="sparkline-chart"
-                  height={350}
-                  series={cd.apex.column.series}
-                  options={cd.apex.column.options}
-                  type={"bar"}
-                />
-              </Widget>
-            </Col>
-            <Col lg={5} xs={12}>
-              <Widget
-                title={
-                  <h5>
-                    Echarts <span className="fw-semi-bold">Line Chart</span>
-                  </h5>
-                }
-                close
-                collapse
-              >
-                <ReactEcharts
-                  echarts={echarts}
-                  option={cd.echarts.line}
-                  opts={initEchartsOptions}
-                  style={{ height: "365px" }}
-                />
-              </Widget>
-            </Col>
-            <Col lg={5} xs={12}>
-              <Widget
-                title={
-                  <h5>
-                    Highcharts <span className="fw-semi-bold">Line Chart</span>
-                  </h5>
-                }
-                close
-                collapse
-              >
-                <HighchartsReact options={cd.highcharts.mixed} />
-                <h5 className="mt">
-                  Interactive <span className="fw-semi-bold">Sparklines</span>
-                </h5>
-                <Row className="mt">
-                  <Col md={6} xs={12}>
-                    <div className="stats-row">
-                      <div className="stat-item">
-                        <p className="value5 fw-thin">34 567</p>
-                        <h6 className="name text-muted m0 fs-mini">
-                          Overall Values
-                        </h6>
-                      </div>
-                      <div className="stat-item stat-item-mini-chart">
-                        <Sparklines
-                          options={sparklineData.options2}
-                          width={80}
-                          height={25}
-                          data={sparklineData.series}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                  <Col md={6} xs={12}>
-                    <div className="stats-row">
-                      <div className="stat-item">
-                        <p className="value5 fw-thin">34 567</p>
-                        <h6 className="name text-muted m0 fs-mini">
-                          Overall Values
-                        </h6>
-                      </div>
-                      <div className="stat-item stat-item-mini-chart">
-                        <Sparklines
-                          options={sparklineData.options1}
-                          width={80}
-                          height={25}
-                          data={sparklineData.series}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </Widget>
-            </Col>
-            <Col lg={7} xs={12}>
-              <Row>
-                <Col lg={6} xs={12}>
-                  <Widget
-                    title={
-                      <h5>
-                        Apex{" "}
-                        <span className="fw-semi-bold">Monochrome Pie</span>
-                      </h5>
-                    }
-                    close
-                    collapse
-                  >
-                    <ApexChart
-                      className="sparkline-chart"
-                      type={"pie"}
-                      height={200}
-                      series={cd.apex.pie.series}
-                      options={cd.apex.pie.options}
-                    />
-                  </Widget>
-                </Col>
-                <Col lg={6} xs={12}>
-                  <Widget
-                    title={
-                      <h5>
-                        Chart <span className="fw-semi-bold">Donut Chart</span>
-                      </h5>
-                    }
-                    close
-                    collapse
-                  >
-                    <ReactEcharts
-                      echarts={echarts}
-                      option={cd.echarts.donut}
-                      opts={initEchartsOptions}
-                      style={{ height: "170px" }}
-                    />
-                  </Widget>
-                </Col>
-                <Col lg={12} xs={12}>
-                  <Widget
-                    title={
-                      <h5>
-                        Highcharts{" "}
-                        <span className="fw-semi-bold">Live Chart</span>
-                      </h5>
-                    }
-                    close
-                    collapse
-                  >
-                    <HighchartsReact options={ld} />
-                  </Widget>
-                </Col>
-              </Row>
-            </Col>
-            <Col lg={12} xs={12}>
-              <Widget
-                title={
-                  <h5>
-                    Echarts <span className="fw-semi-bold">River Chart</span>
-                  </h5>
-                }
-                close
-                collapse
-              >
-                <ReactEcharts
-                  echarts={echarts}
-                  option={cd.echarts.river}
-                  opts={initEchartsOptions}
-                  style={{ height: "350px" }}
-                />
-              </Widget>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    );
-  }
+      <svg width={width} height={height}>
+        <GradientPinkBlue id="visx-pie-gradient" />
+        <rect rx={14} width={width} height={height} fill="url('#visx-pie-gradient')" />
+        <Group top={centerY + margin.top} left={centerX + margin.left}>
+          <Pie
+            data={
+              selectedBrowser ? selectedBrowser && browsers.filter(({ label }) => label === selectedBrowser) : browsers
+            }
+            pieValue={usage}
+            outerRadius={radius}
+            innerRadius={radius - donutThickness}
+            cornerRadius={3}
+            padAngle={0.005}
+          >{pie => (
+              
+            <AnimatedPie
+              {...pie}
+              animate={animate}
+              getKey={arc => arc.data.label}
+              oldarcs={oldarcs}
+              setoldarcs={setoldarcs}
+              onClickDatum={({ data: { label } }) =>
+                animate &&
+                setSelectedBrowser(selectedBrowser && selectedBrowser === label ? null : label)
+              }
+              getColor={arc => getBrowserColor(arc.data.label)}
+            />  
+          )}
+          </Pie>
+          {/*<Pie
+            data={
+              selectedAlphabetLetter
+                ? letters.filter(({ letter }) => letter === selectedAlphabetLetter)
+                : letters
+            }
+            pieValue={frequency}
+            pieSortValues={() => -1}
+            outerRadius={radius - donutThickness * 1.3}
+          >
+          {pie => (
+            <AnimatedPie
+              {...pie}
+              animate={animate}
+              getKey={({ data: { letter } }) => letter}
+              onClickDatum={({ data: { letter } }) =>
+                animate &&
+                setSelectedAlphabetLetter(
+                  selectedAlphabetLetter && selectedAlphabetLetter === letter ? null : letter,
+                )
+              }
+              getColor={({ data: { letter } }) => getLetterFrequencyColor(letter)}
+            />
+          )}
+            </Pie>*/}
+      </Group>
+      {animate && (
+        <text
+          textAnchor="end"
+          x={width - 16}
+          y={height - 16}
+          fill="white"
+          fontSize={11}
+          fontWeight={300}
+          pointerEvents="none"
+        >
+          Click segments to update
+        </text>
+      )}
+    </svg>
+  );
 }
+
+const fromLeaveTransition = ({ endAngle, startAngle }) => ({
+    // enter from 360° if end angle is > 180°
+    startAngle: startAngle < Math.PI ? 2 * Math.PI : 0,
+    endAngle: endAngle > Math.PI ? 2 * Math.PI : 0,
+    opacity: 0,
+});
+
+const enterUpdateTransition = ({ startAngle, endAngle }) => ({
+    startAngle,
+    endAngle,
+    opacity: 1,
+});
+
+const AnimatedPie = React.memo(function ({ animate, arcs, oldarcs, setoldarcs, path, getKey, getColor, onClickDatum, }) {
+
+    const transitions = useTransition(arcs, (arc) => arc.data.label,
+    {
+        from: animate ? fromLeaveTransition : enterUpdateTransition,
+        enter: enterUpdateTransition,
+        update: enterUpdateTransition,
+        leave: animate ? fromLeaveTransition : enterUpdateTransition,
+    });
+
+    return transitions.map(({ item: arc, props, key }) => {
+      const [centroidX, centroidY] = path.centroid(arc);
+      const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
+
+      return (
+        <g key={key}>
+          <animated.path
+            // compute interpolated path d attribute from intermediate angle values
+            d={interpolate([props.startAngle, props.endAngle], (startAngle, endAngle) => 
+              path({
+                ...arc,
+                startAngle,
+                endAngle,
+              }),
+            )}
+            fill={getColor(arc)}
+            onClick={() => onClickDatum(arc)}
+            onTouchStart={() => onClickDatum(arc)}
+          />
+          {hasSpaceForLabel && (
+            <animated.g style={{ opacity: props.opacity }}>
+              <text
+                fill="white"
+                x={centroidX}
+                y={centroidY}
+                dy=".33em"
+                fontSize={9}
+                textAnchor="middle"
+                pointerEvents="none"
+              >
+                {getKey(arc)}
+              </text>
+            </animated.g>
+          )}
+        </g>
+      );
+    },
+  )}
+);
+
+
+
+
+
+
+
+const Charts = () => 
+    <div >
+    <Rowcomponent>
+      <Colcomponent>
+        <ParentSize>{({ width, height }) => <Example width={width} height={height} />}</ParentSize>
+      </Colcomponent>
+      
+    </Rowcomponent>
+    <Rowcomponent>
+      <Colcomponent>
+        <ParentSize>{({ width, height }) => <Chordcomponent width={width} height={height} />}</ParentSize>
+      </Colcomponent>
+      <Colcomponent>
+        <ParentSize>{({ width, height }) => <Draw width={width} height={height} />}</ParentSize>
+      </Colcomponent>
+    </Rowcomponent>
+    </div>
+
 
 export default Charts;

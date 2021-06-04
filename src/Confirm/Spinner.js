@@ -1,8 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSync } from '@fortawesome/free-solid-svg-icons'
+import { Spinner } from 'react-bootstrap'
 
-export default props =>
-    <div className={`fadeIn ${props.spinning}`}>
-        <FontAwesomeIcon icon={faSync} size={props.size} />
-    </div>
+
+export default props => <Spinner className={`${props.spinning}`} size={props.size} animation="border" variant="primary" />

@@ -24,7 +24,7 @@ export default function Contact() {
     }
 
     return (
-        <div style={{backgroundColor: '#000', width: '100vw', height: '100vh'}}>
+        <div style={{backgroundColor: '#b1b1b1', width: '100vw', height: '100vh'}}>
         <Formblock>
         <Form onSubmit={handleSubmit(onSubmit)}>
             <h1>

@@ -1,36 +1,41 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Switch, Route, Redirect } from 'react-router';
-import { HashRouter } from 'react-router-dom';
-
-import ErrorPage from '../pages/error/ErrorPage';
-
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Layout from './Layout/Layout';
-import Login from '../pages/login/Login';
-import Register from '../pages/register/Register';
-import { logoutUser } from '../../actions/user';
+import { bitcoin, ethereum } from '../../actions/crypto';
+import { coin } from '../../actions/table';
+import { weather } from '../../actions/weather';
 
-const PrivateRoute = ({dispatch, component, ...rest }) => {
-    if (!JSON.parse(localStorage.getItem('profile'))) {
-        dispatch(logoutUser());
-        return (<Redirect push to="http://localhost:3000/sign-up"/>)
-    } else {
-        return (
-            <Route {...rest} render={props => (React.createElement(component, props))}/>
-        );
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+
+const App = () => {
+    const dispatch = useDispatch()
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+    
+    function handleResize() {
+        setWindowDimensions(getWindowDimensions());
     }
-};
 
+    useEffect(() => {
+        dispatch(bitcoin())
+        dispatch(coin())
+        dispatch(ethereum())
+        dispatch(weather())
 
-class App extends React.PureComponent {
-  render() {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
     return (
-        <div>
-            <Layout dispatch={this.props.dispatch} />
-        </div>
-
+        <>
+            <Layout dispatch={dispatch} windowDimensions={windowDimensions} />
+        </>
     );
-  }
 }
 
 export default App;
