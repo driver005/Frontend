@@ -9,7 +9,7 @@ const Cta = () => {
 
     const handleChange = e => {
         if(e){
-          setIsShown(true)
+            setIsShown(true)
         }  
     };
 
@@ -21,11 +21,11 @@ const Cta = () => {
                 threshold={1}
             >
                 <Newsletterblock className={ isShown ? 'load' : 'hide' }>
-                    <Overline>{"Newsletter"}</Overline>
+                    {/*<Overline>{"Newsletter"}</Overline>*/}
                     <Contentcta>
-                        {"Join our Newsletter to receive the latest "}
+                        {"Join our newsletter to receive the latest "}
                         <Link href="/" target="_blank">{"teclab"}</Link>
-                        {" news and ternds"}
+                        {" news "}
                     </Contentcta>
                         <Newsletter />
                         {

@@ -16,7 +16,7 @@ const Service = () => {
             <Containerflex>
                 <Titlewrap>
                     <Contenth2>
-                        {"Services that "}
+                        {"Projects that "}
                         <H2span>{"you can use"}</H2span>
                     </Contenth2>
                 </Titlewrap>

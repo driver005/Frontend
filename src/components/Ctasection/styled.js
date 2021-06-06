@@ -80,7 +80,8 @@ export const Container = styled.div`
 export const Newsletterblock = styled.div`
     position: relative;
     display: flex;
-    padding: 105px 35px;
+    padding: 90px 35px;
+    margin: 0px 70px;
     flex-direction: column;
     justify-content: center;
     align-items: center;

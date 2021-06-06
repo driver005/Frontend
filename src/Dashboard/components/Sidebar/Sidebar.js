@@ -10,7 +10,7 @@ import { BsChatSquare, IoCloseOutline, BiBitcoin, FcTodoList, AiOutlineLineChart
 import {changeActiveSidebarItem, changeSidebarVisibility} from '../../../actions/navigation';
 import {logoutUser} from '../../../actions/user';
 import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, MobileCloseButton, } from '../../styles/sidebar';
-import teclab from '../../../images/Logo_VDI_teclab4_X1.jpg'
+import teclab from '../../../images/Logo_VDI_teclab4_X1.png'
 
 
 class Sidebar extends React.Component {

@@ -32,7 +32,7 @@ const Features = () => {
             <Containerflex>
                 <Titlewrap>
                     <Contenth2>
-                        {"Compete in Robotis "}
+                        {"Compete in Robotics "}
                         <H2span>{"Olympics"}</H2span>
                     </Contenth2>
                 </Titlewrap>

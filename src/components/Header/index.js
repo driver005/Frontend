@@ -18,7 +18,7 @@ function Header() {
             <Headercontainer >
                 <AnimatedNavbar duration={Duration} />
                         <Containerflex>
-                            <Herooverline className={ isShown ? 'load' : 'hide' } >What is the teclab</Herooverline>
+                            <Herooverline className={ isShown ? 'load' : 'hide' } >What is the</Herooverline>
                             <Heroh1 className={ isShown ? 'load' : 'hide' }>TECLAB</Heroh1>
                             <Heroparagraph className={ isShown ? 'load' : 'hide' } >teclab is an place for students too meet and power their dreams</Heroparagraph>
                             <Herobutton href={"/contact"} className={ isShown ? 'load' : 'hide' }>Contact Us</Herobutton>

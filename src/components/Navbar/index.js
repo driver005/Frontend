@@ -7,7 +7,7 @@ import { Brand, Logo, Menubutton, Navbutton, Navcontainer, Navigationleft, Navig
 import {IoMdMenu } from 'react-icons/io'
 import decode from 'jwt-decode';
 import { Button, Dropdown } from "react-bootstrap";
-import teclab from '../../images/Logo_VDI_teclab4_X1.jpg'
+import teclab from '../../images/Logo_VDI_teclab4_X1.png'
 
 const NavbarEl = styled.nav`
   display: block;
