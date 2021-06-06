@@ -18,7 +18,6 @@ function Weather() {
     const [mapZoom, setMapZoom] = useState(3);
     const [useLightMode, setUseLightMode] = useState(false);
     const data = useSelector(state => state.weather)
-    console.log(data)
     if (!data?.location) return <Loading />;
 
     return (

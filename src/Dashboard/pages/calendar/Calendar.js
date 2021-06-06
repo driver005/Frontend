@@ -83,7 +83,6 @@ export default class Calendar extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault()
-    console.log(e)
     const all = this.state.draggableitem.push({title: this.state.popupinput, icon: 'text-success'})
     this.setState({...this.state.draggableitem, all, popupinput: ''});
     

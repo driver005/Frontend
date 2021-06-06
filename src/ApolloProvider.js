@@ -11,7 +11,7 @@ import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
 
 let httpLink = createHttpLink({
-  uri: 'https://localhost/graphql',
+  uri: 'https://teclab.herokuapp.com/graphql',
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -29,7 +29,7 @@ const authLink = setContext((_, { headers }) => {
 httpLink = authLink.concat(httpLink)
 
 const wsLink = new WebSocketLink({
-  uri: `wss://localhost/subscriptions`,
+  uri: `wss://teclab.herokuapp.com/subscriptions`,
 })
 
 const splitLink = split(

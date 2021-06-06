@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://localhost' });
+const API = axios.create({ baseURL: 'https://teclab.herokuapp.com/' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {

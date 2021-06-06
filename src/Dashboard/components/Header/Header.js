@@ -188,7 +188,6 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props.sidebarVisibility)
     return (
       <Headerroot className={`d-print-none main-navbar`}>
         <Alert

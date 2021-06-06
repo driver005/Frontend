@@ -56,7 +56,6 @@ function CoronaTracker() {
 
     const onCountryChange = async (e) => {
         const countryCode = e.target.value;
-        console.log(countryCode)
         const url =
             countryCode === "worldwide"
                 ? "https://disease.sh/v3/covid-19/all"

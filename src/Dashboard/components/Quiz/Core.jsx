@@ -108,9 +108,6 @@ const Core = ({questions, appLocale, showDefaultResult, onComplete, customResult
     // Default single to avoid code breaking due to automatic version upgrade
     answerSelectionType = answerSelectionType || 'single';
 
-    console.log(correct)
-    console.log(incorrect)
-
     return answers.map((answer, index) => {
       if(input) {
             answerBtnCorrectClassNameInput = (answers[index] === Object.values(Input)[index] ? 'correct' : '');

@@ -126,7 +126,6 @@ L.Control.ControlOverlay = L.Control.extend({
 
         api.weatherLatest().then((data) => {
             if (this.velocityLayer) this.velocityLayer._destroyWind()
-            console.log()
             this.velocityLayer = L.velocityLayer({
                 displayValues: true,
                 displayOptions: {
