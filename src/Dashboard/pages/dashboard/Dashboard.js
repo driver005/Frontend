@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Progress, Table, Form } from "react-bootstrap";
+import { Row, Col, Progress, Table, Form, Button } from "react-bootstrap";
 import { IoLocationOutline } from 'react-icons/io5'
 import Widget from "../../components/Widget/Widget";
 import "./styles.css"
@@ -13,11 +13,14 @@ import peopleA1 from "../../assets/people/a1.jpg";
 import peopleA2 from "../../assets/people/a2.jpg";
 import peopleA5 from "../../assets/people/a5.jpg";
 import peopleA4 from "../../assets/people/a4.jpg";
-import { Colcomponent, Listgroup, Statusstrong, Rowcomponent, Inputcomponent, Numberdiv, H1, Small, H5title, Spantitle, Statitem, P, Span, Rowdiv, Coldiv, H6, Namep, Progresscomponents, Numberspan, H6settings, Inputdiv, Inputbutton, H6title, Statsrow, statitem, H6item, Pnormal, Newspan, Undopadding, Footer, Footerinput, H3, Marketp, Marketspan, Tablesdiv, Tablecomponent, TH, ABCcheckbox, Inputcheckbox, TD, Rickshawdiv, Listgroupcalendar, Calendarbutton, Timespan,  } from "../../styles/dashboard";
+import { Colcomponent, Listgroup, Statusstrong, Rowcomponent, Inputcomponent, Numberdiv, H1, Small, H5title, Spantitle, Statitem, P, Span, Rowdiv, Coldiv, H6, Namep, Progresscomponents, Numberspan, H6settings, Inputdiv, Inputbutton, H6title, Statsrow, statitem, H6item, Pnormal, Newspan, Undopadding, Footer, Footerinput, H3, Marketp, Marketspan, Tablesdiv, Tablecomponent, TH, ABCcheckbox, Inputcheckbox, TD, Rickshawdiv, Listgroupcalendar, Calendarbutton, Timespan,  } from "../../../styles/dashboard";
 import Notifications from "../../components/Notifications/Notifications";
 import MessagesDemo from "../../components/Notifications/notifications-demo/Messages";
 import { World } from "../../components/Charts";
 import { ParentSize } from "@visx/responsive";
+import Littlecomponents from "../../components/Dashboard/Littlecomponents";
+import Dash from "../../components/Dashboard";
+import { Link } from "react-router-dom";
 
 
 class Dashboard extends React.Component {
@@ -81,20 +84,26 @@ class Dashboard extends React.Component {
                   <Spantitle className="fw-semi-bold">&nbsp;Statistics</Spantitle>
                 </H5title>
               }
-              settings
-              refresh
+              
+
               close
             >
-              <P>
+              {/*<P>
                 {"Status: "}<Statusstrong>Live</Statusstrong>
-              </P>
+              </P>*/}
               <P>
                 <Span className="circle bg-default text-white">
                   <IoLocationOutline />
                 </Span>{" "}
                 &nbsp; 146 Countries, 2759 Cities
               </P>
-              <Rowdiv className="row progress-stats">
+              <P>
+                {"Population: "}<Statusstrong>Almost 8 billon people</Statusstrong>
+              </P>
+              <Button as={Link} to='/dash/app/components/charts' variant="outline-primary" >
+                Check out more cool statistics
+              </Button>
+              {/*<Rowdiv className="row progress-stats">
                 <Coldiv className="col-md-9 col-12">
                   <H6 className="name fw-semi-bold">Foreign Visits</H6>
                   <Namep className="description deemphasize mb-xs text-white">
@@ -181,113 +190,14 @@ class Dashboard extends React.Component {
                   </Inputbutton>
                 </span>
               </Inputdiv>
+            */}
             </Widget>
           </Colcomponent>
         </Rowcomponent>
         {/* Littlecomponents */}
-        <Rowcomponent>
-          <Colcomponent lg={6} xl={4} xs={12}>
-            <Widget title={<H6title> USERBASE GROWTH </H6title>} close settings>
-              <Statsrow className="stats-row">
-                <Statitem className="stat-item">
-                  <H6item className="name">Overall Growth</H6item>
-                  <Pnormal className="value">76.38%</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name">Montly</H6item>
-                  <Pnormal className="value">10.38%</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name">24h</H6item>
-                  <Pnormal className="value">3.38%</Pnormal>
-                </Statitem>
-              </Statsrow>
-              <Progresscomponents
-                variant="success"
-                animated
-                now="60"
-                className="bg-subtle-blue progress-xs"
-              />
-              <p>
-                <small>
-                  <span className="circle bg-default text-white mr-2">
-                    <i className="fa fa-chevron-up" />
-                  </span>
-                </small>
-                <span className="fw-semi-bold">&nbsp;17% higher</span>
-                &nbsp;than last month
-              </p>
-            </Widget>
-          </Colcomponent>
-          <Colcomponent lg={6} xl={4} xs={12}>
-            <Widget title={<H6title> TRAFFIC VALUES </H6title>} close settings>
-              <Statsrow className="stats-row">
-                <Statitem className="stat-item">
-                  <H6item className="name">Overall Values</H6item>
-                  <Pnormal className="value">17 567 318</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name">Montly</H6item>
-                  <Pnormal className="value">55 120</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name">24h</H6item>
-                  <Pnormal className="value">9 695</Pnormal>
-                </Statitem>
-              </Statsrow>
-              <Progresscomponents
-                variant="danger"
-                animated
-                now="60"
-                className="bg-subtle-blue progress-xs"
-              />
-              <p>
-                <small>
-                  <span className="circle bg-default text-white mr-2">
-                    <i className="fa fa-chevron-down" />
-                  </span>
-                </small>
-                <span className="fw-semi-bold">&nbsp;8% lower</span>
-                &nbsp;than last month
-              </p>
-            </Widget>
-          </Colcomponent>
-          <Colcomponent lg={6} xl={4} xs={12}>
-            <Widget title={<H6title> RANDOM VALUES </H6title>} close settings>
-              <Statsrow className="stats-row">
-                <Statitem className="stat-item">
-                  <H6item className="name fs-sm">Overcome T.</H6item>
-                  <Pnormal className="value">104.85%</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name fs-sm">Takeoff Angle</H6item>
-                  <Pnormal className="value">14.29&deg;</Pnormal>
-                </Statitem>
-                <Statitem className="stat-item">
-                  <H6item className="name fs-sm">World Pop.</H6item>
-                  <Pnormal className="value">7,211M</Pnormal>
-                </Statitem>
-              </Statsrow>
-              <Progresscomponents
-                variant="primary"
-                animated
-                now="60"
-                className="bg-subtle-blue progress-xs"
-              />
-              <p>
-                <small>
-                  <span className="circle bg-default text-white mr-2">
-                    <i className="fa fa-plus" />
-                  </span>
-                </small>
-                <span className="fw-semi-bold">&nbsp;8 734 higher</span>
-                &nbsp;than last month
-              </p>
-            </Widget>
-          </Colcomponent>
-        </Rowcomponent>
-
-        <Rowcomponent>
+        <Dash />
+        {/* Bigcomponents */}
+        {/* <Rowcomponent>
           <Colcomponent lg={4} xs={12}>
             <Widget
               title={
@@ -424,6 +334,7 @@ class Dashboard extends React.Component {
             </Widget>
           </Colcomponent>
         </Rowcomponent>
+        */}
       </div>
     );
   }

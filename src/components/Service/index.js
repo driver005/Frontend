@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Containerflex, Contenth2, H2span, Iconblock, Iconblockimg, Servicegrid, Servicegridblock, Servicegridblock02, Servicegridblock03, Servicegridblock04, Serviceparagraph, Servicesection, Servicetitle, Titlewrap, Endblock, Primarybutton, Tag10, Divider } from './styles'
+import { Containerflex, Contenth2, H2span, Iconblock, Iconblockimg, Servicegrid, Servicegridblock, Servicegridblock02, Servicegridblock03, Servicegridblock04, Serviceparagraph, Servicesection, Servicetitle, Titlewrap, Endblock, Primarybutton, Tag10, Divider, Line } from './styles'
 import { ServiceItemsBooks } from './Items/services'
 import  Observer from 'react-intersection-observer'
 
@@ -20,6 +20,8 @@ const Service = () => {
                         <H2span>{"you can use"}</H2span>
                     </Contenth2>
                 </Titlewrap>
+                {//<Line />
+                }
                 <Observer
                     onChange={handleChange}
                     threshold={1}
@@ -54,7 +56,7 @@ const Service = () => {
                     </Servicegrid>
                 </Observer>
             </Containerflex>
-            <Divider />
+            <Divider id="trigger" />
         </Servicesection>
     )
 }

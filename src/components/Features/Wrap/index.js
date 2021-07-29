@@ -30,8 +30,8 @@ const Wrap = (props) => {
                 </Featurecolumncontent>
                 <Featurecolumnimage className={ isShown ? 'load' : 'hide' }>
                     <Featureimagediv>
-                        <Featureimage src={props.image}/>
-                        <Ribbon src={props.ribbon}/>
+                        {props.svgAnimation ? (props.svg) : (<Featureimage src={props.image} className={props.classNameImage} />)}
+                        {props.ribbon && <Ribbon src={props.ribbon}/>}
                     </Featureimagediv>
                 </Featurecolumnimage>
             </Featurewrap>

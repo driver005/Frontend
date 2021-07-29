@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap';
 import { v4 as uuid } from 'uuid';
-import { Breadcrumbcomponent, Breadcrumbitem, Breadcrumbspan, Strong } from '../../styles/breadcrumbhistory';
+import { Breadcrumbcomponent, Breadcrumbitem, Breadcrumbspan, Strong } from '../../../styles/breadcrumbhistory';
 
 class BreadcrumbHistory extends Component {
 

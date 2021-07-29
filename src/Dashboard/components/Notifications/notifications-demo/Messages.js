@@ -9,7 +9,7 @@ import a2 from '../../../assets/people/a2.jpg';
 import a4 from '../../../assets/people/a4.jpg';
 import a6 from '../../../assets/people/a6.jpg';
 import avatar from '../../../assets/avatar.png';
-import { H6, P, Listgroupimg, Listgroupitem, Listgroupspan, Time } from '../../../styles/notifications';
+import { H6, P, Listgroupimg, Listgroupitem, Listgroupspan, Time } from '../../../../styles/notifications';
 import Messagecomponent from '../Messagecomponent';
 
 

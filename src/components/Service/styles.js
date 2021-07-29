@@ -56,7 +56,21 @@ export const Servicesection = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(180deg, #111115, #000);
+
+    /* &::before {
+        position: absolute;
+        top: 17.3%;
+        bottom: 0;
+        left: calc(56.5% - 2px);
+        display: block;
+        width: 1rem;
+        content: "";
+        height: 80vh;
+        margin-top: 0.875rem;
+        border-radius: 0 16px 0 0;
+        border-top: 2px solid #424d65;
+        border-right: 2px solid #424d65;
+    } */
 `
 
 export const Containerflex = styled.div`
@@ -293,4 +307,20 @@ export const Divider = styled.div`
     margin-top: 160px;
     flex: 0 auto;
     background-color: hsla(0, 0%, 100%, 0.1);
+`
+
+
+export const Line = styled.div`
+    height: 1rem;
+    border-radius: 0 0 0 1rem;
+    border-bottom: 2px solid #424d65;
+    border-left: 2px solid #424d65;
+    width: 34rem;
+    position: absolute;
+    top: 5.5rem;
+    right: 27.9rem;
+`;
+
+export const StraigntLine = styled.div`
+
 `

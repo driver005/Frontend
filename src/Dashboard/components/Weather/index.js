@@ -9,7 +9,6 @@ import moment from 'moment';
 import { RiArrowDropLeftFill, RiArrowDropRightFill, BsPlay, BsPause } from "react-icons/all"
 import Loading from '../../../components/LoadingAnimation';
 import { useSelector } from 'react-redux';
-import WeatherWidget from './widget';
 import Widget from '../Widget/Widget';
 
 function Weather() {
@@ -29,13 +28,6 @@ function Weather() {
                 />
                 <CustomLayer />
             </MapContainer>
-            <Widget
-                title={<h6 style={{marginLeft: '10px'}}>Weather Tübingen</h6>}
-                close
-                collapse    
-            >
-                <WeatherWidget />
-            </Widget>
         </div>
     )
 }

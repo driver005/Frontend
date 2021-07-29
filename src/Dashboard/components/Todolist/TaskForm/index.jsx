@@ -5,7 +5,7 @@ import Alert from '../Alert'
 import 'react-nprogress/nprogress.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import './style.css'
-import { Card, Centertext, Datapicker, Select } from '../../../styles/todolist'
+import { Card, Centertext, Datapicker, Select } from '../../../../styles/todolist'
 
 export default class TaskForm extends Component {
     constructor(props) {

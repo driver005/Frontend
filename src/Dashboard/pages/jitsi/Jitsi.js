@@ -1,6 +1,6 @@
 import React from 'react'
 import Widget from '../../components/Widget/Widget'
-import { Colcomponent } from '../../styles/calendar'
+import { Colcomponent } from '../../../styles/calendar'
 
 function Jitsi() {
     return (

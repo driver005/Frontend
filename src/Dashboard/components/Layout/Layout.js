@@ -18,7 +18,7 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import BreadcrumbHistory from '../BreadcrumbHistory/BreadcrumbHistory';
 import { openSidebar, closeSidebar, changeSidebarPosition, changeSidebarVisibility } from '../../../actions/navigation';
-import { Main, Wrap, Div } from '../../styles/layout';
+import { Main, Wrap, Div } from '../../../styles/layout';
 import Jitsi from '../../pages/jitsi/Jitsi';
 import Todolist from '../../pages/todolist/Todolist';
 import Chat from '../../pages/chat/Chat';

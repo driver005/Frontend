@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Popover, PopoverHeader, PopoverBody, Tooltip, OverlayTrigger,} from 'react-bootstrap';
-import { Daycontainer, Daymain, Daynumber, Calendardot, Popovercomponent, Popoverheader, Popoverbody, Daynamespan } from '../../../../styles/calendar';
+import { Daycontainer, Daymain, Daynumber, Calendardot, Popovercomponent, Popoverheader, Popoverbody, Daynamespan } from '../../../../../styles/calendar';
 
 class Day extends Component {
   state = {

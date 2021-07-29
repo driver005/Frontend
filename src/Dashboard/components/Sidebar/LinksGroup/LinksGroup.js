@@ -4,7 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { Collapse, Badge } from 'react-bootstrap';
 import { Route } from 'react-router';
 import classnames from 'classnames';
-import { A, Li, Linkspan, Navlink, Linka, B, Collapsecomponent } from '../../../styles/sidebar';
+import { A, Li, Linkspan, Navlink, Linka, B, Collapsecomponent } from '../../../../styles/sidebar';
 
 class LinksGroup extends Component {
   static propTypes = {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Daynames, Daynamespan } from '../../../../styles/calendar';
+import { Daynames, Daynamespan } from '../../../../../styles/calendar';
 
 class DayNames extends Component {
   render() {

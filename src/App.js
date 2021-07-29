@@ -7,6 +7,9 @@ import "./index.css"
 import "normalize.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
+import Programming from "./components/Learnprogramming";
+import Moon from "./Moon";
+import Scroll from "./components/onScroll";
 
 const AppContainer = styled.div`
   background: #000;
@@ -16,6 +19,20 @@ const AppContainer = styled.div`
 
   > div:first-of-type {
     flex: 1 0 70vh;
+    height: 120vh !important;
+    position: absolute !important;
+
+    @media screen and (max-width: 844px) {
+      top: 43%;
+    }
+
+    @media screen and (min-width: 766px) {
+      top: 50%;
+    }
+
+    @media screen and (min-width: 844px) {
+      top: 0%;
+    }
   }
 `
 
@@ -29,9 +46,10 @@ export default class App extends Component {
   render() {
     return (
       <AppContainer>
+        <Moon />
         <Header />
-        
         <Service />
+        <Programming />
         <Features />
         <Cta />
         <Footer />

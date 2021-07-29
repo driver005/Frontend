@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Day from './Day'
 import { v4 as uuid } from 'uuid';
-import { Mainweek } from '../../../../styles/calendar';
+import { Mainweek } from '../../../../../styles/calendar';
 
 
 class Week extends Component {

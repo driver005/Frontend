@@ -13,7 +13,7 @@ import {
   Button,
   Modal,
 } from 'react-bootstrap';
-import { Body, Header, Section, Widgetcontrols } from '../../styles/widget';
+import { Body, Header, Section, Widgetcontrols } from '../../../styles/widget';
 
 class Widget extends React.Component {
   static propTypes = {

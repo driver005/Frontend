@@ -1,5 +1,5 @@
 import React from "react";
-import { wrapper } from "../../styles/popup";
+import { wrapper } from "../../../styles/popup";
 
 export default Comp => (props) => (
   <wrapper className="example-warper">

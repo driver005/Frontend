@@ -1,5 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 import hero from '../../images/hero_bloom.png'
+import { FiCircle } from "react-icons/all"
+
 const img = `
     max-width: 100%;
     vertical-align: middle;
@@ -51,7 +53,7 @@ const Animaten = keyframes`
 
 export const Headercontainer = styled.header`
     display: flex;
-    overflow: hidden;
+    min-height: 120vh;
     padding: 185px 3% 80px;
     flex-direction: column;
     justify-content: flex-start;
@@ -74,6 +76,7 @@ export const Headercontainer = styled.header`
     {
         padding-top: 145px;
     }
+
 `
 
 export const Containerflex = styled.div`
@@ -83,12 +86,60 @@ export const Containerflex = styled.div`
     max-width: 1140px;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    align-content: center;
+
+    &.full {
+        height: 100%;
+    }
 
     @media screen and (max-width: 991px) {
         margin: 4vh 0;
     }
     
+    @media screen and (max-width: 844px) {
+        align-items: center;
+    }
+`
+
+export const Containerflexcomponent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    transform: translateX(-20%);
+
+    @media screen and (max-width: 1347px) {
+        transform: translateX(0%);
+    }
+
+    /* &::before {
+        position: absolute;
+        top: 100%;
+        bottom: 0;
+        left: calc(50% - 2px);
+        z-index: -1;
+        display: block;
+        width: 2px;
+        content: "";
+        height: 80vh;
+        background: #747982;
+    }
+
+    &::after {
+        position: absolute;
+        top: calc(100% + 80vh);
+        bottom: 0;
+        left: calc(50% - 2px);
+        display: block;
+        z-index: -1;
+        width: 2px;
+        content: "";
+        height: 2.2rem;
+        background: #747982;
+    } */
+
 `
 
 
@@ -116,7 +167,7 @@ export const Herooverline = styled.h5`
 
 export const Heroh1 = styled.h1`
     ${h1}
-    color: #fff;
+    color: peru;
     font-size: 50px;
     line-height: 1;
 
@@ -144,7 +195,7 @@ export const Heroh1 = styled.h1`
 export const Heroparagraph = styled.p`
     ${p}
     max-width: 720px;
-    color: #99a1ba;
+    color: #7a86a9;
     font-size: 18px;
     line-height: 1.4;
     font-weight: 400;
@@ -160,6 +211,14 @@ export const Heroparagraph = styled.p`
         animation: ${Animaten} 1.25s forwards 1;
         animation-delay: 2.5s;
     }
+
+    @media screen and (max-width: 1347px) {
+        max-width: 200px;
+    }
+
+    @media screen and (max-width: 844px) {
+        max-width: 720px;
+    }
 `
 
 export const Herobutton = styled.a`
@@ -173,7 +232,9 @@ export const Herobutton = styled.a`
     line-height: 21px;
     text-decoration: none;
     ${Animation_0}
+    min-width: 10.5rem;
     
+
     &.hide {
         display: none;
         ${Animation_0}
@@ -266,4 +327,16 @@ const test = styled.div`
 `
 
 
+export const Startcircle = styled(FiCircle)`
 
+`;
+
+export const Endcircle = styled(FiCircle)`
+    position: absolute;
+    top: calc(100% + 80vh + 2.5rem);
+    left: calc(50% - 9px);
+
+    &.plus40percent {
+        top: calc(100% + 80vh + 2.5rem + 38%);
+    }
+`;

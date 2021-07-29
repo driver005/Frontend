@@ -3,55 +3,28 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import {
-  Navbar,
-  Nav,
   NavItem,
   NavLink,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Input,
-  UncontrolledAlert,
-  Dropdown,
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Badge,
   ButtonGroup,
-  Button,
-  Form,
-  FormGroup,
-  Image,
+  Fade,
 } from "react-bootstrap";
 import Notifications from "../Notifications/Notifications";
 import PowerIcon from "../Icons/PowerIcon/PowerIcon.js";
-import BellIcon from "../Icons/BellIcon/BellIcon";
 import SettingsIcon from "../Icons/SettingsIcon/SettingsIcon.js";
-import MessageIcon from "../Icons/MessageIcon/MessageIcon.js";
 import BurgerIcon from "../Icons/BurgerIcon/BurgerIcon.js";
-import SearchIcon from "../Icons/SearchIcon/SearchIcon.js";
-import SearchIconWhite from "../Icons/SearchIconWhite/SearchIconWhite.js";
 
 import * as actionType from "../../../constants/actionTypes";
 import decode from 'jwt-decode';
 import {
-  openSidebar,
-  closeSidebar,
   changeSidebarPosition,
   changeSidebarVisibility,
 } from "../../../actions/navigation";
 
 import './styles.css'
 
-import sender1 from "../../assets/1.png";
-import sender2 from "../../assets/2.png";
-import sender3 from "../../assets/3.png";
 
-import avatar from "../../assets/people/a5.jpg";
-
-
-import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Imagecomponent, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../styles/header";
+import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Imagecomponent, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../../styles/header";
+import Selectcomponent from "./select";
 
 class Header extends React.Component {
   static propTypes = {
@@ -98,7 +71,7 @@ class Header extends React.Component {
 
   toggleNotifications = () => {
     this.setState({
-      notificationsOpen: !this.state.notificationsOpen,
+      notificationsOpen: false, //!this.state.notificationsOpen,
       messagesOpen: false,
       supportOpen: false,
       settingsOpen: false,
@@ -190,10 +163,10 @@ class Header extends React.Component {
   render() {
     return (
       <Headerroot className={`d-print-none main-navbar`}>
+        
         <Alert
           dismissible
           onClose={() => this.setState({showPopup: !this.state.showPopup})}
-          className={` mr-5 d-lg-down-none animate__animated animate__bounceIn animate__delay-1s`}
           style={{display: this.state.showPopup ? 'none' : ''}}
         >
           Check out Light Blue{" "}
@@ -205,6 +178,8 @@ class Header extends React.Component {
           </Alertbutton>
           {" "}on the right!
         </Alert>
+        
+        {/*
         <Searchcollapse
           className={` ml-lg-0 mr-md-`}
           
@@ -245,7 +220,7 @@ class Header extends React.Component {
             </Inputgroup>
           </Formgroup>
         </Formcomponent>
-
+        */}
         <Navcomponent className="ml-md-0 d-flex nav-responsive">
           <Notificationsmenu
             as={NavItem}
@@ -256,9 +231,11 @@ class Header extends React.Component {
               {/*alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl} roundedCircle*/}
               <div className="rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2" style={{width: '2.3rem', height: '2.3rem'}}>{this.state.user?.info.user.name.charAt(0)}</div>
               <h5 className="mb-0">{this.state.user?.info.user.name}</h5>
+              {/* 
               <Badgecomponents  color="danger">
                 9
               </Badgecomponents>
+              */}
             </Dropdowntoggle>
             <Notificationswrapper
               show={this.state.notificationsOpen}
@@ -267,6 +244,7 @@ class Header extends React.Component {
               <Notifications />
             </Notificationswrapper>
           </Notificationsmenu>
+          {/* 
           <Navitem className="d-lg-none d-md-block d-sm-none">
             <Navlink
               onClick={this.toggleSearchOpen}
@@ -310,13 +288,14 @@ class Header extends React.Component {
                 </Details>
               </Dropdownitem>
               <Dropdownitem>
-                {/* eslint-disable-next-line */}
                 <a href="#" className="text-white">
                   See all messages <i className="fa fa-arrow-right" />
                 </a>
               </Dropdownitem>
             </Dropdownmenu>
+          
           </Dropdowncomponent>
+          */}
           <Divider className={` d-none d-sm-block`} />
           <Dropdowncomponent
             className="d-none d-sm-block"
@@ -371,58 +350,7 @@ class Header extends React.Component {
               </ButtonGroup>
             </Dropdownmenu>
           </Dropdowncomponent>
-          <Dropdowncomponent
-            className="d-none d-sm-block"
-            as={NavItem}
-            onClick={this.toggleSupportDropdown}
-          >
-            <Dropdowntoggle as={NavLink} className={` text-white`}>
-              <BellIcon />
-              <Message />
-            </Dropdowntoggle>
-            <Dropdownmenu className={"support"} show={this.state.supportOpen} style={{transform: "translate3d(-199px, 0px, 0px)"}}>
-              <Dropdownitem>
-                <Badgenotification color="danger">
-                <i className="fas fa-bell" />
-                </Badgenotification>
-                <Detailscomponent>Check out this awesome ticket</Detailscomponent>
-              </Dropdownitem>
-              <Dropdownitem>
-                <Badgenotification color="warning">
-                  <i className="fa fa-question-circle" />
-                </Badgenotification>
-                <Detailscomponent>What is the best way to get ...</Detailscomponent>
-              </Dropdownitem>
-              <Dropdownitem>
-                <Badgenotification color="success">
-                  <i className="fa fa-info-circle" />
-                </Badgenotification>
-                <Detailscomponent>
-                  This is just a simple notification
-                </Detailscomponent>
-              </Dropdownitem>
-              <Dropdownitem>
-                <Badgenotification color="info">
-                  <i className="fa fa-plus" />
-                </Badgenotification>
-                <Detailscomponent>12 new orders has arrived today</Detailscomponent>
-              </Dropdownitem>
-              <Dropdownitem>
-                <Badgenotification color="danger">
-                  <i className="fa fa-tag" />
-                </Badgenotification>
-                <Detailscomponent>
-                  One more thing that just happened
-                </Detailscomponent>
-              </Dropdownitem>
-              <Dropdownitem>
-                {/* eslint-disable-next-line */}
-                <a href="#" className="text-white">
-                  See all tickets <i className="fa fa-arrow-right" />
-                </a>
-              </Dropdownitem>
-            </Dropdownmenu>
-          </Dropdowncomponent>
+          <Selectcomponent state={this.state} toggleSupportDropdown={this.toggleSupportDropdown} />
           <NavItem>
             <Navlink
               onClick={this.doLogout}

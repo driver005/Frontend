@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { motion } from "framer-motion";
 import cx from 'classnames'
 import { startRemoveTask, startCompletedTask, startUnCompletedTask } from '../../../../../actions/todolist'
-import { Completedinput, Completedi, Taskcomponent, Taskdeletebutton, Taskspan, Editpart, Editpartlink, Taskparameter, Taskparameterdiv, Taskparameterh4, Taskparametertime, Taskcontent } from '../../../../styles/todolist'
+import { Completedinput, Completedi, Taskcomponent, Taskdeletebutton, Taskspan, Editpart, Editpartlink, Taskparameter, Taskparameterdiv, Taskparameterh4, Taskparametertime, Taskcontent } from '../../../../../styles/todolist'
 
 const spring = {
   type: "spring",

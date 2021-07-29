@@ -9,7 +9,7 @@ import add from '../assets/add.svg'
 import './style.css'
 import { setTextFilter, sortByDate, sortByDeadline, filterBy } from '../../../../actions/todolist'
 import Alert from '../Alert'
-import { Paddingcontainer, Addcardcontainer, Addcard, Addcardcontainermobile, Taskwrapper } from '../../../styles/todolist';
+import { Paddingcontainer, Addcardcontainer, Addcard, Addcardcontainermobile, Taskwrapper } from '../../../../styles/todolist';
 import { motion, AnimatePresence } from "framer-motion"
 
 const Taskcomponent = ({tasks, filters, dispatch}) => {

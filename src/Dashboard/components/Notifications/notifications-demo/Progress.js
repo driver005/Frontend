@@ -5,7 +5,7 @@ import {
   
   UncontrolledTooltip,
 } from 'react-bootstrap';
-import { Listgroup, Listgroupitem, Listgroupspan, H6, Progressspan, Progresscomponents, Strong } from '../../../styles/notifications';
+import { Listgroup, Listgroupitem, Listgroupspan, H6, Progressspan, Progresscomponents, Strong } from '../../../../styles/notifications';
 
 
 class ProgressDemo extends React.Component {

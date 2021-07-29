@@ -16,7 +16,7 @@ import {
     Form,
     FormGroup,
 } from "react-bootstrap";
-import SettingsIcon from '../components/Icons/SettingsIcon/SettingsIcon';
+import SettingsIcon from '../Dashboard/components/Icons/SettingsIcon/SettingsIcon';
 
 
 
@@ -43,10 +43,7 @@ export const Headerroot = styled(Navbar)`
 
 export const Alert = styled(UncontrolledAlert)`
     height: 30px;
-    display: block;
-    position: relative;
     padding-right: 0rem!important;
-    //transition: margin-top 0.2s ease;
     background: ${variables.texttransparent};
     border: none;
     line-height: 20px;
@@ -54,9 +51,10 @@ export const Alert = styled(UncontrolledAlert)`
     border-radius: 10px;
     padding: 5px 8px;
     top: 8px;
+    margin-right: 20% !important;
+    opacity: 1;
     
-    
-    &.show {
+    &.show-o {
         display: block;
     }
 
@@ -84,7 +82,7 @@ export const Alert = styled(UncontrolledAlert)`
         padding: 0;
         position: static;
         color: #3979f6;
-        margin: 2px 5px;
+        margin: 0px 5px;
         font-weight: 400;
         font-size: 18px!important;
         right: 5px!important;        
@@ -751,7 +749,7 @@ export const Navlink = styled(NavLink)`
 
 export const Dropdownitem = styled(Dropdown.Item)`
     width: 100%;
-    padding: .25rem 1.5rem;
+    padding: .125rem 1.5rem;
     clear: both;
     align-items: center;
     justify-content: flex-start;
@@ -761,7 +759,7 @@ export const Dropdownitem = styled(Dropdown.Item)`
     background-color: initial;
     border: 0;
     display: flex;
-    height: 60px;
+    height: 50px;
     font-weight: ${variables.fontweightthin};
     padding-left: 1rem;
     padding-right: 1rem;

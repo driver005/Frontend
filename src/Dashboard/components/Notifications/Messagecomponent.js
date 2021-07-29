@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { H6, Listgroupimg, Listgroupitem, Listgroupitembutton, Listgroupspan, P, Time } from '../../styles/notifications'
+import { H6, Listgroupimg, Listgroupitem, Listgroupitembutton, Listgroupspan, P, Time } from '../../../styles/notifications'
 
 
 function Messagecomponent(props) {

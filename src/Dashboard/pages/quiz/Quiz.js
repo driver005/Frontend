@@ -6,7 +6,7 @@ import React from 'react'
 import { quiz } from './quizitems';
 import Quiz from '../../components/Quiz/Quiz'
 import Widget from '../../components/Widget/Widget';
-import { Colcomponent } from '../../styles/calendar';
+import { Colcomponent } from '../../../styles/calendar';
 import './styles.css'
 
 function Quizcomponent() {

@@ -1,5 +1,6 @@
 import "../rainviewer/rainviewer"
 import "leaflet-openweathermap"
+import "leaflet-velocity"
 import * as api from "../../../../../api";
 
 L.Control.ControlOverlay = L.Control.extend({
@@ -133,8 +134,8 @@ L.Control.ControlOverlay = L.Control.extend({
                 position: "bottomleft",
                     emptyString: "No wind data"
                 },
-                nearest: 'https://localhost/api/weather/nearest',
-                latest: 'https://localhost/api/weather/latest',
+                nearest: 'https://teclab.herokuapp.com/api/weather/nearest',
+                latest: 'https://teclab.herokuapp.com/api/weather/latest',
                 data: data.data,
                 maxVelocity: 15
             }).addTo(map);

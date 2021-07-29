@@ -3,7 +3,7 @@ import DayNames from './DayNames'
 import { v4 as uuid } from 'uuid';
 import Week from './Week'
 import moment from 'moment/moment'
-import { Calendercomponent, Header, I, Itemcontainer, Itemcontainerspan, Maincalender, Titleheader, Weekcontainer } from '../../../../styles/calendar'
+import { Calendercomponent, Header, I, Itemcontainer, Itemcontainerspan, Maincalender, Titleheader, Weekcontainer } from '../../../../../styles/calendar'
 
 
 

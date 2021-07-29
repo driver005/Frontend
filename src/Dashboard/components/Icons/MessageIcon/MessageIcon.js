@@ -1,5 +1,5 @@
 import React from 'react';
-import { Svg } from '../../../styles/icons'
+import { Svg } from '../../../../styles/icons'
 
 class MessageIcon extends React.Component {
 

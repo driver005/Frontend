@@ -2,7 +2,7 @@ import React from 'react'
 import { CustomButton } from '../../common'
 import cx from 'classnames'
 import './style.css'
-import { Filterbycontainer } from '../../../../styles/todolist'
+import { Filterbycontainer } from '../../../../../styles/todolist'
 
 const Filter = ({ filterBy, filters, dispatch }) => (
     <Filterbycontainer className="container filter-by center-text">

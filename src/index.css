@@ -11,6 +11,8 @@
   --blue: #6772e5;
   --dark-blue: #4F3EF5;
   --spacer: 28px;
+  --padding: 4rem;
+  --border: hsl(0, 0%, 20%);
 }
 
 body {
@@ -47,4 +49,12 @@ p {
 .dropdown-item:focus,
 .dropdown-item:hover {
   background-color: #3a84ce;
+}
+
+.full::after {
+  background-color: #24b47e;
+}
+
+.full {
+  width: 10px;
 }

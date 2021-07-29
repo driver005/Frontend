@@ -8,9 +8,9 @@ import {
 
 import a3 from '../../../assets/people/a3.jpg';
 import a5 from '../../../assets/people/a5.jpg';
-import { Buttonnotification } from '../../../styles/button';
-import { Buttoncomponent } from '../../../styles/header';
-import { Listgroup, Listgroupimg, Listgroupitem, Listgroupspan, P, Time, A } from '../../../styles/notifications';
+import { Buttonnotification } from '../../../../styles/button';
+import { Buttoncomponent } from '../../../../styles/header';
+import { Listgroup, Listgroupimg, Listgroupitem, Listgroupspan, P, Time, A } from '../../../../styles/notifications';
 
 class NotificationsDemo extends React.Component {
   render() {

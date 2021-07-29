@@ -9,7 +9,7 @@ import LinksGroup from './LinksGroup/LinksGroup';
 import { BsChatSquare, IoCloseOutline, BiBitcoin, FcTodoList, AiOutlineLineChart, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite, RiMapLine } from 'react-icons/all'
 import {changeActiveSidebarItem, changeSidebarVisibility} from '../../../actions/navigation';
 import {logoutUser} from '../../../actions/user';
-import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, MobileCloseButton, } from '../../styles/sidebar';
+import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, MobileCloseButton, } from '../../../styles/sidebar';
 import teclab from '../../../images/Logo_VDI_teclab4_X1.png'
 
 
@@ -99,8 +99,8 @@ class Sidebar extends React.Component {
                         link={`${this.props.match.path}app/main`}
                         index="main"
                     />
-                    <H5>TEMPLATE</H5>
-                   {/* <LinksGroup
+                    <H5>Projects</H5>
+                    {/* <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
                         header="Typography"
@@ -108,7 +108,7 @@ class Sidebar extends React.Component {
                         iconName={<FiFileText size="18" stroke="#3979F6" />}
                         link={`${this.props.match.path}app/typography`}
                         index="core"
-                   />*/}
+                    />*/}
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
@@ -238,11 +238,12 @@ class Sidebar extends React.Component {
                         ]}
                     />*/}
                 </Ul>
+                {/*
                 <H5>
                     LABELS
-                    {/* eslint-disable-next-line */}
+                    
                 </H5>
-                {/* eslint-disable */}
+                
                 <Labelul >
                     <li>
                         <Labela href="#">
@@ -263,6 +264,7 @@ class Sidebar extends React.Component {
                         </Labela>
                     </li>
                 </Labelul>
+                */}
                 {/* eslint-enable */}
                 {/* <H5 >
                     {this.props.alertsList.length > 0 ? 'PROJECTS' : ''}

@@ -4,7 +4,7 @@ import Posts from '../../components/Posts/Posts/Posts';
 import Form from '../../components/Posts/Form/Form';
 import { getPosts } from '../../../actions/posts';
 import Widget from '../../components/Widget/Widget';
-import { H6title } from '../../styles/dashboard';
+import { H6title } from '../../../styles/dashboard';
 import { Col, Container, Fade, Row } from 'react-bootstrap';
 
 const Post = () => {

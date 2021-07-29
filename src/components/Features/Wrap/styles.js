@@ -127,7 +127,7 @@ export const Paragraphleftalign = styled.p`
 
 export const Featurecolumncontent = styled.div`
     display: flex;
-    width: 50%;
+    //width: 50%;
     min-height: 250px;
     padding: 50px;
     flex-direction: column;
@@ -203,6 +203,18 @@ export const Featureimagediv = styled.div`
 export const Featureimage = styled.img`
     ${imgbig}
     overflow: hidden;  
+
+    &.width-85 {
+        width: 85%;
+    }
+
+    &.border-2 {
+        border-radius: 2%;
+    }
+
+    &.width-70 {
+        width: 70%;
+    }
 `
 
 export const Ribbon = styled.img`

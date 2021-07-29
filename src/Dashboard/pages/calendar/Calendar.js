@@ -12,7 +12,7 @@ import "./styles.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import Widget from "../../components/Widget/Widget";
-import { Colcomponent, PageI, Draggablevent, Draggableventinner, Draggableventslist, I, PageH3, Pagep, Pagetitle, Rowcomponent} from "../../styles/calendar";
+import { Colcomponent, PageI, Draggablevent, Draggableventinner, Draggableventslist, I, PageH3, Pagep, Pagetitle, Rowcomponent} from "../../../styles/calendar";
 
 
 import Popup from '../../components/Popup/Popup'

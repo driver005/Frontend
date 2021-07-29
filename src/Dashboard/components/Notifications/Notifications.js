@@ -7,7 +7,7 @@ import NotificationsDemo from './notifications-demo/Notifications';
 import NewNotificationsDemo from './notifications-demo/NewNotifications';
 import MessagesDemo from './notifications-demo/Messages';
 import ProgressDemo from './notifications-demo/Progress';
-import { Buttongroup, Header, Headerdiv, Headerstrong, Buttoncomponent, Notificationscomponent, Footer, Syncbutton, Footerspan } from '../../styles/notifications';
+import { Buttongroup, Header, Headerdiv, Headerstrong, Buttoncomponent, Notificationscomponent, Footer, Syncbutton, Footerspan } from '../../../styles/notifications';
 
 
 

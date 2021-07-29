@@ -1,5 +1,5 @@
 import React from 'react'
-import { Filtercontainer, Filterinput, Filtersearch, Flexed, Filterselect } from '../../../../styles/todolist'
+import { Filtercontainer, Filterinput, Filtersearch, Flexed, Filterselect } from '../../../../../styles/todolist'
 import './style.css'
 
 const SortBy = ({ setTextFilter, sortByDate, sortByDeadline, filters, dispatch }) => (

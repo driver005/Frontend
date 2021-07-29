@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom"
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom"
+import { Controller } from 'react-scrollmagic';
 import App from "./App"
 import SignUp from "./User/SignUp"
 import { reducers } from './reducers';
@@ -17,6 +18,9 @@ import { useHistory } from "react-router-dom";
 import Contact from "./components/Contact";
 import PageNotFound from "./Errors/404";
 import PageError from "./Errors/400";
+import Moon from "./Moon";
+import Events from "./components/Events";
+
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 const CloseButton = ({closeToast}) => <i onClick={closeToast} className="fas fa-times"/>
@@ -48,21 +52,25 @@ const PrivateRoute = ({component, ...rest }) => {
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider>
-      <ToastContainer
-        autoClose={5000}
-        hideProgressBar
-        closeButton={<CloseButton/>}
-      />
-      <Router>
-          <Switch>
-            <Route exact path='/confirm/:id' component={Confirm} />
-            <Route exact path='/contact' component={Contact} />
-            <Route path='/' exact component={App} />
-            <Route path='/sign-up' exact component={SignUp} />
-            <PrivateRoute path='/dash/' component={Dashboard} />
-            <Route path="*" exact component={PageError} />
-          </Switch>   
-      </Router>
-      </ApolloProvider>
+      <Controller>
+        <ToastContainer
+          autoClose={5000}
+          hideProgressBar
+          closeButton={<CloseButton/>}
+        />
+        <Router>
+            <Switch>
+              <Route exact path='/confirm/:id' component={Confirm} />
+              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/event' component={Events} />
+              <Route exact path='/moon' component={Moon} />
+              <Route path='/' exact component={App} />
+              <Route path='/sign-up' exact component={SignUp} />
+              <PrivateRoute path='/dash/' component={Dashboard} />
+              <Route path="*" exact component={PageError} />
+            </Switch>   
+        </Router>
+      </Controller>
+    </ApolloProvider>
   </Provider>
   , document.querySelector("#root"))

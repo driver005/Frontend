@@ -3,24 +3,35 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const NavbarItemTitle = styled.button`
-  background: transparent;
-  border: 0;
-  font-weight: bold;
-  font-family: inherit;
-  font-size: 18px;
-  padding: 20px 12px;
-  align-items: center;
-  color: white;
   display: flex;
+  padding: 20px 12px;
+  background-color: transparent;
+  text-decoration: none !important;
+  outline: none;
+  border: none;
+  color: #fff;
   justify-content: center;
-  transition: opacity 250ms;
-  cursor: pointer;
-  /* position above the dropdown, otherwise the dropdown will cover up the bottom sliver of the buttons */
-  position: relative;
-  z-index: 2;
-  &:hover, &:focus {
-    opacity: 0.7;
-    outline:none;
+  align-items: center;
+  font-size: 15px;
+  text-decoration: none;
+  &:hover {
+    color: rgb(119, 53, 246);
+    transition: all 200ms ease;
+  }
+
+  &::after{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    border-top-style: solid;
+    border-top-width: 6px;
+    border-right: 6px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 6px solid transparent;
+    margin-left: 6px;
+    margin-top: 2px;
   }
 `
 
