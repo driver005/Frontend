@@ -37,8 +37,8 @@ export const ServiceItemsBooks = [
                     icon: <FaBlog size="22" color={'white'} />,
                 },
                 {
-                    title_1: "See how we",
-                    title_2: "can help you.",
+                    title_1: "Click here",
+                    title_2: "to start exploring",
                     buttonText: "Get started",
                     buttonUrl: "/dash",
                     tag10: "In early beta",
