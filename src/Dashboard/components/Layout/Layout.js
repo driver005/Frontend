@@ -125,9 +125,6 @@ class Layout extends React.Component {
                   </Switch>
                   </CSSTransition>
               </TransitionGroup>
-              <footer>
-                <Footer />
-              </footer>
             </Main>
           </Hammer>
         </Wrap>

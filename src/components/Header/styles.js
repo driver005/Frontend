@@ -68,7 +68,6 @@ export const Headercontainer = styled.header`
     border-color: #7735d2;
 
     @media screen and (max-width: 991px) {
-        height: 100vh;
         align-items: stretch;
     }
 

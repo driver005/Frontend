@@ -63,6 +63,7 @@ export const Ctasection = styled.div`
 
     @media screen and (max-width: 479px)
     {
+        transform: translateY(-1rem);
         padding-top: 0px;
         padding-bottom: 0px;
     }

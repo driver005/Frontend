@@ -21,7 +21,7 @@ function Header() {
                                 }
                                 <Heroh1 className={ isShown ? 'load' : 'hide' }>TECLAB</Heroh1>
                                 <Heroparagraph className={ isShown ? 'load' : 'hide' } >teclab is an place for students too meet and power their dreams</Heroparagraph>
-                                <Herobutton href={"/contact"} className={isShown ? 'load' : 'hide'}>Contact Us</Herobutton>
+                                <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>View Projects</Herobutton>
                                 {
                                 // <Startcircle width="28" height="28" stroke="#747982" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
                                 // <Endcircle width="28" height="28" stroke="#747982" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />

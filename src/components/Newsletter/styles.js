@@ -109,6 +109,7 @@ export const Sendbutton = styled.button`
 
 `
 export const Formblock = styled.div`
+    width: 50%;
     display: block;
     margin-right: 0px;
     margin-bottom: 0px;

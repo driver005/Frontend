@@ -91,13 +91,14 @@ const Navbar = (props) => {
       <NavbarList>
         <Navcontainer>
               <Brand>
-                  <Logo href="#">
+                  <Logo href="/">
                       <IMG height="75px" src={teclab} />
                   </Logo>
               </Brand>
               <Navigationleft>
                   <Navigationlink href={"/dash"}>Dashboard</Navigationlink>
                   {props.children}
+                  <Navigationlink href={"/projects"}>Projects</Navigationlink>
                   <Navigationlink href={"https://www.vdi.de/"}>VDI</Navigationlink>
               </Navigationleft>
               <Navigationright>

@@ -10,7 +10,7 @@ import LinksDropdown from './components/DropdownContents/Importantslinks'
 
 const navbarConfig = [
   //{ title: "Products", dropdown: ProductsDropdown },
-  { title: "Projects", dropdown: DevelopersDropdown },
+  { title: "Dashitems", dropdown: DevelopersDropdown },
   //{ title: "Company", dropdown: CompanyDropdown },
   { title: "Links", dropdown: LinksDropdown }
 ]

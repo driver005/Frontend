@@ -76,7 +76,7 @@ export const Brand = styled.ul`
     }
 `
 
-export const Logo = styled.li`
+export const Logo = styled.a`
     min-width: 55px;
     max-width: 100%;
 

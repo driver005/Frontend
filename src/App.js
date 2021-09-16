@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Programming from "./components/Learnprogramming";
 import Moon from "./Moon";
 import Scroll from "./components/onScroll";
+import About from "./components/About";
 
 const AppContainer = styled.div`
   background: #000;
@@ -48,11 +49,8 @@ export default class App extends Component {
       <AppContainer>
         <Moon />
         <Header />
-        <Service />
-        <Programming />
-        <Features />
+        <About />
         <Cta />
-        <Footer />
       </AppContainer>
     )
   }
