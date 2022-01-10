@@ -6,7 +6,7 @@ import Loading from '../components/LoadingAnimation';
 import './styles.css';
 import AnimatedNavbar from '../AnimatedNavbar';
 
-const url = 'http://6krsrg7yudy9cmrg.myfritz.net';
+const url = 'https://6krsrg7yudy9cmrg.myfritz.net';
 
 function Printer() {
 	const [loading, setLoading] = useState(true);
