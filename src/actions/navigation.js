@@ -5,34 +5,34 @@ export const CHANGE_SIDEBAR_POSITION = 'CHANGE_SIDEBAR_POSITION';
 export const CHANGE_SIDEBAR_VISIBILITY = 'CHANGE_SIDEBAR_VISIBILITY';
 
 export function openSidebar() {
-  return {
-    type: OPEN_SIDEBAR,
-  };
+    return {
+        type: OPEN_SIDEBAR,
+    };
 }
 
 export function changeSidebarPosition(nextPosition) {
-  return {
-    type: CHANGE_SIDEBAR_POSITION,
-    payload: nextPosition,
-  };
+    return {
+        type: CHANGE_SIDEBAR_POSITION,
+        payload: nextPosition,
+    };
 }
 
 export function closeSidebar() {
-  return {
-    type: CLOSE_SIDEBAR,
-  };
+    return {
+        type: CLOSE_SIDEBAR,
+    };
 }
 
 export function changeActiveSidebarItem(activeItem) {
-  return {
-    type: CHANGE_ACTIVE_SIDEBAR_ITEM,
-    activeItem,
-  };
+    return {
+        type: CHANGE_ACTIVE_SIDEBAR_ITEM,
+        activeItem,
+    };
 }
 
 export function changeSidebarVisibility(nextVisibility) {
-  return {
-    type: CHANGE_SIDEBAR_VISIBILITY,
-    payload: nextVisibility,
-  };
+    return {
+        type: CHANGE_SIDEBAR_VISIBILITY,
+        payload: nextVisibility,
+    };
 }

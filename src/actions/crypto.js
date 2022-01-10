@@ -7,7 +7,7 @@ export const bitcoin = () => async (dispatch) => {
         let close = []
         const prices = await Object.keys(data.data.data.values).map(index => {
             close = [...close, data.data.data.values[index][4]]
-            return({
+            return ({
                 time: new Date(data.data.data.values[index][0]),
                 open: data.data.data.values[index][1],
                 high: data.data.data.values[index][2],
@@ -37,7 +37,7 @@ export const bitcoin = () => async (dispatch) => {
             }
         )
     } catch (error) {
-        return {err: error, message: `Failed Data Error`};
+        return { err: error, message: `Failed Data Error` };
     }
 };
 
@@ -48,7 +48,7 @@ export const ethereum = () => async (dispatch) => {
         let close = []
         const prices = await Object.keys(data.data.data.values).map(index => {
             close = [...close, data.data.data.values[index][4]]
-            return({
+            return ({
                 time: new Date(data.data.data.values[index][0]),
                 open: data.data.data.values[index][1],
                 high: data.data.data.values[index][2],
@@ -78,6 +78,6 @@ export const ethereum = () => async (dispatch) => {
             }
         )
     } catch (error) {
-        return {err: error, message: `Failed Data Error`};
+        return { err: error, message: `Failed Data Error` };
     }
 };

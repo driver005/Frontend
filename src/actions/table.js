@@ -11,6 +11,6 @@ export const coin = () => async (dispatch) => {
             }
         )
     } catch (error) {
-        return {err: error, message: `Failed Data Error`};
+        return { err: error, message: `Failed Data Error` };
     }
 };

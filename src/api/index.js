@@ -3,12 +3,12 @@ import axios from 'axios';
 const API = axios.create({ baseURL: 'https://teclab.herokuapp.com/' });
 
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem('profile')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).access_token}`;
-  } else {
-    req.headers.Authorization = `Basic YWJjMTIzOnNzaC1zZWNyZXQ=`
-  }
-  return req;
+    if (localStorage.getItem('profile')) {
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).access_token}`;
+    } else {
+        req.headers.Authorization = `Basic YWJjMTIzOnNzaC1zZWNyZXQ=`
+    }
+    return req;
 });
 
 export const fetchPosts = () => API.get('/api/posts');
@@ -37,6 +37,8 @@ export const bitcoinInfo = () => axios.get('https://data.messari.io/api/v1/asset
 export const ethereumInfo = () => axios.get('https://data.messari.io/api/v1/assets/ethereum/metrics/price/time-series?interval=1d')
 export const coinInfo = () => axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=true')
 
+export const weatherInfo = () => axios.get('https://api.weatherapi.com/v1/forecast.json?key=dbb41903520645a185094354210106&q=Tübingen&days=10&aqi=yes&alerts=yes')
+
 export const weatherLatest = () => API.get('/api/weather/latest')
 
-export const weatherInfo = () => API.get('https://api.weatherapi.com/v1/forecast.json?key=dbb41903520645a185094354210106&q=Tübingen&days=10&aqi=yes&alerts=yes')
+export const printerStatus = () => API.get('/api/printer/status')
