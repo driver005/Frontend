@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import Cta from './components/Ctasection';
 import Features from './components/Features';
 import Service from './components/Service';
@@ -11,6 +11,10 @@ import Programming from './components/Learnprogramming';
 import Moon from './Moon';
 import Scroll from './components/onScroll';
 import About from './components/About';
+import MeetingComponent from './components/Meeting';
+import { meeting } from './actions/meeting';
+import { useDispatch } from 'react-redux';
+
 
 const AppContainer = styled.div`
 	background: #000;
@@ -37,21 +41,21 @@ const AppContainer = styled.div`
 	}
 `;
 
-export default class App extends Component {
-	state = { duration: 300 };
+export default function App() {
+    const dispatch = useDispatch()
 
-	onChange = (data) => {
-		this.setState(data);
-	};
+    useEffect(() => {
+        dispatch(meeting("month"))
+    }, [])
 
-	render() {
-		return (
-			<AppContainer>
-				<Moon />
-				<Header />
-				<About />
-				<Cta />
-			</AppContainer>
-		);
-	}
+    return (
+        <AppContainer>
+            <Moon />
+            <Header />
+            <About />
+            <MeetingComponent />
+            <Cta />
+        </AppContainer>
+    );
 }
+

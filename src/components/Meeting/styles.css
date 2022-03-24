@@ -1,0 +1,9 @@
+.meeting-section {
+    padding: 5% 3%;
+    padding-top: 7%;
+
+    @media (min-width: 768px) {
+        padding: 5% 60px;
+        padding-top: 7%;
+    }
+}

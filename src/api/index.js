@@ -42,3 +42,6 @@ export const weatherInfo = () => axios.get('https://api.weatherapi.com/v1/foreca
 export const weatherLatest = () => API.get('/api/weather/latest')
 
 export const printerStatus = () => API.get('/api/printer/status')
+
+export const fetchMeetings = (period) => API.get(`/api/meeting?period=${period}`);
+export const createMeeting = (formData) => API.post('/api/meeting/add', formData)

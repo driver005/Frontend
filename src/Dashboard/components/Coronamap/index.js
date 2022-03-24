@@ -27,28 +27,28 @@ function CoronaTracker() {
 
     useEffect(() => {
         axios("https://disease.sh/v3/covid-19/all")
-        .then((response) => response.data)
-        .then((data) => {
-            setCountryInfo(data);
-        });
+            .then((response) => response.data)
+            .then((data) => {
+                setCountryInfo(data);
+            });
     }, []);
 
 
     useEffect(() => {
         const getCountriesData = async () => {
             axios("https://disease.sh/v3/covid-19/countries")
-            .then((response) => response.data)
-            .then((data) => {
-                const countries = data.map((country) => ({
-                    name: country.country,
-                    value: country.countryInfo.iso2,
-                }));
-                let sortedData = sortData(data);
-                setCountries(countries);
-                setMapCountries(data);
-                setTableData(sortedData);
-                setLoading(false)
-            });
+                .then((response) => response.data)
+                .then((data) => {
+                    const countries = data.map((country) => ({
+                        name: country.country,
+                        value: country.countryInfo.iso2,
+                    }));
+                    let sortedData = sortData(data);
+                    setCountries(countries);
+                    setMapCountries(data);
+                    setTableData(sortedData);
+                    setLoading(false)
+                });
         };
 
         getCountriesData();
@@ -65,9 +65,9 @@ function CoronaTracker() {
             .then((data) => {
                 setInputCountry(countryCode);
                 setCountryInfo(data);
-                if(data.countryInfo) setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+                if (data.countryInfo) setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
                 setMapZoom(4);
-        });
+            });
     };
 
     const style = (feature) => {
@@ -83,33 +83,33 @@ function CoronaTracker() {
 
     const color = (number) => {
         return casesType === "deaths" ?
-                number > 100000 ? '#800026' :
-                number > 75000   ? '#bd0026' :
-                number > 50000   ? '#e31a1c' :
-                number > 25000    ? '#fc4e2a' :
-                number > 10000    ? '#fd8d3c' :
-                number > 5000     ? '#feb24c' :
-                number > 1000      ? '#fed976' :
-                number >= 1      ? '#ffffcc' :
-                'darkgreen' : casesType === "recovered" ?
+            number > 100000 ? '#800026' :
+                number > 75000 ? '#bd0026' :
+                    number > 50000 ? '#e31a1c' :
+                        number > 25000 ? '#fc4e2a' :
+                            number > 10000 ? '#fd8d3c' :
+                                number > 5000 ? '#feb24c' :
+                                    number > 1000 ? '#fed976' :
+                                        number >= 1 ? '#ffffcc' :
+                                            'darkgreen' : casesType === "recovered" ?
                 number > 100000 ? '#008000' :
-                number > 75000   ? '#00bd26' :
-                number > 50000   ? '#1ae31c' :
-                number > 25000    ? '#4efc2a' :
-                number > 10000    ? '#79fd3c' :
-                number > 5000     ? '#b2fe4c' :
-                number > 1000      ? '#d9fe76' :
-                number >= 1      ? '#ffffcc' :
-                'darkred' :
+                    number > 75000 ? '#00bd26' :
+                        number > 50000 ? '#1ae31c' :
+                            number > 25000 ? '#4efc2a' :
+                                number > 10000 ? '#79fd3c' :
+                                    number > 5000 ? '#b2fe4c' :
+                                        number > 1000 ? '#d9fe76' :
+                                            number >= 1 ? '#ffffcc' :
+                                                'darkred' :
                 number > 100000 ? '#260080' :
-                number > 75000   ? '#2600bd' :
-                number > 50000   ? '#1c1ae3' :
-                number > 25000    ? '#2a4efc' :
-                number > 10000    ? '#3c8dfd' :
-                number > 5000     ? '#4cb2fe' :
-                number > 1000      ? '#76d9fe' :
-                number >= 1      ? '#ccffff' :
-                'darkgreen'
+                    number > 75000 ? '#2600bd' :
+                        number > 50000 ? '#1c1ae3' :
+                            number > 25000 ? '#2a4efc' :
+                                number > 10000 ? '#3c8dfd' :
+                                    number > 5000 ? '#4cb2fe' :
+                                        number > 1000 ? '#76d9fe' :
+                                            number >= 1 ? '#ccffff' :
+                                                'darkgreen'
     }
 
     const getColor = (provinceIso) => {
@@ -117,7 +117,7 @@ function CoronaTracker() {
         let recoveredCount = 0;
         let deathCount = 0;
         let data = mapCountries[mapCountries.findIndex(data => data.countryInfo.iso3 === provinceIso)];
-        if(data) {
+        if (data) {
             infectionCount = data.cases;
             recoveredCount = data.recovered;
             deathCount = data.deaths;
@@ -129,9 +129,9 @@ function CoronaTracker() {
         let sortedData = [...data];
         sortedData.sort((a, b) => {
             if (a.cases > b.cases) {
-            return -1;
+                return -1;
             } else {
-            return 1;
+                return 1;
             }
         });
         return sortedData;
@@ -152,30 +152,31 @@ function CoronaTracker() {
         const minRadius = isConsideredMobile() ? 10 : 15;
         const radiusDelta = maxRadius - minRadius;
         const multiplier = 2.4
-        return(
-        data.map(country => (
-            <Circle
-                center={[country.countryInfo.lat, country.countryInfo.long]}
-                color={getColor(country.countryInfo.iso3)}
-                radius={Math.sqrt(country[casesType]) * multiplier * radiusDelta}
-            >
-                <Tooltip
-                    sticky
-                    className={"leaflet-tooltip our-tooltip white-monospace leaflet-zoom-animated leaflet-tooltip-right"}
+        return (
+            data.map(country => (
+                <Circle
+                    center={[country.countryInfo.lat, country.countryInfo.long]}
+                    color={getColor(country.countryInfo.iso3)}
+                    radius={Math.sqrt(country[casesType]) * multiplier * radiusDelta}
                 >
-                    <div className="info-container">
-                        <div className="info-flag-container">
-                            <img className="info-flag" src={`${country.countryInfo.flag}`}></img>
+                    <Tooltip
+                        sticky
+                        className={"leaflet-tooltip our-tooltip white-monospace leaflet-zoom-animated leaflet-tooltip-right"}
+                    >
+                        <div className="info-container">
+                            <div className="info-flag-container">
+                                <img className="info-flag" src={`${country.countryInfo.flag}`}></img>
+                            </div>
+                            <div className="info-name">{country.country}</div>
+                            <div className="info-confirmed">Cases: {numeral(country.cases).format("0,0")}</div>
+                            <div className="info-recovered">Recovered: {numeral(country.recovered).format("0,0")}</div>
+                            <div className="info-deaths">Deaths: {numeral(country.deaths).format("0,0")}</div>
                         </div>
-                        <div className="info-name">{country.country}</div>
-                        <div className="info-confirmed">Cases: {numeral(country.cases).format("0,0")}</div>
-                        <div className="info-recovered">Recovered: {numeral(country.recovered).format("0,0")}</div>
-                        <div className="info-deaths">Deaths: {numeral(country.deaths).format("0,0")}</div>
-                    </div>
-                </Tooltip>
-            </Circle>
-        ))
-    )}
+                    </Tooltip>
+                </Circle>
+            ))
+        )
+    }
 
     const onEachFeature = (feature, layer) => {
         if (feature.properties && feature.properties.ADMIN) {
@@ -186,7 +187,7 @@ function CoronaTracker() {
             let provinceIso = feature.properties.ISO_A3;
             let province = feature.properties.ADMIN;
             let data = mapCountries[mapCountries.findIndex(data => data.countryInfo.iso3 === provinceIso)];
-            
+
             if (data) {
                 provinceCases = data.cases
                 provinceRecoveres = data.recovered
@@ -213,13 +214,13 @@ function CoronaTracker() {
     }
 
     const getNextMapType = (mapType) => {
-        switch(mapType) {
-        case "bubble":
-            return "choropleth";
-        case "choropleth":
-            return "bubble";
-        default:
-            return "bubble";
+        switch (mapType) {
+            case "bubble":
+                return "choropleth";
+            case "choropleth":
+                return "bubble";
+            default:
+                return "bubble";
         }
     }
 
@@ -228,7 +229,7 @@ function CoronaTracker() {
         setMapType(newNextMapType);
     }
 
-    if(loading) return <Loading />
+    if (loading) return <Loading />
     return (
         <div>
             <Row className="app__header">
@@ -280,7 +281,7 @@ function CoronaTracker() {
                     </Button>
                 </Control>
                 <Control position="bottomright">
-                    <Jumbotron className="legendcontainer" style={{padding: '10px'}}>
+                    <Jumbotron className="legendcontainer" style={{ padding: '10px' }}>
                         {[
                             100000,
                             75000,
@@ -290,9 +291,9 @@ function CoronaTracker() {
                             5000,
                             1000,
                             1
-                        ].map(( data, index ) => (   
+                        ].map((data, index) => (
                             <h6 key={index} className="legendinfo">
-                                <div className="colorbox" style={{backgroundColor: `${color(data)}`}} />
+                                <div className="colorbox" style={{ backgroundColor: `${color(data)}` }} />
                                 {data}
                                 +
                             </h6>
@@ -304,11 +305,11 @@ function CoronaTracker() {
                     url={useLightMode ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png' : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'}
                 />
                 {useMapType === "choropleth" && <GeoJSON style={style} data={geojson} onEachFeature={onEachFeature} />}
-                {useMapType === "bubble" && <Circels data={mapCountries} /> }
-                
+                {useMapType === "bubble" && <Circels data={mapCountries} />}
+
             </MapContainer>
         </div>
     )
-}   
+}
 
 export default CoronaTracker
