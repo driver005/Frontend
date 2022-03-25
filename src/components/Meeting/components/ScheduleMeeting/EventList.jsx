@@ -84,7 +84,7 @@ const EventList = ({
 
     return (
         <>
-            {startTimeListItems.length === 0 ? (
+            {(fromto ? availableTimeslot.length === 0 : startTimeListItems.length === 0) ? (
                 emptyListElement
             ) : (
                 <>

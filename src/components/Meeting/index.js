@@ -1,6 +1,6 @@
 import { ScheduleMeeting } from "./components/ScheduleMeeting/ScheduleMeeting";
 import './styles.css';
-import { isSameDay, parseISO, format } from 'date-fns'
+import { isSameDay, parseISO, format, isPast } from 'date-fns'
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import CreateMeetingComponent from "./components/CreateMeeting";
@@ -14,13 +14,18 @@ const timezone = "Europe/Berlin"
 const MeetingComponent = () => {
     var data = useSelector(state => state.meeting)
     data = data.map((value, i) => {
+        var startTime = zonedTimeToUtc(parseISO(value.startTime), timezone)
+        var endTime = zonedTimeToUtc(parseISO(value.endTime), timezone)
+        //if (!isPast(endTime)) {
         return {
             ...value,
-            startTime: zonedTimeToUtc(parseISO(value.startTime), timezone),
-            endTime: zonedTimeToUtc(parseISO(value.endTime), timezone),
+            startTime,
+            endTime
 
         }
+        //}
     })
+    //data = data.filter(x => x !== null)
     if (!data.length) return <Loading />;
 
 

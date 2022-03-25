@@ -131,12 +131,29 @@ export const ScheduleMeeting = ({
     const onDaySelected = (day) => {
         setSelectedDay(day);
         onSelectedDayChange && onSelectedDayChange(day);
-        availableTimeslots.filter(({ startTime }, i) => {
+
+        availableTimeslots.filter(({ startTime, endTime }, i) => {
             if (isSameDay(startTime, day)) {
-                setTimeslot(availableTimeslots[i])
+                if (!isPast(endTime)) {
+                    setTimeslot(availableTimeslots[i])
+                } else {
+                    setTimeslot([])
+                }
             }
         })
     };
+
+    useEffect(() => {
+        availableTimeslots.filter(({ startTime, endTime }, i) => {
+            if (isSameDay(startTime, selectedDay)) {
+                if (!isPast(endTime)) {
+                    setTimeslot(availableTimeslots[i])
+                } else {
+                    setTimeslot([])
+                }
+            }
+        })
+    }, [])
 
     const splitTimeslot = (startTimeEvent) => {
         const splitTimeslots = [null, null];
@@ -243,19 +260,19 @@ export const ScheduleMeeting = ({
     }, [selectedDay, startTimeEventsList]);
 
     const goToPreviousMonth = () => {
-        setSelectedDay(subMonths(selectedDay, 1));
+        onDaySelected(subMonths(selectedDay, 1));
     };
 
     const goToNextMonth = () => {
-        setSelectedDay(addMonths(selectedDay, 1));
+        onDaySelected(addMonths(selectedDay, 1));
     };
 
     const goToPreviousDay = () => {
-        setSelectedDay(subDays(selectedDay, 1));
+        onDaySelected(subDays(selectedDay, 1));
     };
 
     const goToNextDay = () => {
-        setSelectedDay(addDays(selectedDay, 1));
+        onDaySelected(addDays(selectedDay, 1));
     };
 
     return (
