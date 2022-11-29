@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsArrowDown, BsArrowUp } from "react-icons/all"
+import { BsArrowDown, BsArrowUp } from "react-icons/bs"
 
 const Header = ({ headers, onSorting }) => {
     const [sortingField, setSortingField] = useState("");
@@ -26,11 +26,11 @@ const Header = ({ headers, onSorting }) => {
                         {name}
 
                         {sortingField && sortingField === field && (
-                            
+
                             sortingOrder === "asc"
                                 ? <BsArrowDown />
                                 : <BsArrowUp />
-                            
+
                         )}
                     </th>
                 ))}

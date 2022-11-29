@@ -1,0 +1,25 @@
+
+> react-teclab@0.1.0 build
+> react-scripts --openssl-legacy-provider build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  8.21 MB   build\static\js\main.59375071.js
+  25.86 kB  build\static\css\main.d6152097.css
+
+The bundle size is significantly larger than recommended.
+Consider reducing it with code splitting: https://goo.gl/9VhYWB
+You can also analyze the project dependencies: https://goo.gl/LeUzfb
+
+The project was built assuming it is hosted at ./.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+

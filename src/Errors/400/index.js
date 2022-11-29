@@ -1,14 +1,14 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import './styles.css'
 import error from './images/404.svg'
-import astronaut from './images/astronaut.svg'
+import { default as astronaut } from '!file-loader!./images/astronaut.svg'
 import earth from './images/earth.svg'
 import moon from './images/moon.svg'
 import rocket from './images/rocket.svg'
 
 function PageError() {
-    const history = useHistory()
+    const history = useNavigate()
 
     return (
         <main className="main">
@@ -24,7 +24,7 @@ function PageError() {
                         <img className="object_moon" src={moon} width="80px" />
                     </div>
                     <div className="box_astronaut">
-                        <img className="object_astronaut" src={astronaut} width="140px"/>
+                        <img className="object_astronaut" src={astronaut} width="140px" />
                     </div>
                 </div>
                 <div className="glowing_stars">

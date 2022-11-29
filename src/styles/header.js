@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import * as variables from './variables'
 import {
     Navbar,
@@ -190,7 +190,7 @@ export const Inputgroup = styled(InputGroup)`
     }
 `
 
-export const Inputgroupaddon = styled(InputGroup.Prepend)`
+export const Inputgroupaddon = styled(InputGroup.Text)`
     display: flex;
     margin-right: -1px;
 `
@@ -239,7 +239,7 @@ export const Navbarform = styled(InputGroup)`
     }
 `
 
-export const Inputaddon = styled(InputGroup.Prepend)`
+export const Inputaddon = styled(InputGroup.Text)`
     border: none;
     display: flex;
     margin-right: -1px;
@@ -261,7 +261,7 @@ export const Inputgrouptext = styled(InputGroup.Text)`
     background-color: rgba(0,0,0,.24);
     
 `
-  
+
 export const Inputcomponent = styled(Form.Control)`
     font-size: 13px;
     color: ${variables.white};
@@ -354,7 +354,7 @@ export const Dropdowntoggle = styled(Dropdown.Toggle)`
         color: ${variables.textcolor};
     }
 `
-  
+
 export const Navitem = styled(NavItem)`
     font-size: 1.5rem;
     outline: 0;
@@ -399,7 +399,7 @@ export const Navitem = styled(NavItem)`
       vertical-align: baseline;
     }
 `
-  
+
 export const Glyphicon = styled("div")`
     color: #3979F6;
 `
@@ -417,7 +417,7 @@ export const Imagecomponent = styled.img`
     vertical-align: middle;
     border-style: none;
 `
-  
+
 export const Imageaccount = styled("div")`
     width: 50px;
     margin-right: 5px;
@@ -433,7 +433,7 @@ export const Text = styled.div`
     color: #ddd;
     
 `
-  
+
 export const messages = `
     button {
         display: flex;
@@ -553,11 +553,11 @@ export const Dropdownmenu = styled(Dropdown.Menu)`
         ${support}
     }
 `
-  
 
-  
 
-  
+
+
+
 export const Account = styled("div")`
     width: 180px !important;
   
@@ -580,9 +580,9 @@ export const Account = styled("div")`
       }
     }
 `
-  
 
-  
+
+
 export const count = styled.span`
     position: absolute;
     bottom: 6px;
@@ -595,7 +595,7 @@ export const count = styled.span`
     padding: 2px 4px;
     border-radius: 10px;
 `
-  
+
 export const Notificationsmenu = styled(Dropdown)`
     > a {
       background-color: transparent!important;    
@@ -613,12 +613,12 @@ export const Notificationsmenu = styled(Dropdown)`
       }
     }
 `
-  
+
 export const Accountcheck = styled.span`
     color: ${variables.textcolor};
     font-weight: ${variables.fontweightnormal};
 `
-  
+
 export const Notificationswrapper = styled(Dropdown.Menu)`
     position: absolute;
     z-index: 1000;
@@ -651,7 +651,7 @@ export const Notificationswrapper = styled(Dropdown.Menu)`
         display: block!important;
     }
 `
-  
+
 export const Avatar = styled.span`
     display: flex;
     align-items: center;
@@ -668,7 +668,7 @@ export const Avatar = styled.span`
     float: left!important;
     border-radius: 50%!important;
 `
-  
+
 export const Badgecomponents = styled(Badge)`
     margin-left: 6px;
     margin-right: 3px;

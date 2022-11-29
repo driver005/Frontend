@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef, createRef } from 'react'
-import { MapContainer, TileLayer, Tooltip, CircleMarker, GeoJSON, Circle, LayerGroup, useMap, LayersControl,} from 'react-leaflet'
+import { MapContainer, TileLayer, Tooltip, CircleMarker, GeoJSON, Circle, LayerGroup, useMap, LayersControl, } from 'react-leaflet'
 import "leaflet/dist/leaflet.css"
 import CustomLayer from './CustomLayer'
 import Control from './control';
 import "./styles.css"
 import { FormControl } from 'react-bootstrap';
 import moment from 'moment';
-import { RiArrowDropLeftFill, RiArrowDropRightFill, BsPlay, BsPause } from "react-icons/all"
 import Loading from '../../../components/LoadingAnimation';
 import { useSelector } from 'react-redux';
 import Widget from '../Widget/Widget';

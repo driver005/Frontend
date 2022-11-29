@@ -1,10 +1,10 @@
-import marked from 'marked';
+import { marked } from 'marked';
 import dompurify from 'dompurify';
 
 export const rawMarkup = (data) => {
     const sanitizer = dompurify.sanitize;
     let rawMarkup = marked(sanitizer(data));
-    return {__html: rawMarkup};
+    return { __html: rawMarkup };
 };
 
 export const checkAnswer = (index, correctAnswer, answerSelectionType, {
@@ -26,10 +26,10 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
 }) => {
     const indexStr = `${index}`;
     const disabledAll = {
-        0: {disabled: true},
-        1: {disabled: true},
-        2: {disabled: true},
-        3: {disabled: true}
+        0: { disabled: true },
+        1: { disabled: true },
+        2: { disabled: true },
+        3: { disabled: true }
     };
 
     const insert = (arr, index, newItem) => [
@@ -52,12 +52,12 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
             }
 
             setButtons((prevState) => ({
-                    ...prevState,
-                    ...disabledAll,
-                    [index - 1]: {
-                        className: (indexStr === correctAnswer) ? "correct" : "incorrect"
-                    },
-                })
+                ...prevState,
+                ...disabledAll,
+                [index - 1]: {
+                    className: (indexStr === correctAnswer) ? "correct" : "incorrect"
+                },
+            })
             );
 
             setCorrectAnswer(true);
@@ -116,22 +116,22 @@ export const checkAnswer = (index, correctAnswer, answerSelectionType, {
             if (correctAnswer.includes(index)) {
                 if (userInput[currentQuestionIndex].length <= maxNumberOfMultipleSelection) {
                     setButtons((prevState) => ({
-                            ...prevState,
-                            [index - 1]: {
-                                disabled: !prevState[index - 1],
-                                className: (correctAnswer.includes(index)) ? "correct" : "incorrect"
-                            },
-                        })
+                        ...prevState,
+                        [index - 1]: {
+                            disabled: !prevState[index - 1],
+                            className: (correctAnswer.includes(index)) ? "correct" : "incorrect"
+                        },
+                    })
                     )
                 }
             } else {
                 if (userInput[currentQuestionIndex].length <= maxNumberOfMultipleSelection) {
                     setButtons((prevState) => ({
-                            ...prevState,
-                            [index - 1]: {
-                                className: (correctAnswer.includes(index)) ? "correct" : "incorrect"
-                            },
-                        })
+                        ...prevState,
+                        [index - 1]: {
+                            className: (correctAnswer.includes(index)) ? "correct" : "incorrect"
+                        },
+                    })
                     )
                 }
             }

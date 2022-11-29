@@ -10,6 +10,7 @@ export const signin = (formData, router) => async (dispatch) => {
             scope: 'offline_access'
         }
 
+
         const tockens = await api.signIn(reqbody);
 
         dispatch({ type: AUTH, data: tockens.data });
@@ -29,7 +30,7 @@ export const signin = (formData, router) => async (dispatch) => {
 
         dispatch({ type: AUTH, data: data });
 
-        router.go(-1)
+        router(-1)
     } catch (error) {
         return { err: error, message: `Wrong credentials` };
     }
@@ -67,7 +68,7 @@ export const signup = (formData, router) => async (dispatch) => {
         }
 
         dispatch({ type: AUTH, data: data });
-        router.go(-1)
+        router(-1)
     } catch (error) {
         return { err: error, message: `Dublicated Username or Email Address` };
     }

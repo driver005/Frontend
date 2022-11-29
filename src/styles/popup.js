@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import * as variables from './variables'
 import { Modal, Button } from 'react-bootstrap';
 
@@ -9,7 +9,7 @@ export const Popup = styled(Modal)`
     outline-color: initial;
 `
 
-export const wrapper = styled.div`
+export const Wrapper = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;

@@ -16,8 +16,8 @@ const CustomLayer = () => {
         //     var velocityLayer = L.velocityLayer({
         //         displayValues: true,
         //         displayOptions: {
-        //         velocityType: "Global Wind",
-        //         position: "bottomleft",
+        //             velocityType: "Global Wind",
+        //             position: "bottomleft",
         //             emptyString: "No wind data"
         //         },
         //         nearest: 'https://localhost/api/weather/nearest',
@@ -28,8 +28,8 @@ const CustomLayer = () => {
         //     velocityLayer.addTo(map);
         // })
 
-            var clouds = L.OWM.precipitationClassic({showLegend: false, opacity: 0.5, appId: 'f99be3d016f40b82ae651c29c47cafab'});
-        var city = L.OWM.current({ intervall: 15, lang: 'de' });
+        // var clouds = L.OWM.precipitationClassic({ showLegend: false, opacity: 0.5, appId: 'f99be3d016f40b82ae651c29c47cafab' });
+        // var city = L.OWM.current({ intervall: 15, lang: 'de' });
         L.ControlOverlay().addTo(map);
     }, [map]);
     return null;

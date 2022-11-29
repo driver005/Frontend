@@ -8,7 +8,7 @@ import browserUsage from '@visx/mock-data/lib/mocks/browserUsage';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import { animated, useTransition, to, useSpring, use, config, interpolate } from 'react-spring';
 import Draw from './draw';
-import {Colcomponent, Rowcomponent} from './styles'
+import { Colcomponent, Rowcomponent } from './styles'
 import Chordcomponent from './chord'
 
 const letters = letterFrequency.slice(0, 4);
@@ -57,76 +57,74 @@ function Example({ width, height, margin = defaultMargin, animate = true, }) {
 
 
     return (
-      <svg width={width} height={height}>
-        <GradientPinkBlue id="visx-pie-gradient" />
-        <rect rx={14} width={width} height={height} fill="url('#visx-pie-gradient')" />
-        <Group top={centerY + margin.top} left={centerX + margin.left}>
-          <Pie
-            data={
-              selectedBrowser ? selectedBrowser && browsers.filter(({ label }) => label === selectedBrowser) : browsers
-            }
-            pieValue={usage}
-            outerRadius={radius}
-            innerRadius={radius - donutThickness}
-            cornerRadius={3}
-            padAngle={0.005}
-          >{pie => (
-              
-            <AnimatedPie
-              {...pie}
-              animate={animate}
-              getKey={arc => arc.data.label}
-              oldarcs={oldarcs}
-              setoldarcs={setoldarcs}
-              onClickDatum={({ data: { label } }) =>
-                animate &&
-                setSelectedBrowser(selectedBrowser && selectedBrowser === label ? null : label)
-              }
-              getColor={arc => getBrowserColor(arc.data.label)}
-            />  
-          )}
-          </Pie>
-          {/*<Pie
-            data={
-              selectedAlphabetLetter
-                ? letters.filter(({ letter }) => letter === selectedAlphabetLetter)
-                : letters
-            }
-            pieValue={frequency}
-            pieSortValues={() => -1}
-            outerRadius={radius - donutThickness * 1.3}
-          >
-          {pie => (
-            <AnimatedPie
-              {...pie}
-              animate={animate}
-              getKey={({ data: { letter } }) => letter}
-              onClickDatum={({ data: { letter } }) =>
-                animate &&
-                setSelectedAlphabetLetter(
-                  selectedAlphabetLetter && selectedAlphabetLetter === letter ? null : letter,
-                )
-              }
-              getColor={({ data: { letter } }) => getLetterFrequencyColor(letter)}
-            />
-          )}
-            </Pie>*/}
-      </Group>
-      {animate && (
-        <text
-          textAnchor="end"
-          x={width - 16}
-          y={height - 16}
-          fill="white"
-          fontSize={11}
-          fontWeight={300}
-          pointerEvents="none"
-        >
-          Click segments to update
-        </text>
-      )}
-    </svg>
-  );
+        <svg width={width} height={height}>
+            <GradientPinkBlue id="visx-pie-gradient" />
+            <rect rx={14} width={width} height={height} fill="url('#visx-pie-gradient')" />
+            <Group top={centerY + margin.top} left={centerX + margin.left}>
+                <Pie
+                    data={
+                        selectedBrowser ? browsers.filter(({ label }) => label === selectedBrowser) : browsers
+                    }
+                    pieValue={usage}
+                    outerRadius={radius}
+                    innerRadius={radius - donutThickness}
+                    cornerRadius={3}
+                    padAngle={0.005}
+                >
+                    {(pie) => (
+                        <AnimatedPie
+                            {...pie}
+                            animate={animate}
+                            getKey={(arc) => arc.data.label}
+                            onClickDatum={({ data: { label } }) =>
+                                animate &&
+                                setSelectedBrowser(selectedBrowser && selectedBrowser === label ? null : label)
+                            }
+                            getColor={(arc) => getBrowserColor(arc.data.label)}
+                        />
+                    )}
+                </Pie>
+                {/*<Pie
+                    data={
+                        selectedAlphabetLetter
+                            ? letters.filter(({ letter }) => letter === selectedAlphabetLetter)
+                            : letters
+                    }
+                    pieValue={frequency}
+                    pieSortValues={() => -1}
+                    outerRadius={radius - donutThickness * 1.3}
+                >
+                    {(pie) => (
+                        <AnimatedPie
+                            {...pie}
+                            animate={animate}
+                            getKey={({ data: { letter } }) => letter}
+                            onClickDatum={({ data: { letter } }) =>
+                                animate &&
+                                setSelectedAlphabetLetter(
+                                    selectedAlphabetLetter && selectedAlphabetLetter === letter ? null : letter,
+                                )
+                            }
+                            getColor={({ data: { letter } }) => getLetterFrequencyColor(letter)}
+                        />
+                    )}
+                        </Pie>*/}
+            </Group>
+            {animate && (
+                <text
+                    textAnchor="end"
+                    x={width - 16}
+                    y={height - 16}
+                    fill="white"
+                    fontSize={11}
+                    fontWeight={300}
+                    pointerEvents="none"
+                >
+                    Click segments to update
+                </text>
+            )}
+        </svg>
+    );
 }
 
 const fromLeaveTransition = ({ endAngle, startAngle }) => ({
@@ -142,79 +140,84 @@ const enterUpdateTransition = ({ startAngle, endAngle }) => ({
     opacity: 1,
 });
 
-const AnimatedPie = React.memo(function ({ animate, arcs, oldarcs, setoldarcs, path, getKey, getColor, onClickDatum, }) {
+const AnimatedPie = React.memo(function ({
+    animate,
+    arcs,
+    path,
+    getKey,
+    getColor,
+    onClickDatum,
+}) {
 
-    const transitions = useTransition(arcs, (arc) => arc.data.label,
-    {
-        from: animate ? fromLeaveTransition : enterUpdateTransition,
-        enter: enterUpdateTransition,
-        update: enterUpdateTransition,
-        leave: animate ? fromLeaveTransition : enterUpdateTransition,
-    });
+    const transitions = useTransition(arcs,
+        {
+            from: animate ? fromLeaveTransition : enterUpdateTransition,
+            enter: enterUpdateTransition,
+            update: enterUpdateTransition,
+            leave: animate ? fromLeaveTransition : enterUpdateTransition,
+        });
 
-    return transitions.map(({ item: arc, props, key }) => {
-      const [centroidX, centroidY] = path.centroid(arc);
-      const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
+    return transitions((props, arc, { key }) => {
+        const [centroidX, centroidY] = path.centroid(arc);
+        const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
 
-      return (
-        <g key={key}>
-          <animated.path
-            // compute interpolated path d attribute from intermediate angle values
-            d={interpolate([props.startAngle, props.endAngle], (startAngle, endAngle) => 
-              path({
-                ...arc,
-                startAngle,
-                endAngle,
-              }),
-            )}
-            fill={getColor(arc)}
-            onClick={() => onClickDatum(arc)}
-            onTouchStart={() => onClickDatum(arc)}
-          />
-          {hasSpaceForLabel && (
-            <animated.g style={{ opacity: props.opacity }}>
-              <text
-                fill="white"
-                x={centroidX}
-                y={centroidY}
-                dy=".33em"
-                fontSize={9}
-                textAnchor="middle"
-                pointerEvents="none"
-              >
-                {getKey(arc)}
-              </text>
-            </animated.g>
-          )}
-        </g>
-      );
-    },
-  )}
+        return (
+            <g key={key}>
+                <animated.path
+                    // compute interpolated path d attribute from intermediate angle values
+                    d={interpolate([props.startAngle, props.endAngle], (startAngle, endAngle) =>
+                        path({
+                            ...arc,
+                            startAngle,
+                            endAngle,
+                        }),
+                    )}
+                    fill={getColor(arc)}
+                    onClick={() => onClickDatum(arc)}
+                    onTouchStart={() => onClickDatum(arc)}
+                />
+                {hasSpaceForLabel && (
+                    <animated.g style={{ opacity: props.opacity }}>
+                        <text
+                            fill="white"
+                            x={centroidX}
+                            y={centroidY}
+                            dy=".33em"
+                            fontSize={9}
+                            textAnchor="middle"
+                            pointerEvents="none"
+                        >
+                            {getKey(arc)}
+                        </text>
+                    </animated.g>
+                )}
+            </g>
+        );
+    })
+
+}
 );
 
 
-
-
-
-
-
-const Charts = () => 
+const Charts = () =>
     <div >
-    <Rowcomponent>
-      <Colcomponent>
-        <ParentSize>{({ width, height }) => <Example width={width} height={height} />}</ParentSize>
-      </Colcomponent>
-      
-    </Rowcomponent>
-    <Rowcomponent>
-      <Colcomponent>
-        <ParentSize>{({ width, height }) => <Chordcomponent width={width} height={height} />}</ParentSize>
-      </Colcomponent>
-      <Colcomponent>
-        <ParentSize>{({ width, height }) => <Draw width={width} height={height} />}</ParentSize>
-      </Colcomponent>
-    </Rowcomponent>
+        <Rowcomponent>
+            <Colcomponent>
+                <ParentSize>{({ width, height }) => <Example width={width} height={height} />}</ParentSize>
+            </Colcomponent>
+
+        </Rowcomponent>
+        <Rowcomponent>
+            <Colcomponent>
+                <ParentSize>{({ width, height }) => <Chordcomponent width={width} height={height} />}</ParentSize>
+            </Colcomponent>
+            <Colcomponent>
+                <ParentSize>{({ width, height }) => <Draw width={width} height={height} />}</ParentSize>
+            </Colcomponent>
+        </Rowcomponent>
     </div>
 
 
 export default Charts;
+
+

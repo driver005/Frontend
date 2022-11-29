@@ -73,7 +73,7 @@ export const P = styled.p`
     letter-spacing: 0.01071em;
   }
 
-  &.title,
+  &.title-post,
   &.message {
     font-size: 1.5rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;

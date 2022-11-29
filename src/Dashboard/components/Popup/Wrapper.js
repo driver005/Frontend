@@ -1,8 +1,8 @@
 import React from "react";
-import { wrapper } from "../../../styles/popup";
+import { Wrapper } from "../../../styles/popup";
 
 export default Comp => (props) => (
-    <wrapper className="example-warper">
+    <Wrapper className="example-warper">
         <Comp input={props.input} value={props.value} onSubmit={props.onSubmit} {...props} />
-    </wrapper>
+    </Wrapper>
 );

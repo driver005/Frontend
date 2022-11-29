@@ -13,7 +13,6 @@ const CustomModal = (props) => {
     const [show, setShow] = React.useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    console.log(props)
     return (
         <React.Fragment>
             <Button variant="outline-primary" onClick={handleShow}>

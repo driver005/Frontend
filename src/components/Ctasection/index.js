@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Container, Ctasection, Newsletterblock, Overline, Contentcta, Link, Formblock, Formwrapper, Newsletterfield, Sendbutton, Profileimageswarpper, Peoplegroupimage, Followernumber, Tagspan } from './styled'
-import  Observer from 'react-intersection-observer'
+import { InView } from 'react-intersection-observer'
 import Newsletter from '../Newsletter';
 import peoplepurple from '../../images/people_purple.png'
 
@@ -8,25 +8,25 @@ const Cta = () => {
     const [isShown, setIsShown] = useState(false);
 
     const handleChange = e => {
-        if(e){
+        if (e) {
             setIsShown(true)
-        }  
+        }
     };
 
     return (
         <Ctasection>
             <Container>
-            <Observer
-                onChange={handleChange}
-                threshold={1}
-            >
-                <Newsletterblock className={ isShown ? 'load' : 'hide' }>
-                    {/*<Overline>{"Newsletter"}</Overline>*/}
-                    <Contentcta>
-                        {"Join our newsletter to receive the latest "}
-                        <Link href="/" target="_blank">{"teclab"}</Link>
-                        {" news "}
-                    </Contentcta>
+                <InView
+                    onChange={handleChange}
+                    threshold={1}
+                >
+                    <Newsletterblock className={isShown ? 'load' : 'hide'}>
+                        {/*<Overline>{"Newsletter"}</Overline>*/}
+                        <Contentcta>
+                            {"Join our newsletter to receive the latest "}
+                            <Link href="/" target="_blank">{"teclab"}</Link>
+                            {" news "}
+                        </Contentcta>
                         <Newsletter />
                         {
                             // <Profileimageswarpper>
@@ -38,7 +38,7 @@ const Cta = () => {
                             // </Profileimageswarpper>
                         }
                     </Newsletterblock>
-                </Observer>
+                </InView>
             </Container>
         </Ctasection>
     )

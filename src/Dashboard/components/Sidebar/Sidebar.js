@@ -1,16 +1,41 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Progress, Alert} from 'react-bootstrap';
-import {withRouter} from 'react-router-dom';
-import {dismissAlert} from '../../../actions/alerts';
+import { connect } from 'react-redux';
+import { Progress, Alert } from 'react-bootstrap';
+import { dismissAlert } from '../../../actions/alerts';
 import LinksGroup from './LinksGroup/LinksGroup';
-import { BsChatSquare, IoCloseOutline, BiBitcoin, FcTodoList, AiOutlineLineChart, FaRegListAlt, BiVideo, BsCalendar, BiNotification, BiHomeAlt, FiFileText, FaTable, FaBlog, CgWebsite, RiMapLine } from 'react-icons/all'
-import {changeActiveSidebarItem, changeSidebarVisibility} from '../../../actions/navigation';
-import {logoutUser} from '../../../actions/user';
+import { changeActiveSidebarItem, changeSidebarVisibility } from '../../../actions/navigation';
+import { logoutUser } from '../../../actions/user';
 import { A, H5, Header, Nav, Span, Ul, Labelul, Labela, Labelspan, I, Projectdiv, Projectalert, Projectprogress, Projectspan, Projectsmall, MobileCloseButton, } from '../../../styles/sidebar';
 import teclab from '../../../images/Logo_VDI_teclab4_X1.png'
+import {
+    RiMapLine
+} from 'react-icons/ri'
+import {
+    FcTodoList,
+} from 'react-icons/fc'
+import {
+    AiOutlineLineChart,
+} from 'react-icons/ai'
+import {
+    FaRegListAlt,
+    FaTable,
+    FaBlog,
+} from 'react-icons/fa'
+import {
+    BsChatSquare,
+    BsCalendar,
+} from 'react-icons/bs'
+import {
+    IoMdCloseCircleOutline,
+} from 'react-icons/io'
+import {
+    BiBitcoin,
+    BiVideo,
+    BiHomeAlt,
+} from 'react-icons/bi'
+import { withRouter } from '../../../helper/withRouter';
 
 
 class Sidebar extends React.Component {
@@ -47,7 +72,7 @@ class Sidebar extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.sidebarOpened !== this.props.sidebarOpened) {
             if (nextProps.sidebarOpened) {
-                this.element.style.height = `${this.element.scrollHeight}px`;
+                this.element.style.height = `{this.element.scrollHeight}px`;
             } else {
                 this.element.classList.remove('open');
                 setTimeout(() => {
@@ -87,7 +112,7 @@ class Sidebar extends React.Component {
                     </A>
                 </Header>
                 <MobileCloseButton onClick={this.mobilecloseaction}>
-                    <IoCloseOutline size="20" />
+                    <IoMdCloseCircleOutline size="20" />
                 </MobileCloseButton>
                 <Ul>
                     <LinksGroup
@@ -95,8 +120,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Dashboard"
                         isHeader
-                        iconName={<BiHomeAlt size="18" fill="#3979F6"  />}
-                        link={`${this.props.match.path}app/main`}
+                        iconName={<BiHomeAlt size="18" fill="#3979F6" />}
+                        link={`/dash/app/main/dashboard`}
                         index="main"
                     />
                     <H5>Projects</H5>
@@ -106,7 +131,7 @@ class Sidebar extends React.Component {
                         header="Typography"
                         isHeader
                         iconName={<FiFileText size="18" stroke="#3979F6" />}
-                        link={`${this.props.match.path}app/typography`}
+                        link={`/dash/app/typography`}
                         index="core"
                     />*/}
                     <LinksGroup
@@ -115,7 +140,7 @@ class Sidebar extends React.Component {
                         header="Corona Map"
                         isHeader
                         iconName={<RiMapLine size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/corona`}
+                        link={`/dash/app/corona`}
                         index="ui"
                     />
                     <LinksGroup
@@ -124,7 +149,7 @@ class Sidebar extends React.Component {
                         header="Weather Map"
                         isHeader
                         iconName={<RiMapLine size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/weather`}
+                        link={`/dash/app/weather`}
                         index="ui"
                     />
                     <LinksGroup
@@ -132,8 +157,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Coin Table"
                         isHeader
-                        iconName={<FaTable size="18" fill="#3979F6"  />}
-                        link={`${this.props.match.path}app/tables`}
+                        iconName={<FaTable size="18" fill="#3979F6" />}
+                        link={`/dash/app/tables`}
                         index="tables"
                     />
                     <LinksGroup
@@ -141,8 +166,8 @@ class Sidebar extends React.Component {
                         activeItem={this.props.activeItem}
                         header="Crypto Coins"
                         isHeader
-                        iconName={<BiBitcoin size="23" fill="#3979F6"  />}
-                        link={`${this.props.match.path}app/crypto`}
+                        iconName={<BiBitcoin size="23" fill="#3979F6" />}
+                        link={`/dash/app/crypto`}
                         index="ui"
                     />
                     {/*<LinksGroup
@@ -151,7 +176,7 @@ class Sidebar extends React.Component {
                         header="Notifications"
                         isHeader
                         iconName={<BiNotification size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/notifications`}
+                        link={`/dash/app/notifications`}
                         index="ui"
                     />*/}
                     <LinksGroup
@@ -160,7 +185,7 @@ class Sidebar extends React.Component {
                         header="Calendar"
                         isHeader
                         iconName={<BsCalendar size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/calendar`}
+                        link={`/dash/app/calendar`}
                         index="ui"
                     />
                     <LinksGroup
@@ -169,7 +194,7 @@ class Sidebar extends React.Component {
                         header="Jitsi"
                         isHeader
                         iconName={<BiVideo size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/jitsi`}
+                        link={`/dash/app/jitsi`}
                         index="ui"
                     />
                     <LinksGroup
@@ -178,7 +203,7 @@ class Sidebar extends React.Component {
                         header="Quiz"
                         isHeader
                         iconName={<FaRegListAlt size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/quiz`}
+                        link={`/dash/app/quiz`}
                         index="ui"
                     />
                     <LinksGroup
@@ -187,7 +212,7 @@ class Sidebar extends React.Component {
                         header="Todolist"
                         isHeader
                         iconName={<FcTodoList size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/todolist`}
+                        link={`/dash/app/todolist`}
                         index="ui"
                     />
                     <LinksGroup
@@ -196,7 +221,7 @@ class Sidebar extends React.Component {
                         header="Chat"
                         isHeader
                         iconName={<BsChatSquare size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/chat`}
+                        link={`/dash/app/chat`}
                         index="ui"
                     />
                     <LinksGroup
@@ -205,7 +230,7 @@ class Sidebar extends React.Component {
                         header="Posts"
                         isHeader
                         iconName={<FaBlog size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/posts`}
+                        link={`/dash/app/posts`}
                         index="ui"
                     />
                     <LinksGroup
@@ -214,7 +239,7 @@ class Sidebar extends React.Component {
                         header="Charts"
                         isHeader
                         iconName={<AiOutlineLineChart size="18" fill="#3979F6" />}
-                        link={`${this.props.match.path}app/components/charts`}
+                        link={`/dash/app/components/charts`}
                         index="ui"
                     />
                     {/*<LinksGroup
@@ -223,17 +248,17 @@ class Sidebar extends React.Component {
                         header="Components"
                         isHeader
                         iconName={<CgWebsite size="18"  fill="#3979F6" />}
-                        link={`${this.props.match.path}app/components`}
+                        link={`/dash/app/components`}
                         index="components"
                         childrenLinks={[
                             {
-                                header: 'Charts', link: `${this.props.match.path}app/components/charts`
+                                header: 'Charts', link: `/dash/app/components/charts`
                             },
                             {
-                                header: 'Icons', link: `${this.props.match.path}app/components/icons`
+                                header: 'Icons', link: `/dash/app/components/icons`
                             },
                             {
-                                header: 'Maps', link: `${this.props.match.path}app/components/maps`
+                                header: 'Maps', link: `/dash/app/components/maps`
                             },
                         ]}
                     />*/}

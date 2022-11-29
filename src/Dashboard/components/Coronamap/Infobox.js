@@ -5,12 +5,11 @@ function InfoBox({ title, cases, total, active, isRed, ...props }) {
     return (
         <Card
             onClick={props.onClick}
-            className={`infoBox ${active && "infoBox--selected"} ${
-                isRed && "infoBox--red"
-            }`}
+            className={`infoBox ${active && "infoBox--selected"} ${isRed && "infoBox--red"
+                }`}
         >
             <Card.Body>
-                <h4 color="textSecondary" gutterBottom>
+                <h4 color="textSecondary">
                     {title}
                 </h4>
                 <h2 className={`infoBox__cases ${!isRed && "infoBox__cases--green"}`}>

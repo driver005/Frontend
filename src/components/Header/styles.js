@@ -1,6 +1,6 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import hero from '../../images/hero_bloom.png'
-import { FiCircle } from "react-icons/all"
+import { FiCircle } from "react-icons/fi"
 
 const img = `
     max-width: 100%;

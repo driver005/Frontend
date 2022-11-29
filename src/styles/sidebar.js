@@ -1,7 +1,7 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import * as variables from './variables'
-import { NavLink, withRouter } from 'react-router-dom';
-import { Collapse, Badge, Alert, ProgressBar, Button  } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { Collapse, Badge, Alert, ProgressBar, Button } from 'react-bootstrap';
 
 
 export const Nav = styled.nav`
@@ -149,7 +149,7 @@ export const Projectdiv = styled.div`
     opacity: 1;
 `
 
-export const Projectalert= styled(Alert)`
+export const Projectalert = styled(Alert)`
     border: none;
     font-size: .9rem;
     font-weight: 400;

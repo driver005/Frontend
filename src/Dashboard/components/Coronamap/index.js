@@ -6,7 +6,7 @@ import geojson from "./countries.json"
 import numeral from 'numeral'
 import InfoBox from './Infobox'
 import axios from 'axios'
-import { Button, FormControl, Jumbotron, Row } from 'react-bootstrap'
+import { Button, FormControl, Container, Row } from 'react-bootstrap'
 import { RiBubbleChartLine } from "react-icons/ri"
 import { BsGrid3X3GapFill } from "react-icons/bs"
 import Loading from '../../../components/LoadingAnimation'
@@ -244,8 +244,8 @@ function CoronaTracker() {
                     className="info-select"
                 >
                     <option value="worldwide">Worldwide</option>
-                    {countries.map((country) => (
-                        <option value={country.value}>{country.name}</option>
+                    {countries.map((country, index) => (
+                        <option key={index} value={country.value}>{country.name}</option>
                     ))}
                 </FormControl>
             </Row>
@@ -274,14 +274,14 @@ function CoronaTracker() {
                     total={numeral(countryInfo.deaths).format("0.0a")}
                 />
             </div>
-            <MapContainer className="map" center={mapCenter} zoom={mapZoom}>
+            {!loading && <MapContainer className="map" center={mapCenter} zoom={mapZoom}>
                 <Control position="topright">
                     <Button onClick={() => switchToNextMapType()} className="map-control-button" variant="dark">
                         {useMapType === "bubble" ? <RiBubbleChartLine size={24} /> : <BsGrid3X3GapFill size={24} />}
                     </Button>
                 </Control>
                 <Control position="bottomright">
-                    <Jumbotron className="legendcontainer" style={{ padding: '10px' }}>
+                    <Container className="legendcontainer" style={{ padding: '10px' }}>
                         {[
                             100000,
                             75000,
@@ -298,7 +298,7 @@ function CoronaTracker() {
                                 +
                             </h6>
                         ))}
-                    </Jumbotron>
+                    </Container>
                 </Control>
                 <TileLayer
                     attribution='Data by <a href="https://disease.sh/">disease</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -307,7 +307,7 @@ function CoronaTracker() {
                 {useMapType === "choropleth" && <GeoJSON style={style} data={geojson} onEachFeature={onEachFeature} />}
                 {useMapType === "bubble" && <Circels data={mapCountries} />}
 
-            </MapContainer>
+            </MapContainer>}
         </div>
     )
 }

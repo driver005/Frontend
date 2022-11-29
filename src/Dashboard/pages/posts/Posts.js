@@ -17,19 +17,19 @@ const Post = () => {
 
     return (
         <Fade in>
-            <Container className="ml-0 mr-0" style={{maxWidth: 'none',}}>
-            <Row container className="justify-content-between align-items-stretch">
-                <Col xs={12} sm={7}>
-                    <Widget title={<H6title> Posts </H6title>}>
-                        <Posts setCurrentId={setCurrentId} />
-                    </Widget>
-                </Col>
-                <Col xs={12} sm={4}>
-                    <Widget title={<H6title> Create your own Post</H6title>}>
-                        <Form currentId={currentId} setCurrentId={setCurrentId} />
-                    </Widget>
-                </Col>
-            </Row>
+            <Container className="ml-0 mr-0" style={{ maxWidth: 'none', }}>
+                <Row className="justify-content-between align-items-stretch">
+                    <Col xs={12} sm={7}>
+                        <Widget title={<H6title> Posts </H6title>}>
+                            <Posts setCurrentId={setCurrentId} />
+                        </Widget>
+                    </Col>
+                    <Col xs={12} sm={4}>
+                        <Widget title={<H6title> Create your own Post</H6title>}>
+                            <Form currentId={currentId} setCurrentId={setCurrentId} />
+                        </Widget>
+                    </Col>
+                </Row>
             </Container>
         </Fade>
     );

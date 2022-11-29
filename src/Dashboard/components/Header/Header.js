@@ -1,12 +1,11 @@
 import { connect } from "react-redux";
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router";
 import {
-  NavItem,
-  NavLink,
-  ButtonGroup,
-  Fade,
+    NavItem,
+    NavLink,
+    ButtonGroup,
+    Fade,
 } from "react-bootstrap";
 import Notifications from "../Notifications/Notifications";
 import PowerIcon from "../Icons/PowerIcon/PowerIcon.js";
@@ -16,8 +15,8 @@ import BurgerIcon from "../Icons/BurgerIcon/BurgerIcon.js";
 import * as actionType from "../../../constants/actionTypes";
 import decode from 'jwt-decode';
 import {
-  changeSidebarPosition,
-  changeSidebarVisibility,
+    changeSidebarPosition,
+    changeSidebarVisibility,
 } from "../../../actions/navigation";
 
 import './styles.css'
@@ -25,161 +24,162 @@ import './styles.css'
 
 import { Alert, Headericon, Headerroot, Inputaddon, Navbarform, Searchcollapse, Notificationswrapper, Navitem, Dropdownmenu, Imagecomponent, Details, Text, Divider, Notificationsmenu, Inputgrouptext, Inputcomponent, Navcomponent, Formcomponent, Dropdowntoggle, Badgecomponents, Dropdowncomponent, Navlink, Avatarimg, Dropdownitem, Buttoncomponent, H6, Badgenotification, Detailscomponent, Alertbutton, Formgroup, Inputgroup, Inputgroupaddon, Message, Span } from "../../../styles/header";
 import Selectcomponent from "./select";
+import { withRouter } from "../../../helper/withRouter";
 
 class Header extends React.Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
-    sidebarPosition: PropTypes.string.isRequired,
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.doLogout = this.doLogout.bind(this);
-    this.onDismiss = this.onDismiss.bind(this);
-    this.toggleMessagesDropdown = this.toggleMessagesDropdown.bind(this);
-    this.toggleSupportDropdown = this.toggleSupportDropdown.bind(this);
-    this.toggleSettingsDropdown = this.toggleSettingsDropdown.bind(this);
-    this.toggleAccountDropdown = this.toggleAccountDropdown.bind(this);
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-    this.toggleSearchOpen = this.toggleSearchOpen.bind(this);
-
-    this.state = {
-      visible: true,
-      messagesOpen: false,
-      supportOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-      showPopup: false,
-      user: null,
+    static propTypes = {
+        dispatch: PropTypes.func.isRequired,
+        navigate: PropTypes.func.isRequired,
+        sidebarPosition: PropTypes.string.isRequired,
     };
-  }
 
-  componentDidMount() {
-    const token = this.state.user?.access_token;
+    constructor(props) {
+        super(props);
 
-    if (token) {
-      const decodedToken = decode(token);
+        this.doLogout = this.doLogout.bind(this);
+        this.onDismiss = this.onDismiss.bind(this);
+        this.toggleMessagesDropdown = this.toggleMessagesDropdown.bind(this);
+        this.toggleSupportDropdown = this.toggleSupportDropdown.bind(this);
+        this.toggleSettingsDropdown = this.toggleSettingsDropdown.bind(this);
+        this.toggleAccountDropdown = this.toggleAccountDropdown.bind(this);
+        this.toggleSidebar = this.toggleSidebar.bind(this);
+        this.toggleSearchOpen = this.toggleSearchOpen.bind(this);
 
-      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        this.state = {
+            visible: true,
+            messagesOpen: false,
+            supportOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+            showPopup: false,
+            user: null,
+        };
     }
 
-    this.setState({ user: JSON.parse(localStorage.getItem('profile')) });
-  }
+    componentDidMount() {
+        const token = this.state.user?.access_token;
 
-  toggleNotifications = () => {
-    this.setState({
-      notificationsOpen: false, //!this.state.notificationsOpen,
-      messagesOpen: false,
-      supportOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-    });
-  };
+        if (token) {
+            const decodedToken = decode(token);
 
-  onDismiss() {
-    this.setState({ visible: false });
-  }
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
 
-  doLogout() {
-    this.props.dispatch({ type: actionType.LOGOUT });
-    this.props.history.push('/');
-    this.setState({user: null});
-  }
+        this.setState({ user: JSON.parse(localStorage.getItem('profile')) });
+    }
 
-  toggleMessagesDropdown() {
-    this.setState({
-      messagesOpen: !this.state.messagesOpen,
-      supportOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-      notificationsOpen: false,
-    });
-  }
+    toggleNotifications = () => {
+        this.setState({
+            notificationsOpen: false, //!this.state.notificationsOpen,
+            messagesOpen: false,
+            supportOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+        });
+    };
 
-  toggleSupportDropdown() {
-    this.setState({
-      supportOpen: !this.state.supportOpen,
-      messagesOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-      notificationsOpen: false,
-    });
-  }
+    onDismiss() {
+        this.setState({ visible: false });
+    }
 
-  toggleSettingsDropdown() {
-    this.setState({
-      settingsOpen: !this.state.settingsOpen,
-      messagesOpen: false,
-      supportOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-      notificationsOpen: false,
-    });
-  }
+    doLogout() {
+        this.props.dispatch({ type: actionType.LOGOUT });
+        this.props.navigate('/');
+        this.setState({ user: null });
+    }
 
-  toggleAccountDropdown() {
-    this.setState({
-      accountOpen: !this.state.accountOpen,
-      messagesOpen: false,
-      supportOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      searchOpen: false,
-      notificationsOpen: false,
-    });
-  }
+    toggleMessagesDropdown() {
+        this.setState({
+            messagesOpen: !this.state.messagesOpen,
+            supportOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+            notificationsOpen: false,
+        });
+    }
 
-  toggleSearchOpen() {
-    this.setState({
-      searchOpen: !this.state.searchOpen,
-      messagesOpen: false,
-      supportOpen: false,
-      settingsOpen: false,
-      searchFocused: false,
-      notificationsOpen: false,
-    });
-  }
+    toggleSupportDropdown() {
+        this.setState({
+            supportOpen: !this.state.supportOpen,
+            messagesOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+            notificationsOpen: false,
+        });
+    }
 
-  toggleSidebar() {
-    this.props.sidebarVisibility == "show"
-      ? this.toggleVisibilitySidebar("hide")
-      : this.toggleVisibilitySidebar("show");
-  }
+    toggleSettingsDropdown() {
+        this.setState({
+            settingsOpen: !this.state.settingsOpen,
+            messagesOpen: false,
+            supportOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+            notificationsOpen: false,
+        });
+    }
 
-  moveSidebar(position) {
-    this.props.dispatch(changeSidebarPosition(position));
-  }
+    toggleAccountDropdown() {
+        this.setState({
+            accountOpen: !this.state.accountOpen,
+            messagesOpen: false,
+            supportOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            searchOpen: false,
+            notificationsOpen: false,
+        });
+    }
 
-  toggleVisibilitySidebar(visibility) {
-    this.props.dispatch(changeSidebarVisibility(visibility));
-  }
+    toggleSearchOpen() {
+        this.setState({
+            searchOpen: !this.state.searchOpen,
+            messagesOpen: false,
+            supportOpen: false,
+            settingsOpen: false,
+            searchFocused: false,
+            notificationsOpen: false,
+        });
+    }
 
-  render() {
-    return (
-      <Headerroot className={`d-print-none main-navbar`}>
-        
-        <Alert
-          dismissible
-          onClose={() => this.setState({showPopup: !this.state.showPopup})}
-          style={{display: this.state.showPopup ? 'none' : ''}}
-        >
-          Check out Light Blue{" "}
-          <Alertbutton
-            className="btn-link"
-            onClick={this.toggleSettingsDropdown}
-          >
-            <Headericon />
-          </Alertbutton>
-          {" "}on the right!
-        </Alert>
-        
-        {/*
+    toggleSidebar() {
+        this.props.sidebarVisibility == "show"
+            ? this.toggleVisibilitySidebar("hide")
+            : this.toggleVisibilitySidebar("show");
+    }
+
+    moveSidebar(position) {
+        this.props.dispatch(changeSidebarPosition(position));
+    }
+
+    toggleVisibilitySidebar(visibility) {
+        this.props.dispatch(changeSidebarVisibility(visibility));
+    }
+
+    render() {
+        return (
+            <Headerroot className={`d-print-none main-navbar`}>
+
+                <Alert
+                    dismissible
+                    onClose={() => this.setState({ showPopup: !this.state.showPopup })}
+                    style={{ display: this.state.showPopup ? 'none' : '' }}
+                >
+                    Check out Light Blue{" "}
+                    <Alertbutton
+                        className="btn-link"
+                        onClick={this.toggleSettingsDropdown}
+                    >
+                        <Headericon />
+                    </Alertbutton>
+                    {" "}on the right!
+                </Alert>
+
+                {/*
         <Searchcollapse
           className={` ml-lg-0 mr-md-`}
           
@@ -221,30 +221,30 @@ class Header extends React.Component {
           </Formgroup>
         </Formcomponent>
         */}
-        <Navcomponent className="ml-md-0 d-flex nav-responsive">
-          <Notificationsmenu
-            as={NavItem}
-            id="basic-nav-dropdown"
-            style={{ padding: '0 12px' }}
-          >
-            <Dropdowntoggle as={NavLink} style={{ color: "#3979F6", padding: 0 }} onClick={this.toggleNotifications}>
-              {/*alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl} roundedCircle*/}
-              <div className="rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2" style={{width: '2.3rem', height: '2.3rem'}}>{this.state.user?.info.user.name.charAt(0)}</div>
-              <h5 className="mb-0">{this.state.user?.info.user.name}</h5>
-              {/* 
+                <Navcomponent className="ml-md-0 d-flex nav-responsive">
+                    <Notificationsmenu
+                        as={NavItem}
+                        id="basic-nav-dropdown"
+                        style={{ padding: '0 12px' }}
+                    >
+                        <Dropdowntoggle as={NavLink} style={{ color: "#3979F6", padding: 0 }} onClick={this.toggleNotifications}>
+                            {/*alt={this.state.user?.info.user.name} src={this.state.user?.info.user.imageUrl} roundedCircle*/}
+                            <div className="rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2" style={{ width: '2.3rem', height: '2.3rem' }}>{this.state.user?.info.user.name.charAt(0)}</div>
+                            <h5 className="mb-0">{this.state.user?.info.user.name}</h5>
+                            {/* 
               <Badgecomponents  color="danger">
                 9
               </Badgecomponents>
               */}
-            </Dropdowntoggle>
-            <Notificationswrapper
-              show={this.state.notificationsOpen}
-              className={` py-0 animate__animated animate__faster animate__fadeInUp`}
-            >
-              <Notifications />
-            </Notificationswrapper>
-          </Notificationsmenu>
-          {/* 
+                        </Dropdowntoggle>
+                        <Notificationswrapper
+                            show={this.state.notificationsOpen}
+                            className={` py-0 animate__animated animate__faster animate__fadeInUp`}
+                        >
+                            <Notifications />
+                        </Notificationswrapper>
+                    </Notificationsmenu>
+                    {/* 
           <Navitem className="d-lg-none d-md-block d-sm-none">
             <Navlink
               onClick={this.toggleSearchOpen}
@@ -296,91 +296,91 @@ class Header extends React.Component {
           
           </Dropdowncomponent>
           */}
-          <Divider className={` d-none d-sm-block`} />
-          <Dropdowncomponent
-            className="d-none d-sm-block"
-            as={NavItem}
-            onClick={this.toggleSettingsDropdown}
-          >
-            <Dropdowntoggle as={NavLink} className={` text-white`}>
-              <SettingsIcon addId='header-settings' />
-            </Dropdowntoggle>
-            <Dropdownmenu show={this.state.settingsOpen} className={"settings"} style={{transform: "translate3d(0px, 0px, 0px)"}}>
-              <H6>Sidebar on the</H6>
-              <ButtonGroup size="sm">
-                <Buttoncomponent
-                  color="primary"
-                  onClick={() => this.moveSidebar("left")}
-                  className={
-                    this.props.sidebarPosition === "left" ? "active" : ""
-                  }
-                >
-                  Left
-                </Buttoncomponent>
-                <Buttoncomponent
-                  color="primary"
-                  onClick={() => this.moveSidebar("right")}
-                  className={
-                    this.props.sidebarPosition === "right" ? "active" : ""
-                  }
-                >
-                  Right
-                </Buttoncomponent>
-              </ButtonGroup>
-              <H6 className="mt-2">Sidebar</H6>
-              <ButtonGroup size="sm">
-                <Buttoncomponent
-                  color="primary"
-                  onClick={() => this.toggleVisibilitySidebar("show")}
-                  className={
-                    this.props.sidebarVisibility === "show" ? "active" : ""
-                  }
-                >
-                  Show
-                </Buttoncomponent>
-                <Buttoncomponent
-                  color="primary"
-                  onClick={() => this.toggleVisibilitySidebar("hide")}
-                  className={
-                    this.props.sidebarVisibility === "hide" ? "active" : ""
-                  }
-                >
-                  Hide
-                </Buttoncomponent>
-              </ButtonGroup>
-            </Dropdownmenu>
-          </Dropdowncomponent>
-          <Selectcomponent state={this.state} toggleSupportDropdown={this.toggleSupportDropdown} />
-          <NavItem>
-            <Navlink
-              onClick={this.doLogout}
-              className={`text-white`}
-              href="#"
-            >
-              <PowerIcon />
-            </Navlink>
-          </NavItem>
-          <Navitem className="d-md-none">
-            <Navlink
-              onClick={this.toggleSidebar}
-              className={`text-white`}
-              href="#"
-            >
-            <BurgerIcon />
-            </Navlink>
-          </Navitem>
-        </Navcomponent>
-      </Headerroot>
-    );
-  }
+                    <Divider className={` d-none d-sm-block`} />
+                    <Dropdowncomponent
+                        className="d-none d-sm-block"
+                        as={NavItem}
+                        onClick={this.toggleSettingsDropdown}
+                    >
+                        <Dropdowntoggle as={NavLink} className={` text-white`}>
+                            <SettingsIcon addId='header-settings' />
+                        </Dropdowntoggle>
+                        <Dropdownmenu show={this.state.settingsOpen} className={"settings"} style={{ transform: "translate3d(0px, 0px, 0px)" }}>
+                            <H6>Sidebar on the</H6>
+                            <ButtonGroup size="sm">
+                                <Buttoncomponent
+                                    color="primary"
+                                    onClick={() => this.moveSidebar("left")}
+                                    className={
+                                        this.props.sidebarPosition === "left" ? "active" : ""
+                                    }
+                                >
+                                    Left
+                                </Buttoncomponent>
+                                <Buttoncomponent
+                                    color="primary"
+                                    onClick={() => this.moveSidebar("right")}
+                                    className={
+                                        this.props.sidebarPosition === "right" ? "active" : ""
+                                    }
+                                >
+                                    Right
+                                </Buttoncomponent>
+                            </ButtonGroup>
+                            <H6 className="mt-2">Sidebar</H6>
+                            <ButtonGroup size="sm">
+                                <Buttoncomponent
+                                    color="primary"
+                                    onClick={() => this.toggleVisibilitySidebar("show")}
+                                    className={
+                                        this.props.sidebarVisibility === "show" ? "active" : ""
+                                    }
+                                >
+                                    Show
+                                </Buttoncomponent>
+                                <Buttoncomponent
+                                    color="primary"
+                                    onClick={() => this.toggleVisibilitySidebar("hide")}
+                                    className={
+                                        this.props.sidebarVisibility === "hide" ? "active" : ""
+                                    }
+                                >
+                                    Hide
+                                </Buttoncomponent>
+                            </ButtonGroup>
+                        </Dropdownmenu>
+                    </Dropdowncomponent>
+                    <Selectcomponent state={this.state} toggleSupportDropdown={this.toggleSupportDropdown} />
+                    <NavItem>
+                        <Navlink
+                            onClick={this.doLogout}
+                            className={`text-white`}
+                            href="#"
+                        >
+                            <PowerIcon />
+                        </Navlink>
+                    </NavItem>
+                    <Navitem className="d-md-none">
+                        <Navlink
+                            onClick={this.toggleSidebar}
+                            className={`text-white`}
+                            href="#"
+                        >
+                            <BurgerIcon />
+                        </Navlink>
+                    </Navitem>
+                </Navcomponent>
+            </Headerroot>
+        );
+    }
 }
 
 function mapStateToProps(store) {
-  return {
-    isSidebarOpened: store.navigation.sidebarOpened,
-    sidebarVisibility: store.navigation.sidebarVisibility,
-    sidebarPosition: store.navigation.sidebarPosition,
-  };
+    return {
+        isSidebarOpened: store.navigation.sidebarOpened,
+        sidebarVisibility: store.navigation.sidebarVisibility,
+        sidebarPosition: store.navigation.sidebarPosition,
+    };
 }
 
 export default withRouter(connect(mapStateToProps)(Header));

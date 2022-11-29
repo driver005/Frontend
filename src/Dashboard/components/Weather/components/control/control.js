@@ -7,14 +7,14 @@ L.Control.ControlOverlay = L.Control.extend({
     options: {
         position: 'topright'
     },
-    
+
     initialize: function (options) {
         L.Util.setOptions(this, options);
         // Continue initializing the control plugin here.
     },
 
 
-    onAdd: function(map) {
+    onAdd: function (map) {
 
         this._map = map;
 
@@ -56,7 +56,7 @@ L.Control.ControlOverlay = L.Control.extend({
         this.input.id = "Wind";
         this.input.name = "Parameters";
         L.DomEvent.on(this.input, 'click', this.wind, this);
-        
+
         this.component("Clouds", this.clouds)
         this.component("Clouds Classic", this.cloudscls)
         this.component("Precipitation", this.precipitation)
@@ -117,21 +117,21 @@ L.Control.ControlOverlay = L.Control.extend({
 
 
         //map.addLayer({1: this.rain})
-        
+
         //return this.rain.addTo(map);
     },
 
     wind: function (mouse) {
         var map = this._map
-        
+
 
         api.weatherLatest().then((data) => {
             if (this.velocityLayer) this.velocityLayer._destroyWind()
             this.velocityLayer = L.velocityLayer({
                 displayValues: true,
                 displayOptions: {
-                velocityType: "Global Wind",
-                position: "bottomleft",
+                    velocityType: "Global Wind",
+                    position: "bottomleft",
                     emptyString: "No wind data"
                 },
                 nearest: 'https://teclab.herokuapp.com/api/weather/nearest',
@@ -189,7 +189,7 @@ L.Control.ControlOverlay = L.Control.extend({
         if (this.pressurecntrcomponent) map.removeLayer(this.pressurecntrcomponent);
         if (this.tempcomponent) map.removeLayer(this.tempcomponent);
         if (this.windowmcomponent) map.removeLayer(this.windowmcomponent);
-        
+
     },
 
     precipitation: function (mouse) {
@@ -209,7 +209,7 @@ L.Control.ControlOverlay = L.Control.extend({
         if (this.tempcomponent) map.removeLayer(this.tempcomponent);
         if (this.windowmcomponent) map.removeLayer(this.windowmcomponent);
     },
-        
+
     precipitationcls: function (mouse) {
         var map = this._map
         if (this.precipitationclscomponent) map.removeLayer(this.precipitationclscomponent);
@@ -227,7 +227,7 @@ L.Control.ControlOverlay = L.Control.extend({
         if (this.tempcomponent) map.removeLayer(this.tempcomponent);
         if (this.windowmcomponent) map.removeLayer(this.windowmcomponent);
     },
-        
+
     rainowm: function (mouse) {
         var map = this._map
         if (this.rainowmcomponent) map.removeLayer(this.rainowmcomponent);
@@ -245,7 +245,7 @@ L.Control.ControlOverlay = L.Control.extend({
         if (this.tempcomponent) map.removeLayer(this.tempcomponent);
         if (this.windowmcomponent) map.removeLayer(this.windowmcomponent);
     },
-    
+
     raincls: function (mouse) {
         var map = this._map
         if (this.rainclscomponent) map.removeLayer(this.rainclscomponent);
@@ -349,12 +349,12 @@ L.Control.ControlOverlay = L.Control.extend({
         if (this.tempcomponent) map.removeLayer(this.tempcomponent);
     },
 
-    onRemove: function (map) {
-        map.removeLayer()
-    }
+    // onRemove: function (map) {
+    //     map.removeLayer()
+    // }
 });
 
-L.ControlOverlay = function(options) {
-  return new L.Control.ControlOverlay(options);
+L.ControlOverlay = function (options) {
+    return new L.Control.ControlOverlay(options);
 };
 

@@ -1,5 +1,5 @@
-import styled, {keyframes} from 'styled-components'
-import { FiCircle } from "react-icons/all"
+import styled, { keyframes } from 'styled-components'
+import { FiCircle } from "react-icons/fi"
 
 const h2 = `
     margin-top: 0px;
