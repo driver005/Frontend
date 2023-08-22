@@ -9,7 +9,9 @@ export const Heading = styled.h3`
   color: ${({ color }) => (color ? `var(--${color})` : "var(--blue)")};
 `
 
-export const HeadingLink = Heading.withComponent("li")
+export const HeadingLink = styled(Heading).attrs({
+    as: "li",
+})
 
 export const LinkList = styled.ul`
   li {

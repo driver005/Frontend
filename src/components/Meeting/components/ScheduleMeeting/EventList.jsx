@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import EventListItem from './EventListItem';
-import { StartTimeEvent } from './ScheduleMeeting';
 import styled from 'styled-components';
 
 const Container = styled.div`

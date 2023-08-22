@@ -1,8 +1,6 @@
-import Calendar, { CalendarTileProperties } from 'react-calendar';
+import Calendar from 'react-calendar';
 import React, { useEffect, useState } from 'react';
 import { format, getDay, isValid, startOfMonth } from 'date-fns';
-
-import { AvailableTimeslot } from './ScheduleMeeting';
 import rgba from 'color-rgba';
 import styled from 'styled-components';
 

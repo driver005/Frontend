@@ -1,5 +1,4 @@
 import React from 'react';
-import { StartTimeEvent } from './ScheduleMeeting';
 import { format } from 'date-fns';
 import styled from 'styled-components';
 
