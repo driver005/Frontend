@@ -6,11 +6,10 @@ on:
       environment:
         description: 'Select environment'
         required: true
-        default: 'staging'
+        default: 'teclab'
         type: choice
         options:
-          - staging
-          - production
+          - teclab
   push:
     branches:
       - master 
