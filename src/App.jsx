@@ -6,7 +6,6 @@ import 'normalize.css';
 import Header from './components/Header';
 import Moon from './Moon';
 import About from './components/About';
-import MeetingComponent from './components/Meeting';
 
 
 const AppContainer = styled.div`
@@ -41,7 +40,6 @@ export default function App() {
             <Moon />
             <Header />
             <About />
-            <MeetingComponent />
             <Cta />
         </AppContainer>
     );

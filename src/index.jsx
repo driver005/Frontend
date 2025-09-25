@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import { Controller } from 'react-scrollmagic';
 import App from './App';
-import { ToastContainer } from 'react-toastify';
 import Contact from './components/Contact';
 import PageError from './Errors/400';
 import Moon from './Moon';
@@ -16,11 +15,6 @@ import Printer from './Printer';
 
 createRoot(document.getElementById('root')).render(
         <Controller>
-            <ToastContainer
-                autoClose={5000}
-                hideProgressBar
-                closeButton={<CloseButton />}
-            />
             <Router>
                 <Routes>
                     <Route exact path='/contact' element={<Contact />} />
