@@ -1,14 +1,25 @@
 name: Build and Deploy to Manitu
 
 on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
   push:
     branches:
       - master 
 
 jobs:
   build-and-deploy:
+    name: Deploy to ${{ inputs.environment }}
     runs-on: ubuntu-latest
-
+    environment: ${{ inputs.environment }}
 
     env:
       REMOTE_DIR: /home/sites/site"$(id -g "$(whoami)")"/web/www.sfz-tuebingen.org/
