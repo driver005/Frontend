@@ -63,5 +63,8 @@
 		"not dead",
 		"not op_mini all"
 	],
+	"engines": {
+		"node": "20.x"
+	},
 	"packageManager": "yarn@3.6.2"
 }
