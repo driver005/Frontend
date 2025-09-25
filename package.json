@@ -64,7 +64,7 @@
 		"not op_mini all"
 	],
 	"engines": {
-		"node": "20.x"
+		"node": "22.x"
 	},
 	"packageManager": "yarn@3.6.2"
 }

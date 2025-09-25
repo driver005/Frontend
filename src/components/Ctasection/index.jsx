@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Container, Ctasection, Newsletterblock, Contentcta, Link } from './styled'
 import { InView } from 'react-intersection-observer'
 import Newsletter from '../Newsletter';
-import peoplepurple from '../../images/people_purple.png'
 
 const Cta = () => {
     const [isShown, setIsShown] = useState(false);

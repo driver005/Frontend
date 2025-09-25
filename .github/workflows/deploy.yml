@@ -1,0 +1,46 @@
+name: Build and Deploy to Manitu
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+
+    env:
+      REMOTE_DIR: /home/sites/site"$(id -g "$(whoami)")"/web/www.sfz-tuebingen.org/
+
+
+    steps:
+      - name: 🧾 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Set up Node.js (or your runtime)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🏗️ Build the project
+        run: yarn build
+
+      # === Set up SSH ===
+      - name: 🔐 Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🧹 Clear target directory on Manitu
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf $REMOTE_DIR*"
+
+      - name: 📤 Deploy to Manitu via SCP
+        run: |
+          echo "==> Copying files to Manitu..."
+          scp -r ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$REMOTE_DIR
+

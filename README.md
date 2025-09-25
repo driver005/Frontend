@@ -10,10 +10,10 @@ Teclab frontend for offical website and template for future projects with javasc
 
 1. Install packages
 ```shell
-npm install
+yarn install
 ```
 
 2. Run React
 ```shell
-npm starrt
+yarn start
 ```
