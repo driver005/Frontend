@@ -29,30 +29,9 @@ function Header() {
                     <Heroh1 className={isShown ? 'load' : 'hide'}>TECLAB</Heroh1>
                     <Heroparagraph className={isShown ? 'load' : 'hide'} >a place for students to meet and bring their dreams to life</Heroparagraph>
                     <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>View Projects</Herobutton>
-                    {
-                        // <Startcircle width="28" height="28" stroke="#747982" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
-                        // <Endcircle width="28" height="28" stroke="#747982" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
-                        // <Endcircle className="plus40percent" width="28" height="28" stroke="#747982" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
-                    }
                 </Containerflexcomponent>
             </Containerflex>
-            {/*<Heroimagewarpper className={ isShown ? 'load' : 'hide' }>
-                            <Herographicleft src={brush}/>
-                            <Herographicright src={brush2} />
-                            <Heroimageplaceholder src={placeholder}/>
-                            
-                                <Profileimageswrapper>
-                                    <Peoplegroupimage src={peopleblack} width={"147"}/>
-                                    <Followernumber>
-                                        {"Join our waiting list "}
-                                        <Tagspan>5000+</Tagspan>
-                                    </Followernumber>
-                                </Profileimageswrapper>
-                        </Heroimagewarpper>
-                        */}
         </Headercontainer>
-
-
     )
 }
 

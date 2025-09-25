@@ -2,8 +2,6 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { Formblock } from './styles'
 import { useForm } from 'react-hook-form'
-import { sendEmail } from '../../api'
-import { ToastonError } from '../Toast'
 
 
 export default function Contact() {
@@ -17,16 +15,13 @@ export default function Contact() {
     }
 
     const onSubmit = () => {
-        sendEmail(input)
-            .then(data => {
-                ToastonError(data)
-            })
+       
     }
 
     return (
         <div style={{ height: '100vh' }}>
             <Formblock>
-                <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form>
                     <h1>
                         Contact us
                     </h1>

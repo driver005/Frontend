@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
-import * as actionType from '../../constants/actionTypes';
+
 import {
     Brand,
     Logo,
@@ -16,7 +13,6 @@ import {
     Icon,
 } from './styles';
 import { IoMdMenu } from 'react-icons/io';
-import decode from 'jwt-decode';
 import { Button, Dropdown } from 'react-bootstrap';
 import teclab from '../../images/teclab.png';
 
@@ -66,33 +62,6 @@ const IMG = styled.img`
 `;
 
 const Navbar = (props) => {
-    const [user, setUser] = React.useState(
-        JSON.parse(localStorage.getItem('profile')),
-    );
-    const dispatch = useDispatch();
-    const location = useLocation();
-    const history = useNavigate();
-
-    const logout = () => {
-        dispatch({ type: actionType.LOGOUT });
-
-        history('/');
-
-        setUser(null);
-    };
-
-    useEffect(() => {
-        const token = user?.access_token;
-
-        if (token) {
-            const decodedToken = decode(token);
-
-            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
-        }
-
-        setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location]);
-
     return (
         <NavbarEl onMouseLeave={props.onMouseLeave}>
             <NavbarList>
@@ -103,33 +72,12 @@ const Navbar = (props) => {
                         </Logo>
                     </Brand>
                     <Navigationleft>
-                        {/* <Navigationlink href={'/dash'}>Dashboard</Navigationlink> */}
                         {props.children}
                         <Navigationlink href={'/projects'}>Projects</Navigationlink>
                         <Navigationlink href={'/printer'}>Printer</Navigationlink>
                         <Navigationlink href={'https://www.vdi.de/'}>VDI</Navigationlink>
                     </Navigationleft>
                     <Navigationright>
-                        {/*{user?.info.user ? (
-                            <>
-                                <div
-                                    className='rounded-circle bg-primary text-white align-middle align-items-center justify-content-center d-flex mr-2'
-                                    style={{ width: '2.3rem', height: '2.3rem' }}>
-                                    {user?.info.user.name.charAt(0)}
-                                </div>
-                                <h5 className='mb-0 mr-3'>{user?.info.user.name}</h5>
-                                <Button variant='outline-danger' onClick={logout}>
-                                    Logout
-                                </Button>
-                            </>
-                        ) : (
-                            <>
-                                {
-                                    //  <Navlink href={"/dash"}>Dashboard</Navlink>
-                                }
-                                <Navbutton href={'/sign-up'}>Sign Up</Navbutton>
-                            </>
-                        )}*/}
                     </Navigationright>
                     <Menubutton>
                         <Dropdown>
