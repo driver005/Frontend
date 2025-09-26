@@ -21,7 +21,7 @@ jobs:
     environment: ${{ inputs.environment }}
 
     env:
-      REMOTE_DIR: /home/sites/site"$(id -g "$(whoami)")"/web/www.sfz-tuebingen.org/
+      REMOTE_DIR: /home/sites/site"$(id -g "$(whoami)")"/web/www.sfz-tuebingen.org
 
 
     steps:
@@ -47,10 +47,10 @@ jobs:
 
       - name: 🧹 Clear target directory on Manitu
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf $REMOTE_DIR*"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf $REMOTE_DIR/*"
 
       - name: 📤 Deploy to Manitu via SCP
         run: |
           echo "==> Copying files to Manitu..."
-          scp -r ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$REMOTE_DIR
+          scp -r ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$REMOTE_DIR/
 
