@@ -47,7 +47,7 @@ jobs:
 
       - name: 🧹 Clear target directory on Manitu
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf $REMOTE_DIR/*"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} rm -rf $REMOTE_DIR/*
 
       - name: 📤 Deploy to Manitu via SCP
         run: |
