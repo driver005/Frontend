@@ -21,8 +21,8 @@ jobs:
     environment: teclab
 
     env:
-       USER_ID: 100030858
-       REMOTE_DIR: "/home/sites/site${USER_ID}/web/www.sfz-tuebingen.org"
+      REMOTE_DIR: "/home/sites/site100030858/web/www.sfz-tuebingen.org"
+
 
     steps:
       - name: 🧾 Checkout code
