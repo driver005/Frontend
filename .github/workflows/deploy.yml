@@ -16,9 +16,9 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Deploy to ${{ inputs.environment }}
+    name: Deploy to teclab
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: teclab
 
     env:
       REMOTE_DIR: /home/sites/site"$(id -g "$(whoami)")"/web/www.sfz-tuebingen.org
