@@ -41,11 +41,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: 🧹 Clear target directory on Manitu
+      - name: 📤 Deploy to Manitu via SCP
         run: |
-          REMOTE_DIR="/home/sites/site\"$(id -g \"$(whoami)\")\"/web/www.sfz-tuebingen.org"
-          echo "==> Cleaning $REMOTE_DIR..."
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf \"$REMOTE_DIR\"/*"
+          USER_ID="$(id -g "$(whoami)")"
+          REMOTE_DIR="/home/sites/site${USER_ID}/web/www.sfz-tuebingen.org"
+          echo "==> Copying files to $REMOTE_DIR..."
+          scp -r ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:"$REMOTE_DIR"/
 
 
       - name: 📤 Deploy to Manitu via SCP
