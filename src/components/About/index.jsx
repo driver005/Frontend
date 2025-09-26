@@ -32,7 +32,8 @@ function About() {
                         </div>
                         <Button
                             as={Link}
-                            to='/contact'
+                            // to='/contact'
+                            to='mailto:sfz.teclab@vdi.de'
                             variant='outline-primary mt-4'
                             size='lg'
                             block

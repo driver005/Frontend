@@ -127,12 +127,16 @@ export const SocialMediaWrap = styled.div`
 
 export const TextWrap = styled.div`
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
 	width: 90%;
 	max-width: 1000px;
 	margin: 40px auto 0 auto;
+  color: white;
+
+  p {
+    margin:0;
+  }
 `;
 
 export const SocialLogo = styled(Link)`

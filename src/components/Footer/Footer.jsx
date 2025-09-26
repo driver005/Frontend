@@ -15,11 +15,12 @@ const Footer = () => {
         <FooterContainer>
             <SocialMedia>
                 <TextWrap>
-                    <h1>Impressum:</h1>
-                    <p>Felipe Fernandez</p>
+                    <h3>Impressum:</h3>
+                    <p>Felipe Fernández</p>
                     <p>Derendinger Allee 8</p>
                     <p>72072 Tübingen</p>
-                    <p>Telefon bitte melden</p>
+                    <p>Phone: +491634363720</p>
+                    <p>Email: <a href="mailto:sfz.teclab@vdi.de">sfz.teclab@vdi.de</a></p>
                 </TextWrap>
                 <SocialMediaWrap>
                     <SocialLogo to="/">

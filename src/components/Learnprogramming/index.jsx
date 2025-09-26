@@ -26,7 +26,7 @@ function Programming() {
                     <Endtext>Learn with the best</Endtext>
                 </Container>  
                 <Containerflex>
-                    <Button as={Link} style={{maxWidth: '21rem'}} to="/dash" variant="outline-info" size="lg" block>Join Now</Button>
+                    <Button as={Link} style={{maxWidth: '21rem'}} to='mailto:sfz.teclab@vdi.de' variant="outline-info" size="lg" block>Join Now</Button>
                 </Containerflex>        
             </Programmsection>
         
