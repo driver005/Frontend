@@ -1,9 +1,9 @@
-import discord from '../../../common/images/discord.svg';
-import bwki from '../../../common/images/bwki.png';
-import wildermuth from '../../../common/images/wildermuth.jpg';
-import vdi from '../../../common/images/VDI.png';
-import nextcloud from '../../../common/images/nextcloud.png';
-import wordPress from '../../../common/images/wordPress.png';
+import discord from '../../common/images/discord.svg';
+import bwki from '../../common/images/bwki.png';
+import wildermuth from '../../common/images/wildermuth.jpg';
+import vdi from '../../common/images/VDI.png';
+import nextcloud from '../../common/images/nextcloud.png';
+import wordPress from '../../common/images/wordPress.png';
 
 export const MenuItemsLinks = [
 	{
