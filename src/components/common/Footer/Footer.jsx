@@ -17,6 +17,7 @@ const Footer = () => {
             <SocialMedia>
                 <TextWrap>
                     <h3>Impressum:</h3>
+                    <p>teclab - VDI Schülerforschungszentrum</p>
                     <p>Felipe Fernández</p>
                     <p>Derendinger Allee 8</p>
                     <p>72072 Tübingen</p>
