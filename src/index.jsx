@@ -5,19 +5,20 @@ import {
     Routes,
 } from 'react-router-dom';
 import { Controller } from 'react-scrollmagic';
-import App from './App';
-import Contact from './components/Contact';
-import PageError from './Errors/400';
-import Moon from './Moon';
-import Projects from './Projects';
-import Footer from './components/Footer/Footer';
-import Printer from './Printer';
+import App from './components/pages/App';
+import PageError from './components/errors/400';
+import Moon from './components/home/Moon';
+import Projects from './components/pages/Projects';
+import Footer from './components/common/Footer/Footer';
+import Printer from './components/printer';
+
+import "./index.css"
 
 createRoot(document.getElementById('root')).render(
         <Controller>
             <Router>
                 <Routes>
-                    <Route exact path='/contact' element={<Contact />} />
+                    {/* <Route exact path='/contact' element={<Contact />} /> */}
                     <Route path='/' exact element={<App />} />
                     <Route path='/projects' exact element={<Projects />} />
                     <Route path='/printer' exact element={<Printer />} />
