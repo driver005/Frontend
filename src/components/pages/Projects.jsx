@@ -20,7 +20,6 @@ const AppContainer = styled.div`
 function Projects() {
     return (
         <AppContainer>
-            <AnimatedNavbar />
             <Service />
             <Programming />
             <Features />

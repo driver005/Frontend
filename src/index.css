@@ -1,19 +1,11 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  float:center;
 }
 
 :root {
-    --white: #fff;
-    --grey: #f1f4f8b0;
-    --dark-grey: #6b7c93;
-    --green: #24b47e;
-    --teal: #4F96CE;
-    --blue: #6772e5;
-    --dark-blue: #4F3EF5;
-    --spacer: 28px;
-    --padding: 4rem;
-    --border: hsl(0, 0%, 20%);
-
     /* Custom */
     --vdi-color: #003da4;
     --text-color: #7a86a9;
@@ -22,7 +14,9 @@
 }
 
 body {
-    font-family: -apple-system, system-ui, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+    font-family: "Rajdhani", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
     -webkit-font-smoothing: antialiased;
     background: #000;
 }

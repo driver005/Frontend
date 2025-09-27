@@ -25,7 +25,7 @@ function Programming() {
                     <Circle className="s-50" width="28" height="28" stroke="var(--text-color)" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
                     <Text className="s-50">Learn programming fr<Span /><OText>o</OText>m scratch in python</Text>
                     <Endcircle width="28" height="28" stroke="var(--text-color)" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
-                    <Endtext>Learn with the best</Endtext>
+                    <Endtext>Learn from us!</Endtext>
                 </Container>  
                 <Containerflex>
                     <a className='btn' style={{maxWidth: '21rem'}} to='mailto:sfz.teclab@vdi.de'>Join Now</a>

@@ -11,12 +11,14 @@ import Moon from './components/home/Moon';
 import Projects from './components/pages/Projects';
 import Footer from './components/common/Footer/Footer';
 import Printer from './components/printer';
+import AnimatedNavbar from './components/common/AnimatedNavbar';
 
 import "./index.css"
 
 createRoot(document.getElementById('root')).render(
         <Controller>
             <Router>
+                <AnimatedNavbar duration={300} />
                 <Routes>
                     {/* <Route exact path='/contact' element={<Contact />} /> */}
                     <Route path='/' exact element={<App />} />
@@ -24,7 +26,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path='/printer' exact element={<Printer />} />
                     <Route exact path='/moon' element={<Moon />} />
 
-                    <Route path='*' exact element={<PageError />} />
+                    {/* <Route path='*' exact element={<PageError />} /> */}
                 </Routes>
                 <footer>
                     <Footer />
