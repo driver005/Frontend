@@ -213,6 +213,7 @@ export const Herobutton = styled.a`
     &:hover {
         transform: translate3d(0px, -2px, 0px);
         background-color: #fff;
+        color: var(--vdi-color);
     }
 `
 
