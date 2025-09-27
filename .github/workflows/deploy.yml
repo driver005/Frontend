@@ -53,6 +53,7 @@ jobs:
       - name: 📤 Deploy to Manitu via SCP
         run: |
           echo "==> Copying files to $REMOTE_DIR..."
+          ls ./dist/
           rsync -avz ./dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$REMOTE_DIR
 
 
