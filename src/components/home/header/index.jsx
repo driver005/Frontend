@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import AnimatedNavbar from '../../common/AnimatedNavbar';
+import AnimatedNavbar from '../../common/animated_navbar';
 import {
     Containerflex,
     Containerflexcomponent,
@@ -8,7 +8,7 @@ import {
     Heroh1,
     Heroparagraph
 } from './styles'
-import ArrowBounce from '../Arrow/Bounce';
+import ArrowBounce from '../arrow';
 import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 

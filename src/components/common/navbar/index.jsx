@@ -46,10 +46,9 @@ const Navbar = (props) => {
                         <IMG loading="lazy" alt="teclab logo" title="teclab VDI-Schülerforschungszentrum" height='50px' src="teclab.svg" />
                     </Logo>
                     <Navigationleft>
-                        {props.children}
                         <Navigationlink href={'/projects'}>{t(`navbar.project`)}</Navigationlink>
                         <Navigationlink href={'/printer'}>{t(`navbar.printer`)}</Navigationlink>
-                        <Navigationlink href={'https://www.vdi.de/'}>VDI</Navigationlink>
+                        {props.children}
                     </Navigationleft>
                     <DropdownWrapper className='show'>
                         <ToggleButton className='no-border' onClick={openMenuLng} aria-haspopup="true" aria-expanded={changeLng}>

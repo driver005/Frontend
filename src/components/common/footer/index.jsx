@@ -1,5 +1,3 @@
-import React from 'react'
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaLinkedin } from 'react-icons/fa'
 import {
     FooterContainer,
     WebsiteRights,
@@ -9,7 +7,7 @@ import {
     SocialMedia,
     SocialMediaWrap,
     Email,
-} from './Footer.elements'
+} from './footer.elements'
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -21,6 +19,7 @@ const Footer = () => {
                 <TextWrap>
                     <h3>{t(`notice.title`)}</h3>
                     <p>teclab VDI-Schülerforschungszentrum</p>
+                    <p>{t(`notice.pre`)} Wildermuth Gymnasium</p>
                     <p>Felipe Fernández</p>
                     <p>Derendinger Allee 8</p>
                     <p>72072 Tübingen</p>

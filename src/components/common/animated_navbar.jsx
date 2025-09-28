@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import NavbarItem from './Navbar/NavbarItem';
+import Navbar from './navbar';
+import NavbarItem from './navbar/navbar_item';
 import { Flipper } from 'react-flip-toolkit';
-import DropdownContainer from './DropdownContainer';
-import LinksDropdown from './DropdownContents/Importantslinks';
+import DropdownContainer from './dropdown_container';
+import InternalLinksDropdown from './dropdown_contents/internal_links';
+import ExternLinksDropdown from './dropdown_contents/external_links';
+import VdiLinksDropdown from './dropdown_contents/vdi';
 
 const navbarConfig = [
     //{ title: 'Tools', dropdown: DevelopersDropdown },
-    { title: 'links', dropdown: LinksDropdown },
+    { title: 'vdi', dropdown: VdiLinksDropdown },
+    { title: 'internal', dropdown: InternalLinksDropdown },
+    { title: 'external', dropdown: ExternLinksDropdown },
 ];
 
 export default class AnimatedNavbar extends Component {

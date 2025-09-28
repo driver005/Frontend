@@ -2,8 +2,8 @@ import styled, { keyframes } from "styled-components"
 import { promoteLayer } from "./utils"
 
 const getDropdownRootKeyFrame = ({ animatingOut, direction }) => {
-  if (!animatingOut && direction) return null
-  return keyframes`
+    if (!animatingOut && direction) return null
+    return keyframes`
   from {
     transform: ${animatingOut ? "rotateX(0)" : "rotateX(-15deg)"};
     opacity: ${animatingOut ? 1 : 0};

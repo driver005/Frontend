@@ -8,8 +8,8 @@ import {
     Routes,
 } from 'react-router-dom';
 import { Controller } from 'react-scrollmagic';
-import Footer from './components/common/Footer';
-import LoadingAnimation from './components/common/LoadingAnimation';
+import Footer from './components/common/footer';
+import LoadingAnimation from './components/common/loading_animation';
 import App from './pages';
 import Projects from './pages/projects';
 import Printer from './pages/printer';

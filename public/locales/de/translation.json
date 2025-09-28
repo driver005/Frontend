@@ -1,5 +1,5 @@
 {
-	"links": {
+	"internal": {
 		"nextcloud": {
 			"name": "Tritt unserer Nextcloud bei",
 			"detail": "Klicke und erfahre mehr"
@@ -11,17 +11,33 @@
 		"discord": {
 			"name": "Tritt unserem Discord bei",
 			"detail": "Klicke und erfahre mehr"
-		},
+		}
+	},
+	"external": {
 		"bwki": {
 			"name": "Schau dir Bw-Ki an",
 			"detail": "Klicke und erfahre mehr"
 		},
-		"vdi": {
-			"name": "Schau dir den VDI an",
-			"detail": "Klicke und erfahre mehr"
-		},
 		"wildermuth": {
 			"name": "Schau dir unsere Heimat an",
+			"detail": "Klicke und erfahre mehr"
+		}
+	},
+	"vdi": {
+		"vdi": {
+			"name": "VDI",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"vdi-suedwest": {
+			"name": "VDI Südwest",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"vdini": {
+			"name": "VDIni-Club: Tübingen und Reutlingen",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"zukunftspiloten": {
+			"name": "Zukunftspiloten-Club: Tübingen und Reutlingen",
 			"detail": "Klicke und erfahre mehr"
 		}
 	},
@@ -57,8 +73,10 @@
 	},
 	"navbar": {
 		"project": "Projekt",
-		"printer": "Drucker",
-		"links": "Links"
+		"printer": "Remote Zugang",
+		"internal": "TEC-world",
+		"external": "Links",
+		"vdi": "VDI"
 	},
 	"home": {
 		"header": {
@@ -105,7 +123,7 @@
 				"ai": {
 					"overline": "Wettbewerbsinfo",
 					"title_1": "KI-Wettbewerb",
-					"title_2": "BW‑KI",
+					"title_2": "BW-KI",
 					"paragraph": "Verwirkliche deinen Traum mit KI und teste deine Programmierfähigkeiten in einem Wettbewerb des Landes Baden-Württemberg"
 				},
 				"vex": {
@@ -154,6 +172,27 @@
 	},
 	"notice": {
 		"title": "Impressum:",
+		"pre": "am",
 		"phone": "Telephone:"
+	},
+	"meta": {
+		"home": {
+			"title": "teclab VDI-Schülerforschungszentrum",
+			"description": "Homepage des teclab VDI-Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst.",
+			"keywords": "teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor",
+			"gen_description": "Das teclab ist ein Schülerforschungszentrum in Tübingen. Entdecke unsere MINT-Angebote und Projekte."
+		},
+		"printer": {
+			"title": "teclab VDI-Schülerforschungszentrum",
+			"description": "3d Printer des des teclab VDI-Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst.",
+			"keywords": "teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor, 3d, 3d Printer",
+			"gen_description": "Das teclab ist ein Schülerforschungszentrum in Tübingen. Entdecke unsere MINT-Angebote und Projekte."
+		},
+		"projects": {
+			"title": "teclab VDI-Schülerforschungszentrum",
+			"description": "Projekte des des des teclab VDI-Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst.",
+			"keywords": "teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor",
+			"gen_description": "Das teclab ist ein Schülerforschungszentrum in Tübingen. Entdecke unsere MINT-Angebote und Projekte."
+		}
 	}
 }

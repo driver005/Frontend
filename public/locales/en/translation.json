@@ -1,5 +1,5 @@
 {
-	"links": {
+	"internal": {
 		"nextcloud": {
 			"name": "Join our Nextcloud",
 			"detail": "Click and learn"
@@ -11,17 +11,33 @@
 		"discord": {
 			"name": "Join our Discord",
 			"detail": "Click and learn"
-		},
+		}
+	},
+	"external": {
 		"bwki": {
 			"name": "Check out Bw-Ki",
 			"detail": "Click and learn"
 		},
-		"vdi": {
-			"name": "Check out VDI",
-			"detail": "Click and learn"
-		},
 		"wildermuth": {
 			"name": "Check out our Home",
+			"detail": "Click and learn"
+		}
+	},
+	"vdi": {
+		"vdi": {
+			"name": "VDI",
+			"detail": "Click and learn"
+		},
+		"vdi-suedwest": {
+			"name": "VDI Südwest",
+			"detail": "Click and learn"
+		},
+		"vdini": {
+			"name": "VDIni-Club: Tübingen und Reutlingen",
+			"detail": "Click and learn"
+		},
+		"zukunftspiloten": {
+			"name": "Zukunftspiloten-Club: Tübingen und Reutlingen",
 			"detail": "Click and learn"
 		}
 	},
@@ -57,8 +73,10 @@
 	},
 	"navbar": {
 		"project": "Project",
-		"printer": "Printer",
-		"links": "Links"
+		"printer": "Remote Access",
+		"internal": "TEC-world",
+		"external": "Links",
+		"vdi": "VDI"
 	},
 	"home": {
 		"header": {
@@ -154,6 +172,27 @@
 	},
 	"notice": {
 		"title": "Legal notice:",
+		"pre": "at the",
 		"phone": "Phone:"
+	},
+	"meta": {
+		"home": {
+			"title": "teclab VDI-Schülerforschungszentrums",
+			"description": "Homepage of the teclab VDI-Schülerforschungszentrums in Tübingen. Learn more about what we do and how you can reach us.",
+			"keywords": "teclab, TECLAB, VDI, student research center, Tübingen, research, education, STEM, student lab",
+			"gen_description": "teclab is a student research center in Tübingen. Discover our STEM programs and projects."
+		},
+		"printer": {
+			"title": "teclab VDI-Schülerforschungszentrums",
+			"description": "3d Printer of the teclab VDI-Schülerforschungszentrums in Tübingen. Learn more about what we do and how you can reach us.",
+			"keywords": "teclab, TECLAB, VDI, student research center, Tübingen, research, education, STEM, student lab, 3d, 3d printer",
+			"gen_description": "teclab is a student research center in Tübingen. Discover our STEM programs and projects."
+		},
+		"projects": {
+			"title": "teclab VDI-Schülerforschungszentrums",
+			"description": "Projects of the teclab VDI-Schülerforschungszentrums in Tübingen. Learn more about what we do and how you can reach us.",
+			"keywords": "teclab, TECLAB, VDI, student research center, Tübingen, research, education, STEM, student lab",
+			"gen_description": "teclab is a student research center in Tübingen. Discover our STEM programs and projects."
+		}
 	}
 }

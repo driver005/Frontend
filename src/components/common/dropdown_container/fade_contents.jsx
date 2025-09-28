@@ -4,8 +4,8 @@ import styled, { keyframes } from "styled-components"
 import { promoteLayer } from "./utils"
 
 const getFadeContainerKeyFrame = ({ animatingOut, direction }) => {
-  if (!direction) return
-  return keyframes`
+    if (!direction) return
+    return keyframes`
   to {
     transform: translateX(0px);
     opacity: ${animatingOut ? 0 : 1};
@@ -23,25 +23,25 @@ const FadeContainer = styled.div`
 `
 
 const propTypes = {
-  duration: PropTypes.number,
-  direction: PropTypes.oneOf(["right", "left"]),
-  animatingOut: PropTypes.bool,
-  children: PropTypes.node
+    duration: PropTypes.number,
+    direction: PropTypes.oneOf(["right", "left"]),
+    animatingOut: PropTypes.bool,
+    children: PropTypes.node
 }
 
 const FadeContents = forwardRef(
-  ({ children, duration, animatingOut, direction }, ref) => (
-    <FadeContainer
-      // prevent screen readers from reading out hidden content
-      aria-hidden={animatingOut}
-      animatingOut={animatingOut}
-      direction={direction}
-      duration={duration}
-      ref={ref}
-    >
-      {children}
-    </FadeContainer>
-  )
+    ({ children, duration, animatingOut, direction }, ref) => (
+        <FadeContainer
+            // prevent screen readers from reading out hidden content
+            aria-hidden={animatingOut}
+            animatingOut={animatingOut}
+            direction={direction}
+            duration={duration}
+            ref={ref}
+        >
+            {children}
+        </FadeContainer>
+    )
 )
 
 FadeContents.propTypes = propTypes

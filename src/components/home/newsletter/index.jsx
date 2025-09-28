@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Ctasection, Newsletterblock, Contentcta, Link } from './styled'
+import { Container, Ctasection, Newsletterblock, Contentcta, Link, Sendbutton } from './styled'
 import { InView } from 'react-intersection-observer'
-import Newsletter from '../Newsletter';
 import { useTranslation } from 'react-i18next';
 
 const Cta = () => {
@@ -29,16 +28,11 @@ const Cta = () => {
                             <Link href="/" target="_blank">{"teclab"}</Link>
                             {t(`home.newsletter.last`)}
                         </Contentcta>
-                        <Newsletter />
-                        {
-                            // <Profileimageswarpper>
-                            //     <Peoplegroupimage src={peoplepurple} width="147" alt=""/>
-                            //     <Followernumber>
-                            //         {"Join our waiting list "}
-                            //         <Tagspan>{"5000+"}</Tagspan>
-                            //     </Followernumber>    
-                            // </Profileimageswarpper>
-                        }
+                        <a href="https://news.sfz-tuebingen.org/lists/?p=subscribe" target="_blank">
+                            <Sendbutton
+                                primary={false}
+                            >{t(`home.newsletter.register`)}</Sendbutton>
+                        </a>
                     </Newsletterblock>
                 </InView>
             </Container>

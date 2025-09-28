@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Loading from '../common/LoadingAnimation';
+import Loading from '../common/loading_animation';
 import './styles.css';
-import AnimatedNavbar from '../common/AnimatedNavbar';
+import AnimatedNavbar from '../common/animated_navbar';
 import * as api from '../../api';
 import { useTranslation } from 'react-i18next';
 
