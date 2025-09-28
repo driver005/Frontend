@@ -10,6 +10,9 @@ const url = 'http://6krsrg7yudy9cmrg.myfritz.net';
 function Printer() {
     const [loading, setLoading] = useState(true);
     const [isActive, setisActive] = useState(false);
+
+    const { t } = useTranslation();
+
     useEffect(() => {
         api.printerStatus()
             .then((data) => {
@@ -33,7 +36,6 @@ function Printer() {
             </div>
         );
 
-    const { t } = useTranslation();
 
     return (
         <>
