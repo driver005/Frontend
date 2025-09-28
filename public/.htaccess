@@ -1,3 +1,4 @@
+# Enable Brotli content encoding if supported by browser
 <IfModule mod_mime.c>
   AddEncoding br .br
 </IfModule>
@@ -5,33 +6,30 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Brotli support for HTML, JS, CSS
+  # Serve pre-compressed Brotli files if they exist and client accepts them
   RewriteCond %{HTTP:Accept-encoding} br
   RewriteCond %{REQUEST_FILENAME}.br -f
-  RewriteRule ^(.*)$ $1.br [L]
-
-  # Fallback to index.html for SPA routing
-  RewriteCond %{REQUEST_FILENAME} !-f<IfModule mod_mime.c>
-  AddEncoding br .br
-</IfModule>
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  RewriteRule ^(.*)\.(js|css|html)$ $1.$2.br [L]
 </IfModule>
 
 <IfModule mod_headers.c>
-  # Proper content types for compressed files
   <FilesMatch "\.js\.br$">
     ForceType application/javascript
     Header set Content-Encoding br
   </FilesMatch>
-
   <FilesMatch "\.css\.br$">
     ForceType text/css
     Header set Content-Encoding br
   </FilesMatch>
-
   <FilesMatch "\.html\.br$">
     ForceType text/html
     Header set Content-Encoding br
   </FilesMatch>
+</IfModule>
+
+# SPA fallback
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ - [L]
 </IfModule>
