@@ -22,7 +22,7 @@ function Programming() {
 
             <Container>
                 <Scene duration={isNotMobile ? 1500 : 1300} pin={true} enabled={true}>
-                    <Img loading="lazy" id="target" src={learntocode} />
+                    <Img loading="lazy" alt="vs code enviorment" title="vs code enviorment" id="target" src={learntocode} />
                 </Scene>
 
                 <Startcircle width="28" height="28" stroke="var(--text-color)" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />

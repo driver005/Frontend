@@ -43,7 +43,7 @@ const Navbar = (props) => {
             <NavbarList>
                 <Navcontainer>
                     <Logo href='/'>
-                        <IMG loading="lazy" alt="teclab logo" height='50px' src="teclab.svg" />
+                        <IMG loading="lazy" alt="teclab logo" title="teclab VDI-Schülerforschungszentrum" height='50px' src="teclab.svg" />
                     </Logo>
                     <Navigationleft>
                         {props.children}

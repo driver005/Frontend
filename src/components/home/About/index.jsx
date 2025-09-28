@@ -13,7 +13,7 @@ function About() {
                             <small>
                                 {t(`home.about.tag`)}
                             </small>
-                            <h3 className='dark-color mt-3 mb-2'>{t(`home.about.title`)}</h3>
+                            <h2 className='dark-color mt-3 mb-2'>{t(`home.about.title`)}</h2>
                             <p>
                                 {t(`home.about.location.first`)}{' '}
                                 <a
@@ -30,7 +30,7 @@ function About() {
                     </div>
                     <div className='col-lg-5'>
                         <div className='about-img'>
-                            <img loading="lazy" alt="vdi logo" src={vdi} />
+                            <img loading="lazy" alt="vdi logo" title="Vdi e.V." src={vdi} />
                         </div>
                     </div>
                 </div>

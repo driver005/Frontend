@@ -12,6 +12,7 @@ const AppContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+    max-width: 100vw;
 
 	> div:first-of-type {
 		flex: 1 0 70vh;
@@ -39,10 +40,10 @@ export default function App() {
             <Helmet prioritizeSeoTags>
                 {/* Basic Metadata */}
                 <meta charSet="utf-8" />
-                <title>teclab - VDI Schülerforschungszentrum</title>
+                <title>teclab VDI-Schülerforschungszentrum</title>
                 <meta
                     name="description"
-                    content="Homepage des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
+                    content="Homepage des teclab VDI-Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
                 <link rel="canonical" href="https://www.sfz-tuebingen.org/" />
                 <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
@@ -53,7 +54,7 @@ export default function App() {
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.sfz-tuebingen.org/" />
-                <meta property="og:title" content="teclab - VDI Schülerforschungszentrum" />
+                <meta property="og:title" content="teclab VDI-Schülerforschungszentrum" />
                 <meta
                     property="og:description"
                     content="Das teclab ist ein Schülerforschungszentrum in Tübingen. Entdecke unsere MINT-Angebote und Projekte."
@@ -63,7 +64,7 @@ export default function App() {
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:url" content="https://www.sfz-tuebingen.org" />
-                <meta name="twitter:title" content="teclab - VDI Schülerforschungszentrum" />
+                <meta name="twitter:title" content="teclab VDI-Schülerforschungszentrum" />
                 <meta
                     name="twitter:description"
                     content="Das teclab ist ein Schülerforschungszentrum in Tübingen. Erfahre mehr über unsere Projekte und MINT-Angebote."

@@ -41,7 +41,8 @@ const Features = () => {
                     ${Leftblur800} 800w, 
                     ${Leftblur1080} 1080w, 
                     ${Leftblur1244} 1244w`}
-                alt=''
+                alt="left_blur"
+                title="left_blur"
             />
             <Containerflex>
                 <Titlewrap>
@@ -58,6 +59,8 @@ const Features = () => {
                     title_2={t(`projects.features.wraps.wro.title_2`)}
                     paragraph={t(`projects.features.wraps.wro.paragraph`)}
                     image={wro}
+                    imageAlt="https://www.worldrobotolympiad.de/"
+                    imageTitle="World Robot Olympiad - Internationaler Roboterwettbewerb für Mädchen und Jungen"
                     classNameImage="border-2 width-85"
                 />
 
@@ -68,6 +71,8 @@ const Features = () => {
                     title_2={t(`projects.features.wraps.ai.title_2`)}
                     paragraph={t(`projects.features.wraps.ai.paragraph`)}
                     image={ai}
+                    imageAlt="ai"
+                    imageTitle="A.I."
                     classNameImage="border-2 width-70"
                 />
 
@@ -77,7 +82,7 @@ const Features = () => {
                     title_2={t(`projects.features.wraps.vex.title_2`)}
                     paragraph={t(`projects.features.wraps.vex.paragraph`)}
                     svgAnimation={true}
-                    svg={<Vexsvg loading="lazy" />}
+                    svg={<Vexsvg loading="lazy" alt="https://www.vexrobotics.com/competition?___store=vexroboticseu&___from_store=vexrobotics" title="Competition - VEX Robotics" />}
                 />
             </Containerflex>
             <Rightblur
@@ -88,7 +93,8 @@ const Features = () => {
                 srcSet={`
                     ${Rightblur500} 500w, 
                     ${Rightblur591} 591w`}
-                alt=''
+                alt="right_blur"
+                title="right_blur"
             />
         </Featuressection>
     );

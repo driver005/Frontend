@@ -43,7 +43,7 @@ const Service = () => {
                                 return (
                                     <Servicegridblock key={index} className={isShown ? 'load' : 'hide'} >
                                         <Iconblock>
-                                            {item.imgUrl && <Iconblockimg loading="lazy" src={item.imgUrl} />}
+                                            {item.imgUrl && <Iconblockimg alt={item.imgAlt} title={item.imgTitle} loading="lazy" src={item.imgUrl} />}
                                             {item.icon && <React.Fragment>{item.icon}</React.Fragment>}
                                         </Iconblock>
                                         <Servicetitle>{t(`projects.services.items.${item.key}.title`)}</Servicetitle>

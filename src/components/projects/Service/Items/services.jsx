@@ -24,6 +24,8 @@ export const ServiceItemsBooks = [
     {
         key: "2",
         imgUrl: moodle,
+        imgAlt: "https://moodle.de/",
+        imgTitle: "Home | Moodle Info",
     },
     {
         key: "3",

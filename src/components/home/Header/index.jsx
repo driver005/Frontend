@@ -16,9 +16,9 @@ import { useTranslation } from 'react-i18next';
 function Header() {
     const [isShown, setIsShown] = useState(true);
     const [Duration, setDuration] = useState(300);
-  
+
     const isNotMobile = useMediaQuery({
-      query: '(max-width: 767px)',
+        query: '(max-width: 767px)',
     });
 
     const onChange = data => {
@@ -31,14 +31,12 @@ function Header() {
         <Headercontainer className="header">
             <AnimatedNavbar duration={Duration} />
             <Containerflex>
-                <Containerflexcomponent>
-                    {
-                        //<Herooverline className={isShown ? 'load' : 'hide'} >What is the</Herooverline>
-                    }
-                    <Heroh1 className={isShown ? 'load' : 'hide'}>TECLAB</Heroh1>
-                    <Heroparagraph className={isShown ? 'load' : 'hide'} >{t(`home.header.description`)}</Heroparagraph>
-                  <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>{t(`home.header.link`)}</Herobutton>
-                </Containerflexcomponent>
+                {
+                    //<Herooverline className={isShown ? 'load' : 'hide'} >What is the</Herooverline>
+                }
+                <Heroh1 className={isShown ? 'load' : 'hide'}>teclab VDI-Schülerforschungszentrum</Heroh1>
+                <Heroparagraph className={isShown ? 'load' : 'hide'} >{t(`home.header.description`)}</Heroparagraph>
+                <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>{t(`home.header.link`)}</Herobutton>
             </Containerflex>
             {isNotMobile && <ArrowBounce />}
         </Headercontainer>

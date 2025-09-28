@@ -24,10 +24,10 @@ function Projects() {
             <Helmet prioritizeSeoTags>
                 {/* Basic Metadata */}
                 <meta charSet="utf-8" />
-                <title>teclab - VDI Schülerforschungszentrum</title>
+                <title>teclab VDI-Schülerforschungszentrum</title>
                 <meta
                     name="description"
-                    content="Projekte des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
+                    content="Projekte des teclab VDI-Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
                 <link rel="canonical" href="https://www.sfz-tuebingen.org/projects" />
                 <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
@@ -38,7 +38,7 @@ function Projects() {
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.sfz-tuebingen.org/" />
-                <meta property="og:title" content="teclab - VDI Schülerforschungszentrum" />
+                <meta property="og:title" content="teclab VDI-Schülerforschungszentrum" />
                 <meta
                     property="og:description"
                     content="Das teclab ist ein Schülerforschungszentrum in Tübingen. Entdecke unsere MINT-Angebote und Projekte."
@@ -48,7 +48,7 @@ function Projects() {
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:url" content="https://www.sfz-tuebingen.org/" />
-                <meta name="twitter:title" content="teclab - VDI Schülerforschungszentrum" />
+                <meta name="twitter:title" content="teclab VDI-Schülerforschungszentrum" />
                 <meta
                     name="twitter:description"
                     content="Das teclab ist ein Schülerforschungszentrum in Tübingen. Erfahre mehr über unsere Projekte und MINT-Angebote."

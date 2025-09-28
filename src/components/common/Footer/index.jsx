@@ -20,7 +20,7 @@ const Footer = () => {
             <SocialMedia>
                 <TextWrap>
                     <h3>{t(`notice.title`)}</h3>
-                    <p>teclab - VDI Schülerforschungszentrum</p>
+                    <p>teclab VDI-Schülerforschungszentrum</p>
                     <p>Felipe Fernández</p>
                     <p>Derendinger Allee 8</p>
                     <p>72072 Tübingen</p>
@@ -29,7 +29,7 @@ const Footer = () => {
                 </TextWrap>
                 <SocialMediaWrap>
                     <SocialLogo>
-                        <IMG loading="lazy" alt="teclab logo" height='35px' src="teclab.svg" />
+                        <IMG loading="lazy" alt="teclab logo" title="teclab VDI-Schülerforschungszentrum" height='35px' src="teclab.svg" />
                     </SocialLogo>
                     <WebsiteRights>teclab © 2025</WebsiteRights>
                 </SocialMediaWrap>
