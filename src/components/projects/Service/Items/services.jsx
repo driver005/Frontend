@@ -14,28 +14,23 @@ import { SiNextcloud } from "react-icons/si";
 import moodle from '../../../common/images/moodle.svg'
 export const ServiceItemsBooks = [
     {
-        title: "3d printers",
-        paragrap: "With 15 super cool 3d printer to visulaise your idea",
+        key: "0",
         icon: <AiOutlinePrinter size="22" color={'white'} />,
     },
     {
-        title: "VR",
-        paragrap: "Meet us on Friday and try one of our 5 Meta Quest VR Headsets",
+        key: "1",
         icon: <BsHeadsetVr size="22" color={'white'} />,
     },
     {
-        title: "Moodle",
-        paragrap: "Moodle server is under construction",
+        key: "2",
         imgUrl: moodle,
     },
     {
-        title: "Blog",
-        paragrap: "Our Blog is comming. Join use and help create a immersive experience",
+        key: "3",
         icon: <FaBlog size="22" color={'white'} />,
-  },
-  {
-        title: "Nextcloud",
-        paragrap: "You want to be apart of our Nextcloud. Just contact us",
+    },
+    {
+        key: "4",
         icon: <SiNextcloud size="22" color={'white'} />,
     }
     // {

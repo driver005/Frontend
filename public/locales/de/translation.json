@@ -1,0 +1,155 @@
+{
+	"links": {
+		"nextcloud": {
+			"name": "Tritt unserer Nextcloud bei",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"wordpress": {
+			"name": "Tritt unserem WordPress bei",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"discord": {
+			"name": "Tritt unserem Discord bei",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"bwki": {
+			"name": "Schau dir Bw-Ki an",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"vdi": {
+			"name": "Schau dir den VDI an",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"wildermuth": {
+			"name": "Schau dir unsere Heimat an",
+			"detail": "Klicke und erfahre mehr"
+		}
+	},
+	"services": {
+		"dashboard": {
+			"name": "Dashboard",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"todolist": {
+			"name": "Aufgabenliste",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"calendar": {
+			"name": "Kalender",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"chat": {
+			"name": "Chat",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"jitsi": {
+			"name": "Jitsi",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"post": {
+			"name": "Beitrag",
+			"detail": "Klicke und erfahre mehr"
+		},
+		"quiz": {
+			"name": "Quiz",
+			"detail": "Klicke und erfahre mehr"
+		}
+	},
+	"navbar": {
+		"project": "Projekt",
+		"printer": "Drucker",
+		"links": "Links"
+	},
+	"home": {
+		"header": {
+			"description": "ein Ort, an dem Schüler sich treffen und ihre Träume zum Leben bringen",
+			"link": "Projekte ansehen"
+		},
+		"about": {
+			"tag": "Über uns",
+			"title": "Was ist das teclab",
+			"location": {
+				"first": "teclab ist ein Ort, an dem sich Schüler nach der Schule im",
+				"second": "Wildermuth-Gymnasium Tübingen",
+				"last": "in den Räumen 134 und 132 treffen."
+			},
+			"description": "Schüler haben die Möglichkeit, Kontakte mit anderen zu knüpfen, an Projekten zu arbeiten, etwas zu essen, Hausaufgaben zu machen oder Vorträge anzuhören.",
+			"contact": "Kontaktiere uns"
+		},
+		"newsletter": {
+			"first": "Tritt unserem Newsletter bei, um die neuesten ",
+			"last": " Nachrichten ",
+			"register": "Für unseren Newsletter anmelden"
+		}
+	},
+	"printer": {
+		"title": "3D-Drucker ist bereit",
+		"redirect": "Weiterleiten",
+		"error": {
+			"title": "Wichtig: ",
+			"msg": "UNSER 3D‑DRUCKER IST LEIDER NICHT AKTIV"
+		}
+	},
+	"projects": {
+		"features": {
+			"title": "Beweise dich in Robotik",
+			"subtitle": "Olympiaden",
+			"description": "Teste deine Fähigkeiten in einem Wettbewerb, bei dem Roboter weltverändernde Aufgaben lösen",
+			"wraps": {
+				"wro": {
+					"overline": "Wettbewerbsinfo",
+					"title_1": "WRO in Kooperation",
+					"title_2": "mit dem Robotik-Club",
+					"paragraph": "Lerne die Grundlagen des Programmierens mit der einfachen Software von Lego Mindstorms und nimm an einer weltweiten Olympiade teil"
+				},
+				"ai": {
+					"overline": "Wettbewerbsinfo",
+					"title_1": "KI-Wettbewerb",
+					"title_2": "BW‑KI",
+					"paragraph": "Verwirkliche deinen Traum mit KI und teste deine Programmierfähigkeiten in einem Wettbewerb des Landes Baden-Württemberg"
+				},
+				"vex": {
+					"overline": "Wettbewerbsinfo",
+					"title_1": "Robotik-Wettbewerb",
+					"title_2": "VEX Robotics",
+					"paragraph": "VEX Robotics ist ebenfalls ein weltweiter Wettbewerb wie die WRO, bei dem große Roboter Hindernisse über ein 2 m-Spielfeld schieben, gesteuert vom Spieler"
+				}
+			}
+		},
+		"programming": {
+			"title": "Programmieren",
+			"highlight": "101",
+			"start": "Starte heute im teclab",
+			"step1": "Lerne Programmieren v",
+			"step2": "n Grund auf mit Python",
+			"end": "Lerne von uns!",
+			"button": "Jetzt beitreten"
+		},
+		"services": {
+			"title": "Projekte, die ",
+			"highlight": "du nutzen kannst",
+			"items": [
+				{
+					"title": "3D-Drucker",
+					"description": "Mit 15 supercoolen 3D-Druckern, um deine Idee zu visualisieren"
+				},
+				{
+					"title": "VR",
+					"description": "Besuche uns am Freitag und teste eines unserer 5 Meta Quest VR-Headsets"
+				},
+				{
+					"title": "Moodle",
+					"description": "Der Moodle-Server befindet sich im Aufbau"
+				},
+				{
+					"title": "Blog",
+					"description": "Unser Blog kommt bald. Mach mit und gestalte eine immersive Erfahrung"
+				},
+				{
+					"title": "Nextcloud",
+					"description": "Du möchtest Teil unserer Nextcloud sein? Kontaktiere uns einfach"
+				}
+			]
+		}
+	}
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  Containerflex,
-  Contenth2,
-  Featuressection,
-  H2span,
-  Leftblur,
-  Paragraph,
-  Rightblur,
-  Titlewrap,
+    Containerflex,
+    Contenth2,
+    Featuressection,
+    H2span,
+    Leftblur,
+    Paragraph,
+    Rightblur,
+    Titlewrap,
 } from './styles';
 import Wrap from './Wrap';
 
@@ -24,78 +24,74 @@ import Rightblurnormal from '../../common/images/features/right_blur.png';
 import Rightblur500 from '../../common/images/features/right_blur500.png';
 import Rightblur591 from '../../common/images/features/right_blur591.png';
 import Vexsvg from './Svganimation';
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
-  return (
-    <Featuressection>
-      <Leftblur
-        src={Leftblurnormal}
-        loading="lazy"
-        width='424'
-        sizes='(max-width: 479px) 100vw, 424px'
-        srcSet={`
+    const { t } = useTranslation();
+
+    return (
+        <Featuressection>
+            <Leftblur
+                src={Leftblurnormal}
+                loading="lazy"
+                width='424'
+                sizes='(max-width: 479px) 100vw, 424px'
+                srcSet={`
                     ${Leftblur500} 500w, 
                     ${Leftblur800} 800w, 
                     ${Leftblur1080} 1080w, 
                     ${Leftblur1244} 1244w`}
-        alt=''
-      />
-      <Containerflex>
-        <Titlewrap>
-          <Contenth2>
-            {'Compete in Robotics '}
-            <H2span>{'Olympics'}</H2span>
-          </Contenth2>
-        </Titlewrap>
-        <Paragraph>
-          {
-            'Test your skills in competition where robots solve world changing tasks'
-          }
-        </Paragraph>
-        <Wrap
-          overline={'Competition Info'}
-          title_1={'WRO in cooperation'}
-          title_2={'with the robotic club'}
-          paragraph={
-            'Learn the basic of programming with the easy software of Lego Mindstorms and compete in an world width Olympiad'
-          }
-          image={wro}
-          classNameImage={'border-2 width-85'}
-        />
-        <Wrap
-          className={'reverse-wrap'}
-          overline={'Competition Info'}
-          title_1={'KI competition'}
-          title_2={'BW-KI'}
-          paragraph={
-            'Support your dream with Ai and test your programming skills in a competition from the federal state Baden-Württemberg'
-          }
-          image={ai}
-          classNameImage={'border-2 width-70'}
-        />
-        <Wrap
-          overline={'Competition Info'}
-          title_1={'Robotic competition'}
-          title_2={'VEX Robotics'}
-          paragraph={
-            'VEX Robotics is also a world width competition like the WRO with huge robots who need to push obstacles over an 2m game board controlled by the player'
-          }
-          svgAnimation={true}
-          svg={<Vexsvg loading="lazy" />}
-        />
-      </Containerflex>
-      <Rightblur
-        src={Rightblurnormal}
-        loading="lazy"
-        width='424'
-        sizes='(max-width: 479px) 100vw, 424px'
-        srcSet={`
+                alt=''
+            />
+            <Containerflex>
+                <Titlewrap>
+                    <Contenth2>
+                        {t(`projects.features.title`)} <H2span>{t(`projects.features.subtitle`)}</H2span>
+                    </Contenth2>
+                </Titlewrap>
+
+                <Paragraph>{t(`projects.features.description`)}</Paragraph>
+
+                < Wrap
+                    overline={t(`projects.features.wraps.wro.overline`)}
+                    title_1={t(`projects.features.wraps.wro.title_1`)}
+                    title_2={t(`projects.features.wraps.wro.title_2`)}
+                    paragraph={t(`projects.features.wraps.wro.paragraph`)}
+                    image={wro}
+                    classNameImage="border-2 width-85"
+                />
+
+                <Wrap
+                    className="reverse-wrap"
+                    overline={t(`projects.features.wraps.ai.overline`)}
+                    title_1={t(`projects.features.wraps.ai.title_1`)}
+                    title_2={t(`projects.features.wraps.ai.title_2`)}
+                    paragraph={t(`projects.features.wraps.ai.paragraph`)}
+                    image={ai}
+                    classNameImage="border-2 width-70"
+                />
+
+                <Wrap
+                    overline={t(`projects.features.wraps.vex.overline`)}
+                    title_1={t(`projects.features.wraps.vex.title_1`)}
+                    title_2={t(`projects.features.wraps.vex.title_2`)}
+                    paragraph={t(`projects.features.wraps.vex.paragraph`)}
+                    svgAnimation={true}
+                    svg={<Vexsvg loading="lazy" />}
+                />
+            </Containerflex>
+            <Rightblur
+                src={Rightblurnormal}
+                loading="lazy"
+                width='424'
+                sizes='(max-width: 479px) 100vw, 424px'
+                srcSet={`
                     ${Rightblur500} 500w, 
                     ${Rightblur591} 591w`}
-        alt=''
-      />
-    </Featuressection>
-  );
+                alt=''
+            />
+        </Featuressection>
+    );
 };
 
 export default Features;

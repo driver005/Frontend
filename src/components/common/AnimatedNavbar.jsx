@@ -7,7 +7,7 @@ import LinksDropdown from './DropdownContents/Importantslinks';
 
 const navbarConfig = [
     //{ title: 'Tools', dropdown: DevelopersDropdown },
-    { title: 'Links', dropdown: LinksDropdown },
+    { title: 'links', dropdown: LinksDropdown },
 ];
 
 export default class AnimatedNavbar extends Component {

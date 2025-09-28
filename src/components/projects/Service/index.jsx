@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Containerflex, Contenth2, H2span, Iconblock, Iconblockimg, Servicegrid, Servicegridblock, Serviceparagraph, Servicesection, Servicetitle, Endblock, Primarybutton, Tag10, Divider } from './styles'
 import { ServiceItemsBooks } from './Items/services'
 import { InView } from 'react-intersection-observer'
+import { useTranslation } from 'react-i18next'
 
 const Service = () => {
     const [isShown, setIsShown] = useState(false);
@@ -11,15 +12,15 @@ const Service = () => {
             setIsShown(true)
         }
     };
+
+    const { t } = useTranslation();
+
     return (
         <Servicesection>
             <Containerflex>
                 <Contenth2>
-                    {"Projects that "}
-                    <H2span>{"you can use"}</H2span>
+                    {t(`projects.services.title`)} <H2span>{t(`projects.services.highlight`)}</H2span>
                 </Contenth2>
-                {//<Line />
-                }
                 <InView
                     onChange={handleChange}
                     threshold={1}
@@ -45,8 +46,8 @@ const Service = () => {
                                             {item.imgUrl && <Iconblockimg loading="lazy" src={item.imgUrl} />}
                                             {item.icon && <React.Fragment>{item.icon}</React.Fragment>}
                                         </Iconblock>
-                                        <Servicetitle>{item.title}</Servicetitle>
-                                        <Serviceparagraph>{item.paragrap}</Serviceparagraph>
+                                        <Servicetitle>{t(`projects.services.items.${item.key}.title`)}</Servicetitle>
+                                        <Serviceparagraph>{t(`projects.services.items.${item.key}.description`)}</Serviceparagraph>
                                     </Servicegridblock>
                                 )
                             }

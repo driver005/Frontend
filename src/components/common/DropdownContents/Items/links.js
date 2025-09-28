@@ -9,8 +9,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Join our Nextcloud',
-				detail: 'Click and learn',
+				key: 'nextcloud',
 				imgUrl: nextcloud,
 				href: 'https://tcloud.sfz-tuebingen.org/index.php/login',
 			},
@@ -19,8 +18,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Join our Wordpress',
-				detail: 'Click and learn',
+				key: 'wordpress',
 				imgUrl: wordPress,
 				href: 'https://hub.sfz-tuebingen.org/admin',
 			},
@@ -29,8 +27,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Join our Discord',
-				detail: 'Click and learn',
+				key: 'discord',
 				imgUrl: discord,
 				href: 'https://discord.gg/9Mxt3e6mK5',
 			},
@@ -39,8 +36,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Check out Bw-Ki',
-				detail: 'Click and learn',
+				key: 'bwki',
 				imgUrl: bwki,
 				href: 'https://www.bw-ki.de/',
 			},
@@ -49,8 +45,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Check out VDI',
-				detail: 'Click and learn',
+				key: 'vdi',
 				imgUrl: vdi,
 				href: 'https://www.vdi.de/',
 			},
@@ -59,8 +54,7 @@ export const MenuItemsLinks = [
 	{
 		Card: {
 			Cardelement1: {
-				name: 'Check out our Home',
-				detail: 'Click and learn',
+				key: 'wildermuth',
 				imgUrl: wildermuth,
 				href: 'https://www.wildermuth-gymnasium.de/',
 			},

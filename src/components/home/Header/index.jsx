@@ -10,6 +10,7 @@ import {
 } from './styles'
 import ArrowBounce from '../Arrow/Bounce';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 
 
 function Header() {
@@ -24,6 +25,8 @@ function Header() {
         setDuration(data)
     }
 
+    const { t } = useTranslation();
+
     return (
         <Headercontainer className="header">
             <AnimatedNavbar duration={Duration} />
@@ -33,8 +36,8 @@ function Header() {
                         //<Herooverline className={isShown ? 'load' : 'hide'} >What is the</Herooverline>
                     }
                     <Heroh1 className={isShown ? 'load' : 'hide'}>TECLAB</Heroh1>
-                    <Heroparagraph className={isShown ? 'load' : 'hide'} >a place for students to meet and bring their dreams to life</Heroparagraph>
-                  <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>View Projects</Herobutton>
+                    <Heroparagraph className={isShown ? 'load' : 'hide'} >{t(`home.header.description`)}</Heroparagraph>
+                  <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>{t(`home.header.link`)}</Herobutton>
                 </Containerflexcomponent>
             </Containerflex>
             {isNotMobile && <ArrowBounce />}

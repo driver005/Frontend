@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container, Ctasection, Newsletterblock, Contentcta, Link } from './styled'
 import { InView } from 'react-intersection-observer'
 import Newsletter from '../Newsletter';
+import { useTranslation } from 'react-i18next';
 
 const Cta = () => {
     const [isShown, setIsShown] = useState(false);
@@ -11,6 +12,8 @@ const Cta = () => {
             setIsShown(true)
         }
     };
+
+    const { t } = useTranslation();
 
     return (
         <Ctasection>
@@ -22,9 +25,9 @@ const Cta = () => {
                     <Newsletterblock className={isShown ? 'load' : 'hide'}>
                         {/*<Overline>{"Newsletter"}</Overline>*/}
                         <Contentcta>
-                            {"Join our newsletter to receive the latest "}
+                            {t(`home.newsletter.first`)}
                             <Link href="/" target="_blank">{"teclab"}</Link>
-                            {" news "}
+                            {t(`home.newsletter.last`)}
                         </Contentcta>
                         <Newsletter />
                         {

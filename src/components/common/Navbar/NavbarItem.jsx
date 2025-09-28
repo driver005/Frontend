@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { withTranslation } from "react-i18next"
 
 const NavbarItemTitle = styled.button`
   display: flex;
@@ -46,25 +47,30 @@ const DropdownSlot = styled.div`
   perspective: 1500px;
 `
 
-export default class NavbarItem extends Component {
-  static propTypes = {
-    onMouseEnter: PropTypes.func.isRequired,
-    title: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
-    children: PropTypes.node
-  }
-  onMouseEnter = () => {
-    this.props.onMouseEnter(this.props.index)
-  }
+class NavbarItem extends Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        onMouseEnter: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
+        children: PropTypes.node,
+        t: PropTypes.func.isRequired, // from i18next
+    }
+    onMouseEnter = () => {
+        this.props.onMouseEnter(this.props.index)
+    }
 
-  render() {
-    const { title, children } = this.props
-    return (
-      <NavbarItemEl onMouseEnter={this.onMouseEnter} onFocus={this.onMouseEnter}>
-        
-        <NavbarItemTitle>{title}</NavbarItemTitle>
-        <DropdownSlot>{children}</DropdownSlot>
-      </NavbarItemEl>
-    )
-  }
+    render() {
+        const { title, children, t } = this.props
+
+        return (
+            <NavbarItemEl onMouseEnter={this.onMouseEnter} onFocus={this.onMouseEnter}>
+                <NavbarItemTitle>{t(`navbar.${title}`)}</NavbarItemTitle>
+                <DropdownSlot>{children}</DropdownSlot>
+            </NavbarItemEl>
+        )
+    }
 }
+
+
+// ⬇️ Export with translation
+export default withTranslation()(NavbarItem);
