@@ -103,7 +103,6 @@ section.section {
 /* Contact button */
 .btn {
     display: inline-block;
-    font-weight: 400;
     color: var(--vdi-color);
     /* Bootstrap outline-primary text */
     background-color: transparent;

@@ -112,7 +112,6 @@ export const Menubutton = styled.div`
 export const Icon = styled.div`
 	font-family: 'webflow-icons' !important;
 	font-style: normal;
-	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
@@ -171,11 +170,11 @@ export const DropdownWrapper = styled.div`
 	display: none;
 
 	&.show {
-		display: inline-block;
+		display: flex;
 	}
 
 	@media screen and (max-width: 991px) {
-		display: inline-block;
+		display: flex;
 	}
 `;
 

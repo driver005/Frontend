@@ -15,6 +15,7 @@ const NavbarItemTitle = styled.button`
   align-items: center;
   font-size: 15px;
   text-decoration: none;
+  font-weight: 700;
   &:hover {
     color: var(--vdi-color);
     transition: all 200ms ease;

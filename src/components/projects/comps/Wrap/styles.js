@@ -106,7 +106,6 @@ export const Paragraphleftalign = styled.p`
 	color: var(--text-color);
 	font-size: 17px;
 	line-height: 1.4;
-	font-weight: 400;
 	text-align: center;
 	margin-bottom: 0px;
 	text-align: left;
