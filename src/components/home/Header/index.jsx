@@ -31,12 +31,11 @@ function Header() {
         <Headercontainer className="header">
             <AnimatedNavbar duration={Duration} />
             <Containerflex>
-                {
-                    //<Herooverline className={isShown ? 'load' : 'hide'} >What is the</Herooverline>
-                }
-                <Heroh1 className={isShown ? 'load' : 'hide'}>teclab VDI-Schülerforschungszentrum</Heroh1>
-                <Heroparagraph className={isShown ? 'load' : 'hide'} >{t(`home.header.description`)}</Heroparagraph>
-                <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>{t(`home.header.link`)}</Herobutton>
+                <Containerflexcomponent>
+                    <Heroh1 className={isShown ? 'load' : 'hide'}>teclab VDI-Schülerforschungszentrum</Heroh1>
+                    <Heroparagraph className={isShown ? 'load' : 'hide'} >{t(`home.header.description`)}</Heroparagraph>
+                    <Herobutton href={"/projects"} className={isShown ? 'load' : 'hide'}>{t(`home.header.link`)}</Herobutton>
+                </Containerflexcomponent>
             </Containerflex>
             {isNotMobile && <ArrowBounce />}
         </Headercontainer>

@@ -101,6 +101,18 @@ export const Containerflexcomponent = styled.div`
 	align-content: center;
 	transform: translateX(-20%);
 
+	@media screen and (max-width: 479px) {
+		width: 100%;
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 80%;
+	}
+
+	@media screen and (min-width: 1000px) {
+		width: 50%;
+	}
+
 	@media screen and (max-width: 1347px) {
 		transform: translateX(0%);
 	}
@@ -137,10 +149,10 @@ export const Heroh1 = styled.h1`
 	hyphens: auto;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	width: 100%;
 
 	@media screen and (max-width: 479px) {
 		font-size: 44px;
+		width: 100%;
 	}
 	@media screen and (max-width: 991px) {
 		text-align: center;
