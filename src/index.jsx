@@ -1,35 +1,45 @@
+import { StrictMode, Suspense } from "react";
 import { createRoot } from 'react-dom/client';
 import {
-    Route,
-    BrowserRouter as Router,
-    Routes,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useRoutes,
 } from 'react-router-dom';
 import { Controller } from 'react-scrollmagic';
-import App from './components/pages/App';
-import PageError from './components/errors/400';
-import Moon from './components/home/Moon';
-import Projects from './components/pages/Projects';
 import Footer from './components/common/Footer/Footer';
-import Printer from './components/printer';
+import LoadingAnimation from './components/common/LoadingAnimation';
+import App from './pages';
+import Projects from './pages/projects';
+import Printer from './pages/printer';
 
 import "./index.css"
 
-createRoot(document.getElementById('root')).render(
-        <Controller>
-            <Router>
-                <Routes>
-                    {/* <Route exact path='/contact' element={<Contact />} /> */}
-                    <Route path='/' exact element={<App />} />
-                    <Route path='/projects' exact element={<Projects />} />
-                    <Route path='/printer' exact element={<Printer />} />
-                    <Route exact path='/moon' element={<Moon />} />
+// function App() {
+//   return (
+//     <Suspense fallback={<LoadingAnimation />}>
+//       {useRoutes(routes)}
+//     </Suspense>
+//   )
+// }
 
-                    {/* <Route path='*' exact element={<PageError />} /> */}
-                </Routes>
-                <footer>
-                    <Footer />
-                </footer>
-            </Router>
-        </Controller>,
-    document.querySelector('#root'),
+createRoot(document.getElementById('root')).render(
+  <Controller>
+    <Router>
+      {/* <Route path='*' exact element={<PageError />} /> */}
+      {/* <Route exact path='/contact' element={<Contact />} /> */}
+      <Suspense fallback={<LoadingAnimation />}>
+        <Routes>
+          <Route path='/' exact element={<App />} />
+          <Route path='/projects' exact element={<Projects />} />
+          <Route path='/printer' exact element={<Printer />} />
+        </Routes>
+      </Suspense>
+      {/* <App /> */}
+      <footer>
+        <Footer />
+      </footer>
+    </Router>
+  </Controller>,
+  document.querySelector('#root'),
 );

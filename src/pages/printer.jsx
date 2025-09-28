@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Features from '../projects/Features'
-import AnimatedNavbar from '../common/AnimatedNavbar'
-import Service from '../projects/Service'
-import Programming from '../projects/Learnprogramming'
+import Printer from '../components/printer'
 import { Helmet } from "react-helmet";
 
 const AppContainer = styled.div`
@@ -27,7 +24,7 @@ function Projects() {
         <title>teclab - VDI Schülerforschungszentrum</title>
         <meta
           name="description"
-          content="Projekte des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
+          content="3d Printer des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
         />
         <meta name="keywords" content="teclab, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor, Projekte, Miteinander" />
         <meta name="author" content="teclab - VDI Schülerforschungszentrum" />
@@ -62,12 +59,7 @@ function Projects() {
         <link loading="lazy" rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
         <link loading="lazy" rel="manifest" href="/manifest.json" />
       </Helmet>
-      <AppContainer>
-        <AnimatedNavbar duration={300} />
-        <Service />
-        <Programming />
-        <Features />
-      </AppContainer>
+      <Printer />
     </>
   )
 }

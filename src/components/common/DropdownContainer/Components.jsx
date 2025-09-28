@@ -77,7 +77,7 @@ export const AltBackground = styled.div`
 
 export const InvertedDiv = styled.div`
   ${promoteLayer}
-  position: ${props => (props.absolute ? "absolute" : "relative")};
+  position: ${props => (props.isAbsolute ? "absolute" : "relative")};
   top: 0;
   left: 0;
   &:first-of-type {

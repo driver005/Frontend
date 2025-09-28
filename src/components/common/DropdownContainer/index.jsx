@@ -98,7 +98,7 @@ class DropdownContainer extends Component {
             </Flipped>
 
             <Flipped inverseFlipId="dropdown" scale>
-              <InvertedDiv absolute>
+              <InvertedDiv isAbsolute={true}>
                 {prevDropdown && (
                   <FadeContents
                     animatingOut

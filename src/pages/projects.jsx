@@ -1,39 +1,24 @@
-import Cta from '../home/Ctasection';
-import styled from 'styled-components';
-import 'normalize.css';
-import Header from '../home/Header';
-import Moon from '../home/Moon';
-import About from '../home/About';
+import React from 'react'
+import styled from 'styled-components'
+import Features from '../components/projects/Features'
+import AnimatedNavbar from '../components/common/AnimatedNavbar'
+import Service from '../components/projects/Service'
+import Programming from '../components/projects/Learnprogramming'
 import { Helmet } from "react-helmet";
 
-
 const AppContainer = styled.div`
-	background: #000;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-	> div:first-of-type {
-		flex: 1 0 70vh;
-		height: 120vh !important;
-		position: absolute !important;
+    > div:first-of-type {
+        display: flex;
+        height: 10rem;
+    }
+`
 
-		@media screen and (max-width: 844px) {
-			top: 43%;
-		}
-
-		@media screen and (min-width: 766px) {
-			top: 50%;
-		}
-
-		@media screen and (min-width: 844px) {
-			top: 0%;
-		}
-	}
-`;
-
-export default function App() {
-
+function Projects() {
   return (
     <>
       <Helmet>
@@ -42,9 +27,9 @@ export default function App() {
         <title>teclab - VDI Schülerforschungszentrum</title>
         <meta
           name="description"
-          content="Homepage des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
+          content="Projekte des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
         />
-        <meta name="keywords" content="teclab, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
+        <meta name="keywords" content="teclab, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor, Projekte, Miteinander" />
         <meta name="author" content="teclab - VDI Schülerforschungszentrum" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -61,7 +46,7 @@ export default function App() {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://www.sfz-tuebingen.org" />
+        <meta name="twitter:url" content="https://www.sfz-tuebingen.org/" />
         <meta name="twitter:title" content="teclab - VDI Schülerforschungszentrum" />
         <meta
           name="twitter:description"
@@ -78,12 +63,13 @@ export default function App() {
         <link loading="lazy" rel="manifest" href="/manifest.json" />
       </Helmet>
       <AppContainer>
-        <Moon />
-        <Header />
-        <About />
-        <Cta />
+        <AnimatedNavbar duration={300} />
+        <Service />
+        <Programming />
+        <Features />
       </AppContainer>
     </>
-  );
+  )
 }
 
+export default Projects
