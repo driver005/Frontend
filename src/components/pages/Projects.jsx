@@ -4,6 +4,7 @@ import Features from '../projects/Features'
 import AnimatedNavbar from '../common/AnimatedNavbar'
 import Service from '../projects/Service'
 import Programming from '../projects/Learnprogramming'
+import { Helmet } from "react-helmet";
 
 const AppContainer = styled.div`
     background: #000;

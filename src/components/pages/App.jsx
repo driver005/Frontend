@@ -4,6 +4,7 @@ import 'normalize.css';
 import Header from '../home/Header';
 import Moon from '../home/Moon';
 import About from '../home/About';
+import { Helmet } from "react-helmet";
 
 
 const AppContainer = styled.div`
