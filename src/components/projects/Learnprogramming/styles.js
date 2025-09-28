@@ -65,7 +65,7 @@ export const Containerflex = styled.div`
 	}
 `;
 
-export const Contenth2 = styled.h1`
+export const Contenth2 = styled.h2`
 	${h2}
 	margin-top: 0px;
 	margin-bottom: 16px;
