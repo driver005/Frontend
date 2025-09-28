@@ -1,24 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
 import Printer from '../components/printer'
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
-const AppContainer = styled.div`
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    > div:first-of-type {
-        display: flex;
-        height: 10rem;
-    }
-`
-
-function Projects() {
+function PrinterHome() {
     return (
         <>
-            <Helmet>
+            <Helmet prioritizeSeoTags>
                 {/* Basic Metadata */}
                 <meta charSet="utf-8" />
                 <title>teclab - VDI Schülerforschungszentrum</title>
@@ -26,6 +12,7 @@ function Projects() {
                     name="description"
                     content="3d Printer des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
+                <link rel="canonical" href="https://www.sfz-tuebingen.org/printer" />
                 <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
                 <meta name="author" content="Adrian Fernández" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,10 +40,9 @@ function Projects() {
                 {/* <meta name="twitter:site" content="@sfz-teclab" />  */}
 
                 {/* Favicon / Logo */}
-                <link loading="lazy" rel="icon" href="/teclab.svg" />
-                <link loading="lazy" rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="32x32" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
+                <link rel="icon" href="/teclab.svg" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
+                <link rel="manifest" href="/manifest.json" />
                 <link loading="lazy" rel="manifest" href="/manifest.json" />
             </Helmet>
             <Printer />
@@ -64,4 +50,4 @@ function Projects() {
     )
 }
 
-export default Projects
+export default PrinterHome

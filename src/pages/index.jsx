@@ -4,7 +4,7 @@ import 'normalize.css';
 import Header from '../components/home/Header';
 import Moon from '../components/home/Moon';
 import About from '../components/home/About';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 
 const AppContainer = styled.div`
@@ -36,7 +36,7 @@ export default function App() {
 
     return (
         <>
-            <Helmet>
+            <Helmet prioritizeSeoTags>
                 {/* Basic Metadata */}
                 <meta charSet="utf-8" />
                 <title>teclab - VDI Schülerforschungszentrum</title>
@@ -44,6 +44,7 @@ export default function App() {
                     name="description"
                     content="Homepage des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
+                <link rel="canonical" href="https://www.sfz-tuebingen.org/" />
                 <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
                 <meta name="author" content="Adrian Fernández" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,10 +72,9 @@ export default function App() {
                 {/* <meta name="twitter:site" content="@sfz-teclab" />  */}
 
                 {/* Favicon / Logo */}
-                <link loading="lazy" rel="icon" href="/teclab.svg" />
-                <link loading="lazy" rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="32x32" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
+                <link rel="icon" href="/teclab.svg" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
+                <link rel="manifest" href="/manifest.json" />
                 <link loading="lazy" rel="manifest" href="/manifest.json" />
             </Helmet>
             <AppContainer>

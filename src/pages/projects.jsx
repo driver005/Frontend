@@ -4,7 +4,7 @@ import Features from '../components/projects/Features'
 import AnimatedNavbar from '../components/common/AnimatedNavbar'
 import Service from '../components/projects/Service'
 import Programming from '../components/projects/Learnprogramming'
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const AppContainer = styled.div`
     background: #000;
@@ -21,7 +21,7 @@ const AppContainer = styled.div`
 function Projects() {
     return (
         <>
-            <Helmet>
+            <Helmet prioritizeSeoTags>
                 {/* Basic Metadata */}
                 <meta charSet="utf-8" />
                 <title>teclab - VDI Schülerforschungszentrum</title>
@@ -29,6 +29,7 @@ function Projects() {
                     name="description"
                     content="Projekte des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
+                <link rel="canonical" href="https://www.sfz-tuebingen.org/projects" />
                 <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
                 <meta name="author" content="Adrian Fernández" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,11 +57,9 @@ function Projects() {
                 {/* <meta name="twitter:site" content="@sfz-teclab" />  */}
 
                 {/* Favicon / Logo */}
-                <link loading="lazy" rel="icon" href="/teclab.svg" />
-                <link loading="lazy" rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="32x32" href="/teclab.svg" />
-                <link loading="lazy" rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
-                <link loading="lazy" rel="manifest" href="/manifest.json" />
+                <link rel="icon" href="/teclab.svg" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
+                <link rel="manifest" href="/manifest.json" />
             </Helmet>
             <AppContainer>
                 <AnimatedNavbar duration={300} />

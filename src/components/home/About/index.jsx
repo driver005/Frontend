@@ -30,7 +30,7 @@ function About() {
                     </div>
                     <div className='col-lg-5'>
                         <div className='about-img'>
-                            <img loading="lazy" src={vdi} />
+                            <img loading="lazy" alt="vdi logo" src={vdi} />
                         </div>
                     </div>
                 </div>
