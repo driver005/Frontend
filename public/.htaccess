@@ -9,5 +9,5 @@
   RewriteRule ^ - [L]
 
   # Redirect everything else to index.html
-  RewriteRule ^ index.html [L]
+  RewriteRule ^ index.html.br [L]
 </IfModule>
