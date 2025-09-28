@@ -56,11 +56,11 @@ function Projects() {
         {/* <meta name="twitter:site" content="@sfz-teclab" />  */}
 
         {/* Favicon / Logo */}
-        <link rel="icon" href="/teclab.svg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/teclab.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
-        <link rel="manifest" href="/manifest.json" />
+        <link loading="lazy" rel="icon" href="/teclab.svg" />
+        <link loading="lazy" rel="apple-touch-icon" sizes="180x180" href="/teclab.svg" />
+        <link loading="lazy" rel="icon" type="image/png" sizes="32x32" href="/teclab.svg" />
+        <link loading="lazy" rel="icon" type="image/png" sizes="16x16" href="/teclab.svg" />
+        <link loading="lazy" rel="manifest" href="/manifest.json" />
       </Helmet>
       <AppContainer>
         <AnimatedNavbar duration={300} />
