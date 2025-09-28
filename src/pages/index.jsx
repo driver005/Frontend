@@ -44,8 +44,8 @@ export default function App() {
                     name="description"
                     content="Homepage des teclab - VDI Schülerforschungszentrums in Tübingen. Erfahre mehr darüber, was wir machen oder wie du uns erreichen kannst."
                 />
-                <meta name="keywords" content="teclab, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
-                <meta name="author" content="teclab - VDI Schülerforschungszentrum" />
+                <meta name="keywords" content="teclab, TECLAB, VDI, Schülerforschungszentrum, Tübingen, Forschung, Bildung, MINT, Schülerlabor" />
+                <meta name="author" content="Adrian Fernández" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
