@@ -151,5 +151,9 @@
 				}
 			]
 		}
+	},
+	"notice": {
+		"title": "Impressum:",
+		"phone": "Telephone:"
 	}
 }
