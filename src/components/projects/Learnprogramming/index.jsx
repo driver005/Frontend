@@ -18,7 +18,7 @@ function Programming() {
                 </Containerflex>
                 <Container>
                     <Scene duration={isNotMobile ? 1500 : 1300} pin={true} enabled={true}>
-                        <Img id="target" src={learntocode} />
+                        <Img loading="lazy" id="target" src={learntocode} />
                     </Scene>
                     <Startcircle width="28" height="28" stroke="var(--text-color)" strokeWidth="3" cx="14" cy="10" r="5" fillRule="nonzero" />
                     <Starttext>Start by joinning the teclab today</Starttext>

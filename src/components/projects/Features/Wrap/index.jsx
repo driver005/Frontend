@@ -41,12 +41,13 @@ const Wrap = (props) => {
 						{props.svgAnimation ? (
 							props.svg
 						) : (
-							<Featureimage
+              <Featureimage
+                loading="lazy"
 								src={props.image}
 								className={props.classNameImage}
 							/>
 						)}
-						{props.ribbon && <Ribbon src={props.ribbon} />}
+						{props.ribbon && <Ribbon loading="lazy" src={props.ribbon} />}
 					</Featureimagediv>
 				</Featurecolumnimage>
 			</Featurewrap>

@@ -29,7 +29,8 @@ const Features = () => {
 	return (
 		<Featuressection>
 			<Leftblur
-				src={Leftblurnormal}
+        src={Leftblurnormal}
+        loading="lazy"
 				width='424'
 				sizes='(max-width: 479px) 100vw, 424px'
 				srcset={`
@@ -80,11 +81,12 @@ const Features = () => {
 						'VEX Robotics is also a world width competition like the WRO with huge robots who need to push obstacles over an 2m game board controlled by the player'
 					}
 					svgAnimation={true}
-					svg={<Vexsvg />}
+					svg={<Vexsvg loading="lazy" />}
 				/>
 			</Containerflex>
 			<Rightblur
-				src={Rightblurnormal}
+        src={Rightblurnormal}
+        loading="lazy"
 				width='424'
 				sizes='(max-width: 479px) 100vw, 424px'
 				srcset={`

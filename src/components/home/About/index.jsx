@@ -31,7 +31,7 @@ function About() {
                     </div>
                     <div className='col-lg-5'>
                         <div className='about-img'>
-                            <img src={vdi} />
+                            <img loading="lazy" src={vdi} />
                         </div>
                     </div>
                 </div>

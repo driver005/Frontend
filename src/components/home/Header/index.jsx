@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import AnimatedNavbar from '../../common/AnimatedNavbar';
 import {
     Containerflex,
     Containerflexcomponent,
@@ -13,13 +14,19 @@ import { useMediaQuery } from 'react-responsive';
 
 function Header() {
     const [isShown, setIsShown] = useState(true);
+    const [Duration, setDuration] = useState(300);
   
     const isNotMobile = useMediaQuery({
       query: '(max-width: 767px)',
     });
 
+    const onChange = data => {
+        setDuration(data)
+    }
+
     return (
         <Headercontainer className="header">
+            <AnimatedNavbar duration={Duration} />
             <Containerflex>
                 <Containerflexcomponent>
                     {

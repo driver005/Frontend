@@ -26,7 +26,7 @@ const Footer = () => {
                 </TextWrap>
             <SocialMediaWrap>
               <SocialLogo>
-                <IMG height='35px' src="teclab.svg" />
+                <IMG loading="lazy" height='35px' src="teclab.svg" />
               </SocialLogo>
               <WebsiteRights>teclab © 2025</WebsiteRights>
                 </SocialMediaWrap>

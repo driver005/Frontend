@@ -4,7 +4,8 @@ import out from '../../../common/images/vex.png';
 
 function Vexsvg() {
 	return (
-		<svg
+    <svg
+      loading="lazy"
 			width='400'
 			height='400'
 			xmlns='http://www.w3.org/2000/svg'

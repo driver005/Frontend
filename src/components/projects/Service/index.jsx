@@ -42,7 +42,7 @@ const Service = () => {
                                 return (
                                     <Servicegridblock key={index} className={isShown ? 'load' : 'hide'} >
                                         <Iconblock>
-                                            {item.imgUrl && <Iconblockimg src={item.imgUrl} />}
+                                            {item.imgUrl && <Iconblockimg loading="lazy" src={item.imgUrl} />}
                                             {item.icon && <React.Fragment>{item.icon}</React.Fragment>}
                                         </Iconblock>
                                         <Servicetitle>{item.title}</Servicetitle>

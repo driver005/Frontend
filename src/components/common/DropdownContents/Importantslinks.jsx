@@ -5,7 +5,7 @@ function NavCardObj(props) {
   return (
       <Dropdownlink href={props.href} target="_blank" rel="noopener noreferrer">
           <Iconsquare>
-              <Navcontentimg src={props.imgUrl} />
+              <Navcontentimg loading="lazy" src={props.imgUrl} />
           </Iconsquare>
           <Navcontentwarp>
               <Menutitle>{props.name}</Menutitle>

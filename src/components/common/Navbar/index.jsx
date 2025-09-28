@@ -25,7 +25,7 @@ const Navbar = (props) => {
             <NavbarList>
                 <Navcontainer>
                         <Logo href='/'>
-                            <IMG height='50px' src="teclab.svg" />
+                            <IMG loading="lazy" height='50px' src="teclab.svg" />
                         </Logo>
                     <Navigationleft>
                         {props.children}
