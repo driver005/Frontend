@@ -8,7 +8,7 @@ export const MenuItemsVdi = [
 			Cardelement1: {
 				key: 'vdi',
 				imgUrl: vdi,
-				href: 'https://www.vdi.de/',
+				href: 'https://www.vdi.de/mitgliedschaft/nachwuchs',
 			},
 		},
 	},
@@ -17,7 +17,7 @@ export const MenuItemsVdi = [
 			Cardelement1: {
 				key: 'vdi-suedwest',
 				imgUrl: vdi,
-				href: 'https://www.vdi-suedwest.de/',
+				href: 'https://www.vdi-jugend-technik.de/',
 			},
 		},
 	},
@@ -26,7 +26,7 @@ export const MenuItemsVdi = [
 			Cardelement1: {
 				key: 'vdini',
 				imgUrl: vdini,
-				href: 'https://www.vdi-jugend-technik.de/vdini-und-zukunftspilotenclubs/vdini-club-tuebingen/reutlingen/',
+				href: 'https://www.vdini-club.de/',
 			},
 		},
 	},
@@ -35,7 +35,7 @@ export const MenuItemsVdi = [
 			Cardelement1: {
 				key: 'zukunftspiloten',
 				imgUrl: zukunftspiloten,
-				href: 'https://www.vdi-jugend-technik.de/vdini-und-zukunftspilotenclubs/zukunftspiloten-club-tuebingen/reutlingen/',
+				href: 'https://zukunftspiloten.vdi.de/',
 			},
 		},
 	},

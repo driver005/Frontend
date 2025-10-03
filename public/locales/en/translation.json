@@ -2,57 +2,57 @@
 	"internal": {
 		"nextcloud": {
 			"name": "Join our Nextcloud",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"wordpress": {
 			"name": "Join our Wordpress",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"discord": {
 			"name": "Join our Discord",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		}
 	},
 	"external": {
 		"bwki": {
 			"name": "Check out Bw-Ki",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"wildermuth": {
 			"name": "Check out our Home",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		}
 	},
 	"vdi": {
 		"vdi": {
 			"name": "VDI",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"vdi-suedwest": {
 			"name": "VDI Südwest",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"vdini": {
 			"name": "VDIni-Club: Tübingen und Reutlingen",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"zukunftspiloten": {
 			"name": "Zukunftspiloten-Club: Tübingen und Reutlingen",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		}
 	},
 	"services": {
 		"dashboard": {
 			"name": "Dashboard",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"todolist": {
 			"name": "Todolist",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"calendar": {
 			"name": "Calendar",
-			"detail": "Click and learn"
+			"detail": "Click to learn more"
 		},
 		"chat": {
 			"name": "Chat",
@@ -72,15 +72,15 @@
 		}
 	},
 	"navbar": {
-		"project": "Project",
+		"project": "Projects",
 		"printer": "Remote Access",
-		"internal": "TEC-world",
+		"internal": "tl-world",
 		"external": "Links",
 		"vdi": "VDI"
 	},
 	"home": {
 		"header": {
-			"description": "a place for students to meet and bring their dreams to life",
+			"description": "Home of the VDInis and Zukunftspiloten Tübingen-Reutlingen\na place for students to meet and bring their dreams to life",
 			"link": "View Projects"
 		},
 		"about": {
@@ -110,9 +110,9 @@
 	},
 	"projects": {
 		"features": {
-			"title": "Compete in Robotics",
-			"subtitle": "Olympics",
-			"description": "Test your skills in competition where robots solve world changing tasks",
+			"title": "Participate in",
+			"subtitle": "competitions",
+			"description": "Try to test your skills in a competition where robots solve world changing tasks",
 			"wraps": {
 				"wro": {
 					"overline": "Competition Info",

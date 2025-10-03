@@ -15,7 +15,7 @@
 	},
 	"external": {
 		"bwki": {
-			"name": "Schau dir Bw-Ki an",
+			"name": "Schau dir BWKI an",
 			"detail": "Klicke und erfahre mehr"
 		},
 		"wildermuth": {
@@ -72,15 +72,15 @@
 		}
 	},
 	"navbar": {
-		"project": "Projekt",
+		"project": "Projekte",
 		"printer": "Remote Zugang",
-		"internal": "TEC-world",
+		"internal": "tl-world",
 		"external": "Links",
 		"vdi": "VDI"
 	},
 	"home": {
 		"header": {
-			"description": "ein Ort, an dem Schüler sich treffen und ihre Träume zum Leben bringen",
+			"description": "Home of VDInis and Zukunftspiloten Tübingen\nEin Treffpunkt für Kinder und Jugendliche, um ihre Ideen zu verwirklichen",
 			"link": "Projekte ansehen"
 		},
 		"about": {
@@ -89,19 +89,19 @@
 			"location": {
 				"first": "teclab ist ein Ort, an dem sich Schüler nach der Schule im",
 				"second": "Wildermuth-Gymnasium Tübingen",
-				"last": "in den Räumen 134 und 132 treffen."
+				"last": "in den Räumen 132 und 134 treffen."
 			},
-			"description": "Schüler haben die Möglichkeit, Kontakte mit anderen zu knüpfen, an Projekten zu arbeiten, etwas zu essen, Hausaufgaben zu machen oder Vorträge anzuhören.",
-			"contact": "Kontaktiere uns"
+			"description": "Schüler haben die Möglichkeit, Leute kennenzulernen, gemeinsam an Projekten zu arbeiten, an Workshops teilzunehmen, Hausaufgaben zu machen oder einfach nur zu essen und zu quatschen.",
+			"contact": "Melde dich"
 		},
 		"newsletter": {
-			"first": "Tritt unserem Newsletter bei, um die neuesten ",
+			"first": "Abonniere unseren Newsletter für die neuesten ",
 			"last": " Nachrichten ",
-			"register": "Für unseren Newsletter anmelden"
+			"register": "Zur Newsletteranmeldung"
 		}
 	},
 	"printer": {
-		"title": "3D-Drucker ist bereit",
+		"title": "Der 3D-Drucker ist bereit",
 		"redirect": "Weiterleiten",
 		"error": {
 			"title": "Wichtig: ",
@@ -110,20 +110,20 @@
 	},
 	"projects": {
 		"features": {
-			"title": "Beweise dich in Robotik",
+			"title": "Nimm an den Wettbewerben teil",
 			"subtitle": "Olympiaden",
-			"description": "Teste deine Fähigkeiten in einem Wettbewerb, bei dem Roboter weltverändernde Aufgaben lösen",
+			"description": "Du kannst dich in einem Wettbewerb ausprobieren, bei dem Roboter weltverändernde Aufgaben lösen",
 			"wraps": {
 				"wro": {
 					"overline": "Wettbewerbsinfo",
 					"title_1": "WRO in Kooperation",
-					"title_2": "mit dem Robotik-Club",
+					"title_2": "mit der Robotik-AG",
 					"paragraph": "Lerne die Grundlagen des Programmierens mit der einfachen Software von Lego Mindstorms und nimm an einer weltweiten Olympiade teil"
 				},
 				"ai": {
 					"overline": "Wettbewerbsinfo",
 					"title_1": "KI-Wettbewerb",
-					"title_2": "BW-KI",
+					"title_2": "BWKI",
 					"paragraph": "Verwirkliche deinen Traum mit KI und teste deine Programmierfähigkeiten in einem Wettbewerb des Landes Baden-Württemberg"
 				},
 				"vex": {
@@ -173,7 +173,7 @@
 	"notice": {
 		"title": "Impressum:",
 		"pre": "am",
-		"phone": "Telephone:"
+		"phone": "Telefon:"
 	},
 	"meta": {
 		"home": {
